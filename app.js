@@ -234,7 +234,12 @@
 
       btn.addEventListener("click", function () {
         tabsHost.querySelectorAll(".tab-btn").forEach(function (b) { b.setAttribute("aria-selected", "false"); });
-        panelsHost.querySelectorAll(".tab-panel").forEach(function (p) { p.hidden = true; });
+        // Só os filhos diretos de panelsHost, não querySelectorAll(".tab-panel")
+        // — esse painel de tema não tem abas aninhadas dentro dele, mas o de
+        // Economia (buildEconomySection, logo abaixo) tem, e um
+        // querySelectorAll pegaria também os painéis internos de
+        // Diagnóstico/Propostas do painel que está prestes a aparecer.
+        Array.prototype.forEach.call(panelsHost.children, function (p) { p.hidden = true; });
         btn.setAttribute("aria-selected", "true");
         panel.hidden = false;
       });
@@ -293,7 +298,7 @@
 
         innerBtn.addEventListener("click", function () {
           innerTabs.querySelectorAll(".tab-btn").forEach(function (b) { b.setAttribute("aria-selected", "false"); });
-          innerPanels.querySelectorAll(".tab-panel").forEach(function (p) { p.hidden = true; });
+          Array.prototype.forEach.call(innerPanels.children, function (p) { p.hidden = true; });
           innerBtn.setAttribute("aria-selected", "true");
           innerPanel.hidden = false;
         });
@@ -304,7 +309,13 @@
 
       btn.addEventListener("click", function () {
         tabsHost.querySelectorAll(".tab-btn").forEach(function (b) { b.setAttribute("aria-selected", "false"); });
-        panelsHost.querySelectorAll(".tab-panel").forEach(function (p) { p.hidden = true; });
+        // O bug estava aqui: querySelectorAll(".tab-panel") pegava também os
+        // painéis internos de Diagnóstico/Propostas (mesma classe, aninhados
+        // dentro de cada painel de subtema) e escondia os dois — o painel
+        // recém-selecionado ficava sem nenhum dos dois visível até o usuário
+        // clicar manualmente numa aba interna. Só os filhos diretos de
+        // panelsHost (os painéis de subtema) devem ser escondidos aqui.
+        Array.prototype.forEach.call(panelsHost.children, function (p) { p.hidden = true; });
         btn.setAttribute("aria-selected", "true");
         panel.hidden = false;
       });
