@@ -323,6 +323,10 @@
     var axes = window.PROFILE_AXES || [];
     var n = axes.length;
     if (!n) return null;
+    // viewBox inicial é só um chute generoso — os rótulos diagonais (ex.:
+    // "Ritmo do Ajuste Fiscal") têm largura variável conforme a fonte, então
+    // o valor final vem de fitSpiderViewBox() medindo o conteúdo já
+    // desenhado (evita cortar lateral em qualquer combinação de fonte/tela).
     var size = 520, cx = size / 2, cy = size / 2, R = 175;
     var svg = svgEl("svg", {
       viewBox: "0 0 " + size + " " + size, class: "spider-svg",
@@ -369,6 +373,18 @@
     });
 
     return svg;
+  }
+
+  // Recalcula o viewBox a partir da caixa real do conteúdo (só dá pra medir
+  // depois de anexado ao DOM) — os rótulos diagonais variam de largura
+  // conforme a fonte disponível, então um viewBox fixo cortava lateral em
+  // telas/fontes diferentes. Com margem, garante que nada fica de fora.
+  function fitSpiderViewBox(svg) {
+    try {
+      var box = svg.getBBox();
+      var pad = 10;
+      svg.setAttribute("viewBox", (box.x - pad) + " " + (box.y - pad) + " " + (box.width + pad * 2) + " " + (box.height + pad * 2));
+    } catch (e) { /* getBBox indisponível: mantém o viewBox padrão */ }
   }
 
   // Lista compacta dos 6 eixos com seus dois polos — o gráfico em si só
@@ -447,7 +463,10 @@
     if (!host) return;
     var ids = orderedCandidateIds();
     var svg = buildSpiderChart(ids);
-    if (svg) host.appendChild(svg);
+    if (svg) {
+      host.appendChild(svg);
+      fitSpiderViewBox(svg);
+    }
     buildProfileLegend(ids);
   }
 
