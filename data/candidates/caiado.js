@@ -52,7 +52,8 @@ window.CANDIDATES_DATA["caiado"] = {
     },
     "trabalho-renda": {
       diagnosis: [
-        { quote: "O crescimento sustentável depende de produtividade. Entre 1981 e 2024, a produtividade por hora trabalhada cresceu apenas cerca de 0,5% ao ano.", page: 14 }
+        { quote: "O crescimento sustentável depende de produtividade. Entre 1981 e 2024, a produtividade por hora trabalhada cresceu apenas cerca de 0,5% ao ano.", page: 14 },
+        { quote: "Com a desaceleração do crescimento da população em idade ativa, a produção por trabalhador será o principal determinante da renda futura. Produtividade exige educação, qualificação, ciência, tecnologia, concorrência, infraestrutura, segurança jurídica e processos decisórios mais rápidos.", page: 14 }
       ],
       proposals: [
         { title: "Modernizar o mercado de trabalho", quotes: [{ quote: "Promover formação contínua, intermediação digital, apoio à transição profissional, inclusão de jovens e mulheres, segurança para novas formas de trabalho e redução dos custos que empurram pessoas e empresas à informalidade.", page: 15 }] },
@@ -61,7 +62,8 @@ window.CANDIDATES_DATA["caiado"] = {
     },
     "inflacao-monetaria": {
       diagnosis: [
-        { quote: "A incerteza sobre a sustentabilidade das contas públicas aumenta o custo de financiamento do governo, das empresas e das famílias, prejudicando investimento, emprego e crescimento.", page: 12 }
+        { quote: "A incerteza sobre a sustentabilidade das contas públicas aumenta o custo de financiamento do governo, das empresas e das famílias, prejudicando investimento, emprego e crescimento.", page: 12 },
+        { quote: "A consolidação fiscal é condição necessária, mas não suficiente. Com confiança nas contas públicas, inflação moderada e juros menores, o país poderá mobilizar poupança doméstica e capital internacional para elevar o investimento, hoje situado em patamar baixo para uma economia emergente.", page: 14 }
       ],
       proposals: [
         { title: "Coordenação fiscal-monetária respeitando a autonomia do BC", quotes: [{ quote: "Coordenar políticas fiscal e monetária com respeito à autonomia do Banco Central. Reduzir pressões fiscais sobre preços, aperfeiçoar comunicação e previsibilidade e criar condições para que inflação controlada, juros menores e desenvolvimento coexistam de forma sustentável.", page: 13 }] }
@@ -69,6 +71,7 @@ window.CANDIDATES_DATA["caiado"] = {
     },
     "estado-privatizacoes": {
       diagnosis: [
+        { quote: "As economias que deram grandes saltos de renda combinaram mercado, coordenação estatal, capital humano, infraestrutura, abertura e inovação; onde o Estado foi omisso ou capturado, o crescimento perdeu força.", page: 14 },
         { quote: "O setor privado tornou-se o principal investidor em infraestrutura no Brasil, respondendo por mais de 70% dos aportes anuais, por meio de concessões, parcerias público-privadas e instrumentos de mercado de capitais.", page: 46 }
       ],
       proposals: [
@@ -79,7 +82,8 @@ window.CANDIDATES_DATA["caiado"] = {
     },
     "infraestrutura-investimento": {
       diagnosis: [
-        { quote: "O investimento total do país, público e privado, situa-se em torno de 2% do PIB ao ano, quando o consenso técnico indica a necessidade de patamares próximos a 4% do PIB, de forma sustentada.", page: 46 }
+        { quote: "O investimento total do país, público e privado, situa-se em torno de 2% do PIB ao ano, quando o consenso técnico indica a necessidade de patamares próximos a 4% do PIB, de forma sustentada.", page: 46 },
+        { quote: "Esse quadro não decorre da falta de projetos nem da ausência de capital. Decorre da descontinuidade. A cada ciclo de governo, programas são criados, renomeados ou abandonados; prioridades mudam; obras param no meio do caminho, consumindo recursos sem entregar um único serviço à população.", page: 46 }
       ],
       proposals: [
         { title: "Plano Nacional de Infraestrutura como política de Estado", quotes: [{ quote: "Instituir um planejamento integrado de longo prazo, com horizonte de trinta anos e revisões periódicas, e uma carteira única de projetos priorizados por critérios técnicos de retorno econômico e social.", page: 46 }] },

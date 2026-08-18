@@ -77,7 +77,8 @@ window.CANDIDATES_DATA["lula"] = {
     },
     "estado-privatizacoes": {
       diagnosis: [
-        { quote: "A retomada do crescimento industrial nesse mandato é resultado do enfrentamento do processo de desindustrialização por meio dos investimentos coordenados por uma nova, legítima e indispensável política industrial, a Nova Indústria Brasil (NIB).", page: 50 }
+        { quote: "A retomada do crescimento industrial nesse mandato é resultado do enfrentamento do processo de desindustrialização por meio dos investimentos coordenados por uma nova, legítima e indispensável política industrial, a Nova Indústria Brasil (NIB).", page: 50 },
+        { quote: "O governo Lula III retomou os investimentos em petróleo e gás. A Petrobras tem batido sucessivos recordes de produção de petróleo e voltou a investir em refino e derivados, em gás e fertilizantes, ampliando suas encomendas às indústrias naval e petroquímica.", page: 66 }
       ],
       proposals: [
         { title: "Ampliar investimento da Petrobras", quotes: [{ quote: "Entendemos que a Petrobras continuará ampliando investimentos em exploração onshore e offshore, para recuperar participação no controle de reservas nacionais", page: 67 }] },
@@ -89,7 +90,8 @@ window.CANDIDATES_DATA["lula"] = {
     },
     "infraestrutura-investimento": {
       diagnosis: [
-        { quote: "O Novo PAC alcançou o objetivo de retomar os investimentos públicos e privados em infraestrutura no País. No ano de 2025, alcançamos o recorde de investimento em infraestrutura, R$ 280 bilhões e devemos fechar 2026 com nova marca ainda maior, R$ 300 bilhões.", page: 53 }
+        { quote: "O Novo PAC alcançou o objetivo de retomar os investimentos públicos e privados em infraestrutura no País. No ano de 2025, alcançamos o recorde de investimento em infraestrutura, R$ 280 bilhões e devemos fechar 2026 com nova marca ainda maior, R$ 300 bilhões.", page: 53 },
+        { quote: "Ao organizar a carteira de investimentos estratégicos, o Novo PAC orientou as expectativas dos agentes públicos e privados e desencadeou um ciclo virtuoso de investimento. Os dados de execução apontam a realização de R$1,3 trilhão, com empreendimentos que chegaram a 99% dos municípios.", page: 53 }
       ],
       proposals: [
         { title: "Nova edição do Novo PAC", quotes: [{ quote: "A nova edição do Novo PAC manterá a articulação dos investimentos públicos e privados em infraestrutura logística, dando sequência a obras públicas e concessões. Manteremos o ritmo nas concessões rodoviárias e intensificaremos as de ferrovias em duas frentes: leilão de novos projetos e repactuação dos contratos existentes.", page: 53 }] },

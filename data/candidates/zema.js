@@ -65,7 +65,8 @@ window.CANDIDATES_DATA["zema"] = {
     },
     "inflacao-monetaria": {
       diagnosis: [
-        { quote: "a SELIC está próxima a 15% e, com isso, o pagamento de juros consome cerca de R$1 trilhão por ano.", page: 14 }
+        { quote: "a SELIC está próxima a 15% e, com isso, o pagamento de juros consome cerca de R$1 trilhão por ano.", page: 14 },
+        { quote: "Antes de vender o primeiro produto ou contratar o primeiro funcionário, o empreendedor brasileiro já esbarra em um dos juros mais altos do mundo, impostos incompreensíveis, infraestrutura ruim, insegurança jurídica.", page: 17 }
       ],
       proposals: [
         { title: "Choque fiscal para derrubar a curva de juros", quotes: [{ quote: "Garantir a queda da curva de juros por meio de um choque fiscal para estabilizar a relação dívida/PIB, promovendo reformas e mantendo superávits primários que permitam o pagamento da dívida.", page: 18 }] },
@@ -74,7 +75,11 @@ window.CANDIDATES_DATA["zema"] = {
       ]
     },
     "estado-privatizacoes": {
-      diagnosis: [],
+      diagnosis: [
+        { quote: "Fazer o ajuste fiscal de verdade exige atacar a raiz do problema: cortar gastos, reduzir o peso do Estado onde ele não é essencial e devolver ao orçamento a capacidade de investir, crescer e aliviar a pressão sobre famílias e empresas.", page: 14 },
+        { quote: "O Brasil tem um Estado caro que entrega pouco [...] Embora os servidores sejam apenas 12% da força de trabalho formal, abaixo da média da OCDE (18%) [...] o gasto com pessoal consome 13,5% do PIB, contra 9,3% nos países da OCDE.", page: 39 },
+        { quote: "Gastamos como um país rico e entregamos como um país pobre: o Brasil ocupa a 102a posição, entre 179 países, na provisão de serviços públicos essenciais, atrás de Argentina, Uruguai e Chile, no Índice de Fragilidade dos Estados do Fund for Peace.", page: 39 }
+      ],
       proposals: [
         { title: "Privatizar todas as empresas estatais", quotes: [{ quote: "Privatizar todas as empresas estatais para que o governo possa se concentrar naquilo que de fato lhe cabe, como segurança pública e educação, reduzindo o espaço para escândalos de corrupção e garantindo maior eficiência no uso dos recursos públicos e mais competição na economia brasileira.", page: 15 }] },
         { title: "Ampliar PPPs em todos os serviços públicos", quotes: [{ quote: "Aumentar o investimento privado no país por meio da ampliação das parcerias público-privadas em todos os setores da administração pública, inclusive em projetos que geram impacto direto na qualidade dos serviços e na vida da população, como saúde e educação.", page: 15 }] },

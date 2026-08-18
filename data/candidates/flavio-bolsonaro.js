@@ -53,7 +53,8 @@ window.CANDIDATES_DATA["flavio-bolsonaro"] = {
     },
     "trabalho-renda": {
       diagnosis: [
-        { quote: "Hoje, o custo de um trabalhador formal chega a cerca de duas vezes o salário que ele leva para casa. Essa diferença é o que faz muita empresa não contratar, ou contratar na informalidade.", page: 43 }
+        { quote: "Hoje, o custo de um trabalhador formal chega a cerca de duas vezes o salário que ele leva para casa. Essa diferença é o que faz muita empresa não contratar, ou contratar na informalidade.", page: 43 },
+        { quote: "Numa está o jovem à procura do primeiro emprego, que ouve de toda empresa a mesma exigência de experiência, sem que ninguém lhe dê a primeira chance de tê-la. Na outra está quem passou dos cinquenta e perdeu o emprego, tem experiência de sobra e mesmo assim não é chamado para as entrevistas.", page: 43 }
       ],
       proposals: [
         { title: "Contrato jovem (18–24) e contrato 50+", quotes: [{ quote: "Para o jovem, vamos criar um contrato de trabalho para os 18 a 24 anos em busca do primeiro emprego, com menor custo na folha [...] Para quem tem mais idade, vamos criar um contrato mais atrativo para a contratação de pessoas com 50 anos ou mais desempregadas há pelo menos 12 meses.", page: 44 }] },
@@ -74,7 +75,8 @@ window.CANDIDATES_DATA["flavio-bolsonaro"] = {
     },
     "estado-privatizacoes": {
       diagnosis: [
-        { quote: "Para o PT, cada estatal, cada diretoria, cada fundo de pensão é espaço a ser loteado entre aliados, e foi assim que a Lava Jato encontrou, no aparelhamento das estatais, o coração do maior esquema de corrupção da história do país.", page: 70 }
+        { quote: "Para o PT, cada estatal, cada diretoria, cada fundo de pensão é espaço a ser loteado entre aliados, e foi assim que a Lava Jato encontrou, no aparelhamento das estatais, o coração do maior esquema de corrupção da história do país.", page: 70 },
+        { quote: "Uma estatal profissionalizada, comandada por quem entende do negócio, dá resultado e devolve valor à sociedade, como se viu no governo Bolsonaro.", page: 70 }
       ],
       proposals: [
         { title: "Fortalecer a Lei das Estatais", quotes: [{ quote: "Nas empresas públicas, essa proteção tem nome: a Lei das Estatais, de 2016, criada depois da Lava Jato para blindar as estatais da indicação política [...] Tentaram enfraquecê-la; nós vamos fortalecê-la.", page: 70 }] },

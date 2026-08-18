@@ -32,10 +32,11 @@ window.CANDIDATES_DATA["renan-santos"] = {
     },
     tributacao: {
       diagnosis: [
-        { quote: "complexidade tributária que desestimula o investimento produtivo", page: 21 }
+        { quote: "Essa ineficiência é agravada por problemas estruturais que travam o desenvolvimento: [...] complexidade tributária que desestimula o investimento produtivo; litigiosidade excessiva da justiça trabalhista; insegurança jurídica que desestabiliza planejamentos de longo prazo; e protecionismo crônico que blinda setores ineficientes, impedindo a realocação de recursos para outros mais produtivos.", page: 21 }
       ],
       proposals: [
-        { title: "Regime tributário específico nas Zonas Econômicas Especiais", quotes: [{ quote: "estímulos fiscais por meio de suspensão de direitos aduaneiros e de regime específico de IBS/CBS para a zona (LC 214/2025)", page: 35 }] }
+        { title: "Regime tributário específico nas Zonas Econômicas Especiais", quotes: [{ quote: "estímulos fiscais por meio de suspensão de direitos aduaneiros e de regime específico de IBS/CBS para a zona (LC 214/2025)", page: 35 }] },
+        { title: "Justiça tributária entre as reformas microeconômicas prioritárias", quotes: [{ quote: "esse capítulo é dedicado às reformas microeconômicas mais importantes, que destravam a competitividade em todos os setores [...] As reformas tangenciam quase todos os eixos estruturais da economia brasileira, passando por justiça tributária, legislação trabalhista, regulação financeira e governança pública.", page: 21 }] }
       ]
     },
     "cambio-comercio": {
