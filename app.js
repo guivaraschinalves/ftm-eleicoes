@@ -335,16 +335,14 @@
     });
 
     axes.forEach(function (axis, i) {
-      var p = polarPoint(cx, cy, R, i * 360 / n);
+      var angle = i * 360 / n;
+      var p = polarPoint(cx, cy, R, angle);
       svg.appendChild(svgEl("line", { x1: cx, y1: cy, x2: p[0], y2: p[1], class: "spider-axis-line" }));
-      var lp = polarPoint(cx, cy, R + 46, i * 360 / n);
+
+      var lp = polarPoint(cx, cy, R + 30, angle);
       var label = svgEl("text", { x: lp[0], y: lp[1], class: "spider-axis-label", "text-anchor": labelAnchor(lp[0], cx) });
       label.textContent = axis.label;
       svg.appendChild(label);
-      var lowP = polarPoint(cx, cy, R + 14, i * 360 / n);
-      var lowLabel = svgEl("text", { x: lowP[0], y: lowP[1], class: "spider-pole-label", "text-anchor": labelAnchor(lowP[0], cx) });
-      lowLabel.textContent = "0–100";
-      svg.appendChild(lowLabel);
     });
 
     ids.forEach(function (id) {
@@ -373,9 +371,27 @@
     return svg;
   }
 
+  // Lista compacta dos 6 eixos com seus dois polos — o gráfico em si só
+  // rotula o nome do eixo, então isso é o que explica o sentido de cada um
+  // (em vez de espremer os dois polos perto do centro do SVG, ilegível com
+  // 6 eixos sobrepostos).
+  function buildAxisKey(host) {
+    var ul = el("ul", "axis-key");
+    (window.PROFILE_AXES || []).forEach(function (axis) {
+      var li = document.createElement("li");
+      var strong = document.createElement("strong");
+      strong.textContent = axis.label + ": ";
+      li.appendChild(strong);
+      li.appendChild(document.createTextNode(axis.low + " ↔ " + axis.high));
+      ul.appendChild(li);
+    });
+    host.appendChild(ul);
+  }
+
   function buildProfileLegend(ids) {
     var host = document.getElementById("profile-legend");
     if (!host) return;
+    buildAxisKey(host);
     var chips = el("div", "legend-chips");
     ids.forEach(function (id) {
       var c = window.CANDIDATES_DATA[id];

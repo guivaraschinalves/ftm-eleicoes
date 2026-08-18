@@ -217,13 +217,18 @@ h1 { font-family: var(--font-serif); font-weight: 500; font-size: 2.5rem; margin
 .spider-ring { fill: none; stroke: var(--border); stroke-width: 1; }
 .spider-axis-line { stroke: var(--border); stroke-width: 1; }
 .spider-axis-label { font-family: var(--font-sans); font-size: 12px; fill: var(--ink-secondary); font-weight: 600; }
-.spider-pole-label { font-family: var(--font-mono); font-size: 9px; fill: var(--ink-muted); }
 .spider-series { transition: opacity 0.15s ease; }
 .spider-series-hidden { opacity: 0; pointer-events: none; }
 .spider-shape { fill: var(--cand-color); fill-opacity: 0.08; stroke: var(--cand-color); stroke-width: 2.5; }
 .spider-dot { fill: var(--cand-color); stroke: var(--surface); stroke-width: 1.5; cursor: help; }
 
 .profile-legend { display: flex; flex-direction: column; gap: 18px; align-items: center; }
+.axis-key {
+  list-style: none; margin: 0; padding: 0; display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 6px 20px; width: 100%; max-width: 760px;
+}
+.axis-key li { font-size: 0.86rem; color: var(--ink-secondary); line-height: 1.5; }
+.axis-key strong { color: var(--ink); }
 .legend-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 .legend-chip {
   display: flex; align-items: center; gap: 8px; font-family: var(--font-sans); font-size: 0.88rem;
