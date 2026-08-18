@@ -20,6 +20,7 @@
 
     <nav class="nav" aria-label="Seções">
       <a class="nav-link" href="#visao-geral">Visão Geral</a>
+      <a class="nav-link" href="#perfil-politico">Perfil Político</a>
       <a class="nav-link" href="#economia">Economia</a>
       <a class="nav-link" href="#outros-temas">Outros Temas</a>
       <a class="nav-link" href="#fontes">Fontes</a>
@@ -37,14 +38,17 @@
     <p class="lede">
       Comparação lado a lado das propostas de governo dos 5 candidatos com mais intenção de
       voto na eleição presidencial de 2026 (pesquisa BTG/Nexus, 17/ago/2026), com foco em
-      Economia — dividida em subtemas, separando o diagnóstico do cenário atual das medidas
-      propostas para o futuro — e cobertura mais enxuta de outros temas.
+      Economia — dividida em subtemas, cada um com aba de Diagnóstico e aba de Propostas — e
+      cobertura mais enxuta de outros temas.
     </p>
     <p class="disclaimer">
-      Todo o conteúdo abaixo é extraído e parafraseado dos planos de governo oficiais
-      registrados no TSE, sem posicionamento político da equipe FTM. Onde um tema não é
-      abordado explicitamente no plano, isso é indicado — não é erro de coleta.
-      Ordem dos candidatos: alfabética pelo nome de urna, sem relação com pesquisas eleitorais.
+      <strong>Economia, Outros Temas e Fontes</strong> mostram trechos <strong>citados
+      literalmente</strong> dos planos de governo oficiais registrados no TSE — nunca resumos
+      nossos — sempre com a página do PDF. Onde um tema não é abordado explicitamente no plano,
+      isso é indicado, não é erro de coleta. <strong>Perfil Político</strong> já é outra coisa:
+      uma <strong>leitura editorial nossa</strong>, em forma de gráfico, sobre onde cada
+      candidato se posiciona — não uma citação nem uma nota oficial; a seção deixa isso explícito.
+      Ordem dos candidatos: sempre alfabética pelo nome de urna, sem relação com pesquisas.
     </p>
 
     <section id="visao-geral" class="page-section">
@@ -54,15 +58,32 @@
       <div id="candidate-grid" class="candidate-grid"></div>
     </section>
 
+    <section id="perfil-politico" class="page-section">
+      <div class="section-heading">
+        <h2>Perfil Político</h2>
+        <span class="count">análise, não citação</span>
+      </div>
+      <p class="section-note">
+        Inspirado no <a href="https://www.smartvote.ch/" target="_blank" rel="noopener">Smartspider
+        do smartvote</a>: 6 eixos de 0 a 100 que resumem visualmente onde cada candidato se
+        posiciona, a partir da leitura do conjunto de propostas já citadas nas seções abaixo.
+        <strong>Não são números do plano de governo</strong> — são nossa síntese, com a
+        justificativa de cada nota disponível ao passar o mouse (ou tocar) em cada eixo.
+      </p>
+      <div id="spider-chart-host" class="spider-host"></div>
+      <div id="profile-legend" class="profile-legend"></div>
+    </section>
+
     <section id="economia" class="page-section">
       <div class="section-heading">
         <h2>Economia</h2>
         <span class="count">7 subtemas</span>
       </div>
       <p class="section-note">
-        Cada subtema mostra o <strong>diagnóstico</strong> que o próprio candidato faz do
-        cenário atual e as <strong>medidas propostas</strong> para o futuro, com a página do
-        plano de governo onde o trecho pode ser conferido.
+        Cada subtema tem uma aba de <strong>Diagnóstico</strong> (o que o candidato diz sobre o
+        cenário atual) e uma aba de <strong>Propostas</strong> (o que ele promete fazer). O
+        título de cada proposta é nosso, só para identificar o card — o texto citado é sempre do
+        próprio plano, com a página onde conferir.
       </p>
       <div id="economy-tabs" class="tabs" role="tablist" aria-label="Subtemas de Economia"></div>
       <div id="economy-panels"></div>
@@ -74,8 +95,8 @@
         <span class="count">6 temas</span>
       </div>
       <p class="section-note">
-        Cobertura mais enxuta: lista das propostas-chave de cada candidato por tema, sem a
-        divisão diagnóstico/medida usada em Economia.
+        Cobertura mais enxuta: as propostas-chave de cada candidato por tema, citadas
+        literalmente, sem a divisão diagnóstico/proposta usada em Economia.
       </p>
       <div id="other-tabs" class="tabs" role="tablist" aria-label="Outros temas"></div>
       <div id="other-panels"></div>
@@ -87,15 +108,17 @@
       </div>
       <p class="section-note">
         Os 5 planos de governo abaixo foram baixados do Portal de Dados Abertos do TSE
-        (dataset "Candidatos 2026", recurso "BR — Proposta de Governo") e do DivulgaCandContas,
-        e uma cópia de cada PDF está versionada em <code>sources/</code> neste repositório.
+        (dataset "Candidatos 2026", recurso "BR — Proposta de Governo") e as fotos oficiais do
+        recurso "BR — Fotos de Candidatos". Cópias de cada PDF estão versionadas em
+        <code>sources/</code> neste repositório.
       </p>
       <div id="sources-list" class="sources-list"></div>
       <p class="footer-disclaimer">
         Este site é um projeto independente de organização de informação pública eleitoral.
         Não representa nem é endossado por nenhum candidato, partido ou pela Justiça
         Eleitoral. Em caso de divergência, o PDF oficial no TSE prevalece sobre qualquer
-        resumo aqui apresentado.
+        conteúdo aqui apresentado — e o Perfil Político é, declaradamente, leitura nossa, não
+        fato objetivo.
       </p>
     </section>
   </main>
@@ -103,6 +126,7 @@
 
 <script src="data/taxonomy.js"></script>
 <script src="data/sources.js"></script>
+<script src="data/profile.js"></script>
 <script src="data/candidates/caiado.js"></script>
 <script src="data/candidates/flavio-bolsonaro.js"></script>
 <script src="data/candidates/lula.js"></script>

@@ -10,6 +10,7 @@
 - Nessas ocasiões, estruturar o plano detalhado antes de iniciar grandes alterações.
 
 ## Ao editar dados de candidatos
-- Manter neutralidade: mesmo tratamento visual para todos, sem cor por partido, ordem alfabética por nome de urna (não por posição em pesquisa).
-- Todo trecho de `diagnosis`/`measures`/`keyProposals` precisa de `sourceRefs` apontando a página do PDF oficial em `sources/`.
+- Manter neutralidade: mesmo tratamento visual para todos (cores de `--cand-*` são só categóricas, não de partido), ordem alfabética por nome de urna (não por posição em pesquisa).
+- `diagnosis` e `proposals.*.quotes` em `data/candidates/*.js` são **citação literal** do PDF — nunca parafrasear. Só o `title` de cada proposta é redigido por nós. Todo `quote` precisa de `page`.
+- `data/profile.js` é a única exceção declarada ao "só citação": é leitura editorial nossa (Perfil Político). Mudar uma nota exige atualizar o `rationale` correspondente.
 - Depois de editar qualquer `data/*.js`, rodar `python3 scripts/build_artifact.py` antes de publicar o Artifact — os dois nunca devem divergir.

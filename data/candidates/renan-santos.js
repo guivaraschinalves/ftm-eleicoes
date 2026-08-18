@@ -1,11 +1,10 @@
 // ============================================================================
-// RENAN SANTOS (MISSÃO) — dados extraídos do "Livro Amarelo — Missão 2026"
-// (resumo executivo), proposta de governo registrada no TSE (ver
-// data/sources.json). Cada capítulo do documento já traz "O Problema" e
-// "Propostas e Soluções da Missão" — a estrutura abaixo resume essas seções
-// originais; sourceRefs indicam a página do PDF onde o trecho pode ser
-// conferido. É o plano mais extenso em diagnóstico numérico e o único dos 5
-// sem um capítulo dedicado a Meio Ambiente.
+// RENAN SANTOS (MISSÃO) — citações do "Livro Amarelo — Missão 2026" (resumo
+// executivo), proposta de governo registrada no TSE (ver data/sources.js).
+// Cada capítulo do plano já traz "O Problema" e "Propostas e Soluções da
+// Missão" — usamos o texto literal dessas seções. Todo texto em `quote` é
+// TRANSCRIÇÃO LITERAL do PDF; `title` é redigido por nós só para nomear o
+// card. É o único dos 5 planos sem capítulo dedicado a Meio Ambiente.
 // ============================================================================
 window.CANDIDATES_DATA = window.CANDIDATES_DATA || {};
 window.CANDIDATES_DATA["renan-santos"] = {
@@ -16,124 +15,105 @@ window.CANDIDATES_DATA["renan-santos"] = {
     number: 14,
     coalition: "Candidatura de partido isolado (Missão)",
     vp: "Coronel Medina (Missão)",
-    initials: "RS"
+    initials: "RS",
+    photo: "sources/renan-santos.jpg"
   },
-  positioningSummary: "Plano de ruptura institucional: PEC de Transição para desindexar despesas obrigatórias, 'Grande Consolidação Municipal' (fundir até 70% dos municípios), Lei de Responsabilidade Gerencial para tutelar prefeituras mal geridas, e Zonas Econômicas Especiais para atrair indústria — com forte ênfase em geopolítica (desdolarização regional liderada pelo real) e combate ao crime organizado via 'Direito Penal do Inimigo'.",
   economy: {
     fiscal: {
       diagnosis: [
-        "Aponta déficit nominal do setor público de R$ 1,062 tri, dívida bruta em 80,4% do PIB (projetada a 100% até 2030 sem reformas) e despesas obrigatórias crescendo acima do limite de 2,5% real do arcabouço fiscal — estimando ajuste necessário de R$ 250 bi/ano (citando Mansueto de Almeida)."
+        { quote: "O déficit nominal do setor público consolidado atingiu R$ 1,062 trilhão, segundo informações do Banco Central. A dívida pública federal encerrou 2025 em R$ 8,635 trilhões, um crescimento de 18% em relação a 2024.", page: 9 },
+        { quote: "A dívida bruta do governo geral atingiu 80,4% do PIB (R$ 10,44 trilhões); a IFI do Senado, em cenário sem reformas, projeta que pode atingir 100% do PIB em 2030.", page: 9 },
+        { quote: "O ajuste fiscal necessário é da ordem de R$ 250 bilhões anuais, segundo Mansueto de Almeida.", page: 10 }
       ],
-      measures: [
-        "Aprovar, antes mesmo da posse, uma PEC de Transição baseada na 'PEC do Equilíbrio Fiscal' (Kim Kataguiri): desindexar benefícios previdenciários/assistenciais do salário mínimo (corrigir só pela inflação), desvincular pisos de saúde/educação da receita e reduzir renúncias fiscais — economia projetada de R$ 1,1 tri até 2031.",
-        "Incorporar propostas do caderno do CDPP: racionalização do superávit financeiro, fim de supersalários no funcionalismo e nova lei complementar de finanças públicas."
-      ],
-      sourceRefs: [{ page: 9 }, { page: 10 }]
+      proposals: [
+        { title: "PEC de Transição baseada na 'PEC do Equilíbrio Fiscal'", quotes: [{ quote: "a PEC de Transição deverá utilizar como base um projeto já protocolado por nosso deputado Kim Kataguiri em 2024, a chamada “PEC do Equilíbrio Fiscal”, que promove a desindexação de benefícios previdenciários e assistenciais do salário mínimo (corrigindo-os apenas pela inflação), a desvinculação dos pisos de saúde e educação da receita, a revisão do abono salarial e a redução de renúncias fiscais (gastos tributários), com economia projetada de R$ 1,1 trilhão até 2031.", page: 10 }] },
+        { title: "Fim dos supersalários no funcionalismo", quotes: [{ quote: "selecionamos as propostas mais interessantes e as traduzimos à realidade política de hoje [...] a racionalização do superávit financeiro, a reforma do funcionalismo público com fim dos supersalários, mudanças nas emendas parlamentares, redução das isenções fiscais e uma nova lei complementar das finanças públicas.", page: 10 }] }
+      ]
     },
     tributacao: {
       diagnosis: [
-        "Cita 'complexidade tributária que desestimula o investimento produtivo' como um dos gargalos estruturais de produtividade, ao lado de litigiosidade trabalhista e insegurança jurídica."
+        { quote: "complexidade tributária que desestimula o investimento produtivo", page: 21 }
       ],
-      measures: [
-        "Criar regimes tributários especiais dentro das Zonas Econômicas Especiais (suspensão de direitos aduaneiros e regime específico de IBS/CBS, sob a LC 214/2025) para atrair indústria de alto valor.",
-        "Não propõe uma reforma tributária federal ampla e própria no documento — o tratamento de tributos aparece principalmente como incentivo setorial/regional (ZEEs, IA), não como capítulo de tributação geral."
-      ],
-      sourceRefs: [{ page: 21 }, { page: 34 }]
+      proposals: [
+        { title: "Regime tributário específico nas Zonas Econômicas Especiais", quotes: [{ quote: "estímulos fiscais por meio de suspensão de direitos aduaneiros e de regime específico de IBS/CBS para a zona (LC 214/2025)", page: 35 }] }
+      ]
     },
     "cambio-comercio": {
       diagnosis: [
-        "Diagnostica 'déficits críticos em soberania monetária': dependência do dólar americano sem uma moeda regional que o Brasil pudesse liderar, e dependência de importações estratégicas de duplo uso (~R$ 70 bi/ano segundo a CNI)."
+        { quote: "a dependência do dólar americano e a ausência de uma moeda regional que o Brasil pudesse liderar, refletindo falta de poder monetário para influenciar o Sul Global", page: 45 },
+        { quote: "dependência de importações estratégicas e de duplo uso (estimadas pela CNI em cerca de R$70 bilhões por ano, abrangendo componentes e tecnologias sensíveis de uso civil e militar)", page: 34 }
       ],
-      measures: [
-        "Propor 'desdolarização da América do Sul': cesta de moedas sul-americana liderada pelo real, linhas de swap entre bancos centrais e cooperação monetária regional, posicionando o real como reserva de valor regional.",
-        "Criar Zonas Econômicas Especiais de exportação (polos em Suape, Pecém/Araripe, Aratu-Camaçari) com um-stop-shops e licenciamento em até 15 dias, inspiradas em Shannon (Irlanda) e Shenzhen (China)."
-      ],
-      sourceRefs: [{ page: 45 }, { page: 46 }, { page: 35 }]
+      proposals: [
+        { title: "Desdolarização da América do Sul liderada pelo real", quotes: [{ quote: "Proposta de desdolarização da América do Sul busca reduzir a dependência do dólar americano mediante a criação de uma cesta de moedas sul-americana liderada pelo real brasileiro, linhas de swap entre bancos centrais e cooperação monetária regional, convertendo o Brasil em âncora financeira do continente.", page: 46 }] },
+        { title: "Zonas Econômicas Especiais com um-stop-shop de 15 dias", quotes: [{ quote: "redução radical da burocracia mediante agências administrativas ágeis (one-stop shops) com aprovação de licenças em até 15 dias; infraestrutura de classe mundial dedicada, incluindo energia, conectividade 5G/6G e logística portuária otimizada.", page: 35 }] }
+      ]
     },
     "trabalho-renda": {
       diagnosis: [
-        "Aponta produtividade estagnada desde os anos 1990, R$ 4 tri em subsídios a grupos privilegiados nos últimos 15 anos, e gastos com Bolsa Família + BPC multiplicados por 8 no mesmo período (~R$ 285 bi em 2025)."
+        { quote: "Nos últimos 15 anos, o Estado transferiu aproximadamente 4 trilhões de reais em subsídios a grupos privilegiados [...] os gastos com assistencialismo (somando apenas o Bolsa Família e o BPC) aumentaram mais de 8 vezes no mesmo período, chegando em 2025 a cerca de R$ 285 bilhões.", page: 20 }
       ],
-      measures: [
-        "Substituir o Bolsa Família por 'Frentes Cidadãs': frentes de trabalho em que beneficiários participam de projetos de interesse público, buscando inserção no mercado formal em vez de transferência direta permanente.",
-        "Pacote de reformas microeconômicas (justiça tributária, legislação trabalhista, regulação financeira) inspirado no caderno do CDPP, sem detalhar mudanças específicas na CLT no resumo."
-      ],
-      sourceRefs: [{ page: 20 }, { page: 21 } , { page: 22 }]
+      proposals: [
+        { title: "Frentes Cidadãs no lugar do Bolsa Família", quotes: [{ quote: "nossa proposta de reforma total do sistema de assistencialismo, substituindo o Bolsa Família por um modelo de frentes de trabalho, em que os beneficiários participam de projetos para o bem público, se consolidando como participantes ativos da comunidade.", page: 21 }] }
+      ]
     },
     "inflacao-monetaria": {
-      diagnosis: [
-        "Trata majoritariamente a dimensão monetária pelo ângulo geopolítico (dependência do dólar), não pela política de juros doméstica — não apresenta diagnóstico específico sobre a Selic ou a meta de inflação do Banco Central."
-      ],
-      measures: [
-        "Concentra as propostas monetárias na criação de uma cesta de moedas sul-americana e cooperação entre bancos centrais da região (ver Câmbio e Comércio Exterior) — não detalha medidas para a política monetária interna além da menção ao Comissariado Federal de Gestão Pública 'inspirado na independência do Banco Central' como modelo institucional."
-      ],
-      sourceRefs: [{ page: 18 }, { page: 46 }]
+      diagnosis: [],
+      proposals: [
+        { title: "Comissariado Federal inspirado na independência do Banco Central", quotes: [{ quote: "Uma autarquia especial vinculada ao Ministério da Fazenda, com autonomia técnica e mandatos fixos, inspirada na independência do Banco Central.", page: 18 }] }
+      ]
     },
     "estado-privatizacoes": {
       diagnosis: [
-        "Diagnostica o 'patrimonialismo' como característica estrutural do Estado brasileiro: prefeitos e administradores tratando o público como extensão do privado, sustentados por fundo partidário/eleitoral e emendas parlamentares."
+        { quote: "os partidos têm por objetivo principal maximizar o orçamento à sua disposição, sobretudo por meio dos fundos partidário e eleitoral e das emendas parlamentares [...] Essa captura do Estado por interesses privados, sem qualquer contraparte de responsabilidade compartilhada [...] é o grande problema do país.", page: 17 }
       ],
-      measures: [
-        "Criar a Lei de Responsabilidade Gerencial e o Comissariado Federal de Gestão Pública (autarquia técnica com mandatos fixos) para fiscalizar municípios em tempo real, com 'Tutela Gerencial' e possível dissolução de administrações capturadas pelo crime.",
-        "Não propõe privatização de estatais federais no resumo — o foco da reforma do Estado está na gestão municipal e na meritocracia administrativa, não na venda de ativos federais."
-      ],
-      sourceRefs: [{ page: 17 }, { page: 18 } ]
+      proposals: [
+        { title: "Lei de Responsabilidade Gerencial com Tutela Gerencial", quotes: [{ quote: "Municípios com desempenho crítico entrarão em Tutela Gerencial, exigindo dupla assinatura (Prefeito e Comissário) para gastos. Gestores que falharem reiteradamente nas metas de longo prazo estarão sujeitos à Inelegibilidade Superveniente e ao processo de Cassação por Improbidade Gerencial.", page: 18 }] },
+        { title: "Cláusula Antimáfia", quotes: [{ quote: "Inspirada na legislação italiana, a lei permitirá ao STJ decretar a dissolução imediata de administrações capturadas pelo crime organizado ou milícias. Nesses casos, o mandato eletivo é extinto e o município passa a ser gerido por uma comissão extraordinária federal por até 24 meses.", page: 18 }] }
+      ]
     },
     "infraestrutura-investimento": {
       diagnosis: [
-        "Aponta investimento em infraestrutura caindo de ~4% do PIB (anos 1980) para ~2% hoje, mais de 11 mil obras paralisadas (de 21 mil) e apenas 30 mil km de ferrovias (ante 250 mil nos EUA e 160 mil na China)."
+        { quote: "A participação do investimento em infraestrutura no PIB caiu de cerca de 4% nos anos 1980 para aproximadamente 2% atualmente [...] Segundo o Acompanhamento de Obras Paralisadas, o país soma mais de 11 mil empreendimentos com verbas federais interrompidas, de um total de 21 mil.", page: 23 }
       ],
-      measures: [
-        "Lançar o programa 'Missão Rondon' de recuperação e modernização da infraestrutura, priorizando corredores de escoamento do agronegócio e obras paralisadas.",
-        "Usar Zonas Econômicas Especiais (incluindo a ZEE de Terras Raras, verticalizando 8 estágios da cadeia) e parcerias com EUA, UE e Japão para atrair capital e tecnologia a minerais críticos."
-      ],
-      sourceRefs: [{ page: 23 }, { page: 36 }, { page: 38 }]
+      proposals: [
+        { title: "Zona Econômica de Terras Raras (8 estágios da cadeia)", quotes: [{ quote: "A ZEE de Terras Raras busca verticalizar a cadeia produtiva nacional, aproveitando a segunda maior reserva mundial do Brasil (cerca de 23%, USGS 2026), integrando oito estágios: (1) extração, (2) separação química, (3) refino, (4) ligas, (5) ímãs, (6) motores, (7) componentes para baterias e (8) semicondutores/defesa.", page: 36 }] },
+        { title: "Três polos industriais no Nordeste via ZEEs", quotes: [{ quote: "Polo Industrial de Suape (Pernambuco), focado em hidrogênio verde e petroquímica [...] Pecém (Ceará) e Araripe (Pernambuco), polo interestadual especializado em aço de baixo carbono [...] Aratu-Camaçari (Bahia) direcionado à mobilidade elétrica, baterias e semicondutores.", page: 35 }] }
+      ]
     }
   },
   otherThemes: {
     educacao: {
-      keyProposals: [
-        "No Pisa 2022, 73% dos alunos brasileiros não atingem o nível básico em matemática — diagnóstico central do capítulo.",
-        "Adotar o modelo do Ceará e o sistema fônico universal de alfabetização.",
-        "Tratar a violência escolar como problema central, ao lado da qualidade do aprendizado."
-      ],
-      sourceRefs: [{ page: 30 }, { page: 31 }]
+      proposals: [
+        { title: "73% dos alunos abaixo do nível básico em matemática", quotes: [{ quote: "cerca de 73% dos alunos brasileiros não atingiram os requisitos mínimos de conhecimento em matemática para o exercício pleno da cidadania.", page: 30 }] },
+        { title: "Sistema fônico universal de alfabetização", quotes: [{ quote: "buscaremos a adoção universal do sistema fônico de alfabetização, que se encontra amparado pelas melhores evidências científicas disponíveis.", page: 31 }] }
+      ]
     },
     saude: {
-      keyProposals: [
-        "Criar a ENER (Escala Nacional de Estratificação de Risco): fila do SUS por gravidade clínica, não por ordem cronológica.",
-        "Criar o PRONTO (Prontuário Eletrônico Nacional Interoperável), conectando atenção primária, hospitais, laboratórios e farmácias.",
-        "Sistema digital de saúde inspirado no DoctorSV (El Salvador), com telemedicina e IA diagnóstica; integrar o Genomas Brasil ao prontuário do SUS."
-      ],
-      sourceRefs: [{ page: 25 }, { page: 26 }]
+      proposals: [
+        { title: "ENER — fila do SUS por risco clínico, não ordem cronológica", quotes: [{ quote: "criar a ENER, um sistema de fila viva, que não fique engessado na ordem cronológica, mas atenda critérios objetivos de prioridade relativos ao estado do paciente [...] fundada nos seguintes critérios: (i) gravidade clínica atual; (ii) risco de progressão em curto e médio prazo.", page: 25 }] },
+        { title: "PRONTO — prontuário eletrônico nacional interoperável", quotes: [{ quote: "Criação do PRONTO (Prontuário Eletrônico Nacional Interoperável) que irá conectar a atenção primária, os serviços especializados, os hospitais públicos e privados, laboratórios e farmácias.", page: 26 }] }
+      ]
     },
     seguranca: {
-      keyProposals: [
-        "Adotar o 'Direito Penal do Inimigo' via Lei Antifacção: banimento judicial de organizações criminosas, inversão do ônus da prova no confisco de bens, tribunais especializados.",
-        "Declarar Estado de Defesa em áreas dominadas por facções, com uso das Forças Armadas via GLO.",
-        "Construir superpresídios de segurança máxima no modelo do CECOT salvadorenho."
-      ],
-      sourceRefs: [{ page: 11 }, { page: 12 }, { page: 13 }]
+      proposals: [
+        { title: "Direito Penal do Inimigo via Lei Antifacção", quotes: [{ quote: "o governo da Missão vai declarar no primeiro dia de mandato uma grande Guerra ao Crime, visando à adoção imediata do Direito Penal do Inimigo (DPI) como framework jurídico para o combate ao crime organizado no Brasil.", page: 12 }] },
+        { title: "Superpresídios modelo CECOT (El Salvador)", quotes: [{ quote: "As lideranças condenadas serão deslocadas a superpresídios de segurança máxima em regiões remotas, no modelo do CECOT salvadorenho, equipados com blindagem eletromagnética e biometria contínua.", page: 13 }] }
+      ]
     },
     "meio-ambiente": {
-      keyProposals: [],
-      sourceRefs: []
+      proposals: []
     },
     tecnologia: {
-      keyProposals: [
-        "Lançar o Marco Brasileiro da Inteligência Artificial (MBIA): 14 medidas para reduzir tributos sobre empresas de tecnologia, reter/formar/repatriar talentos e atrair data centers.",
-        "Criar o Projeto Abaporu, laboratório nacional de IA com capital privado majoritário, e as Zonas Econômicas de Alta Inteligência (ZEAIs).",
-        "Diagnostica que a OpenAI escolheu a Argentina (não o Brasil) para sediar seu maior campus de datacenters latino-americano, como sintoma do atraso regulatório."
-      ],
-      sourceRefs: [{ page: 41 }, { page: 42 } , { page: 43 }]
+      proposals: [
+        { title: "Marco Brasileiro da Inteligência Artificial (MBIA)", quotes: [{ quote: "O MBIA é uma arquitetura de catorze medidas distribuídas também em cinco eixos. A tese é simples: nenhuma medida isolada resolve; o conjunto, sim, pode mudar o regime.", page: 41 }] },
+        { title: "Projeto Abaporu e Zonas Econômicas de Alta Inteligência", quotes: [{ quote: "O Projeto Abaporu será um laboratório nacional de inteligência artificial com capital privado majoritário, governança independente [...] As Zonas Econômicas de Alta Inteligência (ZEAIs) serão a aplicação das ZEEs à inteligência artificial.", page: 42 }] }
+      ]
     },
     "politica-externa": {
-      keyProposals: [
-        "Posicionar o Brasil como 'árbitro do Sul Global', com diplomacia ativa em África, Ásia (via Timor-Leste) e América Latina.",
-        "Propor 'sub-hegemonia brasileira' na América do Sul e estratégia pragmática dentro do BRICS+ (sem subordinação à China).",
-        "Buscar autonomia nuclear completa (incluindo reprocessamento) como ativo estratégico de dissuasão."
-      ],
-      sourceRefs: [{ page: 44 }, { page: 45 }, { page: 46 }]
+      proposals: [
+        { title: "Brasil como 'árbitro do Sul Global'", quotes: [{ quote: "Posicionamento do Brasil como Árbitro do Sul Global por meio de uma diplomacia ativa nas três regiões estratégicas: África [...] Ásia [...] e América Latina.", page: 44 }] },
+        { title: "Nuclearização brasileira", quotes: [{ quote: "Proposta de nuclearização brasileira busca alcançar autonomia completa do ciclo de combustível nuclear, incluindo capacidade de reprocessamento, convertendo-a em ativo estratégico de deterrência.", page: 46 }] }
+      ]
     }
   }
 };

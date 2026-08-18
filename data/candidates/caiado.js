@@ -1,9 +1,9 @@
 // ============================================================================
-// RONALDO CAIADO (PSD) — dados extraídos do "Plano de Governo 2027 a 2030",
-// proposta de governo registrada no TSE (ver data/sources.json). O documento
-// já traz, para cada um de seus 26 temas, seções de "Diagnóstico" e
-// "Propostas" — a estrutura abaixo resume essas seções originais; sourceRefs
-// indicam a página do PDF onde o trecho pode ser conferido.
+// RONALDO CAIADO (PSD) — citações do "Plano de Governo 2027 a 2030", proposta
+// de governo registrada no TSE (ver data/sources.js). O documento já traz,
+// para cada tema, seções "Diagnóstico" e "Propostas" numeradas — usamos o
+// texto literal dessas seções. Todo texto em `quote` é TRANSCRIÇÃO LITERAL do
+// PDF; `title` é redigido por nós só para nomear o card.
 // ============================================================================
 window.CANDIDATES_DATA = window.CANDIDATES_DATA || {};
 window.CANDIDATES_DATA["caiado"] = {
@@ -14,129 +14,120 @@ window.CANDIDATES_DATA["caiado"] = {
     number: 55,
     coalition: "Candidatura de partido isolado (PSD)",
     vp: "Gilberto Kassab (PSD)",
-    initials: "RC"
+    initials: "RC",
+    photo: "sources/caiado.jpg"
   },
-  positioningSummary: "Defende um 'Estado que planeja, dá segurança e mobiliza capital': ajuste fiscal plurianual sem aumento de impostos, elevar o investimento total de ~17% para ~25% do PIB via concessões e capital privado, e devolver ao Banco Central estabilidade macroeconômica para reduzir juros — plano organizado tema a tema, com diagnóstico e metas de acompanhamento explícitos.",
   economy: {
     fiscal: {
       diagnosis: [
-        "Diz que o país 'enfrenta uma crise fiscal estrutural': despesas obrigatórias, benefícios tributários e subsídios cresceram e comprimiram o investimento público, elevando a dívida/PIB e mantendo os juros reais 'entre os mais altos do mundo'.",
-        "Argumenta que a carga tributária já é elevada e que a resposta não pode ser 'criação contínua de receitas para acompanhar despesas que crescem automaticamente' — o ajuste deve vir do gasto, não de novos impostos."
+        { quote: "O Brasil enfrenta uma crise fiscal estrutural. A expansão das despesas obrigatórias, dos benefícios tributários, dos subsídios e de mecanismos orçamentários fragmentados reduziu a capacidade do governo de escolher prioridades e comprimiu o investimento público.", page: 12 },
+        { quote: "O resultado é conhecido: a dívida pública cresce em relação ao PIB e os juros reais permanecem entre os mais altos do mundo.", page: 12 },
+        { quote: "A carga tributária já é elevada e o sistema permanece complexo. A resposta não pode ser a criação contínua de receitas para acompanhar despesas que crescem automaticamente.", page: 12 }
       ],
-      measures: [
-        "Publicar um 'Orçamento da Verdade' com diagnóstico completo de despesas obrigatórias, passivos e riscos fiscais nos primeiros meses de governo, e adotar estratégia fiscal plurianual com metas anuais rumo a superávits primários.",
-        "Fazer despesas obrigatórias crescerem abaixo do PIB, rever subsídios e benefícios tributários sem resultado comprovado, e aplicar efetivamente o teto constitucional contra supersalários."
-      ],
-      sourceRefs: [{ page: 12 }, { page: 13 }]
+      proposals: [
+        { title: "Publicar o 'Orçamento da Verdade'", quotes: [{ quote: "Apresentar, nos primeiros meses, diagnóstico completo de despesas obrigatórias, passivos, subsídios, benefícios tributários, restos a pagar, fundos, garantias e riscos fiscais, acompanhado de projeções e alternativas de decisão.", page: 12 }] },
+        { title: "Estratégia fiscal plurianual", quotes: [{ quote: "Definir trajetória para estabilizar a dívida em relação ao PIB, recuperar superávits primários e reduzir a despesa de juros, com metas anuais, bandas de tolerância, cláusulas de correção e prestação periódica de contas.", page: 12 }] },
+        { title: "Combater supersalários", quotes: [{ quote: "Aplicar o teto constitucional de forma efetiva em todos os Poderes e órgãos, com transparência das parcelas remuneratórias e responsabilização de pagamentos incompatíveis com a Constituição.", page: 12 }] },
+        { title: "Coordenar política fiscal e monetária respeitando o BC", quotes: [{ quote: "Coordenar políticas fiscal e monetária com respeito à autonomia do Banco Central. Reduzir pressões fiscais sobre preços, aperfeiçoar comunicação e previsibilidade e criar condições para que inflação controlada, juros menores e desenvolvimento coexistam de forma sustentável.", page: 13 }] }
+      ]
     },
     tributacao: {
       diagnosis: [
-        "Trata a tributação como parte do diagnóstico fiscal geral: carga tributária elevada e sistema complexo, com benefícios tributários que precisam de 'prazo, objetivo, beneficiário, estimativa de custo, contrapartida e avaliação independente'."
+        { quote: "A carga tributária já é elevada e o sistema permanece complexo. A resposta não pode ser a criação contínua de receitas para acompanhar despesas que crescem automaticamente. O esforço deverá concentrar-se na qualidade, na trajetória e na governança do gasto.", page: 12 }
       ],
-      measures: [
-        "Revisar subsídios, subvenções e benefícios tributários sem resultado — reduzindo ou encerrando os que forem incompatíveis com as prioridades nacionais — em vez de criar novos tributos.",
-        "Não detalha uma reforma tributária própria; trata correção da carga tributária como consequência do ajuste fiscal e da revisão de exceções, não como capítulo autônomo."
-      ],
-      sourceRefs: [{ page: 12 }, { page: 13 }]
+      proposals: [
+        { title: "Rever subsídios, subvenções e benefícios tributários", quotes: [{ quote: "Exigir prazo, objetivo, beneficiário, estimativa de custo, contrapartida e avaliação independente. Benefícios sem resultado ou incompatíveis com as prioridades nacionais serão reduzidos ou encerrados.", page: 12 }] }
+      ]
     },
     "cambio-comercio": {
       diagnosis: [
-        "Diagnostica um 'déficit de inserção' internacional: grande economia pouco integrada ao comércio mundial, rede limitada de acordos comerciais, empresas pouco internacionalizadas e pauta exportadora de baixa complexidade tecnológica; nota que o Mercosul 'já não conta com uma visão comum entre seus membros'."
+        { quote: "Persiste, entretanto, um déficit de inserção. Somos uma grande economia pouco integrada ao comércio mundial, com rede limitada de acordos, empresas pouco internacionalizadas e pauta exportadora de baixa complexidade tecnológica.", page: 72 },
+        { quote: "O Mercosul, por sua vez, já não conta com uma visão comum entre seus membros sobre seus objetivos, seu funcionamento e seu futuro.", page: 72 }
       ],
-      measures: [
-        "Consolidar o acordo Mercosul–União Europeia e ampliar a rede de acordos comerciais, priorizando Ásia, África e Indo-Pacífico.",
-        "Buscar 'exportar melhor': elevar a complexidade tecnológica e o valor agregado da pauta exportadora, com metas de exportação e investimento atribuídas a embaixadas."
-      ],
-      sourceRefs: [{ page: 72 }, { page: 73 }]
+      proposals: [
+        { title: "Mercosul–União Europeia e ampliação de acordos", quotes: [{ quote: "Consolidar o acordo entre o Mercosul e a União Europeia, aprofundar a integração econômica regional e negociar novos acordos que ampliem o acesso das empresas e dos produtos brasileiros aos mercados mais dinâmicos do mundo.", page: 73 }] },
+        { title: "Exportar melhor: mais complexidade tecnológica", quotes: [{ quote: "Elevar progressivamente a complexidade tecnológica e o valor agregado da inserção da economia brasileira. O objetivo não será apenas exportar mais, mas exportar melhor.", page: 73 }] },
+        { title: "Diplomacia econômica com metas por embaixada", quotes: [{ quote: "Atribuir a embaixadas e representações metas de exportação, investimento, tecnologia e abertura de mercados, com avaliação periódica.", page: 74 }] }
+      ]
     },
     "trabalho-renda": {
       diagnosis: [
-        "Situa o mercado de trabalho dentro do diagnóstico de produtividade: entre 1981 e 2024 a produtividade por hora trabalhada cresceu apenas ~0,5% ao ano, e a desaceleração demográfica torna a produção por trabalhador 'o principal determinante da renda futura'."
+        { quote: "O crescimento sustentável depende de produtividade. Entre 1981 e 2024, a produtividade por hora trabalhada cresceu apenas cerca de 0,5% ao ano.", page: 14 }
       ],
-      measures: [
-        "Modernizar o mercado de trabalho com formação contínua, intermediação digital, apoio à transição profissional e inclusão de jovens e mulheres.",
-        "Reduzir 'os custos que empurram pessoas e empresas à informalidade', sem detalhar no documento uma reforma específica da CLT."
-      ],
-      sourceRefs: [{ page: 14 }, { page: 15 }]
+      proposals: [
+        { title: "Modernizar o mercado de trabalho", quotes: [{ quote: "Promover formação contínua, intermediação digital, apoio à transição profissional, inclusão de jovens e mulheres, segurança para novas formas de trabalho e redução dos custos que empurram pessoas e empresas à informalidade.", page: 15 }] },
+        { title: "Medir crescimento pelo que chega às famílias", quotes: [{ quote: "Acompanhar produtividade, renda, emprego formal, investimento, custo de vida, qualidade dos serviços e mobilidade social, corrigindo políticas que elevem indicadores agregados sem melhorar a vida concreta das pessoas.", page: 15 }] }
+      ]
     },
     "inflacao-monetaria": {
       diagnosis: [
-        "Atribui os juros reais elevados à incerteza fiscal: 'a incerteza sobre a sustentabilidade das contas públicas aumenta o custo de financiamento do governo, das empresas e das famílias'."
+        { quote: "A incerteza sobre a sustentabilidade das contas públicas aumenta o custo de financiamento do governo, das empresas e das famílias, prejudicando investimento, emprego e crescimento.", page: 12 }
       ],
-      measures: [
-        "Coordenar as políticas fiscal e monetária 'com respeito à autonomia do Banco Central', reduzindo pressões fiscais sobre preços para que 'inflação controlada, juros menores e desenvolvimento coexistam de forma sustentável' — sem propor mudança no regime de metas."
-      ],
-      sourceRefs: [{ page: 13 }]
+      proposals: [
+        { title: "Coordenação fiscal-monetária respeitando a autonomia do BC", quotes: [{ quote: "Coordenar políticas fiscal e monetária com respeito à autonomia do Banco Central. Reduzir pressões fiscais sobre preços, aperfeiçoar comunicação e previsibilidade e criar condições para que inflação controlada, juros menores e desenvolvimento coexistam de forma sustentável.", page: 13 }] }
+      ]
     },
     "estado-privatizacoes": {
       diagnosis: [
-        "Registra que o setor privado 'já é o principal investidor em infraestrutura no Brasil', respondendo por mais de 70% dos aportes anuais via concessões, PPPs e mercado de capitais — e credita isso a marcos legais recentes como o do saneamento."
+        { quote: "O setor privado tornou-se o principal investidor em infraestrutura no Brasil, respondendo por mais de 70% dos aportes anuais, por meio de concessões, parcerias público-privadas e instrumentos de mercado de capitais.", page: 46 }
       ],
-      measures: [
-        "Ampliar concessões e PPPs com calendário permanente de leilões (dando continuidade ao Programa de Parcerias em Investimentos), usando outorgas para financiar nova infraestrutura.",
-        "Fortalecer agências reguladoras com autonomia técnica e comando de estatais protegido de indicação política — sem listar estatais específicas a privatizar no documento."
-      ],
-      sourceRefs: [{ page: 46 }, { page: 48 }]
+      proposals: [
+        { title: "Ampliação das concessões e PPPs", quotes: [{ quote: "Manter um calendário permanente e previsível de leilões (dando continuidade ao Programa de Parcerias em Investimentos, o PPI) em rodovias, ferrovias, portos, aeroportos, saneamento, energia e infraestrutura social, como hospitais, escolas e iluminação pública.", page: 46 }] },
+        { title: "Governança técnica das estatais protegida de indicação política", quotes: [{ quote: "Remover as barreiras que impedem esse capital de fluir por decisão própria: governança técnica protegida de indicações políticas, segurança para quem decide com diligência e responsabilidade, e tratamento regulatório e tributário adequado ao investidor de longo prazo.", page: 47 }] },
+        { title: "Fortalecer agências reguladoras com autonomia técnica", quotes: [{ quote: "Fortalecer as agências reguladoras com autonomia técnica de fato, diretorias completas, orçamento adequado e quadros qualificados.", page: 46 }] }
+      ]
     },
     "infraestrutura-investimento": {
       diagnosis: [
-        "Aponta investimento total em infraestrutura (público + privado) em torno de 2% do PIB ao ano, quando o 'consenso técnico' indicaria necessidade de ~4% — resultado de descontinuidade entre ciclos de governo, não de falta de projetos ou capital."
+        { quote: "O investimento total do país, público e privado, situa-se em torno de 2% do PIB ao ano, quando o consenso técnico indica a necessidade de patamares próximos a 4% do PIB, de forma sustentada.", page: 46 }
       ],
-      measures: [
-        "Instituir Plano Nacional de Infraestrutura com horizonte de 30 anos e instância técnica independente para avaliar grandes projetos.",
-        "Elevar a taxa de investimento total da economia de ~17% para ~25% do PIB, com bancos públicos atuando como estruturadores (não financiadores diretos) e redução do risco cambial para capital estrangeiro de longo prazo."
-      ],
-      sourceRefs: [{ page: 14 }, { page: 46 }]
+      proposals: [
+        { title: "Plano Nacional de Infraestrutura como política de Estado", quotes: [{ quote: "Instituir um planejamento integrado de longo prazo, com horizonte de trinta anos e revisões periódicas, e uma carteira única de projetos priorizados por critérios técnicos de retorno econômico e social.", page: 46 }] },
+        { title: "Elevar investimento total de ~17% para ~25% do PIB", quotes: [{ quote: "O país deverá trabalhar para que o investimento total avance dos atuais cerca de 17% do PIB em direção a aproximadamente 25%, com participação relevante do investimento público das três esferas em áreas nas quais o retorno social não é plenamente apropriado pelo setor privado.", page: 14 }] },
+        { title: "BNDES como estruturador, não financiador direto", quotes: [{ quote: "Aprofundar os instrumentos de financiamento privado que o país construiu na última década [...] com o BNDES atuando prioritariamente como estruturador de projetos e catalisador de capital privado.", page: 47 }] }
+      ]
     }
   },
   otherThemes: {
     educacao: {
-      keyProposals: [
-        "Pacto Nacional pela Alfabetização e Matemática na Idade Certa (até o fim do 2º ano).",
-        "Recomposição nacional das aprendizagens com diagnóstico por estudante e prioridade a português, matemática e ciências.",
-        "Elevar o padrão das licenciaturas e criar carreira docente mais atrativa, com bolsas para bons estudantes que escolham a docência."
-      ],
-      sourceRefs: [{ page: 32 }, { page: 33 }]
+      proposals: [
+        { title: "Pacto Nacional pela Alfabetização e Matemática na Idade Certa", quotes: [{ quote: "Apoiar estados e municípios para que todas as crianças leiam, escrevam, compreendam e dominem fundamentos matemáticos até o fim do 2º ano.", page: 32 }] },
+        { title: "Recomposição nacional das aprendizagens", quotes: [{ quote: "Diagnosticar defasagens por estudante e rede, oferecer material, tempo adicional, tutoria e formação. Estabelecer meta de reduzir drasticamente o contingente abaixo do básico, com prioridade a português, matemática e ciências.", page: 32 }] },
+        { title: "Professor bem formado, apoiado e valorizado", quotes: [{ quote: "Elevar padrão das licenciaturas, exigir prática supervisionada robusta, restringir cursos de baixa qualidade e oferecer bolsas a bons estudantes que escolham docência.", page: 33 }] }
+      ]
     },
     saude: {
-      keyProposals: [
-        "Reorganizar o SUS por regiões, com atenção primária resolutiva e acesso regulado por risco clínico.",
-        "Criar redes nacionais por linha de cuidado (infarto, AVC, câncer, saúde da mulher, saúde mental, saúde indígena).",
-        "Usar IA, prontuário eletrônico integrado e telessaúde para reduzir filas evitáveis e antecipar riscos."
-      ],
-      sourceRefs: [{ page: 75 }]
+      proposals: [
+        { title: "SUS mais preventivo, integrado e digital", quotes: [{ quote: "O SUS será preservado como sistema universal e transformado em uma rede mais preventiva, integrada, digital e orientada por resultados.", page: 75 }] },
+        { title: "Acesso regulado por risco clínico", quotes: [{ quote: "A saúde será organizada por regiões, com atenção primária resolutiva, acesso regulado por risco clínico, especialistas conectados, hospitais avaliados por qualidade e profissionais valorizados.", page: 75 }] }
+      ]
     },
     seguranca: {
-      keyProposals: [
-        "Criar o Ministério da Segurança Pública e o Sistema Integrado de Proteção à Soberania Nacional.",
-        "Propor Lei do Terrorismo Doméstico enquadrando facções e milícias como organizações terroristas, com penas mínimas de 35–45 anos para lideranças e financiadores.",
-        "Criar o Sistema Nacional de Inteligência Criminal, integrando bases de dados de União, estados, MP e Judiciário."
-      ],
-      sourceRefs: [{ page: 16 }, { page: 17 } , { page: 18 }]
+      proposals: [
+        { title: "Ministério da Segurança Pública", quotes: [{ quote: "Criar o Ministério da Segurança Pública e instituir o Conselho Estratégico Nacional de Segurança Pública e Combate ao Terrorismo Doméstico, sob liderança da Presidência da República e com participação dos governadores.", page: 16 }] },
+        { title: "Lei do Terrorismo Doméstico para facções", quotes: [{ quote: "Propor legislação que enquadre como terrorismo doméstico as organizações criminosas e milícias que apresentem estrutura permanente de comando, domínio territorial, capacidade armada, poder econômico e uso sistemático da violência.", page: 17 }] },
+        { title: "Sistema Nacional de Inteligência Criminal", quotes: [{ quote: "Integrar os bancos de dados da União, dos estados, do Distrito Federal, do Ministério Público e do Poder Judiciário, reunindo antecedentes, mandados, vínculos com organizações criminosas, informações penitenciárias, perfis genéticos e dados biométricos.", page: 17 }] }
+      ]
     },
     "meio-ambiente": {
-      keyProposals: [
-        "Grande Pacto Nacional pelo Desenvolvimento Sustentável, unindo União, estados, municípios e setor produtivo.",
-        "Licenciamento ambiental 'por risco, prazo e objetividade', com procedimentos simplificados para baixo risco.",
-        "Operacionalizar mercado de carbono de alta integridade e ampliar Pagamento por Serviços Ambientais em escala."
-      ],
-      sourceRefs: [{ page: 50 }, { page: 51 }]
+      proposals: [
+        { title: "Licenciamento por risco, prazo e objetividade", quotes: [{ quote: "Implementar marco nacional com exigências proporcionais ao impacto, termos de referência padronizados, prazos públicos, coordenação entre órgãos e participação social.", page: 50 }] },
+        { title: "Mercado de carbono de alta integridade", quotes: [{ quote: "Operacionalizar o sistema regulado brasileiro, integrar mercados voluntários, estabelecer padrões de mensuração e rastreabilidade e articular mecanismos internacionais.", page: 51 }] },
+        { title: "Pagamento por Serviços Ambientais em escala", quotes: [{ quote: "Remunerar conservação de água, solo, biodiversidade e carbono, articulando recursos públicos, privados e de mercados.", page: 51 }] }
+      ]
     },
     tecnologia: {
-      keyProposals: [
-        "Tratar conectividade e data centers como infraestrutura estratégica, aproveitando energia limpa e escala continental.",
-        "Colocar a diplomacia a serviço do acesso a IA, computação avançada e biotecnologia (tema tratado dentro de Relações Exteriores).",
-        "Dar estabilidade ao FNDCT e modernizar a Lei do Bem para conectar ciência, inovação e empresas."
-      ],
-      sourceRefs: [{ page: 15 }, { page: 46 }, { page: 73 }]
+      proposals: [
+        { title: "Infraestrutura digital como estratégica", quotes: [{ quote: "Tratar conectividade, redes de telecomunicações e centros de processamento de dados como infraestrutura estratégica. O Brasil reúne o que a economia digital procura: energia majoritariamente limpa e renovável, escala continental.", page: 46 }] },
+        { title: "Acesso a IA e computação avançada via diplomacia", quotes: [{ quote: "Colocar a diplomacia a serviço do acesso do Brasil à inteligência artificial, à computação avançada, à infraestrutura digital, à biotecnologia e aos novos materiais.", page: 73 }] }
+      ]
     },
     "politica-externa": {
-      keyProposals: [
-        "Tratar política externa como 'política de Estado', com estratégia de inserção internacional que atravesse ciclos eleitorais.",
-        "Relações simultâneas com EUA, União Europeia, América Latina, África, Ásia e Oriente Médio, 'sem alinhamento automático'.",
-        "Retomar, com pragmatismo, a aproximação com a OCDE e consolidar o acordo Mercosul–União Europeia."
-      ],
-      sourceRefs: [{ page: 72 }, { page: 73 }, { page: 74 }]
+      proposals: [
+        { title: "Política externa como política de Estado", quotes: [{ quote: "Definir uma estratégia nacional de inserção internacional aprovada em conselho de governo e debatida com o Congresso, o setor produtivo, a academia e a sociedade. As prioridades transcenderão ciclos políticos e eleitorais.", page: 72 }] },
+        { title: "Sem alinhamento automático a nenhum polo", quotes: [{ quote: "Fortalecer simultaneamente as relações com os Estados Unidos, a União Europeia, a América Latina, a África, a Ásia e o Oriente Médio, sem hierarquias ou preferências determinadas por afinidades ideológicas.", page: 73 }] },
+        { title: "Aproximação pragmática com a OCDE", quotes: [{ quote: "Participar ativamente da ONU, da OMC, do G20 e do BRICS e retomar, com pragmatismo, o processo de aproximação com a OCDE.", page: 74 }] }
+      ]
     }
   }
 };

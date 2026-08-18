@@ -5,12 +5,15 @@ propostas dos 5 candidatos com mais intenção de voto na eleição presidencial
 de 2026 (pesquisa BTG/Nexus, 17/ago/2026): Lula (PT), Flávio Bolsonaro (PL),
 Ronaldo Caiado (PSD), Renan Santos (Missão) e Romeu Zema (Novo).
 
-Foco principal em **Economia** — dividida em 7 subtemas, cada um separando o
-**diagnóstico** que o candidato faz do cenário atual das **medidas
-propostas** para o futuro — e cobertura mais enxuta de 6 outros temas
-(educação, saúde, segurança, meio ambiente, tecnologia, política externa).
-Todo o conteúdo é extraído e parafraseado dos **planos de governo oficiais
-registrados no TSE**, com a página do PDF citada em cada trecho.
+Foco principal em **Economia** — dividida em 7 subtemas, cada um com aba de
+**Diagnóstico** e aba de **Propostas** — e cobertura mais enxuta de 6 outros
+temas (educação, saúde, segurança, meio ambiente, tecnologia, política
+externa). Em Economia e Outros Temas, todo trecho de posicionamento é
+**citação literal** dos **planos de governo oficiais registrados no TSE**
+(nunca resumo nosso), com a página do PDF referenciada. A seção **Perfil
+Político** é a exceção declarada: um gráfico tipo Smartspider (smartvote)
+com 6 eixos — isso é leitura editorial nossa, não citação, e o site deixa
+isso explícito.
 
 ## Por que esse formato
 
@@ -18,7 +21,7 @@ O visual (sidebar, tipografia serifada+mono, tema claro/escuro) é herdado do
 [ftm-chartbook](https://github.com/guivaraschinalves/ftm-chartbook), outro
 projeto do mesmo autor — mas **não** o mecanismo. O chart-book lê a lista de
 gráficos direto da API do GitHub em tempo real; aqui os dados são texto
-estruturado (propostas por candidato/tema), não imagens, e o site também
+estruturado (citações por candidato/tema), não imagens, e o site também
 precisa funcionar como Claude Artifact — que bloqueia qualquer `fetch()`
 externo. Por isso os dados vivem em arquivos `data/*.js` (`window.X = {...}`),
 carregados como `<script>` normal, sem nenhuma chamada de rede em runtime.
@@ -27,32 +30,51 @@ carregados como `<script>` normal, sem nenhuma chamada de rede em runtime.
 
 ```
 index.html          → casca da página (sidebar, seções) — script tags na ordem certa
-styles.css           → visual (tokens de cor/tipografia, cards, tabs)
+styles.css           → visual (tokens de cor/tipografia/candidato, cards, tabs, spider chart)
 app.js               → lê os dados e monta as 4 seções (DOM puro, sem framework)
 data/
-  taxonomy.js         → lista de subtemas de Economia, outros temas, e ordem dos candidatos
+  taxonomy.js         → subtemas de Economia, outros temas, ordem dos candidatos
   sources.js           → URL oficial de cada plano no TSE + caminho do PDF local
-  candidates/*.js       → um arquivo por candidato: dados básicos + posições por tema
-sources/             → cópia de cada PDF oficial (baixados do TSE, linkados pelo site)
+  profile.js            → eixos e notas do Perfil Político (síntese editorial, não citação)
+  candidates/*.js       → um arquivo por candidato: dados básicos + citações por tema
+sources/             → foto oficial (TSE) + cópia de cada PDF por candidato
 scripts/
   build_artifact.py    → gera dist/ftm-eleicoes-artifact.html (versão self-contained p/ Artifact)
 ```
 
 ## Como atualizar um candidato
 
-Edite o arquivo dele em `data/candidates/<id>.js`. Cada tema de Economia tem
-`diagnosis` (o que o candidato diz sobre o cenário atual), `measures` (o que
-propõe fazer) e `sourceRefs` (`[{page: N}]`, a página do PDF onde conferir).
+Edite o arquivo dele em `data/candidates/<id>.js`. Cada subtema de Economia
+tem:
+- `diagnosis`: array de `{ quote, page }` — trecho **literal** do plano sobre
+  o cenário atual, sem título nosso.
+- `proposals`: array de `{ title, quotes: [{ quote, page }] }` — `title` é
+  redigido por nós só para identificar o card; `quotes` é sempre transcrição
+  literal do plano (pode ter mais de uma citação quando a proposta precisa de
+  dois trechos para fazer sentido).
+
 Se o plano não aborda um subtema, deixe os arrays vazios — o site mostra
 "Não abordado explicitamente no plano de governo" em vez de um card em
-branco (evita parecer erro de coleta). Outros temas só têm `keyProposals` +
-`sourceRefs`, sem a divisão diagnóstico/medida.
+branco (evita parecer erro de coleta). `otherThemes.<tema>` só tem
+`proposals` no mesmo formato, sem `diagnosis`.
 
-Para trocar/adicionar um candidato, crie `data/candidates/<id>.js` seguindo o
-mesmo formato, adicione `<script src="data/candidates/<id>.js">` em
+Para trocar/adicionar um candidato: crie `data/candidates/<id>.js` seguindo
+o formato acima, adicione `<script src="data/candidates/<id>.js">` em
 `index.html` (e na lista `SCRIPT_FILES` de `scripts/build_artifact.py`),
 inclua `<id>` em `CANDIDATE_ORDER` (`data/taxonomy.js`), adicione a entrada
-em `data/sources.js` e coloque o PDF oficial em `sources/<id>.pdf`.
+em `data/sources.js`, coloque a foto oficial em `sources/<id>.jpg` e o PDF em
+`sources/<id>.pdf`, e adicione as notas de `data/profile.js` (eixos 0–100 +
+`rationale`, ver seção abaixo).
+
+## Perfil Político — a exceção declarada
+
+`data/profile.js` não segue o padrão "citação literal" do resto do site: são
+6 eixos de 0 a 100 (`PROFILE_SCORES`) atribuídos por nós, a partir da leitura
+do conjunto de citações já coletado em Economia/Outros Temas, para alimentar
+um gráfico tipo Smartspider (inspirado no
+[smartvote](https://www.smartvote.ch/)). Cada eixo tem um `rationale` por
+candidato — editar a nota exige também editar (ou apontar para) o
+`rationale` correspondente, para manter a leitura auditável.
 
 ## De onde vieram os dados
 
@@ -61,11 +83,12 @@ Os 5 PDFs foram baixados do **Portal de Dados Abertos do TSE**
 Governo", pacote `proposta_governo_2026_BR.zip`) e identificados cruzando o
 `SQ_CANDIDATO` de cada um no arquivo de metadados
 (`consulta_cand_2026_BR.csv`, recurso "Candidatos") com o nome do arquivo PDF
-dentro do pacote (`2026BR<SQ_CANDIDATO>_01.pdf`). Fallback individual, quando
-necessário: `divulgacandcontas.tse.jus.br/divulga/rest/arquivo/doc/<ID>`. Os
-trechos de `diagnosis`/`measures`/`keyProposals` são parafraseados a partir
-do texto do PDF — em caso de dúvida ou divergência, o PDF oficial (linkado em
-cada card e na seção Fontes) prevalece.
+dentro do pacote (`2026BR<SQ_CANDIDATO>_01.pdf`). As fotos oficiais vieram do
+recurso "BR — Fotos de Candidatos" do mesmo dataset, pareadas pelo mesmo
+`SQ_CANDIDATO`. Fallback individual de PDF, quando necessário:
+`divulgacandcontas.tse.jus.br/divulga/rest/arquivo/doc/<ID>`. Em caso de
+dúvida ou divergência, o PDF oficial (linkado em cada card e na seção
+Fontes) prevalece sobre qualquer citação aqui reproduzida.
 
 ## Testar localmente
 
@@ -84,10 +107,14 @@ cd ftm-eleicoes
 python3 scripts/build_artifact.py
 ```
 
-Gera `dist/ftm-eleicoes-artifact.html`: HTML único, com CSS e todos os dados
-inline, sem nenhum `<link>`/`<script src>` externo — pronto pra colar na
-ferramenta de Artifact. Rode de novo sempre que mudar dado, estilo ou
-`app.js`; nunca edite o arquivo gerado à mão.
+Gera `dist/ftm-eleicoes-artifact.html`: HTML único, com CSS, todos os dados e
+as fotos (`sources/*.jpg`) embutidos como data URI — sem nenhum
+`<link>`/`<script src>` externo — pronto pra colar na ferramenta de
+Artifact. Os PDFs (`sources/*.pdf`, ~6,5 MB somados) **não** são embutidos: o
+build zera `localPdfPath` nessa versão e o site usa só o link "Ver no TSE"
+(`officialPdfUrl`), que aponta pra fonte oficial de qualquer forma. Rode de
+novo sempre que mudar dado, estilo ou `app.js`; nunca edite o arquivo gerado
+à mão.
 
 ## Publicar no GitHub Pages
 

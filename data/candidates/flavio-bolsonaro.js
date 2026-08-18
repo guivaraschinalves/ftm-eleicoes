@@ -1,8 +1,9 @@
 // ============================================================================
-// FLÁVIO BOLSONARO (PL) — dados extraídos de "Para o Brasil Vencer o Atraso",
-// proposta de governo registrada no TSE (ver data/sources.json). Textos
-// parafraseados/resumidos a partir do PDF oficial; sourceRefs indicam a
-// página do PDF onde o trecho original pode ser conferido.
+// FLÁVIO BOLSONARO (PL) — citações do plano "Para o Brasil Vencer o Atraso",
+// proposta de governo registrada no TSE (ver data/sources.js). Todo texto em
+// `quote` é TRANSCRIÇÃO LITERAL do PDF oficial — não paráfrase. `title` em
+// cada proposta é redigido por nós só para nomear o card; o conteúdo citado
+// é sempre do próprio plano.
 // ============================================================================
 window.CANDIDATES_DATA = window.CANDIDATES_DATA || {};
 window.CANDIDATES_DATA["flavio-bolsonaro"] = {
@@ -13,131 +14,125 @@ window.CANDIDATES_DATA["flavio-bolsonaro"] = {
     number: 22,
     coalition: "Candidatura de partido isolado (PL)",
     vp: "Alfredo Gaspar (PL)",
-    initials: "FB"
+    initials: "FB",
+    photo: "sources/flavio-bolsonaro.jpg"
   },
-  positioningSummary: "Defende ajuste fiscal via corte de gastos ('Tesouraço', mínimo de 10 ministérios), revisão da reforma tributária aprovada pelo governo Lula, redução do custo do trabalho formal e Estado como regulador — não empresário — da economia, com foco em segurança jurídica para atrair investimento privado.",
   economy: {
     fiscal: {
       diagnosis: [
-        "Afirma que a gestão Lula elevou a dívida bruta/PIB em 13 pontos percentuais em quatro anos sem enfrentar uma pandemia, resultando em inflação fora da meta, a maior taxa de juros em 19 anos e 30 novos impostos ou aumentos de alíquota.",
-        "Contrasta com o próprio governo anterior (2019–2022), no qual diz ter reduzido a relação dívida/PIB em 4 pontos percentuais mesmo durante a pandemia."
+        { quote: "Foram 30 aumentos de tributos, a inflação de alimentos fora de controle e a maior taxa de juros em 19 anos. O Brasil tem hoje a maior taxa de juro real do mundo!", page: 29 },
+        { quote: "Em quatro anos, a dívida pública cresceu 13 pontos percentuais em relação ao PIB.", page: 29 },
+        { quote: "Mesmo enfrentando a maior pandemia em cem anos, reduzimos em 4 pontos percentuais a relação entre a dívida e o PIB.", page: 29 }
       ],
-      measures: [
-        "Promover um 'Tesouraço': corte de no mínimo 10 ministérios, redução de cargos comissionados e despesas administrativas, combate a supersalários, revisão normativa tributária/previdenciária/trabalhista.",
-        "Reformular as regras fiscais visando superávits primários e estabilização/queda da dívida/PIB, com regra de controle de gastos discricionários nos três Poderes."
-      ],
-      sourceRefs: [{ page: 29 }, { page: 68 }, { page: 69 }, { page: 71 }]
+      proposals: [
+        { title: "'Tesouraço': corte de no mínimo 10 ministérios", quotes: [
+          { quote: "Nossa bandeira é um grande TESOURAÇO: um corte profundo e por todos os lados, que enxuga a máquina, coloca as contas em ordem e reduz os impostos que pesam sobre quem produz.", page: 68 },
+          { quote: "Isso inclui o corte de no mínimo 10 ministérios, a redução de cargos comissionados e de despesas administrativas e o combate aos penduricalhos e supersalários que corroem o orçamento.", page: 69 }
+        ] },
+        { title: "Superávits primários e controle de gastos discricionários", quotes: [{ quote: "Vamos construir o equilíbrio fiscal duradouro, entregando superávits primários e limitando o crédito subsidiado com recursos do Tesouro, mitigando pressões inflacionárias. E haverá uma regra clara de controle de gastos discricionários dos três Poderes da União.", page: 71 }] }
+      ]
     },
     tributacao: {
       diagnosis: [
-        "Critica a reforma tributária do consumo aprovada pelo governo Lula como 'entregue ao sabor dos lobbies': cerca de R$ 1 trilhão sem fonte orçamentária definida nos fundos criados e mais de R$ 500 bilhões em exceções permanentes, projetando um IVA em torno de 30% (ante média de 19% na OCDE)."
+        { quote: "com a atual reforma tributária, o Brasil caminha para ter um dos maiores impostos sobre valor agregado (IVA) do mundo, projetado em torno de 30%, contra uma média de 19% nos países da OCDE, e menos ainda em vários vizinhos.", page: 30 },
+        { quote: "a reforma tributária aprovada pela atual gestão foi entregue ao sabor dos lobbies [...] deixou para a população um custo que se aproxima de R$ 1 trilhão, sem fonte orçamentária definida nos dois fundos criados pela reforma, além de mais de R$ 500 bilhões em exceções decorrentes dos lobbies, que passaram a ser permanentes.", page: 30 }
       ],
-      measures: [
-        "Revisar e redimensionar a reforma tributária em curso, reduzindo o IVA, garantindo não cumulatividade e desonerando exportações e investimentos.",
-        "Reduzir tributos sobre energia elétrica e combustíveis, e simplificar a conta de luz reduzindo a CDE e subsídios cruzados, mantida a tarifa social."
-      ],
-      sourceRefs: [{ page: 30 }, { page: 31 }, { page: 71 }]
+      proposals: [
+        { title: "Reduzir o IVA e corrigir distorções da reforma", quotes: [{ quote: "Vamos promover a revisão e o redimensionamento da reforma tributária em curso e da majoração de impostos efetuada pelo atual governo, com o objetivo de reduzir efetivamente a carga sobre a produção e o consumo. Vamos corrigir suas distorções, reduzir o IVA, hoje projetado num dos patamares mais altos do mundo, e assegurar a não cumulatividade.", page: 30 }] },
+        { title: "Simplificar a conta de luz e reduzir tributos sobre energia", quotes: [{ quote: "Vamos simplificar a conta de luz, racionalizando encargos e subsídios cruzados, e promover a redução gradual da CDE e das fontes incentivadas, mantida a tarifa social para quem mais precisa dela. Vamos reduzir impostos sobre energia elétrica e combustíveis.", page: 31 }] }
+      ]
     },
     "cambio-comercio": {
       diagnosis: [
-        "Aponta que o alinhamento ideológico do governo Lula (recepção a Maduro, atracação de navios de guerra iranianos) não trouxe 'nem comércio, nem investimento, nem respeito', e cita sanções dos EUA, China e Europa a produtos brasileiros como resultado do desgaste diplomático."
+        { quote: "O governo recebeu com honras o ditador venezuelano Nicolás Maduro, fraudador do processo eleitoral e preso por narcotráfico e narcoterrorismo. [...] Muito alinhamento ideológico, nenhum retorno para o Brasil: nem comércio, nem investimento, nem respeito.", page: 62 }
       ],
-      measures: [
-        "Retomar o cronograma de adesão à OCDE, incluindo o fim gradual do IOF sobre câmbio.",
-        "Executar plano de integração a cadeias globais de valor (agroindústria, minerais críticos, saúde, economia digital), abrir comércio a bens de capital e insumos importados e buscar solução diplomática às sanções comerciais dos EUA, China e Europa ao agro."
-      ],
-      sourceRefs: [{ page: 62 }, { page: 63 }, { page: 54 }]
+      proposals: [
+        { title: "Retomar adesão à OCDE e fim do IOF sobre câmbio", quotes: [{ quote: "O passo mais urgente é retomar o cronograma interrompido de adesão à OCDE, incluindo o fim gradual do IOF sobre o câmbio, que é condição obrigatória do processo.", page: 63 }] },
+        { title: "Plano de integração a cadeias globais de valor", quotes: [{ quote: "Vamos executar um plano nacional de integração às cadeias globais de valor, com apoio real para o setor produtivo ganhar produtividade, tendo como prioridade a agroindústria avançada, os minerais críticos, a saúde e a economia digital.", page: 63 }] }
+      ]
     },
     "trabalho-renda": {
       diagnosis: [
-        "Diz que o custo de um trabalhador formal chega a cerca de duas vezes o salário que ele recebe, o que empurra empresas para a informalidade ou para não contratar."
+        { quote: "Hoje, o custo de um trabalhador formal chega a cerca de duas vezes o salário que ele leva para casa. Essa diferença é o que faz muita empresa não contratar, ou contratar na informalidade.", page: 43 }
       ],
-      measures: [
-        "Reduzir gradualmente o custo do trabalho sem retirar direitos; criar contratos de menor custo para jovens de 18 a 24 anos e para desempregados com 50 anos ou mais.",
-        "Defender o 'negociado sobre o legislado' entre trabalhador e empresa, dentro da lei, e modernizar a intermediação de mão de obra (banco nacional de vagas).",
-        "Criar o Minha Primeira Empresa (desburocratização para novos negócios) e transformar a CAIXA em 'Banco da Prosperidade', com crédito e orientação financeira integrados."
-      ],
-      sourceRefs: [{ page: 43 }, { page: 44 }, { page: 45 }, { page: 46 }]
+      proposals: [
+        { title: "Contrato jovem (18–24) e contrato 50+", quotes: [{ quote: "Para o jovem, vamos criar um contrato de trabalho para os 18 a 24 anos em busca do primeiro emprego, com menor custo na folha [...] Para quem tem mais idade, vamos criar um contrato mais atrativo para a contratação de pessoas com 50 anos ou mais desempregadas há pelo menos 12 meses.", page: 44 }] },
+        { title: "Negociado sobre o legislado", quotes: [{ quote: "defendemos o negociado sobre o legislado, ou seja, permitir que trabalhador e empresa combinem diretamente as condições de trabalho que funcionam para os dois, dentro da lei, em vez de seguir uma regra única imposta a todos.", page: 44 }] },
+        { title: "Minha Primeira Empresa", quotes: [{ quote: "Para quem está começando, vamos criar o Minha Primeira Empresa: menos burocracia para abrir e formalizar o negócio, capacitação e orientação pelo Sistema S.", page: 45 }] },
+        { title: "CAIXA como 'Banco da Prosperidade'", quotes: [{ quote: "A CAIXA deixará de ser apenas a operadora de benefícios para se tornar o Banco da Prosperidade.", page: 46 }] }
+      ]
     },
     "inflacao-monetaria": {
       diagnosis: [
-        "Afirma que o Brasil tem hoje a maior taxa de juro real do mundo e a maior Selic em 19 anos, argumentando que 'os juros altos são consequência da dívida crescente' — não um fenômeno isolado da política monetária."
+        { quote: "os juros altos são consequência da dívida crescente. Juros menores não se decretam: conquistam-se com contas em ordem, e não há conta em ordem quando o governo gasta mais do que arrecada.", page: 32 },
+        { quote: "Dados do Boletim Focus de outubro de 2022, antes da eleição, previam taxa selic cerca de 7 pontos percentuais abaixo do que se praticou em 2025 e 2026.", page: 32 }
       ],
-      measures: [
-        "Estabilizar e reduzir a dívida pública como caminho para levar os juros à média internacional e a inflação ao centro da meta (sem propor mudança no regime de metas do Banco Central).",
-        "Proibir o uso de recursos de programas sociais em apostas online e ampliar orientação financeira via CAIXA para reduzir o endividamento das famílias."
-      ],
-      sourceRefs: [{ page: 29 }, { page: 32 }, { page: 71 }]
+      proposals: [
+        { title: "Estabilizar a dívida para trazer juros à média internacional", quotes: [{ quote: "Ao estabilizar e reduzir a dívida pública, nosso governo vai criar as condições para que os juros básicos fiquem em linha com a média internacional e para que a inflação volte ao centro da meta.", page: 33 }] },
+        { title: "Proibir apostas online com recursos de programas sociais", quotes: [{ quote: "Vamos proibir o uso dos recursos dos programas sociais para apostas, porque dinheiro destinado a pôr comida na mesa não pode escoar para a casa de apostas.", page: 33 }] }
+      ]
     },
     "estado-privatizacoes": {
       diagnosis: [
-        "Associa o PT ao 'loteamento' político de estatais, fundos de pensão e diretorias como raiz do esquema investigado na Lava Jato."
+        { quote: "Para o PT, cada estatal, cada diretoria, cada fundo de pensão é espaço a ser loteado entre aliados, e foi assim que a Lava Jato encontrou, no aparelhamento das estatais, o coração do maior esquema de corrupção da história do país.", page: 70 }
       ],
-      measures: [
-        "Fortalecer a Lei das Estatais (2016), preenchendo comando de estatais e fundos de pensão por recrutamento técnico de mercado, blindado de indicação política.",
-        "Retomar o Programa Nacional de Desestatização 'com critério, avaliando caso a caso onde a presença do Estado deixou de fazer sentido' — sem listar empresas específicas a privatizar no documento."
-      ],
-      sourceRefs: [{ page: 69 }, { page: 70 }]
+      proposals: [
+        { title: "Fortalecer a Lei das Estatais", quotes: [{ quote: "Nas empresas públicas, essa proteção tem nome: a Lei das Estatais, de 2016, criada depois da Lava Jato para blindar as estatais da indicação política [...] Tentaram enfraquecê-la; nós vamos fortalecê-la.", page: 70 }] },
+        { title: "Retomar o Programa Nacional de Desestatização", quotes: [{ quote: "vamos retomar o Programa Nacional de Desestatização com critério, avaliando caso a caso onde a presença do Estado deixou de fazer sentido.", page: 70 }] },
+        { title: "Blindar fundos de pensão de estatais da indicação política", quotes: [{ quote: "Vamos blindar os fundos de pensão das estatais da indicação política, porque a aposentadoria do trabalhador não pode virar cofre de projeto de poder.", page: 70 }] }
+      ]
     },
     "infraestrutura-investimento": {
       diagnosis: [
-        "Aponta custo logístico de 15,5% do PIB (quase o dobro dos 8,8% dos EUA) e crescimento médio de apenas 2% ao ano do país nas últimas duas décadas como diagnóstico central do capítulo econômico."
+        { quote: "O custo logístico no Brasil é de 15,5% do PIB, quase o dobro dos 8,8% dos Estados Unidos.", page: 31 },
+        { quote: "O país cresceu, em média, 2% ao ano nas últimas duas décadas, menos do que o mundo. Nossa meta é dobrar esse ritmo e alcançar um crescimento sustentado de 4% ao ano ao longo da próxima década.", page: 49 }
       ],
-      measures: [
-        "Investir R$ 900 bilhões em quatro anos em rodovias, hidrovias, portos, aeroportos e ferrovias, com fundo lastreado em securitização de ativos da União, PPPs e concessões — meta de crescimento de 4% ao ano na próxima década.",
-        "Criar estabilidade regulatória de até 20 anos para grandes projetos de infraestrutura e agilizar o licenciamento ambiental com prazos definidos (aprovação tácita em caso de omissão do órgão público)."
-      ],
-      sourceRefs: [{ page: 49 }, { page: 50 }, { page: 51 }]
+      proposals: [
+        { title: "R$ 900 bi em infraestrutura em 4 anos", quotes: [{ quote: "Vamos investir R$ 900 bilhões em quatro anos em rodovias, hidrovias, portos, aeroportos e ferrovias.", page: 51 }] },
+        { title: "Estabilidade regulatória de até 20 anos", quotes: [{ quote: "Vamos também garantir que a regra combinada no início seja a regra do fim. Para os grandes projetos de longa maturação, criaremos mecanismos de estabilidade das regras de até 20 anos, para que o contrato não seja mudado depois que a obra já estiver de pé.", page: 50 }] }
+      ]
     }
   },
   otherThemes: {
     educacao: {
-      keyProposals: [
-        "Priorizar o método fônico de alfabetização e criar o Programa Acolher (aluno com bom desempenho remunerado para dar reforço a colegas).",
-        "Vincular financiamento a metas de aprendizagem ('orçamento por resultados') e ampliar Escolas Cívico-Militares.",
-        "Onde faltar vaga na rede pública, oferecer voucher educacional para matrícula em outra escola; substituir o FIES por Empréstimo Contingente à Renda."
-      ],
-      sourceRefs: [{ page: 35 }, { page: 36 }, { page: 37 }]
+      proposals: [
+        { title: "Método fônico de alfabetização", quotes: [{ quote: "Vamos priorizar o método fônico, que é o de melhor resultado comprovado pela ciência, ensinando a criança a ligar cada som à sua letra, em vez das abordagens que fracassaram por décadas.", page: 35 }] },
+        { title: "Programa Acolher (reforço entre alunos)", quotes: [{ quote: "vamos criar o Programa Acolher: um aluno com bom desempenho é remunerado para dar reforço aos colegas que precisam, de forma remota ou presencial.", page: 35 }] },
+        { title: "Voucher educacional onde faltar vaga", quotes: [{ quote: "onde faltar vaga na rede pública, a família receberá um voucher educacional para matricular o filho em outra escola, porque a prioridade é a criança aprender.", page: 36 }] },
+        { title: "Empréstimo Contingente à Renda (substitui o FIES)", quotes: [{ quote: "vamos adotar o Empréstimo Contingente à Renda: o estudante só começa a pagar quando estiver empregado e ganhando, o valor da parcela é proporcional ao que ele recebe e o prazo é bem mais longo.", page: 37 }] }
+      ]
     },
     saude: {
-      keyProposals: [
-        "Corrigir a tabela SUS para cobrir o custo real do atendimento de hospitais, santas casas e clínicas.",
-        "Ampliar a Estratégia Saúde da Família e criar um Programa de Atendimento aos Idosos.",
-        "Ampliar acesso a exames preventivos."
-      ],
-      sourceRefs: [{ page: 37 }]
+      proposals: [
+        { title: "Correção efetiva da tabela SUS", quotes: [{ quote: "Vamos garantir as condições para que seja possível a correção efetiva da tabela SUS. [...] Vamos assegurar uma remuneração que cubra o custo real do atendimento.", page: 37 }] },
+        { title: "Programa de Atendimento aos Idosos", quotes: [{ quote: "criar o Programa de Atendimento aos Idosos, com atendimento facilitado e adequado a quem envelhece, para que o idoso não enfrente o mesmo percurso cansativo de sempre para se cuidar.", page: 37 }] }
+      ]
     },
     seguranca: {
-      keyProposals: [
-        "Classificar PCC, CV, milícias e outras facções como organizações narcoterroristas, com asfixia financeira e bloqueio de ativos.",
-        "Reduzir a maioridade penal de 18 para 16 anos e punir maiores de 14 anos em crimes graves.",
-        "Criar 5 novos presídios de segurança máxima (modelo El Salvador) e o Sistema Nacional de Fronteira; dobrar os investimentos federais em segurança pública."
-      ],
-      sourceRefs: [{ page: 13 }, { page: 14 }, { page: 15 }]
+      proposals: [
+        { title: "Facções classificadas como narcoterroristas", quotes: [{ quote: "Vamos declarar guerra ao crime organizado. PCC, CV, milícias e todas as outras facções serão declaradas como organizações narcoterroristas.", page: 13 }] },
+        { title: "Redução da maioridade penal para 16 anos", quotes: [{ quote: "O novo governo do Brasil vai apoiar e sancionar a redução da maioridade penal de 18 para 16 anos.", page: 13 }] },
+        { title: "5 presídios de segurança máxima (Complexo TREVA)", quotes: [{ quote: "O Brasil terá 5 novos presídios de segurança máxima no modelo adotado por El Salvador. [...] ele vai se chamar TREVA.", page: 14 }] },
+        { title: "Dobrar investimentos federais em segurança pública", quotes: [{ quote: "O novo governo do Brasil vai dobrar os investimentos federais em segurança pública ao longo do mandato.", page: 15 }] }
+      ]
     },
     "meio-ambiente": {
-      keyProposals: [
-        "Consolidar um mercado regulado de carbono e tratar o meio ambiente como 'ativo estratégico', ampliando pagamento por serviços ambientais.",
-        "Eliminar superposições entre Ibama, Funai e ICMBio e exigir transparência de financiadores estrangeiros de ONGs que atuam sobre o território brasileiro.",
-        "Levar adiante a universalização do saneamento pelo Marco Legal do Saneamento."
-      ],
-      sourceRefs: [{ page: 58 }, { page: 59 }]
+      proposals: [
+        { title: "Mercado regulado de carbono", quotes: [{ quote: "vamos consolidar o mercado regulado de carbono com segurança jurídica, posicionando o Brasil como fornecedor global de ativos ambientais.", page: 58 }] },
+        { title: "Eliminar sobreposição entre Ibama, Funai e ICMBio", quotes: [{ quote: "Vamos eliminar superposições entre Ibama, Funai e ICMBio, dando eficiência à fiscalização.", page: 59 }] }
+      ]
     },
     tecnologia: {
-      keyProposals: [
-        "Lançar Estratégia Nacional de Inteligência Artificial voltada a micro, pequenas e médias empresas (indústria, agro, saúde, logística).",
-        "Fortalecer parques tecnológicos, incubadoras e startups, aproximando universidades e empresas.",
-        "Fortalecer a defesa cibernética do país e legislar para proteger dados do cidadão no uso de IA."
-      ],
-      sourceRefs: [{ page: 56 }, { page: 57 }]
+      proposals: [
+        { title: "Estratégia Nacional de IA para pequenas empresas", quotes: [{ quote: "A Estratégia Nacional de Inteligência Artificial vai difundir a IA para as micro, pequenas e médias empresas em larga escala, com prioridade para indústria, agronegócio, saúde e logística.", page: 56 }] },
+        { title: "Fortalecer a defesa cibernética", quotes: [{ quote: "Vamos fortalecer a defesa cibernética do país, protegendo serviços públicos, infraestrutura crítica e cidadãos contra ataques e fraudes.", page: 57 }] }
+      ]
     },
     "politica-externa": {
-      keyProposals: [
-        "Substituir alinhamento ideológico por diplomacia 'profissional e pragmática', reatando relações com Argentina, Estados Unidos e Israel.",
-        "Retomar o processo de adesão à OCDE como eixo da inserção internacional.",
-        "Recusar tratar como adversários parceiros comerciais tradicionais, negociando 'da China à União Europeia' pelo interesse do produtor brasileiro."
-      ],
-      sourceRefs: [{ page: 61 }, { page: 62 }, { page: 63 }]
+      proposals: [
+        { title: "Diplomacia profissional, não ideológica", quotes: [{ quote: "Nossa proposta é o oposto: uma diplomacia guiada pelo profissionalismo e pelo pragmatismo, não pela ideologia. O Itamaraty voltará a ser conduzido pela competência técnica que sempre marcou seus quadros.", page: 62 }] },
+        { title: "Reatar relações com Argentina, EUA e Israel", quotes: [{ quote: "Nos últimos anos, as relações com países como Argentina, Estados Unidos e Israel foram levadas ao limite do rompimento. Vamos reverter esse quadro com profissionalismo e foco no interesse do Brasil.", page: 62 }] }
+      ]
     }
   }
 };
