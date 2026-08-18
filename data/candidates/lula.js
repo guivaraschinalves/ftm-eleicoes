@@ -33,7 +33,7 @@ window.CANDIDATES_DATA["lula"] = {
     },
     tributacao: {
       diagnosis: [
-        { quote: "Sob a diretriz de “colocar o pobre no orçamento e o rico no Imposto de Renda”, a gestão realizou uma profunda reorganização fiscal que elevou a proteção social sem renunciar ao reequilíbrio das contas públicas.", page: 10 },
+        { quote: "Sob a diretriz de \"colocar o pobre no orçamento e o rico no Imposto de Renda\", a gestão realizou uma profunda reorganização fiscal que elevou a proteção social sem renunciar ao reequilíbrio das contas públicas.", page: 10 },
         { quote: "Nossa estrutura tributária mudou para melhor. Tributamos a renda dos super ricos e fechamos diversas brechas que só geravam distorções na economia, como a tributação de offshores e fundos exclusivos.", page: 11 },
         { quote: "Aprovamos a histórica reforma tributária do consumo. O número de impostos cairá de cinco (PIS, Cofins, IPI, ICMS e ISS) para dois (CBS federal e IBS subnacional).", page: 11 }
       ],

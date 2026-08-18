@@ -197,8 +197,10 @@ h1 { font-family: var(--font-serif); font-weight: 500; font-size: 2.5rem; margin
   font-size: 0.95rem; color: var(--ink); line-height: 1.6; margin: 0 0 4px; padding-left: 14px;
   border-left: 3px solid var(--border); font-style: italic;
 }
-.plan-quote::before { content: "\201C"; font-style: normal; }
-.plan-quote::after { content: "\201D"; font-style: normal; }
+/* Aspas retas (ASCII), não tipográficas — a fonte usada no Artifact nem
+   sempre tem o glifo de "\201C"/"\201D" e mostra um quadrado no lugar. */
+.plan-quote::before { content: "\0022"; font-style: normal; }
+.plan-quote::after { content: "\0022"; font-style: normal; }
 
 .proposal-item { margin-bottom: 16px; }
 .proposal-item:last-child { margin-bottom: 0; }
