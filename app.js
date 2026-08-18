@@ -204,121 +204,77 @@
     return card;
   }
 
-  // Abas genéricas de 1 nível (usadas em Outros Temas, e dentro de cada
-  // subtema de Economia para Diagnóstico/Propostas). `ids` é opcional —
-  // por padrão mostra os 5 candidatos, mas a aba Comparar 1×1 chama isto
-  // de novo passando só os 2 candidatos escolhidos.
-  function buildTabs(tabsHost, panelsHost, topics, buildCard, idPrefix, ids) {
-    ids = ids || orderedCandidateIds();
-    tabsHost.setAttribute("role", "tablist");
-    topics.forEach(function (topic, ti) {
-      var btn = el("button", "tab-btn");
-      btn.type = "button";
-      btn.id = idPrefix + "-tab-" + topic.id;
-      btn.setAttribute("role", "tab");
-      btn.setAttribute("aria-controls", idPrefix + "-panel-" + topic.id);
-      btn.setAttribute("aria-selected", ti === 0 ? "true" : "false");
-      btn.textContent = topic.label;
-      tabsHost.appendChild(btn);
+  // Seta usada nos <summary> das seções retráteis — gira 90° via CSS quando
+  // o <details> pai está aberto ([open] > summary .disclosure-chevron).
+  function chevronIcon() {
+    var svg = svgEl("svg", { viewBox: "0 0 16 16", width: "13", height: "13", "aria-hidden": "true", class: "disclosure-chevron" });
+    svg.appendChild(svgEl("path", {
+      d: "M5 3l5 5-5 5", fill: "none", stroke: "currentColor",
+      "stroke-width": "1.7", "stroke-linecap": "round", "stroke-linejoin": "round"
+    }));
+    return svg;
+  }
 
-      var panel = el("div", "tab-panel");
-      panel.id = idPrefix + "-panel-" + topic.id;
-      panel.setAttribute("role", "tabpanel");
-      panel.setAttribute("aria-labelledby", idPrefix + "-tab-" + topic.id);
-      if (ti !== 0) panel.hidden = true;
+  function disclosureSummary(text) {
+    var summary = document.createElement("summary");
+    var label = document.createElement("span");
+    label.textContent = text;
+    summary.appendChild(label);
+    summary.appendChild(chevronIcon());
+    return summary;
+  }
+
+  // Cada subtema/tema é uma seção retrátil (<details>) independente das
+  // outras — abrir uma não fecha as demais, e não existe mais handler de
+  // "esconder tudo, mostrar só esta" (a classe de bug do painel em branco
+  // ao trocar de aba não existe mais aqui: o navegador cuida do
+  // abrir/fechar nativamente). `ids` é opcional — por padrão mostra os 5
+  // candidatos, mas a aba Comparar 1×1 chama isto de novo passando só os 2
+  // candidatos escolhidos.
+  function buildTopicAccordion(host, topics, buildCard, ids) {
+    if (!host) return;
+    ids = ids || orderedCandidateIds();
+    topics.forEach(function (topic, ti) {
+      var details = el("details", "topic-disclosure");
+      if (ti === 0) details.open = true;
+      details.appendChild(disclosureSummary(topic.label));
 
       var grid = el("div", "compare-grid");
       ids.forEach(function (id) { grid.appendChild(buildCard(id, topic.id)); });
-      panel.appendChild(grid);
-      panelsHost.appendChild(panel);
-
-      btn.addEventListener("click", function () {
-        tabsHost.querySelectorAll(".tab-btn").forEach(function (b) { b.setAttribute("aria-selected", "false"); });
-        // Só os filhos diretos de panelsHost, não querySelectorAll(".tab-panel")
-        // — esse painel de tema não tem abas aninhadas dentro dele, mas o de
-        // Economia (buildEconomySection, logo abaixo) tem, e um
-        // querySelectorAll pegaria também os painéis internos de
-        // Diagnóstico/Propostas do painel que está prestes a aparecer.
-        Array.prototype.forEach.call(panelsHost.children, function (p) { p.hidden = true; });
-        btn.setAttribute("aria-selected", "true");
-        panel.hidden = false;
-      });
+      details.appendChild(grid);
+      host.appendChild(details);
     });
   }
 
-  // Economia: abas de subtema (nível 1) e, dentro de cada painel de subtema,
-  // um segundo par de abas Diagnóstico/Propostas (nível 2). `ids` e
-  // `idPrefix` são parametrizados porque a aba Comparar 1×1 reusa esta
-  // mesma função para só 2 candidatos, num host e prefixo de id diferentes
-  // (evita ids de DOM duplicados entre a seção Economia e a Comparação).
-  function buildEconomySection(tabsHost, panelsHost, ids, idPrefix) {
-    if (!tabsHost || !panelsHost) return;
+  // Economia: cada subtema é uma seção retrátil de nível 1 (a primeira já
+  // vem aberta); dentro dela, Diagnóstico e Propostas são duas seções
+  // retráteis de nível 2, ambas já abertas por padrão — não precisa mais
+  // clicar em nada pra ver as duas, mas dá pra fechar qualquer uma se quiser
+  // menos texto na tela. `ids` é parametrizado porque a aba Comparar 1×1
+  // reusa esta mesma função para só 2 candidatos.
+  function buildEconomySection(host, ids) {
+    if (!host) return;
     var subthemes = window.ECONOMY_SUBTHEMES || [];
+    var kinds = [{ label: "Diagnóstico", kind: "diagnosis" }, { label: "Propostas", kind: "proposals" }];
 
-    tabsHost.setAttribute("role", "tablist");
     subthemes.forEach(function (sub, si) {
-      var btn = el("button", "tab-btn");
-      btn.type = "button";
-      btn.id = idPrefix + "-tab-" + sub.id;
-      btn.setAttribute("role", "tab");
-      btn.setAttribute("aria-controls", idPrefix + "-panel-" + sub.id);
-      btn.setAttribute("aria-selected", si === 0 ? "true" : "false");
-      btn.textContent = sub.label;
-      tabsHost.appendChild(btn);
+      var details = el("details", "topic-disclosure");
+      if (si === 0) details.open = true;
+      details.appendChild(disclosureSummary(sub.label));
 
-      var panel = el("div", "tab-panel");
-      panel.id = idPrefix + "-panel-" + sub.id;
-      panel.setAttribute("role", "tabpanel");
-      panel.setAttribute("aria-labelledby", idPrefix + "-tab-" + sub.id);
-      if (si !== 0) panel.hidden = true;
+      var body = el("div", "topic-disclosure-body");
+      kinds.forEach(function (k) {
+        var kindDetails = el("details", "kind-disclosure");
+        kindDetails.open = true;
+        kindDetails.appendChild(disclosureSummary(k.label));
 
-      var heading = el("h3", "panel-heading");
-      heading.textContent = sub.label;
-      panel.appendChild(heading);
-
-      var innerTabs = el("div", "tabs tabs-inner");
-      innerTabs.setAttribute("role", "tablist");
-      var innerPanels = document.createElement("div");
-      var kinds = [{ id: "diagnostico", label: "Diagnóstico", kind: "diagnosis" }, { id: "propostas", label: "Propostas", kind: "proposals" }];
-      kinds.forEach(function (k, ki) {
-        var innerBtn = el("button", "tab-btn tab-btn-inner");
-        innerBtn.type = "button";
-        innerBtn.setAttribute("role", "tab");
-        innerBtn.setAttribute("aria-selected", ki === 0 ? "true" : "false");
-        innerBtn.textContent = k.label;
-        innerTabs.appendChild(innerBtn);
-
-        var innerPanel = el("div", "tab-panel");
-        innerPanel.setAttribute("role", "tabpanel");
-        if (ki !== 0) innerPanel.hidden = true;
         var grid = el("div", "compare-grid");
         ids.forEach(function (id) { grid.appendChild(buildEconomyCard(id, sub.id, k.kind)); });
-        innerPanel.appendChild(grid);
-        innerPanels.appendChild(innerPanel);
-
-        innerBtn.addEventListener("click", function () {
-          innerTabs.querySelectorAll(".tab-btn").forEach(function (b) { b.setAttribute("aria-selected", "false"); });
-          Array.prototype.forEach.call(innerPanels.children, function (p) { p.hidden = true; });
-          innerBtn.setAttribute("aria-selected", "true");
-          innerPanel.hidden = false;
-        });
+        kindDetails.appendChild(grid);
+        body.appendChild(kindDetails);
       });
-      panel.appendChild(innerTabs);
-      panel.appendChild(innerPanels);
-      panelsHost.appendChild(panel);
-
-      btn.addEventListener("click", function () {
-        tabsHost.querySelectorAll(".tab-btn").forEach(function (b) { b.setAttribute("aria-selected", "false"); });
-        // O bug estava aqui: querySelectorAll(".tab-panel") pegava também os
-        // painéis internos de Diagnóstico/Propostas (mesma classe, aninhados
-        // dentro de cada painel de subtema) e escondia os dois — o painel
-        // recém-selecionado ficava sem nenhum dos dois visível até o usuário
-        // clicar manualmente numa aba interna. Só os filhos diretos de
-        // panelsHost (os painéis de subtema) devem ser escondidos aqui.
-        Array.prototype.forEach.call(panelsHost.children, function (p) { p.hidden = true; });
-        btn.setAttribute("aria-selected", "true");
-        panel.hidden = false;
-      });
+      details.appendChild(body);
+      host.appendChild(details);
     });
   }
 
@@ -368,9 +324,7 @@
     var selectA = document.getElementById("compare-select-a");
     var selectB = document.getElementById("compare-select-b");
     var headHost = document.getElementById("compare-head-to-head");
-    var econTabsHost = document.getElementById("compare-economy-tabs");
     var econPanelsHost = document.getElementById("compare-economy-panels");
-    var otherTabsHost = document.getElementById("compare-other-tabs");
     var otherPanelsHost = document.getElementById("compare-other-panels");
     if (!selectA || !selectB) return;
 
@@ -394,13 +348,11 @@
       headHost.appendChild(buildCandidateCard(a));
       headHost.appendChild(buildCandidateCard(b));
 
-      econTabsHost.innerHTML = "";
       econPanelsHost.innerHTML = "";
-      buildEconomySection(econTabsHost, econPanelsHost, [a, b], "cmp-econ");
+      buildEconomySection(econPanelsHost, [a, b]);
 
-      otherTabsHost.innerHTML = "";
       otherPanelsHost.innerHTML = "";
-      buildTabs(otherTabsHost, otherPanelsHost, window.OTHER_THEMES || [], buildOtherThemeCard, "cmp-other", [a, b]);
+      buildTopicAccordion(otherPanelsHost, window.OTHER_THEMES || [], buildOtherThemeCard, [a, b]);
     }
 
     // Não deixa escolher o mesmo candidato nos dois lados — troca o outro
@@ -649,19 +601,13 @@
   function init() {
     buildCandidateGrid();
     buildProfileSection();
-    buildEconomySection(
-      document.getElementById("economy-tabs"),
-      document.getElementById("economy-panels"),
-      orderedCandidateIds(),
-      "econ"
-    );
+    buildEconomySection(document.getElementById("economy-panels"), orderedCandidateIds());
     buildCandidateFilter(document.getElementById("economy-candidate-filter"));
-    buildTabs(
-      document.getElementById("other-tabs"),
+    buildTopicAccordion(
       document.getElementById("other-panels"),
       window.OTHER_THEMES || [],
       buildOtherThemeCard,
-      "other"
+      orderedCandidateIds()
     );
     buildCandidateFilter(document.getElementById("other-candidate-filter"));
     buildComparisonSection();
