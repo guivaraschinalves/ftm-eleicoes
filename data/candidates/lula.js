@@ -35,7 +35,8 @@ window.CANDIDATES_DATA["lula"] = {
       diagnosis: [
         { quote: "Sob a diretriz de \"colocar o pobre no orçamento e o rico no Imposto de Renda\", a gestão realizou uma profunda reorganização fiscal que elevou a proteção social sem renunciar ao reequilíbrio das contas públicas.", page: 10 },
         { quote: "Nossa estrutura tributária mudou para melhor. Tributamos a renda dos super ricos e fechamos diversas brechas que só geravam distorções na economia, como a tributação de offshores e fundos exclusivos.", page: 11 },
-        { quote: "Aprovamos a histórica reforma tributária do consumo. O número de impostos cairá de cinco (PIS, Cofins, IPI, ICMS e ISS) para dois (CBS federal e IBS subnacional).", page: 11 }
+        { quote: "Aprovamos a histórica reforma tributária do consumo. O número de impostos cairá de cinco (PIS, Cofins, IPI, ICMS e ISS) para dois (CBS federal e IBS subnacional).", page: 11 },
+        { quote: "Aprovamos a reforma tributária do consumo e isentamos de imposto de renda todos os que ganham até R$ 5.000, compromisso assumido na campanha de 2022, marcos do início do processo de redução da regressividade do sistema tributário brasileiro.", page: 19 }
       ],
       proposals: [
         { title: "Imposto Seletivo na regulamentação da reforma", quotes: [{ quote: "Ao regulamentar a reforma tributária, vamos, por meio do Imposto Seletivo, desestimular produtos nocivos à saúde.", page: 59 }] },
@@ -46,11 +47,13 @@ window.CANDIDATES_DATA["lula"] = {
     "cambio-comercio": {
       diagnosis: [
         { quote: "fomos alvos também de pelo menos três ondas de tarifaços pelo Governo Trump. Esse cenário exigiu um conjunto robusto de medidas, como o Plano Brasil Soberano, que vem dando fôlego às empresas brasileiras, preservando o emprego e a renda do povo brasileiro.", page: 12 },
-        { quote: "Retomamos o crescimento da nossa indústria, entre 2023 e 2025, foi a 6ª que mais cresceu no mundo entre as economias do G20, com 3,2% acumulados.", page: 10 }
+        { quote: "Retomamos o crescimento da nossa indústria, entre 2023 e 2025, foi a 6ª que mais cresceu no mundo entre as economias do G20, com 3,2% acumulados.", page: 10 },
+        { quote: "Nossa diplomacia comercial permitiu abrir 656 novos mercados para os produtos brasileiros e a conclusão de acordos do Mercosul com a União Europeia, EFTA e Singapura.", page: 79 }
       ],
       proposals: [
         { title: "Exportações de maior valor agregado", quotes: [{ quote: "vamos estimular as exportações industriais, ampliar a presença em novos mercados e tornar a pauta exportadora mais concentrada em produtos com maior valor agregado, e aprimorando continuamente os instrumentos de defesa comercial.", page: 52 }] },
-        { title: "Comércio exterior alinhado à política industrial", quotes: [{ quote: "A política de comércio exterior deve continuar alinhada aos objetivos das políticas industrial, tecnológica e de inovação. Melhorar a inserção externa da economia brasileira será decisivo para garantir escala e competitividade global.", page: 52 }] }
+        { title: "Comércio exterior alinhado à política industrial", quotes: [{ quote: "A política de comércio exterior deve continuar alinhada aos objetivos das políticas industrial, tecnológica e de inovação. Melhorar a inserção externa da economia brasileira será decisivo para garantir escala e competitividade global.", page: 52 }] },
+        { title: "Novos acordos comerciais e abertura de mercados", quotes: [{ quote: "Investiremos em novos acordos comerciais e na abertura de novos mercados para nossos bens e serviços, de modo a continuar enfrentando agressões comerciais e a defender os interesses do país com base nas normas internacionais e no multilateralismo.", page: 80 }] }
       ]
     },
     "trabalho-renda": {
@@ -91,11 +94,16 @@ window.CANDIDATES_DATA["lula"] = {
     "infraestrutura-investimento": {
       diagnosis: [
         { quote: "O Novo PAC alcançou o objetivo de retomar os investimentos públicos e privados em infraestrutura no País. No ano de 2025, alcançamos o recorde de investimento em infraestrutura, R$ 280 bilhões e devemos fechar 2026 com nova marca ainda maior, R$ 300 bilhões.", page: 53 },
-        { quote: "Ao organizar a carteira de investimentos estratégicos, o Novo PAC orientou as expectativas dos agentes públicos e privados e desencadeou um ciclo virtuoso de investimento. Os dados de execução apontam a realização de R$1,3 trilhão, com empreendimentos que chegaram a 99% dos municípios.", page: 53 }
+        { quote: "Ao organizar a carteira de investimentos estratégicos, o Novo PAC orientou as expectativas dos agentes públicos e privados e desencadeou um ciclo virtuoso de investimento. Os dados de execução apontam a realização de R$1,3 trilhão, com empreendimentos que chegaram a 99% dos municípios.", page: 53 },
+        { quote: "Com uma carteira de projetos de R$ 118 bilhões no Novo PAC, a infraestrutura urbana voltou a receber atenção para assegurar um desenvolvimento urbano inclusivo, com base em cidades mais inteligentes, sustentáveis e resilientes.", page: 44 }
       ],
       proposals: [
         { title: "Nova edição do Novo PAC", quotes: [{ quote: "A nova edição do Novo PAC manterá a articulação dos investimentos públicos e privados em infraestrutura logística, dando sequência a obras públicas e concessões. Manteremos o ritmo nas concessões rodoviárias e intensificaremos as de ferrovias em duas frentes: leilão de novos projetos e repactuação dos contratos existentes.", page: 53 }] },
-        { title: "Reduzir déficit de fibra óptica e ampliar 5G", quotes: [{ quote: "Vamos reduzir o déficit de fibra óptica que ainda atinge 11% dos municípios e ampliar o 5G no campo, com prioridade para Norte, Nordeste e periferias.", page: 55 }] }
+        { title: "Reduzir déficit de fibra óptica e ampliar 5G", quotes: [{ quote: "Vamos reduzir o déficit de fibra óptica que ainda atinge 11% dos municípios e ampliar o 5G no campo, com prioridade para Norte, Nordeste e periferias.", page: 55 }] },
+        { title: "Universalizar saneamento e ampliar transporte de alta capacidade", quotes: [
+          { quote: "O governo Lula investiu de forma consistente em saneamento. A partir de 2023, foram R$ 23,3 bilhões para novas obras de abastecimento de água, esgotamento sanitário e gestão de resíduos sólidos [...] Continuaremos, no próximo mandato, a perseguir o objetivo de apoiar estados e municípios a universalizar acesso à água tratada e ao esgotamento sanitário.", page: 46 },
+          { quote: "A atual carteira, entre retomada de obras e novos investimentos, resultará em mais 233 km de metrôs, trens e VLTs e outros 296 km de corredores exclusivos de ônibus no padrão BRT.", page: 46 }
+        ] }
       ]
     }
   },

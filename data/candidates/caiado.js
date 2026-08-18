@@ -53,7 +53,8 @@ window.CANDIDATES_DATA["caiado"] = {
     "trabalho-renda": {
       diagnosis: [
         { quote: "O crescimento sustentável depende de produtividade. Entre 1981 e 2024, a produtividade por hora trabalhada cresceu apenas cerca de 0,5% ao ano.", page: 14 },
-        { quote: "Com a desaceleração do crescimento da população em idade ativa, a produção por trabalhador será o principal determinante da renda futura. Produtividade exige educação, qualificação, ciência, tecnologia, concorrência, infraestrutura, segurança jurídica e processos decisórios mais rápidos.", page: 14 }
+        { quote: "Com a desaceleração do crescimento da população em idade ativa, a produção por trabalhador será o principal determinante da renda futura. Produtividade exige educação, qualificação, ciência, tecnologia, concorrência, infraestrutura, segurança jurídica e processos decisórios mais rápidos.", page: 14 },
+        { quote: "Qualificação muitas vezes não corresponde às vagas [...] jovens não encontram primeira experiência e pequenos empreendedores carecem de capital, mercado e acompanhamento. Benefícios podem ser perdidos de forma abrupta quando a renda melhora, desestimulando formalização.", page: 61 }
       ],
       proposals: [
         { title: "Modernizar o mercado de trabalho", quotes: [{ quote: "Promover formação contínua, intermediação digital, apoio à transição profissional, inclusão de jovens e mulheres, segurança para novas formas de trabalho e redução dos custos que empurram pessoas e empresas à informalidade.", page: 15 }] },
@@ -88,7 +89,9 @@ window.CANDIDATES_DATA["caiado"] = {
       proposals: [
         { title: "Plano Nacional de Infraestrutura como política de Estado", quotes: [{ quote: "Instituir um planejamento integrado de longo prazo, com horizonte de trinta anos e revisões periódicas, e uma carteira única de projetos priorizados por critérios técnicos de retorno econômico e social.", page: 46 }] },
         { title: "Elevar investimento total de ~17% para ~25% do PIB", quotes: [{ quote: "O país deverá trabalhar para que o investimento total avance dos atuais cerca de 17% do PIB em direção a aproximadamente 25%, com participação relevante do investimento público das três esferas em áreas nas quais o retorno social não é plenamente apropriado pelo setor privado.", page: 14 }] },
-        { title: "BNDES como estruturador, não financiador direto", quotes: [{ quote: "Aprofundar os instrumentos de financiamento privado que o país construiu na última década [...] com o BNDES atuando prioritariamente como estruturador de projetos e catalisador de capital privado.", page: 47 }] }
+        { title: "BNDES como estruturador, não financiador direto", quotes: [{ quote: "Aprofundar os instrumentos de financiamento privado que o país construiu na última década [...] com o BNDES atuando prioritariamente como estruturador de projetos e catalisador de capital privado.", page: 47 }] },
+        { title: "Logística integrada para reduzir o Custo Brasil", quotes: [{ quote: "Rebalancear a matriz de transportes, hoje excessivamente concentrada no modal rodoviário, com prioridade a ferrovias, hidrovias, cabotagem e terminais intermodais, conectando as regiões produtoras aos portos e colocando o custo logístico do país em trajetória firme de queda.", page: 48 }] },
+        { title: "Universalizar o saneamento até 2033", quotes: [{ quote: "Cumprir e acelerar as metas do marco legal do saneamento (universalização até 2033), água tratada e coleta e tratamento de esgoto para todos os brasileiros [...] avançar na prestação regionalizada, que viabiliza a universalização nos municípios de menor atratividade.", page: 48 }] }
       ]
     }
   },

@@ -60,7 +60,8 @@ window.CANDIDATES_DATA["flavio-bolsonaro"] = {
         { title: "Contrato jovem (18–24) e contrato 50+", quotes: [{ quote: "Para o jovem, vamos criar um contrato de trabalho para os 18 a 24 anos em busca do primeiro emprego, com menor custo na folha [...] Para quem tem mais idade, vamos criar um contrato mais atrativo para a contratação de pessoas com 50 anos ou mais desempregadas há pelo menos 12 meses.", page: 44 }] },
         { title: "Negociado sobre o legislado", quotes: [{ quote: "defendemos o negociado sobre o legislado, ou seja, permitir que trabalhador e empresa combinem diretamente as condições de trabalho que funcionam para os dois, dentro da lei, em vez de seguir uma regra única imposta a todos.", page: 44 }] },
         { title: "Minha Primeira Empresa", quotes: [{ quote: "Para quem está começando, vamos criar o Minha Primeira Empresa: menos burocracia para abrir e formalizar o negócio, capacitação e orientação pelo Sistema S.", page: 45 }] },
-        { title: "CAIXA como 'Banco da Prosperidade'", quotes: [{ quote: "A CAIXA deixará de ser apenas a operadora de benefícios para se tornar o Banco da Prosperidade.", page: 46 }] }
+        { title: "CAIXA como 'Banco da Prosperidade'", quotes: [{ quote: "A CAIXA deixará de ser apenas a operadora de benefícios para se tornar o Banco da Prosperidade.", page: 46 }] },
+        { title: "'Ganha-Ganha': histórico positivo para quem se formaliza", quotes: [{ quote: "De adesão voluntária, ele permite que atitudes como concluir um curso de qualificação, formalizar um negócio, conseguir um emprego ou manter as contas em dia formem um histórico positivo que trabalha a favor do cidadão: acesso a crédito, juros menores e cashback para quem hoje é invisível ao sistema financeiro.", page: 46 }] }
       ]
     },
     "inflacao-monetaria": {

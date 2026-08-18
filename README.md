@@ -40,6 +40,10 @@ data/
 sources/             → foto oficial (TSE) + cópia de cada PDF por candidato
 scripts/
   build_artifact.py    → gera dist/ftm-eleicoes-artifact.html (versão self-contained p/ Artifact)
+  export_content_md.py  → gera CONTEUDO-DO-SITE.md (dump de data/*.js em markdown)
+  export_plans_md.py     → gera PLANOS-DE-GOVERNO.md (texto bruto dos 5 PDFs, um arquivo só)
+CONTEUDO-DO-SITE.md  → leitura de apoio: tudo que está em data/*.js, formatado (não é lido pelo site)
+PLANOS-DE-GOVERNO.md → leitura de apoio: os 5 planos de governo completos, um atrás do outro
 ```
 
 ## Como atualizar um candidato
@@ -116,6 +120,23 @@ build zera `localPdfPath` nessa versão e o site usa só o link "Ver no TSE"
 novo sempre que mudar dado, estilo ou `app.js`; nunca edite o arquivo gerado
 à mão.
 
+## Arquivos de leitura de apoio (não lidos pelo site)
+
+Dois arquivos em markdown, gerados a partir dos mesmos dados/fontes que o
+site usa, para quem quer ler tudo de uma vez fora do navegador:
+
+```
+python3 scripts/export_content_md.py   # gera CONTEUDO-DO-SITE.md
+python3 scripts/export_plans_md.py     # gera PLANOS-DE-GOVERNO.md
+```
+
+`CONTEUDO-DO-SITE.md` é o conteúdo já curado (o que está em `data/*.js`,
+formatado — diagnóstico, propostas com citação e página, Perfil Político).
+`PLANOS-DE-GOVERNO.md` é a matéria-prima: o texto bruto extraído dos 5 PDFs
+oficiais, um atrás do outro (~14 mil linhas, ~0,9 MB — é grande de propósito,
+é o material completo). Regenere os dois sempre que os dados mudarem; nenhum
+dos dois é referenciado por `index.html`/`app.js`.
+
 ## Publicar no GitHub Pages
 
 ```
@@ -125,5 +146,6 @@ git commit -m "Atualiza propostas"
 git push
 ```
 
-(Requer configurar o repositório remoto e o GitHub Pages primeiro — isso
-ainda não foi feito neste projeto.)
+O GitHub Pages já está configurado neste repositório (branch `main`, raiz) —
+publica em `https://guivaraschinalves.github.io/ftm-eleicoes/` alguns
+minutos depois do push.

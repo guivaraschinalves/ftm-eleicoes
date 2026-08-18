@@ -78,7 +78,9 @@ window.CANDIDATES_DATA["renan-santos"] = {
       ],
       proposals: [
         { title: "Zona Econômica de Terras Raras (8 estágios da cadeia)", quotes: [{ quote: "A ZEE de Terras Raras busca verticalizar a cadeia produtiva nacional, aproveitando a segunda maior reserva mundial do Brasil (cerca de 23%, USGS 2026), integrando oito estágios: (1) extração, (2) separação química, (3) refino, (4) ligas, (5) ímãs, (6) motores, (7) componentes para baterias e (8) semicondutores/defesa.", page: 36 }] },
-        { title: "Três polos industriais no Nordeste via ZEEs", quotes: [{ quote: "Polo Industrial de Suape (Pernambuco), focado em hidrogênio verde e petroquímica [...] Pecém (Ceará) e Araripe (Pernambuco), polo interestadual especializado em aço de baixo carbono [...] Aratu-Camaçari (Bahia) direcionado à mobilidade elétrica, baterias e semicondutores.", page: 35 }] }
+        { title: "Três polos industriais no Nordeste via ZEEs", quotes: [{ quote: "Polo Industrial de Suape (Pernambuco), focado em hidrogênio verde e petroquímica [...] Pecém (Ceará) e Araripe (Pernambuco), polo interestadual especializado em aço de baixo carbono [...] Aratu-Camaçari (Bahia) direcionado à mobilidade elétrica, baterias e semicondutores.", page: 35 }] },
+        { title: "Missão Rondon: meta de 40 mil km de ferrovias", quotes: [{ quote: "Ferrovias: meta mínima de 40 mil km de malha; conclusão antecipada da Ferrovia Alcântara-Açailândia, conclusão da Ferrovia de Integração Oeste-Leste (FIOL), início imediato das obras da Ferrogrão e viabilização da Ferrovia Transoceânica.", page: 24 }] },
+        { title: "Mobilizar capital privado por concessões e novo regime ferroviário", quotes: [{ quote: "mobilização do capital privado por concessões, PPPs e o novo regime de autorização ferroviária [...] aumento do investimento estatal em infraestrutura, condicionado à reforma administrativa e fiscal prévia.", page: 24 }] }
       ]
     }
   },

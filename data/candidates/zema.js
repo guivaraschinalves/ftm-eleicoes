@@ -60,7 +60,9 @@ window.CANDIDATES_DATA["zema"] = {
         { title: "Regime alternativo à CLT com negociado sobre legislado", quotes: [{ quote: "Permitir que trabalhador e empregador ajustem o modelo de contratação às suas preferências e à realidade de cada atividade, com prevalência do negociado sobre o legislado.", page: 23 }] },
         { title: "Zerar encargos na contratação de informais", quotes: [{ quote: "Zerar os encargos sobre o equivalente a um salário mínimo na contratação de quem está há mais de um ano na informalidade, em empresas de todos os setores.", page: 24 }] },
         { title: "Fim do monopólio sindical", quotes: [{ quote: "Encerrar o monopólio sindical, assegurando ao profissional o direito de não se filiar ou contribuir para sindicatos, e limitar o poder regulatório e disciplinar dos conselhos profissionais.", page: 24 }] },
-        { title: "Acabar com reservas de mercado corporativistas", quotes: [{ quote: "Desregulamentar profissões que não envolvam risco à saúde ou segurança da população, eliminando exigências corporativistas que existem apenas para proteger grupos estabelecidos.", page: 25 }] }
+        { title: "Acabar com reservas de mercado corporativistas", quotes: [{ quote: "Desregulamentar profissões que não envolvam risco à saúde ou segurança da população, eliminando exigências corporativistas que existem apenas para proteger grupos estabelecidos.", page: 25 }] },
+        { title: "Condicionar o Bolsa Família à busca de trabalho", quotes: [{ quote: "Permitir que adultos saudáveis e aptos ao trabalho permaneçam no Bolsa Família apenas enquanto estiverem buscando emprego, estudando ou se qualificando profissionalmente, com possibilidade de suspensão do benefício para quem, sem justificativa, recusar ofertas formais de trabalho.", page: 63 }] },
+        { title: "Prêmio de R$ 5 mil para quem sai da dependência de programas sociais", quotes: [{ quote: "Conceder um prêmio de R$5 mil às famílias que deixarem o Bolsa Família após superar o limite de renda, premiando quem aceita uma oportunidade, entra na formalidade, começa a empreender e conquista sua própria autonomia.", page: 63 }] }
       ]
     },
     "inflacao-monetaria": {
@@ -92,7 +94,13 @@ window.CANDIDATES_DATA["zema"] = {
       ],
       proposals: [
         { title: "Conceder ativos viáveis, PPP onde o mercado não chega", quotes: [{ quote: "Conceder à iniciativa privada a construção, operação e manutenção dos ativos com viabilidade econômica e, onde o mercado não chega sozinho, garantir a presença do Estado via PPPs.", page: 19 }] },
-        { title: "Atrair investimento em data centers sem regulação precoce de IA", quotes: [{ quote: "Atrair investimentos internacionais em inovação e tecnologia, principalmente em data centers, aproveitando a energia barata em excesso [...] Garantir que o Brasil não irá restringir o mercado de IA por meio de regulações excessivas e inadequadas.", page: 21 }] }
+        { title: "Atrair investimento em data centers sem regulação precoce de IA", quotes: [{ quote: "Atrair investimentos internacionais em inovação e tecnologia, principalmente em data centers, aproveitando a energia barata em excesso [...] Garantir que o Brasil não irá restringir o mercado de IA por meio de regulações excessivas e inadequadas.", page: 21 }] },
+        { title: "Ampliar e modernizar a malha ferroviária", quotes: [{ quote: "Dar destinação célere aos trechos ferroviários ociosos ou devolvidos [...] avançando também na implantação de corredores ferroviários estruturantes, com prioridade para projetos estratégicos como a FICO, a FIOL e a Ferrogrão, de modo a ampliar a integração logística nacional e reduzir os custos do transporte.", page: 29 }] },
+        { title: "Ampliar concessões rodoviárias e mobilidade urbana federal", quotes: [
+          { quote: "Aperfeiçoar os modelos de contratação, financiamento e gestão dos ativos rodoviários, ampliando o uso de concessões e PPPs e de contratos de longo prazo orientados por indicadores de desempenho, inclusive para trechos de menor viabilidade econômica.", page: 30 },
+          { quote: "Integrar o planejamento da mobilidade urbana ao Ministério da Infraestrutura [...] e instituir uma política nacional de implantação e expansão dos sistemas estruturantes de transporte coletivo de alta capacidade, com o Governo Federal apoiando a estruturação dos projetos.", page: 30 }
+        ] },
+        { title: "Fortalecer a ANA e o Novo Marco do Saneamento", quotes: [{ quote: "Consolidar a ANA como coordenadora nacional da regulação do saneamento, ampliando a adoção de suas normas de referência pelas entidades reguladoras subnacionais [...] de modo a fortalecer a harmonização regulatória e a efetividade do Novo Marco do Saneamento.", page: 29 }] }
       ]
     }
   },
