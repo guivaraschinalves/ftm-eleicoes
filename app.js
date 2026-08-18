@@ -160,6 +160,7 @@
     var c = window.CANDIDATES_DATA[id];
     var entry = (c.economy || {})[subthemeId] || { diagnosis: [], proposals: [] };
     var card = el("div", "compare-card");
+    card.dataset.candidate = id;
     card.appendChild(compareCardHead(c.basics));
     if (kind === "diagnosis") {
       var block = quoteListBlock("Diagnóstico", entry.diagnosis, id);
@@ -197,15 +198,18 @@
     var c = window.CANDIDATES_DATA[id];
     var entry = (c.otherThemes || {})[themeId] || { proposals: [] };
     var card = el("div", "compare-card");
+    card.dataset.candidate = id;
     card.appendChild(compareCardHead(c.basics));
     card.appendChild(proposalListBlock(entry.proposals, id));
     return card;
   }
 
   // Abas genéricas de 1 nível (usadas em Outros Temas, e dentro de cada
-  // subtema de Economia para Diagnóstico/Propostas).
-  function buildTabs(tabsHost, panelsHost, topics, buildCard, idPrefix) {
-    var ids = orderedCandidateIds();
+  // subtema de Economia para Diagnóstico/Propostas). `ids` é opcional —
+  // por padrão mostra os 5 candidatos, mas a aba Comparar 1×1 chama isto
+  // de novo passando só os 2 candidatos escolhidos.
+  function buildTabs(tabsHost, panelsHost, topics, buildCard, idPrefix, ids) {
+    ids = ids || orderedCandidateIds();
     tabsHost.setAttribute("role", "tablist");
     topics.forEach(function (topic, ti) {
       var btn = el("button", "tab-btn");
@@ -238,29 +242,29 @@
   }
 
   // Economia: abas de subtema (nível 1) e, dentro de cada painel de subtema,
-  // um segundo par de abas Diagnóstico/Propostas (nível 2).
-  function buildEconomySection() {
-    var tabsHost = document.getElementById("economy-tabs");
-    var panelsHost = document.getElementById("economy-panels");
+  // um segundo par de abas Diagnóstico/Propostas (nível 2). `ids` e
+  // `idPrefix` são parametrizados porque a aba Comparar 1×1 reusa esta
+  // mesma função para só 2 candidatos, num host e prefixo de id diferentes
+  // (evita ids de DOM duplicados entre a seção Economia e a Comparação).
+  function buildEconomySection(tabsHost, panelsHost, ids, idPrefix) {
     if (!tabsHost || !panelsHost) return;
-    var ids = orderedCandidateIds();
     var subthemes = window.ECONOMY_SUBTHEMES || [];
 
     tabsHost.setAttribute("role", "tablist");
     subthemes.forEach(function (sub, si) {
       var btn = el("button", "tab-btn");
       btn.type = "button";
-      btn.id = "econ-tab-" + sub.id;
+      btn.id = idPrefix + "-tab-" + sub.id;
       btn.setAttribute("role", "tab");
-      btn.setAttribute("aria-controls", "econ-panel-" + sub.id);
+      btn.setAttribute("aria-controls", idPrefix + "-panel-" + sub.id);
       btn.setAttribute("aria-selected", si === 0 ? "true" : "false");
       btn.textContent = sub.label;
       tabsHost.appendChild(btn);
 
       var panel = el("div", "tab-panel");
-      panel.id = "econ-panel-" + sub.id;
+      panel.id = idPrefix + "-panel-" + sub.id;
       panel.setAttribute("role", "tabpanel");
-      panel.setAttribute("aria-labelledby", "econ-tab-" + sub.id);
+      panel.setAttribute("aria-labelledby", idPrefix + "-tab-" + sub.id);
       if (si !== 0) panel.hidden = true;
 
       var heading = el("h3", "panel-heading");
@@ -305,6 +309,107 @@
         panel.hidden = false;
       });
     });
+  }
+
+  /* ============================== Filtro de candidatos ============================== */
+  // Estado compartilhado entre os dois filtros (Economia e Outros Temas):
+  // esconder um candidato num afeta o outro também, pra não confundir "por
+  // que ele sumiu daqui mas não dali". Só mexe em cards dentro de Economia
+  // e Outros Temas — os cards da aba Comparar 1×1 usam os mesmos
+  // componentes, mas não devem ser afetados por este filtro.
+  var hiddenCandidates = {};
+  var filterChipsByCandidate = {};
+
+  function setCandidateHidden(id, hide) {
+    hiddenCandidates[id] = hide;
+    document.querySelectorAll(
+      '#economia .compare-card[data-candidate="' + id + '"], #outros-temas .compare-card[data-candidate="' + id + '"]'
+    ).forEach(function (card) { card.hidden = hide; });
+    (filterChipsByCandidate[id] || []).forEach(function (chip) {
+      chip.setAttribute("aria-pressed", hide ? "false" : "true");
+    });
+  }
+
+  function buildCandidateFilter(host) {
+    if (!host) return;
+    var row = el("div", "candidate-filter");
+    orderedCandidateIds().forEach(function (id) {
+      var c = window.CANDIDATES_DATA[id];
+      var chip = el("button", "legend-chip");
+      chip.type = "button";
+      chip.setAttribute("aria-pressed", hiddenCandidates[id] ? "false" : "true");
+      var swatch = el("span", "legend-swatch");
+      swatch.style.background = "var(--cand-" + id + ")";
+      chip.appendChild(swatch);
+      chip.appendChild(document.createTextNode(c.basics.ballotName || c.basics.name));
+      chip.addEventListener("click", function () {
+        setCandidateHidden(id, chip.getAttribute("aria-pressed") === "true");
+      });
+      filterChipsByCandidate[id] = filterChipsByCandidate[id] || [];
+      filterChipsByCandidate[id].push(chip);
+      row.appendChild(chip);
+    });
+    host.appendChild(row);
+  }
+
+  /* ============================== Comparar 1×1 ============================== */
+  function buildComparisonSection() {
+    var selectA = document.getElementById("compare-select-a");
+    var selectB = document.getElementById("compare-select-b");
+    var headHost = document.getElementById("compare-head-to-head");
+    var econTabsHost = document.getElementById("compare-economy-tabs");
+    var econPanelsHost = document.getElementById("compare-economy-panels");
+    var otherTabsHost = document.getElementById("compare-other-tabs");
+    var otherPanelsHost = document.getElementById("compare-other-panels");
+    if (!selectA || !selectB) return;
+
+    var ids = orderedCandidateIds();
+    ids.forEach(function (id) {
+      var label = (window.CANDIDATES_DATA[id].basics.ballotName || window.CANDIDATES_DATA[id].basics.name);
+      [selectA, selectB].forEach(function (sel) {
+        var opt = document.createElement("option");
+        opt.value = id;
+        opt.textContent = label;
+        sel.appendChild(opt);
+      });
+    });
+    selectA.value = ids[0];
+    selectB.value = ids[1] || ids[0];
+
+    function render() {
+      var a = selectA.value, b = selectB.value;
+
+      headHost.innerHTML = "";
+      headHost.appendChild(buildCandidateCard(a));
+      headHost.appendChild(buildCandidateCard(b));
+
+      econTabsHost.innerHTML = "";
+      econPanelsHost.innerHTML = "";
+      buildEconomySection(econTabsHost, econPanelsHost, [a, b], "cmp-econ");
+
+      otherTabsHost.innerHTML = "";
+      otherPanelsHost.innerHTML = "";
+      buildTabs(otherTabsHost, otherPanelsHost, window.OTHER_THEMES || [], buildOtherThemeCard, "cmp-other", [a, b]);
+    }
+
+    // Não deixa escolher o mesmo candidato nos dois lados — troca o outro
+    // seletor automaticamente para o próximo disponível.
+    selectA.addEventListener("change", function () {
+      if (selectA.value === selectB.value) {
+        var alt = ids.filter(function (id) { return id !== selectA.value; })[0];
+        if (alt) selectB.value = alt;
+      }
+      render();
+    });
+    selectB.addEventListener("change", function () {
+      if (selectB.value === selectA.value) {
+        var alt = ids.filter(function (id) { return id !== selectB.value; })[0];
+        if (alt) selectA.value = alt;
+      }
+      render();
+    });
+
+    render();
   }
 
   /* ============================== Perfil Político (spider) ============================== */
@@ -533,7 +638,13 @@
   function init() {
     buildCandidateGrid();
     buildProfileSection();
-    buildEconomySection();
+    buildEconomySection(
+      document.getElementById("economy-tabs"),
+      document.getElementById("economy-panels"),
+      orderedCandidateIds(),
+      "econ"
+    );
+    buildCandidateFilter(document.getElementById("economy-candidate-filter"));
     buildTabs(
       document.getElementById("other-tabs"),
       document.getElementById("other-panels"),
@@ -541,6 +652,8 @@
       buildOtherThemeCard,
       "other"
     );
+    buildCandidateFilter(document.getElementById("other-candidate-filter"));
+    buildComparisonSection();
     buildSourcesList();
     initScrollSpy();
   }

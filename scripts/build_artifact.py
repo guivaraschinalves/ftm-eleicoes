@@ -78,13 +78,17 @@ def build():
         sys.exit(f"build_artifact: sobrou referência a sources/ não tratada: {leftover_sources}")
 
     # <link rel="stylesheet" href="styles.css"> -> <style>...</style>
-    html, n = re.subn(
-        r'<link rel="stylesheet" href="styles\.css">',
-        "<style>\n" + css + "\n</style>",
-        html,
-    )
+    # str.replace(), não re.sub(): o replacement é texto real de CSS, que
+    # tem barras invertidas (ex.: escapes \0022 de content). re.sub()/subn()
+    # tratam "\" no argumento de substituição como referência de grupo
+    # regex (\1, \2...) e corrompem qualquer escape CSS silenciosamente —
+    # foi por isso que as aspas decorativas viravam caractere de controle
+    # no Artifact. str.replace() nunca interpreta a string de troca.
+    link_tag = '<link rel="stylesheet" href="styles.css">'
+    n = html.count(link_tag)
     if n != 1:
         sys.exit("build_artifact: não encontrei (ou encontrei mais de uma vez) o <link> do styles.css em index.html")
+    html = html.replace(link_tag, "<style>\n" + css + "\n</style>")
 
     # Remove cada <script src="...">, concatena tudo num único <script> inline
     # logo antes de </body>.

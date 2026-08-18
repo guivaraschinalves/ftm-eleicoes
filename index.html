@@ -23,6 +23,7 @@
       <a class="nav-link" href="#perfil-politico">Perfil Político</a>
       <a class="nav-link" href="#economia">Economia</a>
       <a class="nav-link" href="#outros-temas">Outros Temas</a>
+      <a class="nav-link" href="#comparacao">Comparar 1×1</a>
       <a class="nav-link" href="#fontes">Fontes</a>
     </nav>
   </header>
@@ -80,6 +81,7 @@
         título de cada proposta é nosso, só para identificar o card — o texto citado é sempre do
         próprio plano, com a página onde conferir.
       </p>
+      <div id="economy-candidate-filter" class="candidate-filter-host"></div>
       <div id="economy-tabs" class="tabs" role="tablist" aria-label="Subtemas de Economia"></div>
       <div id="economy-panels"></div>
     </section>
@@ -93,8 +95,39 @@
         Cobertura mais enxuta: as propostas-chave de cada candidato por tema, citadas
         literalmente, sem a divisão diagnóstico/proposta usada em Economia.
       </p>
+      <div id="other-candidate-filter" class="candidate-filter-host"></div>
       <div id="other-tabs" class="tabs" role="tablist" aria-label="Outros temas"></div>
       <div id="other-panels"></div>
+    </section>
+
+    <section id="comparacao" class="page-section">
+      <div class="section-heading">
+        <h2>Comparar 1×1</h2>
+      </div>
+      <p class="section-note">
+        Escolha 2 candidatos para ver as citações dos dois lado a lado, em Economia e nos outros
+        temas, sem precisar trocar de aba o tempo todo.
+      </p>
+      <div class="compare-picker">
+        <label class="compare-picker-field">
+          <span>Candidato A</span>
+          <select id="compare-select-a"></select>
+        </label>
+        <span class="compare-picker-vs">vs.</span>
+        <label class="compare-picker-field">
+          <span>Candidato B</span>
+          <select id="compare-select-b"></select>
+        </label>
+      </div>
+      <div id="compare-head-to-head" class="candidate-grid compare-head-to-head"></div>
+
+      <h3 class="panel-heading compare-subheading">Economia</h3>
+      <div id="compare-economy-tabs" class="tabs" role="tablist" aria-label="Subtemas de Economia (comparação)"></div>
+      <div id="compare-economy-panels"></div>
+
+      <h3 class="panel-heading compare-subheading">Outros Temas</h3>
+      <div id="compare-other-tabs" class="tabs" role="tablist" aria-label="Outros temas (comparação)"></div>
+      <div id="compare-other-panels"></div>
     </section>
 
     <section id="fontes" class="page-section">
