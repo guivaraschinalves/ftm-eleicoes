@@ -121,14 +121,26 @@ h1 { font-family: var(--font-serif); font-weight: 500; font-size: 2.3rem; margin
   border-radius: 6px; padding: 12px 16px; margin: 0 0 8px;
 }
 
-/* ---------- Page sections ---------- */
+/* ---------- Page sections (retráteis: cada uma é um <details>) ---------- */
 .page-section { margin-top: 56px; }
 .section-heading {
   display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; padding-bottom: 9px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border); cursor: pointer; list-style: none;
 }
+.section-heading::-webkit-details-marker { display: none; }
+.section-heading:focus-visible { outline: 2px solid var(--brand); outline-offset: -2px; }
 .section-heading h2 { font-family: var(--font-serif); font-weight: 500; font-size: 1.55rem; margin: 0; }
 .section-heading .count { font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-muted); }
+/* Seta que indica aberto/fechado, sempre encostada na borda direita do
+   título (margin-left: auto dentro do flex), centralizada verticalmente
+   mesmo com align-items: baseline no restante da linha. */
+.section-heading::after {
+  content: ""; width: 8px; height: 8px; margin-left: auto; align-self: center; flex: none;
+  border-right: 2px solid var(--ink-muted); border-bottom: 2px solid var(--ink-muted);
+  transform: rotate(-45deg); transition: transform 0.15s ease;
+}
+.page-section[open] > .section-heading::after { transform: rotate(45deg); }
+@media (prefers-reduced-motion: reduce) { .section-heading::after { transition: none; } }
 .section-note { font-size: 0.94rem; color: var(--ink-secondary); max-width: 76ch; line-height: 1.58; margin: 12px 0 20px; }
 .section-note a { color: var(--brand); }
 

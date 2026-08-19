@@ -35,7 +35,9 @@
       Comparação lado a lado das propostas de governo dos 5 candidatos com mais intenção de
       voto na eleição presidencial de 2026 (pesquisa BTG/Nexus, 17/ago/2026), com foco em
       Economia — dividida em subtemas, cada um com aba de Diagnóstico e aba de Propostas — e
-      cobertura mais enxuta de outros temas.
+      cobertura mais enxuta de outros temas. Cada seção abaixo (Visão Geral, Perfil Político,
+      Economia, Outros Temas, Comparar 1×1, Fontes) é retrátil — clique no título para
+      abrir ou fechar.
     </p>
     <p class="disclaimer">
       <strong>Economia, Outros Temas e Fontes</strong> mostram trechos <strong>citados
@@ -47,18 +49,18 @@
       Ordem dos candidatos: sempre alfabética pelo nome de urna, sem relação com pesquisas.
     </p>
 
-    <section id="visao-geral" class="page-section">
-      <div class="section-heading">
+    <details id="visao-geral" class="page-section" open>
+      <summary class="section-heading">
         <h2>Visão Geral</h2>
-      </div>
+      </summary>
       <div id="candidate-grid" class="candidate-grid"></div>
-    </section>
+    </details>
 
-    <section id="perfil-politico" class="page-section">
-      <div class="section-heading">
+    <details id="perfil-politico" class="page-section" open>
+      <summary class="section-heading">
         <h2>Perfil Político</h2>
         <span class="count">análise, não citação</span>
-      </div>
+      </summary>
       <p class="section-note">
         Inspirado no <a href="https://www.smartvote.ch/" target="_blank" rel="noopener">Smartspider
         do smartvote</a>: 6 eixos de 0 a 100 que resumem visualmente onde cada candidato se
@@ -68,13 +70,13 @@
       </p>
       <div id="spider-chart-host" class="spider-host"></div>
       <div id="profile-legend" class="profile-legend"></div>
-    </section>
+    </details>
 
-    <section id="economia" class="page-section">
-      <div class="section-heading">
+    <details id="economia" class="page-section" open>
+      <summary class="section-heading">
         <h2>Economia</h2>
         <span class="count">7 subtemas</span>
-      </div>
+      </summary>
       <p class="section-note">
         Cada subtema tem uma aba de <strong>Diagnóstico</strong> (o que o candidato diz sobre o
         cenário atual) e uma aba de <strong>Propostas</strong> (o que ele promete fazer). O
@@ -84,13 +86,13 @@
       <div id="economy-candidate-filter" class="candidate-filter-host"></div>
       <div id="economy-tabs" class="tabs" role="tablist" aria-label="Subtemas de Economia"></div>
       <div id="economy-panels"></div>
-    </section>
+    </details>
 
-    <section id="outros-temas" class="page-section">
-      <div class="section-heading">
+    <details id="outros-temas" class="page-section" open>
+      <summary class="section-heading">
         <h2>Outros Temas</h2>
         <span class="count">6 temas</span>
-      </div>
+      </summary>
       <p class="section-note">
         Cobertura mais enxuta: as propostas-chave de cada candidato por tema, citadas
         literalmente, sem a divisão diagnóstico/proposta usada em Economia.
@@ -98,12 +100,12 @@
       <div id="other-candidate-filter" class="candidate-filter-host"></div>
       <div id="other-tabs" class="tabs" role="tablist" aria-label="Outros temas"></div>
       <div id="other-panels"></div>
-    </section>
+    </details>
 
-    <section id="comparacao" class="page-section">
-      <div class="section-heading">
+    <details id="comparacao" class="page-section" open>
+      <summary class="section-heading">
         <h2>Comparar 1×1</h2>
-      </div>
+      </summary>
       <p class="section-note">
         Escolha 2 candidatos para ver as citações dos dois lado a lado, em Economia e nos outros
         temas, sem precisar trocar de aba o tempo todo.
@@ -128,12 +130,12 @@
       <h3 class="panel-heading compare-subheading">Outros Temas</h3>
       <div id="compare-other-tabs" class="tabs" role="tablist" aria-label="Outros temas (comparação)"></div>
       <div id="compare-other-panels"></div>
-    </section>
+    </details>
 
-    <section id="fontes" class="page-section">
-      <div class="section-heading">
+    <details id="fontes" class="page-section" open>
+      <summary class="section-heading">
         <h2>Fontes</h2>
-      </div>
+      </summary>
       <p class="section-note">
         Os 5 planos de governo abaixo foram baixados do Portal de Dados Abertos do TSE
         (dataset "Candidatos 2026", recurso "BR — Proposta de Governo") e as fotos oficiais do
@@ -148,7 +150,7 @@
         conteúdo aqui apresentado — e o Perfil Político é, declaradamente, leitura nossa, não
         fato objetivo.
       </p>
-    </section>
+    </details>
   </main>
 </div>
 

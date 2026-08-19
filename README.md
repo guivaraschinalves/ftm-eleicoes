@@ -15,6 +15,12 @@ Político** é a exceção declarada: um gráfico tipo Smartspider (smartvote)
 com 6 eixos — isso é leitura editorial nossa, não citação, e o site deixa
 isso explícito.
 
+Página única, navegação por âncora. As 6 seções principais (Visão Geral,
+Perfil Político, Economia, Outros Temas, Comparar 1×1, Fontes) são
+`<details>` retráteis — clique no título de cada uma para abrir/fechar,
+independentes umas das outras. Dentro de Economia e Outros Temas, os
+subtemas continuam em abas (clique para trocar), não em accordion.
+
 ## Por que esse formato
 
 O visual (sidebar, tipografia serifada+mono, tema claro/escuro) é herdado do
