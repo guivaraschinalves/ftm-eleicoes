@@ -76,14 +76,14 @@
         <span class="count">7 subtemas</span>
       </div>
       <p class="section-note">
-        Cada subtema é retrátil — clique para abrir ou fechar. Dentro, <strong>Diagnóstico</strong>
-        (o que o candidato diz sobre o cenário atual) e <strong>Propostas</strong> (o que ele
-        promete fazer) já vêm abertos, mas também podem ser fechados um a um. O título de cada
-        proposta é nosso, só para identificar o card — o texto citado é sempre do próprio plano,
-        com a página onde conferir.
+        Cada subtema tem uma aba de <strong>Diagnóstico</strong> (o que o candidato diz sobre o
+        cenário atual) e uma aba de <strong>Propostas</strong> (o que ele promete fazer). O
+        título de cada proposta é nosso, só para identificar o card — o texto citado é sempre do
+        próprio plano, com a página onde conferir.
       </p>
       <div id="economy-candidate-filter" class="candidate-filter-host"></div>
-      <div id="economy-panels" class="topic-accordion" aria-label="Subtemas de Economia"></div>
+      <div id="economy-tabs" class="tabs" role="tablist" aria-label="Subtemas de Economia"></div>
+      <div id="economy-panels"></div>
     </section>
 
     <section id="outros-temas" class="page-section">
@@ -93,11 +93,11 @@
       </div>
       <p class="section-note">
         Cobertura mais enxuta: as propostas-chave de cada candidato por tema, citadas
-        literalmente, sem a divisão diagnóstico/proposta usada em Economia. Cada tema é retrátil —
-        clique para abrir ou fechar.
+        literalmente, sem a divisão diagnóstico/proposta usada em Economia.
       </p>
       <div id="other-candidate-filter" class="candidate-filter-host"></div>
-      <div id="other-panels" class="topic-accordion" aria-label="Outros temas"></div>
+      <div id="other-tabs" class="tabs" role="tablist" aria-label="Outros temas"></div>
+      <div id="other-panels"></div>
     </section>
 
     <section id="comparacao" class="page-section">
@@ -106,7 +106,7 @@
       </div>
       <p class="section-note">
         Escolha 2 candidatos para ver as citações dos dois lado a lado, em Economia e nos outros
-        temas. Cada subtema/tema abaixo é retrátil.
+        temas, sem precisar trocar de aba o tempo todo.
       </p>
       <div class="compare-picker">
         <label class="compare-picker-field">
@@ -121,11 +121,13 @@
       </div>
       <div id="compare-head-to-head" class="candidate-grid compare-head-to-head"></div>
 
-      <h3 class="compare-subheading">Economia</h3>
-      <div id="compare-economy-panels" class="topic-accordion" aria-label="Subtemas de Economia (comparação)"></div>
+      <h3 class="panel-heading compare-subheading">Economia</h3>
+      <div id="compare-economy-tabs" class="tabs" role="tablist" aria-label="Subtemas de Economia (comparação)"></div>
+      <div id="compare-economy-panels"></div>
 
-      <h3 class="compare-subheading">Outros Temas</h3>
-      <div id="compare-other-panels" class="topic-accordion" aria-label="Outros temas (comparação)"></div>
+      <h3 class="panel-heading compare-subheading">Outros Temas</h3>
+      <div id="compare-other-tabs" class="tabs" role="tablist" aria-label="Outros temas (comparação)"></div>
+      <div id="compare-other-panels"></div>
     </section>
 
     <section id="fontes" class="page-section">

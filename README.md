@@ -5,11 +5,10 @@ propostas dos 5 candidatos com mais intenção de voto na eleição presidencial
 de 2026 (pesquisa BTG/Nexus, 17/ago/2026): Lula (PT), Flávio Bolsonaro (PL),
 Ronaldo Caiado (PSD), Renan Santos (Missão) e Romeu Zema (Novo).
 
-Foco principal em **Economia** — dividida em 7 subtemas, cada um retrátil e
-com seção de **Diagnóstico** e seção de **Propostas** (também retráteis) —
-e cobertura mais enxuta de 6 outros temas (educação, saúde, segurança, meio
-ambiente, tecnologia, política externa), cada um também numa seção retrátil.
-Em Economia e Outros Temas, todo trecho de posicionamento é
+Foco principal em **Economia** — dividida em 7 subtemas, cada um com aba de
+**Diagnóstico** e aba de **Propostas** — e cobertura mais enxuta de 6 outros
+temas (educação, saúde, segurança, meio ambiente, tecnologia, política
+externa). Em Economia e Outros Temas, todo trecho de posicionamento é
 **citação literal** dos **planos de governo oficiais registrados no TSE**
 (nunca resumo nosso), com a página do PDF referenciada. A seção **Perfil
 Político** é a exceção declarada: um gráfico tipo Smartspider (smartvote)
@@ -30,8 +29,8 @@ carregados como `<script>` normal, sem nenhuma chamada de rede em runtime.
 ## Estrutura
 
 ```
-index.html          → casca da página (topbar, seções) — script tags na ordem certa
-styles.css           → visual (tokens de cor/tipografia/candidato, cards, seções retráteis, spider chart)
+index.html          → casca da página (sidebar, seções) — script tags na ordem certa
+styles.css           → visual (tokens de cor/tipografia/candidato, cards, tabs, spider chart)
 app.js               → lê os dados e monta as 4 seções (DOM puro, sem framework)
 data/
   taxonomy.js         → subtemas de Economia, outros temas, ordem dos candidatos
