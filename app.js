@@ -669,6 +669,17 @@
     var track = el("div", "allocator-line-track");
     wrap.appendChild(track);
 
+    [0, 5, 11, ALLOCATOR_MAX].forEach(function (v) {
+      var pct = v / ALLOCATOR_MAX * 100;
+      var tick = el("div", "allocator-line-tick");
+      tick.style.left = pct + "%";
+      wrap.appendChild(tick);
+      var tickLabel = el("span", "allocator-line-tick-label");
+      tickLabel.style.left = pct + "%";
+      tickLabel.textContent = v;
+      wrap.appendChild(tickLabel);
+    });
+
     // Ordena por pontuação antes de anexar — só pra quem tem totais bem
     // próximos (e portanto fotos quase coladas) empilhar na ordem certa: a
     // de maior nota por cima, já que cada foto entra depois da anterior no
