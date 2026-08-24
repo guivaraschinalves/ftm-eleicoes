@@ -8,7 +8,7 @@ window.CANDIDATES_DATA = window.CANDIDATES_DATA || {};
 window.CANDIDATES_DATA["zema"] = {
   basics: {
     name: "Romeu Zema Neto",
-    ballotName: "Zema",
+    ballotName: "Romeu Zema",
     party: "NOVO",
     number: 30,
     coalition: "Candidatura de partido isolado (Novo)",

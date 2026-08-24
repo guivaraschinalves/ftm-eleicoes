@@ -21,7 +21,7 @@
     <nav class="nav" aria-label="Seções">
       <a class="nav-link" href="#visao-geral">Visão Geral</a>
       <a class="nav-link" href="#perfil-politico">Perfil Político</a>
-      <a class="nav-link" href="#estado-alocador">Estado Alocador</a>
+      <a class="nav-link" href="#escola-austriaca">Escola Austríaca</a>
       <a class="nav-link" href="#economia">Economia</a>
       <a class="nav-link" href="#outros-temas">Outros Temas</a>
       <a class="nav-link" href="#comparacao">Comparar 1×1</a>
@@ -37,29 +37,29 @@
       voto na eleição presidencial de 2026 (pesquisa BTG/Nexus, 17/ago/2026), com foco em
       Economia — dividida em subtemas, cada um com aba de Diagnóstico e aba de Propostas — e
       cobertura mais enxuta de outros temas. Cada seção abaixo (Visão Geral, Perfil Político,
-      Economia, Outros Temas, Comparar 1×1, Fontes) é retrátil — clique no título para
-      abrir ou fechar.
+      Escola Austríaca, Economia, Outros Temas, Comparar 1×1, Fontes) é retrátil e começa
+      fechada — clique no título para abrir.
     </p>
     <p class="disclaimer">
       <strong>Economia, Outros Temas e Fontes</strong> mostram trechos <strong>citados
       literalmente</strong> dos planos de governo oficiais registrados no TSE — nunca resumos
       nossos — sempre com a página do PDF. Onde um tema não é abordado explicitamente no plano,
       isso é indicado, não é erro de coleta. <strong>Perfil Político</strong> e
-      <strong>Distância do Estado Alocador</strong> já são outra coisa: <strong>leitura
+      <strong>Escola Austríaca</strong> já são outra coisa: <strong>leitura
       editorial nossa</strong>, em forma de gráfico, sobre onde cada candidato se posiciona —
       não citação nem nota oficial; as duas seções deixam isso explícito, com a justificativa
       (e a página do plano) de cada nota disponível ao passar o mouse ou tocar.
       Ordem dos candidatos: sempre alfabética pelo nome de urna, sem relação com pesquisas.
     </p>
 
-    <details id="visao-geral" class="page-section" open>
+    <details id="visao-geral" class="page-section">
       <summary class="section-heading">
         <h2>Visão Geral</h2>
       </summary>
       <div id="candidate-grid" class="candidate-grid"></div>
     </details>
 
-    <details id="perfil-politico" class="page-section" open>
+    <details id="perfil-politico" class="page-section">
       <summary class="section-heading">
         <h2>Perfil Político</h2>
         <span class="count">análise, não citação</span>
@@ -75,24 +75,17 @@
       <div id="profile-legend" class="radar-legend"></div>
     </details>
 
-    <details id="estado-alocador" class="page-section" open>
+    <details id="escola-austriaca" class="page-section">
       <summary class="section-heading">
-        <h2>Distância do Estado Alocador</h2>
+        <h2>Escola Austríaca</h2>
         <span class="count">análise, não citação</span>
       </summary>
       <p class="section-note">
-        Seis perguntas diretas, todas na escala <strong>0–3</strong>, todas respondíveis contando
-        propostas — sobre uma coisa só: <strong>quanto o Estado deixa de ser o alocador de
-        recursos</strong> (quem é dono do que produz, quem decide o crédito, regra igual ou por
-        setor, barreira de entrada, Brasília ou o município, remover ou construir). A moeda ficou
-        de fora de propósito: é o eixo mais associado à ideia de Estado mínimo, mas nenhum dos 5
-        planos chega perto dessa posição, então não separa ninguém. Somados, os 6 eixos dão um
-        índice de <strong>0 a 18</strong>, que chamamos de <em>distância do Estado alocador</em> —
-        não de "índice austríaco": mesmo o plano mais bem pontuado ainda está longe dessa escola, e
-        o nome evita que uma comparação relativa entre 5 planos vire afirmação absoluta.
-        <strong>Não é citação</strong> — é nossa leitura, com a justificativa e a página de cada
-        nota disponível ao passar o mouse (ou tocar) em cada eixo, ou no detalhe retrátil de cada
-        candidato abaixo do gráfico.
+        Seis perguntas sobre uma coisa só — <strong>quanto o Estado deixa de ser o alocador de
+        recursos</strong> — cada uma na escala <strong>0–3</strong>, somando um índice de
+        <strong>0 a 18</strong>. Moeda ficou de fora: nenhum dos 5 planos chega perto do
+        padrão-ouro, então não separaria ninguém. <strong>Não é citação</strong> — é nossa
+        leitura, com justificativa e página de cada nota ao passar o mouse (ou tocar).
       </p>
       <details class="allocator-methodology">
         <summary>Como cada eixo foi pontuado (0–3)</summary>
@@ -115,7 +108,7 @@
       <div id="allocator-legend" class="radar-legend"></div>
     </details>
 
-    <details id="economia" class="page-section" open>
+    <details id="economia" class="page-section">
       <summary class="section-heading">
         <h2>Economia</h2>
         <span class="count">7 subtemas</span>
@@ -131,7 +124,7 @@
       <div id="economy-panels"></div>
     </details>
 
-    <details id="outros-temas" class="page-section" open>
+    <details id="outros-temas" class="page-section">
       <summary class="section-heading">
         <h2>Outros Temas</h2>
         <span class="count">6 temas</span>
@@ -145,7 +138,7 @@
       <div id="other-panels"></div>
     </details>
 
-    <details id="comparacao" class="page-section" open>
+    <details id="comparacao" class="page-section">
       <summary class="section-heading">
         <h2>Comparar 1×1</h2>
       </summary>
@@ -175,7 +168,7 @@
       <div id="compare-other-panels"></div>
     </details>
 
-    <details id="fontes" class="page-section" open>
+    <details id="fontes" class="page-section">
       <summary class="section-heading">
         <h2>Fontes</h2>
       </summary>

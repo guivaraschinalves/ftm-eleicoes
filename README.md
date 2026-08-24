@@ -11,15 +11,16 @@ temas (educação, saúde, segurança, meio ambiente, tecnologia, política
 externa). Em Economia e Outros Temas, todo trecho de posicionamento é
 **citação literal** dos **planos de governo oficiais registrados no TSE**
 (nunca resumo nosso), com a página do PDF referenciada. **Perfil Político**
-e **Distância do Estado Alocador** são as duas exceções declaradas: dois
-gráficos tipo radar (6 eixos cada) com leitura editorial nossa, não
-citação — o site deixa isso explícito em cada seção.
+e **Escola Austríaca** são as duas exceções declaradas: dois gráficos tipo
+radar (6 eixos cada) com leitura editorial nossa, não citação — o site
+deixa isso explícito em cada seção.
 
 Página única, navegação por âncora. As 7 seções principais (Visão Geral,
-Perfil Político, Estado Alocador, Economia, Outros Temas, Comparar 1×1,
-Fontes) são `<details>` retráteis — clique no título de cada uma para
-abrir/fechar, independentes umas das outras. Dentro de Economia e Outros
-Temas, os subtemas continuam em abas (clique para trocar), não em accordion.
+Perfil Político, Escola Austríaca, Economia, Outros Temas, Comparar 1×1,
+Fontes) são `<details>` retráteis, todas fechadas por padrão ao abrir o
+site — clique no título de cada uma para abrir, independentes umas das
+outras. Dentro de Economia e Outros Temas, os subtemas continuam em abas
+(clique para trocar), não em accordion.
 
 ## Por que esse formato
 
@@ -42,7 +43,7 @@ data/
   taxonomy.js         → subtemas de Economia, outros temas, ordem dos candidatos
   sources.js           → URL oficial de cada plano no TSE + caminho do PDF local
   profile.js            → eixos e notas do Perfil Político (síntese editorial, não citação)
-  allocator.js           → eixos e notas da Distância do Estado Alocador (idem, não citação)
+  allocator.js           → eixos e notas da Escola Austríaca (idem, não citação)
   candidates/*.js       → um arquivo por candidato: dados básicos + citações por tema
 sources/             → foto oficial (TSE) + cópia de cada PDF por candidato
 scripts/
@@ -77,7 +78,7 @@ em `data/sources.js`, coloque a foto oficial em `sources/<id>.jpg` e o PDF em
 `sources/<id>.pdf`, e adicione as notas de `data/profile.js` e
 `data/allocator.js` (ver seção abaixo).
 
-## Perfil Político e Distância do Estado Alocador — as exceções declaradas
+## Perfil Político e Escola Austríaca — as exceções declaradas
 
 `data/profile.js` e `data/allocator.js` não seguem o padrão "citação
 literal" do resto do site — os dois alimentam um gráfico tipo radar
@@ -90,19 +91,20 @@ candidato — editar a nota exige também editar (ou apontar para) o
 - **`profile.js`** (`PROFILE_AXES`/`PROFILE_SCORES`): 6 eixos de 0 a 100,
   inspirados no Smartspider do [smartvote](https://www.smartvote.ch/) —
   uma síntese ampla de onde cada candidato se posiciona.
-- **`allocator.js`** (`ALLOCATOR_AXES`/`ALLOCATOR_SCORES`/`ALLOCATOR_RUBRIC`):
-  6 eixos de 0 a 3, cada um respondível contando propostas (rubrica em
-  `ALLOCATOR_RUBRIC` e reproduzida no `<details>` "Como cada eixo foi
-  pontuado" da própria seção), medindo uma coisa só: quanto o Estado deixa
-  de ser o alocador de recursos. Somados dão um índice de 0 a 18,
-  classificado em faixa por `allocatorBand()` em `app.js`. A moeda foi
-  deixada de fora de propósito — nenhum dos 5 planos se aproxima da posição
-  de padrão-ouro/fim do curso forçado, então o eixo não separaria ninguém.
-  Nome deliberado: "distância do Estado alocador", não "índice austríaco" —
-  evita que uma comparação relativa entre 5 planos vire afirmação absoluta.
-  Quando a soma de D1–D5 diverge muito do eixo D6 (remover vs. construir),
-  `buildAllocatorDetailLines()` sinaliza isso no detalhe do candidato em vez
-  de escondê-lo numa média só.
+- **`allocator.js`** (`ALLOCATOR_AXES`/`ALLOCATOR_SCORES`/`ALLOCATOR_RUBRIC`),
+  seção "Escola Austríaca" no site: 6 eixos de 0 a 3, cada um respondível
+  contando propostas (rubrica em `ALLOCATOR_RUBRIC` e reproduzida no
+  `<details>` "Como cada eixo foi pontuado" da própria seção), medindo uma
+  coisa só: quanto o Estado deixa de ser o alocador de recursos. Somados dão
+  um índice de 0 a 18, classificado em faixa por `allocatorBand()` em
+  `app.js`. A moeda foi deixada de fora de propósito — nenhum dos 5 planos
+  se aproxima da posição de padrão-ouro/fim do curso forçado, então o eixo
+  não separaria ninguém. O total é chamado de "distância do Estado alocador"
+  na legenda de cada candidato — mesmo o plano mais bem pontuado ainda está
+  longe da escola, e o rótulo evita que uma comparação relativa entre 5
+  planos vire afirmação absoluta. Quando a soma de D1–D5 diverge muito do
+  eixo D6 (remover vs. construir), `buildAllocatorDetailLines()` sinaliza
+  isso no detalhe do candidato em vez de escondê-lo numa média só.
 
 ## De onde vieram os dados
 
