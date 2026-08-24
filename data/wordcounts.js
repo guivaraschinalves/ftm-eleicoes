@@ -16,6 +16,10 @@ window.WORD_COUNT_TERMS = [
     "label": "Igualdade"
   },
   {
+    "id": "desigualdade",
+    "label": "Desigualdade"
+  },
+  {
     "id": "privatizacao",
     "label": "Privatização"
   },
@@ -83,6 +87,7 @@ window.WORD_COUNTS = {
     "counts": {
       "liberdade": 5,
       "igualdade": 9,
+      "desigualdade": 34,
       "privatizacao": 0,
       "desestatizacao": 0,
       "liberalizacao": 0,
@@ -105,6 +110,7 @@ window.WORD_COUNTS = {
     "counts": {
       "liberdade": 21,
       "igualdade": 0,
+      "desigualdade": 2,
       "privatizacao": 0,
       "desestatizacao": 2,
       "liberalizacao": 0,
@@ -127,6 +133,7 @@ window.WORD_COUNTS = {
     "counts": {
       "liberdade": 19,
       "igualdade": 12,
+      "desigualdade": 24,
       "privatizacao": 0,
       "desestatizacao": 0,
       "liberalizacao": 0,
@@ -149,6 +156,7 @@ window.WORD_COUNTS = {
     "counts": {
       "liberdade": 6,
       "igualdade": 1,
+      "desigualdade": 1,
       "privatizacao": 2,
       "desestatizacao": 0,
       "liberalizacao": 0,
@@ -171,6 +179,7 @@ window.WORD_COUNTS = {
     "counts": {
       "liberdade": 16,
       "igualdade": 1,
+      "desigualdade": 1,
       "privatizacao": 2,
       "desestatizacao": 0,
       "liberalizacao": 0,

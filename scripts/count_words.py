@@ -38,6 +38,7 @@ ANCHOR_TO_ID = {
 TERMS = [
     ("liberdade", "Liberdade", [r"liberdades?"]),
     ("igualdade", "Igualdade", [r"igualdades?"]),
+    ("desigualdade", "Desigualdade", [r"desigualdades?"]),
     # Radical, não só a forma -ção/-ções: "privatização" e "privatizar" (e
     # demais conjugações/derivações) são o mesmo conceito na prática — ex.:
     # o plano do Zema usa "Privatizar todas as empresas estatais" (verbo),

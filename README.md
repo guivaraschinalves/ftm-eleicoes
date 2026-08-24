@@ -15,7 +15,7 @@ e **Escola Austríaca** são as duas exceções declaradas: dois gráficos tipo
 radar (6 eixos cada) com leitura editorial nossa, não citação — o site
 deixa isso explícito em cada seção. **Contagem de Palavras** é uma terceira
 coisa, nem citação nem leitura editorial: contagem mecânica de quantas
-vezes 17 palavras/expressões aparecem em cada plano.
+vezes 18 palavras/expressões aparecem em cada plano.
 
 Página única, navegação por âncora. As 8 seções principais (Visão Geral,
 Perfil Político, Escola Austríaca, Contagem de Palavras, Economia, Outros
@@ -115,7 +115,7 @@ candidato — editar a nota exige também editar (ou apontar para) o
 `data/wordcounts.js` é gerado por `scripts/count_words.py` a partir do texto
 bruto dos 5 PDFs em `PLANOS-DE-GOVERNO.md` — **nunca edite esse arquivo à
 mão**, rode o script de novo. Diferente de `profile.js`/`allocator.js`, não
-há nenhuma leitura nossa aqui: é busca de texto (`re.findall`) para 17
+há nenhuma leitura nossa aqui: é busca de texto (`re.findall`) para 18
 termos fixos, caso insensível, somando singular e plural (regra definida à
 mão por termo — português não pluraliza só com "+s": `fiscal→fiscais`,
 `privatização→privatizações`, `estado→estados`). Quatro termos
