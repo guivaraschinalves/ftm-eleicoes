@@ -305,6 +305,23 @@ h1 { font-family: var(--font-serif); font-weight: 500; font-size: 2.3rem; margin
 .allocator-rubric dd { margin: 0; font-size: 0.86rem; color: var(--ink-secondary); line-height: 1.55; }
 .allocator-methodology-note { font-size: 0.84rem; color: var(--ink-muted); line-height: 1.55; margin: 0 0 14px; }
 
+/* ---------- Contagem de Palavras ---------- */
+.wordcount-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 14px; }
+.wordcount-term {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px;
+}
+.wordcount-term-label { font-family: var(--font-serif); font-weight: 500; font-size: 1rem; margin: 0 0 10px; color: var(--ink); }
+.wordcount-row {
+  display: grid; grid-template-columns: 88px 1fr auto; align-items: center; gap: 10px; margin: 0 0 6px;
+}
+.wordcount-name {
+  font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-secondary);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.wordcount-track { background: var(--accent-wash); border-radius: 4px; height: 9px; overflow: hidden; }
+.wordcount-bar { height: 100%; border-radius: 4px; min-width: 2px; }
+.wordcount-value { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-muted); white-space: nowrap; }
+
 /* ---------- Sources ---------- */
 .sources-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 22px; }
 .source-row {
@@ -338,4 +355,6 @@ h1 { font-family: var(--font-serif); font-weight: 500; font-size: 2.3rem; margin
   .compare-picker-field { min-width: 0; }
   .compare-picker-vs { padding-bottom: 0; align-self: center; }
   .axis-key { grid-template-columns: 1fr; }
+  .wordcount-row { grid-template-columns: 62px 1fr auto; gap: 6px; }
+  .wordcount-value { font-size: 0.68rem; }
 }

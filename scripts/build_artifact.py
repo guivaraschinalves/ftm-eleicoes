@@ -22,14 +22,15 @@ DIST = ROOT / "dist"
 SOURCES_DIR = ROOT / "sources"
 
 # Mesma ordem de carregamento do index.html: taxonomia -> fontes -> perfil ->
-# estado alocador -> um arquivo por candidato -> app.js. A ordem entre
-# candidatos não importa (cada um só grava a própria chave em
-# window.CANDIDATES_DATA).
+# estado alocador -> contagem de palavras -> um arquivo por candidato ->
+# app.js. A ordem entre candidatos não importa (cada um só grava a própria
+# chave em window.CANDIDATES_DATA).
 SCRIPT_FILES = [
     "data/taxonomy.js",
     "data/sources.js",
     "data/profile.js",
     "data/allocator.js",
+    "data/wordcounts.js",
     "data/candidates/caiado.js",
     "data/candidates/flavio-bolsonaro.js",
     "data/candidates/lula.js",

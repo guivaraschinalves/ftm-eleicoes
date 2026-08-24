@@ -13,14 +13,16 @@ externa). Em Economia e Outros Temas, todo trecho de posicionamento é
 (nunca resumo nosso), com a página do PDF referenciada. **Perfil Político**
 e **Escola Austríaca** são as duas exceções declaradas: dois gráficos tipo
 radar (6 eixos cada) com leitura editorial nossa, não citação — o site
-deixa isso explícito em cada seção.
+deixa isso explícito em cada seção. **Contagem de Palavras** é uma terceira
+coisa, nem citação nem leitura editorial: contagem mecânica de quantas
+vezes 17 palavras/expressões aparecem em cada plano.
 
-Página única, navegação por âncora. As 7 seções principais (Visão Geral,
-Perfil Político, Escola Austríaca, Economia, Outros Temas, Comparar 1×1,
-Fontes) são `<details>` retráteis, todas fechadas por padrão ao abrir o
-site — clique no título de cada uma para abrir, independentes umas das
-outras. Dentro de Economia e Outros Temas, os subtemas continuam em abas
-(clique para trocar), não em accordion.
+Página única, navegação por âncora. As 8 seções principais (Visão Geral,
+Perfil Político, Escola Austríaca, Contagem de Palavras, Economia, Outros
+Temas, Comparar 1×1, Fontes) são `<details>` retráteis, todas fechadas por
+padrão ao abrir o site — clique no título de cada uma para abrir,
+independentes umas das outras. Dentro de Economia e Outros Temas, os
+subtemas continuam em abas (clique para trocar), não em accordion.
 
 ## Por que esse formato
 
@@ -44,12 +46,14 @@ data/
   sources.js           → URL oficial de cada plano no TSE + caminho do PDF local
   profile.js            → eixos e notas do Perfil Político (síntese editorial, não citação)
   allocator.js           → eixos e notas da Escola Austríaca (idem, não citação)
+  wordcounts.js           → contagem de palavras por candidato (gerado por count_words.py, não editar à mão)
   candidates/*.js       → um arquivo por candidato: dados básicos + citações por tema
 sources/             → foto oficial (TSE) + cópia de cada PDF por candidato
 scripts/
   build_artifact.py    → gera dist/ftm-eleicoes-artifact.html (versão self-contained p/ Artifact)
   export_content_md.py  → gera CONTEUDO-DO-SITE.md (dump de data/*.js em markdown)
   export_plans_md.py     → gera PLANOS-DE-GOVERNO.md (texto bruto dos 5 PDFs, um arquivo só)
+  count_words.py          → gera data/wordcounts.js a partir de PLANOS-DE-GOVERNO.md
 CONTEUDO-DO-SITE.md  → leitura de apoio: tudo que está em data/*.js, formatado (não é lido pelo site)
 PLANOS-DE-GOVERNO.md → leitura de apoio: os 5 planos de governo completos, um atrás do outro
 ```
@@ -106,6 +110,32 @@ candidato — editar a nota exige também editar (ou apontar para) o
   eixo D6 (remover vs. construir), `buildAllocatorDetailLines()` sinaliza
   isso no detalhe do candidato em vez de escondê-lo numa média só.
 
+## Contagem de Palavras — mecânica, não editorial
+
+`data/wordcounts.js` é gerado por `scripts/count_words.py` a partir do texto
+bruto dos 5 PDFs em `PLANOS-DE-GOVERNO.md` — **nunca edite esse arquivo à
+mão**, rode o script de novo. Diferente de `profile.js`/`allocator.js`, não
+há nenhuma leitura nossa aqui: é busca de texto (`re.findall`) para 17
+termos fixos, caso insensível, somando singular e plural (regra definida à
+mão por termo — português não pluraliza só com "+s": `fiscal→fiscais`,
+`privatização→privatizações`, `estado→estados`). Quatro termos
+(`privatização`, `desestatização`, `liberalização`, `reforma`) usam o
+radical em vez de só a forma nominal, porque o verbo aparece tanto quanto
+(ou mais que) o substantivo nesses planos — ex.: o plano do Zema usa
+"Privatizar todas as empresas estatais" (verbo), não "privatização"; um
+match só do substantivo bateria a contagem em zero apesar da citação já
+aparecer na seção Escola Austríaca. Os demais termos contam só a forma
+escrita na lista, sem tentar capturar todo verbo/derivação relacionada —
+é contagem literal, não desambiguada ("Estado" conta tanto "o Estado"
+quanto "estado de Minas Gerais").
+
+Termos se sobrepõem de propósito ("fiscal" também conta dentro de "déficit
+fiscal"/"ajuste fiscal", "abertura" também conta dentro de "abertura
+comercial") — cada um é uma linha independente, não uma partição. O site
+mostra a contagem bruta e uma taxa por 10 mil palavras do plano (os 5 têm
+tamanhos bem diferentes — de ~21 mil a ~43 mil palavras de texto), calculada
+em `app.js` (`buildWordCountSection`), não armazenada em `wordcounts.js`.
+
 ## De onde vieram os dados
 
 Os 5 PDFs foram baixados do **Portal de Dados Abertos do TSE**
@@ -161,7 +191,10 @@ formatado — diagnóstico, propostas com citação e página, Perfil Político)
 `PLANOS-DE-GOVERNO.md` é a matéria-prima: o texto bruto extraído dos 5 PDFs
 oficiais, um atrás do outro (~14 mil linhas, ~0,9 MB — é grande de propósito,
 é o material completo). Regenere os dois sempre que os dados mudarem; nenhum
-dos dois é referenciado por `index.html`/`app.js`.
+dos dois é referenciado por `index.html`/`app.js`. `PLANOS-DE-GOVERNO.md` é
+também a entrada de `scripts/count_words.py` (gera `data/wordcounts.js`,
+esse sim lido pelo site) — se trocar/atualizar um PDF, rode
+`export_plans_md.py` e depois `count_words.py`, nessa ordem.
 
 ## Publicar no GitHub Pages
 

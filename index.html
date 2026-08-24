@@ -22,6 +22,7 @@
       <a class="nav-link" href="#visao-geral">Visão Geral</a>
       <a class="nav-link" href="#perfil-politico">Perfil Político</a>
       <a class="nav-link" href="#escola-austriaca">Escola Austríaca</a>
+      <a class="nav-link" href="#contagem-palavras">Contagem de Palavras</a>
       <a class="nav-link" href="#economia">Economia</a>
       <a class="nav-link" href="#outros-temas">Outros Temas</a>
       <a class="nav-link" href="#comparacao">Comparar 1×1</a>
@@ -106,6 +107,19 @@
       </details>
       <div id="allocator-chart-host" class="spider-host"></div>
       <div id="allocator-legend" class="radar-legend"></div>
+    </details>
+
+    <details id="contagem-palavras" class="page-section">
+      <summary class="section-heading">
+        <h2>Contagem de Palavras</h2>
+        <span class="count">17 termos</span>
+      </summary>
+      <p class="section-note">
+        Contagem mecânica no texto extraído dos 5 PDFs — não é leitura nossa, é busca de texto.
+        Cada termo soma singular e plural. Barra = número de menções; o valor entre parênteses é a
+        taxa por 10 mil palavras do plano, para comparar planos de tamanhos bem diferentes.
+      </p>
+      <div id="wordcount-grid" class="wordcount-grid"></div>
     </details>
 
     <details id="economia" class="page-section">
@@ -194,6 +208,7 @@
 <script src="data/sources.js"></script>
 <script src="data/profile.js"></script>
 <script src="data/allocator.js"></script>
+<script src="data/wordcounts.js"></script>
 <script src="data/candidates/caiado.js"></script>
 <script src="data/candidates/flavio-bolsonaro.js"></script>
 <script src="data/candidates/lula.js"></script>

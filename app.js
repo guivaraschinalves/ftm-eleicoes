@@ -663,6 +663,63 @@
     buildRadarLegend("allocator-legend", ids, axes, scores, 3, svg || host, buildAllocatorDetailLines);
   }
 
+  /* ============================== Contagem de Palavras ============================== */
+  // Contagem mecânica (data/wordcounts.js, gerada por scripts/count_words.py
+  // a partir do texto bruto dos 5 PDFs) — não é leitura editorial como o
+  // Perfil Político/Escola Austríaca, é busca de texto. Uma fileira por
+  // termo, com uma barra por candidato; a barra é proporcional ao maior
+  // valor ENTRE OS 5 CANDIDATOS DAQUELE TERMO (escala por linha, não
+  // global) — senão termos raros (ex.: "desestatização") ficariam achatados
+  // ao lado de termos comuns (ex.: "estado").
+  function buildWordCountSection() {
+    var host = document.getElementById("wordcount-grid");
+    if (!host) return;
+    var ids = orderedCandidateIds();
+    var terms = window.WORD_COUNT_TERMS || [];
+    var data = window.WORD_COUNTS || {};
+
+    terms.forEach(function (term) {
+      var card = el("div", "wordcount-term");
+      var heading = el("p", "wordcount-term-label");
+      heading.textContent = term.label;
+      card.appendChild(heading);
+
+      var maxCount = 0;
+      ids.forEach(function (id) {
+        var d = data[id];
+        if (d) maxCount = Math.max(maxCount, d.counts[term.id] || 0);
+      });
+
+      ids.forEach(function (id) {
+        var c = window.CANDIDATES_DATA[id];
+        var d = data[id];
+        var count = d ? (d.counts[term.id] || 0) : 0;
+        var rate = d && d.totalWords ? (count / d.totalWords * 10000) : 0;
+        var pct = maxCount ? (count / maxCount * 100) : 0;
+
+        var row = el("div", "wordcount-row");
+        var name = el("span", "wordcount-name");
+        name.textContent = c.basics.ballotName || c.basics.name;
+        row.appendChild(name);
+
+        var track = el("div", "wordcount-track");
+        var bar = el("div", "wordcount-bar");
+        bar.style.width = pct + "%";
+        bar.style.background = "var(--cand-" + id + ")";
+        track.appendChild(bar);
+        row.appendChild(track);
+
+        var value = el("span", "wordcount-value");
+        value.textContent = count + " (" + rate.toFixed(1).replace(".", ",") + "/10k)";
+        row.appendChild(value);
+
+        card.appendChild(row);
+      });
+
+      host.appendChild(card);
+    });
+  }
+
   /* ============================== Fontes ============================== */
   function buildSourcesList() {
     var host = document.getElementById("sources-list");
@@ -727,6 +784,7 @@
     buildCandidateGrid();
     buildProfileSection();
     buildAllocatorSection();
+    buildWordCountSection();
     buildEconomySection(
       document.getElementById("economy-tabs"),
       document.getElementById("economy-panels"),
