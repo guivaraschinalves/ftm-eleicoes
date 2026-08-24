@@ -435,8 +435,11 @@
     return "middle";
   }
 
-  function buildSpiderChart(ids) {
-    var axes = window.PROFILE_AXES || [];
+  // Radar genérico de N eixos, reusado pelo Perfil Político (0–100) e pela
+  // Distância do Estado Alocador (0–3) — `axes`/`scores`/`maxScore` chegam
+  // por parâmetro em vez de ler window.PROFILE_* direto, para que os dois
+  // gráficos não compartilhem estado nem se pisem.
+  function buildRadarChart(ids, axes, scores, maxScore, ariaLabel) {
     var n = axes.length;
     if (!n) return null;
     // viewBox inicial é só um chute generoso — os rótulos diagonais (ex.:
@@ -446,7 +449,7 @@
     var size = 520, cx = size / 2, cy = size / 2, R = 175;
     var svg = svgEl("svg", {
       viewBox: "0 0 " + size + " " + size, class: "spider-svg",
-      role: "img", "aria-label": "Gráfico comparando o perfil político dos candidatos em 6 eixos"
+      role: "img", "aria-label": ariaLabel
     });
 
     [0.25, 0.5, 0.75, 1].forEach(function (frac) {
@@ -466,22 +469,22 @@
     });
 
     ids.forEach(function (id) {
-      var scores = (window.PROFILE_SCORES || {})[id];
+      var s = scores[id];
       var c = window.CANDIDATES_DATA[id];
-      if (!scores || !c) return;
+      if (!s || !c) return;
       var g = svgEl("g", { class: "spider-series", "data-candidate": id, style: "--cand-color:var(--cand-" + id + ")" });
       var pts = axes.map(function (axis, i) {
-        var v = Math.max(0, Math.min(100, scores[axis.id] || 0));
-        return polarPoint(cx, cy, R * v / 100, i * 360 / n);
+        var v = Math.max(0, Math.min(maxScore, s[axis.id] || 0));
+        return polarPoint(cx, cy, R * v / maxScore, i * 360 / n);
       });
       g.appendChild(svgEl("polygon", { points: pts.map(function (p) { return p.join(","); }).join(" "), class: "spider-shape" }));
       pts.forEach(function (p, i) {
         var axis = axes[i];
-        var v = Math.max(0, Math.min(100, scores[axis.id] || 0));
+        var v = Math.max(0, Math.min(maxScore, s[axis.id] || 0));
         var dot = svgEl("circle", { cx: p[0], cy: p[1], r: 4, class: "spider-dot" });
         var title = svgEl("title", {});
-        var rationale = scores.rationale && scores.rationale[axis.id] ? scores.rationale[axis.id] : "";
-        title.textContent = (c.basics.ballotName || c.basics.name) + " — " + axis.label + ": " + v + "/100. " + rationale;
+        var rationale = s.rationale && s.rationale[axis.id] ? s.rationale[axis.id] : "";
+        title.textContent = (c.basics.ballotName || c.basics.name) + " — " + axis.label + ": " + v + "/" + maxScore + ". " + rationale;
         dot.appendChild(title);
         g.appendChild(dot);
       });
@@ -503,13 +506,14 @@
     } catch (e) { /* getBBox indisponível: mantém o viewBox padrão */ }
   }
 
-  // Lista compacta dos 6 eixos com seus dois polos — o gráfico em si só
+  // Lista compacta dos N eixos com seus dois polos — o gráfico em si só
   // rotula o nome do eixo, então isso é o que explica o sentido de cada um
   // (em vez de espremer os dois polos perto do centro do SVG, ilegível com
-  // 6 eixos sobrepostos).
-  function buildAxisKey(host) {
+  // vários eixos sobrepostos). Reusada pelo Perfil Político e pela Distância
+  // do Estado Alocador — `axes` chega por parâmetro.
+  function buildRadarAxisKey(host, axes) {
     var ul = el("ul", "axis-key");
-    (window.PROFILE_AXES || []).forEach(function (axis) {
+    axes.forEach(function (axis) {
       var li = document.createElement("li");
       var strong = document.createElement("strong");
       strong.textContent = axis.label + ": ";
@@ -520,10 +524,21 @@
     host.appendChild(ul);
   }
 
-  function buildProfileLegend(ids) {
-    var host = document.getElementById("profile-legend");
+  // Legenda genérica de um gráfico radar: chave de eixos + chips pra
+  // esconder/mostrar candidato + detalhe retrátil por candidato com nota e
+  // justificativa de cada eixo. `svgScope` restringe a busca por
+  // `.spider-series` ao SVG deste gráfico específico — importante porque,
+  // com dois radares na mesma página (Perfil Político + Estado Alocador),
+  // ambos têm `.spider-series[data-candidate="lula"]`, e um
+  // document.querySelector global pegaria sempre o primeiro do DOM,
+  // escondendo a série errada quando o chip clicado fosse o do segundo
+  // gráfico. `extraDetailLines(id, s)` é opcional: função que devolve uma
+  // lista de { label, text } extra pra anexar no detalhe de cada candidato
+  // (usada pela Distância do Estado Alocador para mostrar soma e faixa).
+  function buildRadarLegend(legendHostId, ids, axes, scores, maxScore, svgScope, extraDetailLines) {
+    var host = document.getElementById(legendHostId);
     if (!host) return;
-    buildAxisKey(host);
+    buildRadarAxisKey(host, axes);
     var chips = el("div", "legend-chips");
     ids.forEach(function (id) {
       var c = window.CANDIDATES_DATA[id];
@@ -538,20 +553,20 @@
       btn.addEventListener("click", function () {
         var pressed = btn.getAttribute("aria-pressed") === "true";
         btn.setAttribute("aria-pressed", pressed ? "false" : "true");
-        var series = document.querySelector('.spider-series[data-candidate="' + id + '"]');
+        var series = svgScope && svgScope.querySelector ? svgScope.querySelector('.spider-series[data-candidate="' + id + '"]') : null;
         if (series) series.classList.toggle("spider-series-hidden", pressed);
       });
       chips.appendChild(btn);
     });
     host.appendChild(chips);
 
-    var details = el("div", "profile-details");
+    var details = el("div", "radar-details");
     ids.forEach(function (id) {
       var c = window.CANDIDATES_DATA[id];
-      var scores = (window.PROFILE_SCORES || {})[id];
-      if (!scores) return;
+      var s = scores[id];
+      if (!s) return;
       var d = document.createElement("details");
-      d.className = "profile-detail";
+      d.className = "radar-detail";
       var summary = document.createElement("summary");
       var swatch = el("span", "legend-swatch");
       swatch.style.background = "var(--cand-" + id + ")";
@@ -559,15 +574,26 @@
       summary.appendChild(document.createTextNode(c.basics.ballotName || c.basics.name));
       d.appendChild(summary);
       var ul = document.createElement("ul");
-      ul.className = "profile-axis-list";
-      (window.PROFILE_AXES || []).forEach(function (axis) {
+      ul.className = "radar-axis-list";
+      axes.forEach(function (axis) {
         var li = document.createElement("li");
         var strong = document.createElement("strong");
-        strong.textContent = axis.label + " (" + (scores[axis.id] != null ? scores[axis.id] : "—") + "/100): ";
+        strong.textContent = axis.label + " (" + (s[axis.id] != null ? s[axis.id] : "—") + "/" + maxScore + "): ";
         li.appendChild(strong);
-        li.appendChild(document.createTextNode(scores.rationale && scores.rationale[axis.id] ? scores.rationale[axis.id] : ""));
+        li.appendChild(document.createTextNode(s.rationale && s.rationale[axis.id] ? s.rationale[axis.id] : ""));
         ul.appendChild(li);
       });
+      if (extraDetailLines) {
+        extraDetailLines(id, s).forEach(function (extra) {
+          var li = document.createElement("li");
+          li.className = "radar-axis-list-extra";
+          var strong = document.createElement("strong");
+          strong.textContent = extra.label + ": ";
+          li.appendChild(strong);
+          li.appendChild(document.createTextNode(extra.text));
+          ul.appendChild(li);
+        });
+      }
       d.appendChild(ul);
       details.appendChild(d);
     });
@@ -578,12 +604,63 @@
     var host = document.getElementById("spider-chart-host");
     if (!host) return;
     var ids = orderedCandidateIds();
-    var svg = buildSpiderChart(ids);
+    var axes = window.PROFILE_AXES || [];
+    var scores = window.PROFILE_SCORES || {};
+    var svg = buildRadarChart(ids, axes, scores, 100, "Gráfico comparando o perfil político dos candidatos em 6 eixos");
     if (svg) {
       host.appendChild(svg);
       fitSpiderViewBox(svg);
     }
-    buildProfileLegend(ids);
+    buildRadarLegend("profile-legend", ids, axes, scores, 100, svg || host);
+  }
+
+  /* ============================== Distância do Estado Alocador ============================== */
+  // Mesmo padrão do Perfil Político (radar + legenda), mas em escala 0–3 por
+  // eixo, com um detalhe extra por candidato: soma D1–D5, D6 à parte e o
+  // total 0–18 classificado em faixa — para não escamotear numa média só a
+  // divergência entre "quanto o Estado deixa de alocar recursos" (D1–D5) e
+  // "o plano remove ou constrói estruturas novas" (D6), que podem apontar em
+  // direções opostas.
+  function allocatorBand(total) {
+    if (total <= 5) return "Estado alocador";
+    if (total <= 11) return "liberalismo de mercado";
+    return "afinidade austríaca parcial";
+  }
+
+  function buildAllocatorDetailLines(id, s) {
+    var axes = window.ALLOCATOR_AXES || [];
+    var d1to5Ids = axes.slice(0, 5).map(function (a) { return a.id; });
+    var d6Id = axes[5] ? axes[5].id : "remocao";
+    var subtotal = d1to5Ids.reduce(function (sum, aid) { return sum + (s[aid] || 0); }, 0);
+    var d6 = s[d6Id] || 0;
+    var total = subtotal + d6;
+    var lines = [
+      { label: "Soma D1–D5 (0–15)", text: String(subtotal) },
+      { label: "D6 — Remover x Construir (0–3)", text: String(d6) },
+      { label: "Distância do Estado alocador (0–18)", text: total + " — " + allocatorBand(total) }
+    ];
+    var avg1to5 = subtotal / 5;
+    if (Math.abs(avg1to5 - d6) >= 1.5) {
+      lines.push({
+        label: "Diverge",
+        text: "D1–D5 e D6 apontam em direções bem diferentes — não resuma isso só no total; veja os dois blocos acima separadamente."
+      });
+    }
+    return lines;
+  }
+
+  function buildAllocatorSection() {
+    var host = document.getElementById("allocator-chart-host");
+    if (!host) return;
+    var ids = orderedCandidateIds();
+    var axes = window.ALLOCATOR_AXES || [];
+    var scores = window.ALLOCATOR_SCORES || {};
+    var svg = buildRadarChart(ids, axes, scores, 3, "Gráfico comparando a distância do Estado alocador dos candidatos em 6 eixos");
+    if (svg) {
+      host.appendChild(svg);
+      fitSpiderViewBox(svg);
+    }
+    buildRadarLegend("allocator-legend", ids, axes, scores, 3, svg || host, buildAllocatorDetailLines);
   }
 
   /* ============================== Fontes ============================== */
@@ -649,6 +726,7 @@
   function init() {
     buildCandidateGrid();
     buildProfileSection();
+    buildAllocatorSection();
     buildEconomySection(
       document.getElementById("economy-tabs"),
       document.getElementById("economy-panels"),

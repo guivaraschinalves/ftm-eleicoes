@@ -10,16 +10,16 @@ Foco principal em **Economia** — dividida em 7 subtemas, cada um com aba de
 temas (educação, saúde, segurança, meio ambiente, tecnologia, política
 externa). Em Economia e Outros Temas, todo trecho de posicionamento é
 **citação literal** dos **planos de governo oficiais registrados no TSE**
-(nunca resumo nosso), com a página do PDF referenciada. A seção **Perfil
-Político** é a exceção declarada: um gráfico tipo Smartspider (smartvote)
-com 6 eixos — isso é leitura editorial nossa, não citação, e o site deixa
-isso explícito.
+(nunca resumo nosso), com a página do PDF referenciada. **Perfil Político**
+e **Distância do Estado Alocador** são as duas exceções declaradas: dois
+gráficos tipo radar (6 eixos cada) com leitura editorial nossa, não
+citação — o site deixa isso explícito em cada seção.
 
-Página única, navegação por âncora. As 6 seções principais (Visão Geral,
-Perfil Político, Economia, Outros Temas, Comparar 1×1, Fontes) são
-`<details>` retráteis — clique no título de cada uma para abrir/fechar,
-independentes umas das outras. Dentro de Economia e Outros Temas, os
-subtemas continuam em abas (clique para trocar), não em accordion.
+Página única, navegação por âncora. As 7 seções principais (Visão Geral,
+Perfil Político, Estado Alocador, Economia, Outros Temas, Comparar 1×1,
+Fontes) são `<details>` retráteis — clique no título de cada uma para
+abrir/fechar, independentes umas das outras. Dentro de Economia e Outros
+Temas, os subtemas continuam em abas (clique para trocar), não em accordion.
 
 ## Por que esse formato
 
@@ -36,12 +36,13 @@ carregados como `<script>` normal, sem nenhuma chamada de rede em runtime.
 
 ```
 index.html          → casca da página (sidebar, seções) — script tags na ordem certa
-styles.css           → visual (tokens de cor/tipografia/candidato, cards, tabs, spider chart)
-app.js               → lê os dados e monta as 4 seções (DOM puro, sem framework)
+styles.css           → visual (tokens de cor/tipografia/candidato, cards, tabs, radar)
+app.js               → lê os dados e monta as seções (DOM puro, sem framework)
 data/
   taxonomy.js         → subtemas de Economia, outros temas, ordem dos candidatos
   sources.js           → URL oficial de cada plano no TSE + caminho do PDF local
   profile.js            → eixos e notas do Perfil Político (síntese editorial, não citação)
+  allocator.js           → eixos e notas da Distância do Estado Alocador (idem, não citação)
   candidates/*.js       → um arquivo por candidato: dados básicos + citações por tema
 sources/             → foto oficial (TSE) + cópia de cada PDF por candidato
 scripts/
@@ -73,18 +74,35 @@ o formato acima, adicione `<script src="data/candidates/<id>.js">` em
 `index.html` (e na lista `SCRIPT_FILES` de `scripts/build_artifact.py`),
 inclua `<id>` em `CANDIDATE_ORDER` (`data/taxonomy.js`), adicione a entrada
 em `data/sources.js`, coloque a foto oficial em `sources/<id>.jpg` e o PDF em
-`sources/<id>.pdf`, e adicione as notas de `data/profile.js` (eixos 0–100 +
-`rationale`, ver seção abaixo).
+`sources/<id>.pdf`, e adicione as notas de `data/profile.js` e
+`data/allocator.js` (ver seção abaixo).
 
-## Perfil Político — a exceção declarada
+## Perfil Político e Distância do Estado Alocador — as exceções declaradas
 
-`data/profile.js` não segue o padrão "citação literal" do resto do site: são
-6 eixos de 0 a 100 (`PROFILE_SCORES`) atribuídos por nós, a partir da leitura
-do conjunto de citações já coletado em Economia/Outros Temas, para alimentar
-um gráfico tipo Smartspider (inspirado no
-[smartvote](https://www.smartvote.ch/)). Cada eixo tem um `rationale` por
+`data/profile.js` e `data/allocator.js` não seguem o padrão "citação
+literal" do resto do site — os dois alimentam um gráfico tipo radar
+(`buildRadarChart`/`buildRadarLegend` em `app.js`, compartilhado pelas duas
+seções) com notas atribuídas por nós, a partir da leitura das citações já
+coletadas em Economia/Outros Temas. Cada eixo tem um `rationale` por
 candidato — editar a nota exige também editar (ou apontar para) o
 `rationale` correspondente, para manter a leitura auditável.
+
+- **`profile.js`** (`PROFILE_AXES`/`PROFILE_SCORES`): 6 eixos de 0 a 100,
+  inspirados no Smartspider do [smartvote](https://www.smartvote.ch/) —
+  uma síntese ampla de onde cada candidato se posiciona.
+- **`allocator.js`** (`ALLOCATOR_AXES`/`ALLOCATOR_SCORES`/`ALLOCATOR_RUBRIC`):
+  6 eixos de 0 a 3, cada um respondível contando propostas (rubrica em
+  `ALLOCATOR_RUBRIC` e reproduzida no `<details>` "Como cada eixo foi
+  pontuado" da própria seção), medindo uma coisa só: quanto o Estado deixa
+  de ser o alocador de recursos. Somados dão um índice de 0 a 18,
+  classificado em faixa por `allocatorBand()` em `app.js`. A moeda foi
+  deixada de fora de propósito — nenhum dos 5 planos se aproxima da posição
+  de padrão-ouro/fim do curso forçado, então o eixo não separaria ninguém.
+  Nome deliberado: "distância do Estado alocador", não "índice austríaco" —
+  evita que uma comparação relativa entre 5 planos vire afirmação absoluta.
+  Quando a soma de D1–D5 diverge muito do eixo D6 (remover vs. construir),
+  `buildAllocatorDetailLines()` sinaliza isso no detalhe do candidato em vez
+  de escondê-lo numa média só.
 
 ## De onde vieram os dados
 

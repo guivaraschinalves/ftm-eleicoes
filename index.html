@@ -21,6 +21,7 @@
     <nav class="nav" aria-label="Seções">
       <a class="nav-link" href="#visao-geral">Visão Geral</a>
       <a class="nav-link" href="#perfil-politico">Perfil Político</a>
+      <a class="nav-link" href="#estado-alocador">Estado Alocador</a>
       <a class="nav-link" href="#economia">Economia</a>
       <a class="nav-link" href="#outros-temas">Outros Temas</a>
       <a class="nav-link" href="#comparacao">Comparar 1×1</a>
@@ -43,9 +44,11 @@
       <strong>Economia, Outros Temas e Fontes</strong> mostram trechos <strong>citados
       literalmente</strong> dos planos de governo oficiais registrados no TSE — nunca resumos
       nossos — sempre com a página do PDF. Onde um tema não é abordado explicitamente no plano,
-      isso é indicado, não é erro de coleta. <strong>Perfil Político</strong> já é outra coisa:
-      uma <strong>leitura editorial nossa</strong>, em forma de gráfico, sobre onde cada
-      candidato se posiciona — não uma citação nem uma nota oficial; a seção deixa isso explícito.
+      isso é indicado, não é erro de coleta. <strong>Perfil Político</strong> e
+      <strong>Distância do Estado Alocador</strong> já são outra coisa: <strong>leitura
+      editorial nossa</strong>, em forma de gráfico, sobre onde cada candidato se posiciona —
+      não citação nem nota oficial; as duas seções deixam isso explícito, com a justificativa
+      (e a página do plano) de cada nota disponível ao passar o mouse ou tocar.
       Ordem dos candidatos: sempre alfabética pelo nome de urna, sem relação com pesquisas.
     </p>
 
@@ -69,7 +72,47 @@
         justificativa de cada nota disponível ao passar o mouse (ou tocar) em cada eixo.
       </p>
       <div id="spider-chart-host" class="spider-host"></div>
-      <div id="profile-legend" class="profile-legend"></div>
+      <div id="profile-legend" class="radar-legend"></div>
+    </details>
+
+    <details id="estado-alocador" class="page-section" open>
+      <summary class="section-heading">
+        <h2>Distância do Estado Alocador</h2>
+        <span class="count">análise, não citação</span>
+      </summary>
+      <p class="section-note">
+        Seis perguntas diretas, todas na escala <strong>0–3</strong>, todas respondíveis contando
+        propostas — sobre uma coisa só: <strong>quanto o Estado deixa de ser o alocador de
+        recursos</strong> (quem é dono do que produz, quem decide o crédito, regra igual ou por
+        setor, barreira de entrada, Brasília ou o município, remover ou construir). A moeda ficou
+        de fora de propósito: é o eixo mais associado à ideia de Estado mínimo, mas nenhum dos 5
+        planos chega perto dessa posição, então não separa ninguém. Somados, os 6 eixos dão um
+        índice de <strong>0 a 18</strong>, que chamamos de <em>distância do Estado alocador</em> —
+        não de "índice austríaco": mesmo o plano mais bem pontuado ainda está longe dessa escola, e
+        o nome evita que uma comparação relativa entre 5 planos vire afirmação absoluta.
+        <strong>Não é citação</strong> — é nossa leitura, com a justificativa e a página de cada
+        nota disponível ao passar o mouse (ou tocar) em cada eixo, ou no detalhe retrátil de cada
+        candidato abaixo do gráfico.
+      </p>
+      <details class="allocator-methodology">
+        <summary>Como cada eixo foi pontuado (0–3)</summary>
+        <dl class="allocator-rubric">
+          <div><dt>Dono da Produção</dt><dd>0 = criar ou ampliar estatais · 1 = manter e profissionalizar · 2 = privatizar caso a caso · 3 = privatizar como regra.</dd></div>
+          <div><dt>Direção do Crédito</dt><dd>0 = ampliar bancos públicos e crédito dirigido · 1 = manter com melhor governança · 2 = reduzir · 3 = eliminar.</dd></div>
+          <div><dt>Regra Geral x Setorial</dt><dd>Razão entre propostas horizontais e propostas que nomeiam setores. 0 = predominam setoriais · 3 = predominam horizontais.</dd></div>
+          <div><dt>Barreira de Entrada</dt><dd>Conta de propostas de remoção de exigência prévia (alvará, licença, prazo, registro). 0 = nova regulação · 3 = dispensa ampla.</dd></div>
+          <div><dt>Poder Federativo</dt><dd>0 = centralizar · 1 = descentralizar execução · 2 = descentralizar orçamento · 3 = descentralizar competência legislativa e receita.</dd></div>
+          <div><dt>Remover x Construir</dt><dd>Cada proposta conta como remoção (tirar regra, imposto, monopólio) ou construção (criar programa/estrutura), na razão entre as duas. 0 = predominam construções · 3 = predominam remoções.</dd></div>
+        </dl>
+        <p class="allocator-methodology-note">
+          Faixas do total (0–18): <strong>0–5</strong> Estado alocador · <strong>6–11</strong>
+          liberalismo de mercado · <strong>12–18</strong> afinidade austríaca parcial. Quando a
+          soma de D1–D5 e o eixo D6 apontam em direções bem diferentes, o detalhe de cada
+          candidato sinaliza isso em vez de escondê-lo numa média só.
+        </p>
+      </details>
+      <div id="allocator-chart-host" class="spider-host"></div>
+      <div id="allocator-legend" class="radar-legend"></div>
     </details>
 
     <details id="economia" class="page-section" open>
@@ -157,6 +200,7 @@
 <script src="data/taxonomy.js"></script>
 <script src="data/sources.js"></script>
 <script src="data/profile.js"></script>
+<script src="data/allocator.js"></script>
 <script src="data/candidates/caiado.js"></script>
 <script src="data/candidates/flavio-bolsonaro.js"></script>
 <script src="data/candidates/lula.js"></script>

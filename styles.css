@@ -244,7 +244,7 @@ h1 { font-family: var(--font-serif); font-weight: 500; font-size: 2.3rem; margin
 }
 .cite-link:hover { color: var(--brand); border-color: var(--brand); }
 
-/* ---------- Perfil Político (spider chart) ---------- */
+/* ---------- Radar (Perfil Político e Distância do Estado Alocador) ---------- */
 .spider-host { display: flex; justify-content: center; margin-bottom: 8px; }
 .spider-svg { width: 100%; max-width: 560px; height: auto; }
 .spider-ring { fill: none; stroke: var(--border); stroke-width: 1; }
@@ -255,7 +255,7 @@ h1 { font-family: var(--font-serif); font-weight: 500; font-size: 2.3rem; margin
 .spider-shape { fill: var(--cand-color); fill-opacity: 0.08; stroke: var(--cand-color); stroke-width: 2.5; }
 .spider-dot { fill: var(--cand-color); stroke: var(--surface); stroke-width: 1.5; cursor: help; }
 
-.profile-legend { display: flex; flex-direction: column; gap: 18px; align-items: center; }
+.radar-legend { display: flex; flex-direction: column; gap: 18px; align-items: center; }
 .axis-key {
   list-style: none; margin: 0; padding: 0; display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 6px 20px; width: 100%; max-width: 760px;
@@ -272,18 +272,38 @@ h1 { font-family: var(--font-serif); font-weight: 500; font-size: 2.3rem; margin
 .legend-chip:hover { color: var(--ink); }
 .legend-swatch { width: 11px; height: 11px; border-radius: 50%; flex: none; }
 
-.profile-details { display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 760px; }
-.profile-detail {
+.radar-details { display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 760px; }
+.radar-detail {
   background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 4px 18px;
 }
-.profile-detail summary {
+.radar-detail summary {
   display: flex; align-items: center; gap: 10px; padding: 11px 0; cursor: pointer;
   font-family: var(--font-serif); font-size: 1.02rem; color: var(--ink); list-style: none;
 }
-.profile-detail summary::-webkit-details-marker { display: none; }
-.profile-axis-list { margin: 0 0 14px; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.profile-axis-list li { font-size: 0.88rem; color: var(--ink-secondary); line-height: 1.55; }
-.profile-axis-list strong { color: var(--ink); }
+.radar-detail summary::-webkit-details-marker { display: none; }
+.radar-axis-list { margin: 0 0 14px; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.radar-axis-list li { font-size: 0.88rem; color: var(--ink-secondary); line-height: 1.55; }
+.radar-axis-list strong { color: var(--ink); }
+/* Linhas extra da Distância do Estado Alocador (soma/faixa/aviso de
+   divergência) — destacadas do resto da lista de eixos. */
+.radar-axis-list-extra {
+  border-top: 1px dashed var(--border); padding-top: 10px; margin-top: 2px; color: var(--ink);
+}
+
+/* ---------- Metodologia da Distância do Estado Alocador ---------- */
+.allocator-methodology {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 4px 18px; margin: 0 0 16px;
+}
+.allocator-methodology > summary {
+  padding: 11px 0; cursor: pointer; list-style: none;
+  font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.03em; color: var(--ink-secondary);
+}
+.allocator-methodology > summary::-webkit-details-marker { display: none; }
+.allocator-rubric { margin: 4px 0 12px; display: flex; flex-direction: column; gap: 10px; }
+.allocator-rubric dt { font-family: var(--font-serif); font-size: 0.96rem; color: var(--ink); margin-bottom: 2px; }
+.allocator-rubric dd { margin: 0; font-size: 0.86rem; color: var(--ink-secondary); line-height: 1.55; }
+.allocator-methodology-note { font-size: 0.84rem; color: var(--ink-muted); line-height: 1.55; margin: 0 0 14px; }
 
 /* ---------- Sources ---------- */
 .sources-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 22px; }
