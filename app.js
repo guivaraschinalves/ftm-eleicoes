@@ -535,10 +535,10 @@
   // gráfico. `extraDetailLines(id, s)` é opcional: função que devolve uma
   // lista de { label, text } extra pra anexar no detalhe de cada candidato
   // (usada pela Distância do Estado Alocador para mostrar soma e faixa).
-  function buildRadarLegend(legendHostId, ids, axes, scores, maxScore, svgScope, extraDetailLines) {
+  function buildRadarLegend(legendHostId, ids, axes, scores, maxScore, svgScope, showAxisKey, extraDetailLines) {
     var host = document.getElementById(legendHostId);
     if (!host) return;
-    buildRadarAxisKey(host, axes);
+    if (showAxisKey) buildRadarAxisKey(host, axes);
     var chips = el("div", "legend-chips");
     ids.forEach(function (id) {
       var c = window.CANDIDATES_DATA[id];
@@ -611,7 +611,7 @@
       host.appendChild(svg);
       fitSpiderViewBox(svg);
     }
-    buildRadarLegend("profile-legend", ids, axes, scores, 100, svg || host);
+    buildRadarLegend("profile-legend", ids, axes, scores, 100, svg || host, true);
   }
 
   /* ============================== Papel do Estado ============================== */
@@ -712,7 +712,7 @@
     var scores = window.ALLOCATOR_SCORES || {};
     var line = buildAllocatorLine(ids, scores);
     host.appendChild(line);
-    buildRadarLegend("allocator-legend", ids, axes, scores, 3, line, buildAllocatorDetailLines);
+    buildRadarLegend("allocator-legend", ids, axes, scores, 3, line, false, buildAllocatorDetailLines);
   }
 
   /* ============================== Contagem de Palavras ============================== */
