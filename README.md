@@ -11,14 +11,16 @@ temas (educação, saúde, segurança, meio ambiente, tecnologia, política
 externa). Em Economia e Outros Temas, todo trecho de posicionamento é
 **citação literal** dos **planos de governo oficiais registrados no TSE**
 (nunca resumo nosso), com a página do PDF referenciada. **Perfil Político**
-e **Escola Austríaca** são as duas exceções declaradas: dois gráficos tipo
-radar (6 eixos cada) com leitura editorial nossa, não citação — o site
-deixa isso explícito em cada seção. **Contagem de Palavras** é uma terceira
-coisa, nem citação nem leitura editorial: contagem mecânica de quantas
-vezes 18 palavras/expressões aparecem em cada plano.
+e **Papel do Estado** são as duas exceções declaradas: leitura editorial
+nossa, não citação — Perfil Político num gráfico radar (6 eixos, 0–100),
+Papel do Estado numa reta única (0–18) com a foto de cada candidato na
+posição do seu total — o site deixa isso explícito em cada seção.
+**Contagem de Palavras** é uma terceira coisa, nem citação nem leitura
+editorial: contagem mecânica de quantas vezes 18 palavras/expressões
+aparecem em cada plano.
 
 Página única, navegação por âncora. As 8 seções principais (Visão Geral,
-Perfil Político, Escola Austríaca, Contagem de Palavras, Economia, Outros
+Perfil Político, Papel do Estado, Contagem de Palavras, Economia, Outros
 Temas, Comparar 1×1, Fontes) são `<details>` retráteis, todas fechadas por
 padrão ao abrir o site — clique no título de cada uma para abrir,
 independentes umas das outras. Dentro de Economia e Outros Temas, os
@@ -45,7 +47,7 @@ data/
   taxonomy.js         → subtemas de Economia, outros temas, ordem dos candidatos
   sources.js           → URL oficial de cada plano no TSE + caminho do PDF local
   profile.js            → eixos e notas do Perfil Político (síntese editorial, não citação)
-  allocator.js           → eixos e notas da Escola Austríaca (idem, não citação)
+  allocator.js           → eixos e notas do Papel do Estado (idem, não citação)
   wordcounts.js           → contagem de palavras por candidato (gerado por count_words.py, não editar à mão)
   candidates/*.js       → um arquivo por candidato: dados básicos + citações por tema
 sources/             → foto oficial (TSE) + cópia de cada PDF por candidato
@@ -82,33 +84,39 @@ em `data/sources.js`, coloque a foto oficial em `sources/<id>.jpg` e o PDF em
 `sources/<id>.pdf`, e adicione as notas de `data/profile.js` e
 `data/allocator.js` (ver seção abaixo).
 
-## Perfil Político e Escola Austríaca — as exceções declaradas
+## Perfil Político e Papel do Estado — as exceções declaradas
 
 `data/profile.js` e `data/allocator.js` não seguem o padrão "citação
-literal" do resto do site — os dois alimentam um gráfico tipo radar
-(`buildRadarChart`/`buildRadarLegend` em `app.js`, compartilhado pelas duas
-seções) com notas atribuídas por nós, a partir da leitura das citações já
-coletadas em Economia/Outros Temas. Cada eixo tem um `rationale` por
-candidato — editar a nota exige também editar (ou apontar para) o
-`rationale` correspondente, para manter a leitura auditável.
+literal" do resto do site — os dois têm notas atribuídas por nós, a partir
+da leitura das citações já coletadas em Economia/Outros Temas, com um
+`rationale` por eixo e candidato (editar a nota exige também editar, ou
+apontar para, o `rationale` correspondente, para manter a leitura
+auditável). A visualização é diferente em cada seção:
 
-- **`profile.js`** (`PROFILE_AXES`/`PROFILE_SCORES`): 6 eixos de 0 a 100,
-  inspirados no Smartspider do [smartvote](https://www.smartvote.ch/) —
-  uma síntese ampla de onde cada candidato se posiciona.
+- **`profile.js`** (`PROFILE_AXES`/`PROFILE_SCORES`), seção "Perfil
+  Político": 6 eixos de 0 a 100, inspirados no Smartspider do
+  [smartvote](https://www.smartvote.ch/), num gráfico radar
+  (`buildRadarChart`/`buildRadarLegend` em `app.js`) — uma síntese ampla de
+  onde cada candidato se posiciona.
 - **`allocator.js`** (`ALLOCATOR_AXES`/`ALLOCATOR_SCORES`/`ALLOCATOR_RUBRIC`),
-  seção "Escola Austríaca" no site: 6 eixos de 0 a 3, cada um respondível
-  contando propostas (rubrica em `ALLOCATOR_RUBRIC` e reproduzida no
-  `<details>` "Como cada eixo foi pontuado" da própria seção), medindo uma
-  coisa só: quanto o Estado deixa de ser o alocador de recursos. Somados dão
-  um índice de 0 a 18, classificado em faixa por `allocatorBand()` em
-  `app.js`. A moeda foi deixada de fora de propósito — nenhum dos 5 planos
-  se aproxima da posição de padrão-ouro/fim do curso forçado, então o eixo
-  não separaria ninguém. O total é chamado de "distância do Estado alocador"
-  na legenda de cada candidato — mesmo o plano mais bem pontuado ainda está
-  longe da escola, e o rótulo evita que uma comparação relativa entre 5
-  planos vire afirmação absoluta. Quando a soma de D1–D5 diverge muito do
-  eixo D6 (remover vs. construir), `buildAllocatorDetailLines()` sinaliza
-  isso no detalhe do candidato em vez de escondê-lo numa média só.
+  seção "Papel do Estado": 6 eixos de 0 a 3, cada um respondível contando
+  propostas (rubrica em `ALLOCATOR_RUBRIC` e reproduzida no `<details>`
+  "Como cada eixo foi pontuado" da própria seção), medindo uma coisa só:
+  quanto o Estado deixa de ser o alocador de recursos. Somados dão um
+  índice de 0 a 18 (`allocatorTotal()` em `app.js`), classificado em faixa
+  por `allocatorBand()`. A moeda foi deixada de fora de propósito — nenhum
+  dos 5 planos se aproxima da posição de padrão-ouro/fim do curso forçado,
+  então o eixo não separaria ninguém. Diferente do Perfil Político, o
+  gráfico principal aqui **não é um radar**: é uma reta única de 0 a 18
+  (`buildAllocatorLine()`), com a foto de cada candidato posicionada no seu
+  total — mais direto para uma métrica de eixo único. O detalhe por eixo
+  (`buildRadarLegend`, mesma função reusada do Perfil Político) continua
+  disponível, retrátil, abaixo da reta. "Distância do Estado alocador" —
+  mesmo o plano mais bem pontuado ainda está longe da escola, e o nome
+  evita que uma comparação relativa entre 5 planos vire afirmação absoluta.
+  Quando a soma de D1–D5 diverge muito do eixo D6 (remover vs. construir),
+  `buildAllocatorDetailLines()` sinaliza isso no detalhe do candidato em
+  vez de escondê-lo numa média só.
 
 ## Contagem de Palavras — mecânica, não editorial
 
@@ -124,7 +132,7 @@ radical em vez de só a forma nominal, porque o verbo aparece tanto quanto
 (ou mais que) o substantivo nesses planos — ex.: o plano do Zema usa
 "Privatizar todas as empresas estatais" (verbo), não "privatização"; um
 match só do substantivo bateria a contagem em zero apesar da citação já
-aparecer na seção Escola Austríaca. Os demais termos contam só a forma
+aparecer na seção Papel do Estado. Os demais termos contam só a forma
 escrita na lista, sem tentar capturar todo verbo/derivação relacionada —
 é contagem literal, não desambiguada ("Estado" conta tanto "o Estado"
 quanto "estado de Minas Gerais").

@@ -244,7 +244,47 @@ h1 { font-family: var(--font-serif); font-weight: 500; font-size: 2.3rem; margin
 }
 .cite-link:hover { color: var(--brand); border-color: var(--brand); }
 
-/* ---------- Radar (Perfil Político e Distância do Estado Alocador) ---------- */
+/* ---------- Papel do Estado (reta 0–18 com foto de cada candidato) ---------- */
+.allocator-line-host { padding: 0 20px; margin-bottom: 8px; }
+.allocator-line { position: relative; width: 100%; height: 108px; margin: 30px 0 6px; }
+.allocator-line-track {
+  position: absolute; top: 50%; left: 0; right: 0; height: 4px; transform: translateY(-50%);
+  background: var(--accent-wash); border-radius: 2px;
+}
+.allocator-line-tick {
+  position: absolute; top: 50%; width: 1px; height: 10px; transform: translate(-50%, -50%);
+  background: var(--border);
+}
+.allocator-line-tick-label {
+  position: absolute; top: calc(50% + 10px); transform: translateX(-50%);
+  font-family: var(--font-mono); font-size: 0.66rem; color: var(--ink-muted);
+}
+.allocator-line-point {
+  position: absolute; top: 50%; transform: translate(-50%, -50%);
+  display: flex; flex-direction: column; align-items: center; transition: opacity 0.15s ease;
+}
+.allocator-line-point-above { margin-top: -30px; }
+.allocator-line-point-below { margin-top: 30px; }
+.allocator-line-avatar-wrap { position: relative; cursor: help; order: 0; }
+.allocator-line-point-above .allocator-line-avatar-wrap { order: 1; }
+.allocator-line-point-below .allocator-line-avatar-wrap { order: 0; }
+.allocator-line-avatar {
+  width: 34px; height: 34px; font-size: 0.76rem;
+  border: 2px solid var(--surface); box-shadow: 0 0 0 1px var(--border);
+}
+.allocator-line-badge {
+  position: absolute; bottom: -3px; right: -3px; min-width: 15px; height: 15px; padding: 0 3px;
+  border-radius: 999px; background: var(--ink); color: var(--surface); border: 2px solid var(--surface);
+  font-family: var(--font-mono); font-size: 0.6rem; font-weight: 600; line-height: 11px; text-align: center;
+}
+.allocator-line-label {
+  font-family: var(--font-mono); font-size: 0.66rem; color: var(--ink-secondary);
+  white-space: nowrap; text-align: center; order: 1;
+}
+.allocator-line-point-above .allocator-line-label { order: 0; margin-bottom: 4px; }
+.allocator-line-point-below .allocator-line-label { order: 1; margin-top: 4px; }
+
+/* ---------- Radar (Perfil Político) ---------- */
 .spider-host { display: flex; justify-content: center; margin-bottom: 8px; }
 .spider-svg { width: 100%; max-width: 560px; height: auto; }
 .spider-ring { fill: none; stroke: var(--border); stroke-width: 1; }
@@ -357,4 +397,7 @@ h1 { font-family: var(--font-serif); font-weight: 500; font-size: 2.3rem; margin
   .axis-key { grid-template-columns: 1fr; }
   .wordcount-row { grid-template-columns: 62px 1fr auto; gap: 6px; }
   .wordcount-value { font-size: 0.68rem; }
+  .allocator-line-host { padding: 0 14px; }
+  .allocator-line-avatar { width: 28px; height: 28px; }
+  .allocator-line-label { display: none; }
 }

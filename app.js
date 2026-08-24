@@ -614,13 +614,22 @@
     buildRadarLegend("profile-legend", ids, axes, scores, 100, svg || host);
   }
 
-  /* ============================== Distância do Estado Alocador ============================== */
-  // Mesmo padrão do Perfil Político (radar + legenda), mas em escala 0–3 por
-  // eixo, com um detalhe extra por candidato: soma D1–D5, D6 à parte e o
-  // total 0–18 classificado em faixa — para não escamotear numa média só a
-  // divergência entre "quanto o Estado deixa de alocar recursos" (D1–D5) e
-  // "o plano remove ou constrói estruturas novas" (D6), que podem apontar em
-  // direções opostas.
+  /* ============================== Papel do Estado ============================== */
+  // Escala 0–3 por eixo (6 eixos), com um detalhe extra por candidato: soma
+  // D1–D5, D6 à parte e o total 0–18 classificado em faixa — para não
+  // escamotear numa média só a divergência entre "quanto o Estado deixa de
+  // alocar recursos" (D1–D5) e "o plano remove ou constrói estruturas
+  // novas" (D6), que podem apontar em direções opostas. O gráfico principal
+  // é uma reta única 0–18 (buildAllocatorLine) com a foto de cada candidato
+  // na posição do seu total; o detalhe por eixo (buildRadarLegend, mesma
+  // função do Perfil Político) continua abaixo, retrátil por candidato.
+  var ALLOCATOR_MAX = 18;
+
+  function allocatorTotal(s) {
+    var axes = window.ALLOCATOR_AXES || [];
+    return axes.reduce(function (sum, a) { return sum + (s[a.id] || 0); }, 0);
+  }
+
   function allocatorBand(total) {
     if (total <= 5) return "Estado alocador";
     if (total <= 11) return "liberalismo de mercado";
@@ -649,24 +658,82 @@
     return lines;
   }
 
+  // Reta única 0–18 com a foto de cada candidato na posição do seu total.
+  // Cada ponto usa a classe "spider-series" (mesma do radar do Perfil
+  // Político) só para reaproveitar sem alterar nada o toggle de
+  // esconder/mostrar candidato já implementado em buildRadarLegend — ele
+  // procura ".spider-series[data-candidate=...]" dentro do escopo que
+  // recebe, e não liga se esse escopo é um <svg> ou uma <div>.
+  function buildAllocatorLine(ids, scores) {
+    var wrap = el("div", "allocator-line");
+    var track = el("div", "allocator-line-track");
+    wrap.appendChild(track);
+
+    [0, 5, 11, ALLOCATOR_MAX].forEach(function (v) {
+      var pct = v / ALLOCATOR_MAX * 100;
+      var tick = el("div", "allocator-line-tick");
+      tick.style.left = pct + "%";
+      wrap.appendChild(tick);
+      var tickLabel = el("span", "allocator-line-tick-label");
+      tickLabel.style.left = pct + "%";
+      tickLabel.textContent = v;
+      wrap.appendChild(tickLabel);
+    });
+
+    // Ordena por pontuação antes de intercalar acima/abaixo da reta — assim
+    // candidatos com totais próximos (que ficariam colados horizontalmente)
+    // quase sempre caem em lados opostos, em vez de ordem alfabética/id
+    // gerar colisão por acaso.
+    var sorted = ids.slice().sort(function (a, b) {
+      var sa = scores[a] ? allocatorTotal(scores[a]) : 0;
+      var sb = scores[b] ? allocatorTotal(scores[b]) : 0;
+      return sa - sb;
+    });
+
+    sorted.forEach(function (id, i) {
+      var c = window.CANDIDATES_DATA[id];
+      var s = scores[id];
+      if (!c || !s) return;
+      var total = allocatorTotal(s);
+      var pct = Math.max(0, Math.min(100, total / ALLOCATOR_MAX * 100));
+
+      var point = el("div", "spider-series allocator-line-point " + (i % 2 === 0 ? "allocator-line-point-above" : "allocator-line-point-below"));
+      point.dataset.candidate = id;
+      point.style.left = pct + "%";
+
+      var avatarWrap = el("div", "allocator-line-avatar-wrap");
+      avatarWrap.title = (c.basics.ballotName || c.basics.name) + " — " + total + "/" + ALLOCATOR_MAX + " (" + allocatorBand(total) + ")";
+      avatarWrap.appendChild(buildAvatar(c.basics, "allocator-line-avatar"));
+      var badge = el("span", "allocator-line-badge");
+      badge.textContent = total;
+      avatarWrap.appendChild(badge);
+      point.appendChild(avatarWrap);
+
+      var label = el("span", "allocator-line-label");
+      label.textContent = c.basics.ballotName || c.basics.name;
+      point.appendChild(label);
+
+      wrap.appendChild(point);
+    });
+
+    return wrap;
+  }
+
   function buildAllocatorSection() {
     var host = document.getElementById("allocator-chart-host");
     if (!host) return;
     var ids = orderedCandidateIds();
     var axes = window.ALLOCATOR_AXES || [];
     var scores = window.ALLOCATOR_SCORES || {};
-    var svg = buildRadarChart(ids, axes, scores, 3, "Gráfico comparando a distância do Estado alocador dos candidatos em 6 eixos");
-    if (svg) {
-      host.appendChild(svg);
-      fitSpiderViewBox(svg);
-    }
-    buildRadarLegend("allocator-legend", ids, axes, scores, 3, svg || host, buildAllocatorDetailLines);
+    var line = buildAllocatorLine(ids, scores);
+    host.appendChild(line);
+    buildRadarLegend("allocator-legend", ids, axes, scores, 3, line, buildAllocatorDetailLines);
   }
 
   /* ============================== Contagem de Palavras ============================== */
   // Contagem mecânica (data/wordcounts.js, gerada por scripts/count_words.py
   // a partir do texto bruto dos 5 PDFs) — não é leitura editorial como o
-  // Perfil Político/Escola Austríaca, é busca de texto. Uma fileira por
+  // Perfil Político/Papel do Estado, é busca de texto. Uma fileira por
   // termo, com uma barra por candidato; a barra é proporcional ao maior
   // valor ENTRE OS 5 CANDIDATOS DAQUELE TERMO (escala por linha, não
   // global) — senão termos raros (ex.: "desestatização") ficariam achatados
