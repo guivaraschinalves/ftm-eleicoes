@@ -245,32 +245,32 @@ h1 { font-family: var(--font-serif); font-weight: 500; font-size: 2.3rem; margin
 .cite-link:hover { color: var(--brand); border-color: var(--brand); }
 
 /* ---------- Papel do Estado (reta 0–18, foto de cada candidato dentro dela) ---------- */
-.allocator-line-host { padding: 0 22px; margin-bottom: 8px; }
-.allocator-line { position: relative; width: 100%; height: 80px; margin: 22px 0 6px; }
+.allocator-line-host { padding: 0 36px; margin-bottom: 8px; }
+.allocator-line { position: relative; width: 100%; height: 150px; margin: 26px 0 8px; }
 .allocator-line-track {
-  position: absolute; top: 50%; left: 0; right: 0; height: 52px; transform: translateY(-50%);
-  background: var(--accent-wash); border: 1px solid var(--border); border-radius: 26px;
+  position: absolute; top: 50%; left: 0; right: 0; height: 88px; transform: translateY(-50%);
+  background: var(--accent-wash); border: 1px solid var(--border); border-radius: 44px;
 }
 .allocator-line-tick {
-  position: absolute; top: calc(50% + 26px); width: 1px; height: 8px; transform: translateX(-50%);
+  position: absolute; top: calc(50% + 44px); width: 1px; height: 10px; transform: translateX(-50%);
   background: var(--border);
 }
 .allocator-line-tick-label {
-  position: absolute; top: calc(50% + 34px); transform: translateX(-50%);
-  font-family: var(--font-mono); font-size: 0.66rem; color: var(--ink-muted);
+  position: absolute; top: calc(50% + 54px); transform: translateX(-50%);
+  font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);
 }
 .allocator-line-point {
   position: absolute; top: 50%; transform: translate(-50%, -50%); transition: opacity 0.15s ease;
 }
 .allocator-line-avatar-wrap { position: relative; cursor: help; }
 .allocator-line-avatar {
-  width: 42px; height: 42px; font-size: 0.86rem;
-  border: 2px solid var(--surface); box-shadow: 0 0 0 1px var(--border);
+  width: 64px; height: 64px; font-size: 1.1rem;
+  border: 3px solid var(--surface); box-shadow: 0 0 0 1px var(--border);
 }
 .allocator-line-badge {
-  position: absolute; bottom: -3px; right: -3px; min-width: 16px; height: 16px; padding: 0 3px;
+  position: absolute; bottom: -4px; right: -4px; min-width: 22px; height: 22px; padding: 0 4px;
   border-radius: 999px; background: var(--ink); color: var(--surface); border: 2px solid var(--surface);
-  font-family: var(--font-mono); font-size: 0.62rem; font-weight: 600; line-height: 12px; text-align: center;
+  font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600; line-height: 18px; text-align: center;
 }
 
 /* ---------- Radar (Perfil Político) ---------- */
@@ -320,9 +320,14 @@ h1 { font-family: var(--font-serif); font-weight: 500; font-size: 2.3rem; margin
 }
 
 /* ---------- Metodologia da Distância do Estado Alocador ---------- */
+/* Descrição à esquerda, rubrica dos eixos/faixas à direita — lado a lado
+   em telas largas, empilhado em mobile (ver breakpoint 640px). */
+.allocator-intro { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px; margin: 12px 0 20px; }
+.allocator-intro-text { flex: 1 1 420px; margin: 0; }
 .allocator-methodology {
+  flex: 1 1 320px; max-width: 420px; align-self: flex-start;
   background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
-  padding: 4px 18px; margin: 0 0 16px;
+  padding: 4px 18px; margin: 0;
 }
 .allocator-methodology > summary {
   padding: 11px 0; cursor: pointer; list-style: none;
@@ -386,10 +391,11 @@ h1 { font-family: var(--font-serif); font-weight: 500; font-size: 2.3rem; margin
   .axis-key { grid-template-columns: 1fr; }
   .wordcount-row { grid-template-columns: 62px 1fr auto; gap: 6px; }
   .wordcount-value { font-size: 0.68rem; }
-  .allocator-line-host { padding: 0 14px; }
-  .allocator-line { height: 66px; }
-  .allocator-line-track { height: 40px; border-radius: 20px; }
-  .allocator-line-avatar { width: 32px; height: 32px; font-size: 0.7rem; }
-  .allocator-line-tick { top: calc(50% + 20px); }
-  .allocator-line-tick-label { top: calc(50% + 28px); }
+  .allocator-line-host { padding: 0 28px; }
+  .allocator-line { height: 112px; }
+  .allocator-line-track { height: 64px; border-radius: 32px; }
+  .allocator-line-avatar { width: 48px; height: 48px; font-size: 0.9rem; }
+  .allocator-line-badge { min-width: 19px; height: 19px; font-size: 0.66rem; line-height: 15px; }
+  .allocator-line-tick { top: calc(50% + 32px); }
+  .allocator-line-tick-label { top: calc(50% + 42px); }
 }
