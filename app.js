@@ -680,24 +680,24 @@
       wrap.appendChild(tickLabel);
     });
 
-    // Ordena por pontuação antes de intercalar acima/abaixo da reta — assim
-    // candidatos com totais próximos (que ficariam colados horizontalmente)
-    // quase sempre caem em lados opostos, em vez de ordem alfabética/id
-    // gerar colisão por acaso.
+    // Ordena por pontuação antes de anexar — só pra quem tem totais bem
+    // próximos (e portanto fotos quase coladas) empilhar na ordem certa: a
+    // de maior nota por cima, já que cada foto entra depois da anterior no
+    // DOM (mesma stacking order de irmãos position:absolute).
     var sorted = ids.slice().sort(function (a, b) {
       var sa = scores[a] ? allocatorTotal(scores[a]) : 0;
       var sb = scores[b] ? allocatorTotal(scores[b]) : 0;
       return sa - sb;
     });
 
-    sorted.forEach(function (id, i) {
+    sorted.forEach(function (id) {
       var c = window.CANDIDATES_DATA[id];
       var s = scores[id];
       if (!c || !s) return;
       var total = allocatorTotal(s);
       var pct = Math.max(0, Math.min(100, total / ALLOCATOR_MAX * 100));
 
-      var point = el("div", "spider-series allocator-line-point " + (i % 2 === 0 ? "allocator-line-point-above" : "allocator-line-point-below"));
+      var point = el("div", "spider-series allocator-line-point");
       point.dataset.candidate = id;
       point.style.left = pct + "%";
 
@@ -708,10 +708,6 @@
       badge.textContent = total;
       avatarWrap.appendChild(badge);
       point.appendChild(avatarWrap);
-
-      var label = el("span", "allocator-line-label");
-      label.textContent = c.basics.ballotName || c.basics.name;
-      point.appendChild(label);
 
       wrap.appendChild(point);
     });
