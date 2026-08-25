@@ -21,7 +21,7 @@ window.WORD_COUNT_TERMS = [
   },
   {
     "id": "privatizacao",
-    "label": "Privatização"
+    "label": "Privatizar/Privatização"
   },
   {
     "id": "desestatizacao",

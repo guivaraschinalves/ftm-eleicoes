@@ -44,7 +44,7 @@ TERMS = [
     # o plano do Zema usa "Privatizar todas as empresas estatais" (verbo),
     # não o substantivo, e um match só do substantivo perderia essa citação
     # por completo (contagem batida a zero, quando é claramente >0).
-    ("privatizacao", "Privatização", [r"privatiz\w*"]),
+    ("privatizacao", "Privatizar/Privatização", [r"privatiz\w*"]),
     ("desestatizacao", "Desestatização", [r"desestatiz\w*"]),
     ("liberalizacao", "Liberalização", [r"liberaliz\w*"]),
     ("abertura", "Abertura", [r"aberturas?"]),
