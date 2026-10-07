@@ -36,8 +36,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 TEXTS_DIR = ROOT / ".sources-cache" / "texts"
 
-# (kind, id, label) — kind é "economy" (lê de c.economy.<id>) ou "themes"
-# (lê de c.themes.<id>), espelhando exatamente data/taxonomy.js.
+# (kind, id, label) — kind é onde o candidato guarda aquele bloco:
+# "economy" (c.economy.<id>), "themes" (c.themes.<id>) ou
+# "direitosBemEstar" (c.direitosBemEstar.<id>), espelhando data/taxonomy.js.
 CATEGORIES = [
     ("economy", "fiscal", "Fiscal e Contas Públicas"),
     ("economy", "tributacao", "Tributação"),
@@ -51,7 +52,9 @@ CATEGORIES = [
     ("themes", "saude", "Saúde"),
     ("themes", "politica-externa", "Política Externa"),
     ("themes", "corrupcao", "Combate à Corrupção"),
-    ("themes", "direitos-bem-estar", "Direitos e Bem-Estar"),
+    ("direitosBemEstar", "mulheres", "Direitos e Bem-Estar · Mulheres"),
+    ("direitosBemEstar", "outros", "Direitos e Bem-Estar · Outros"),
+    ("themes", "tecnologia", "Tecnologia"),
 ]
 
 KEYWORDS = {
@@ -116,7 +119,18 @@ KEYWORDS = {
         "lavagem de dinheiro", "improbidade", "acesso a informacao",
         "compliance", "integridade publica", "anticorrupcao",
     ],
-    "direitos-bem-estar": [
+    "mulheres": [
+        "mulher", "feminicidio", "violencia domestica", "violencia contra a mulher",
+        "igualdade salarial", "maternidade", "creche", "empreendedora",
+        "autonomia economica", "machismo", "assedio",
+    ],
+    "tecnologia": [
+        "inteligencia artificial", "tecnologia", "inovacao", "digital",
+        "dados", "algoritmo", "conectividade", "5g", "internet", "software",
+        "startup", "semicondutor", "data center", "pesquisa e desenvolvimento",
+        "governo digital", "ciberseguranca",
+    ],
+    "outros": [
         "mulher", "feminicidio", "violencia domestica", "racismo",
         "igualdade racial", "lgbt", "lgbtqia", "pessoa com deficiencia",
         "pcd", "povos indigenas", "comunidades tradicionais",

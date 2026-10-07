@@ -15,6 +15,15 @@ Gerado por `scripts/audit_coverage.py`. Cada item abaixo é uma página do plano
 - **p.57** (palavras-chave: infraestrutura, investimento, saneamento) — "…a defesa cibernética do país, protegendo serviços públicos, infraestrutura crítica e cidadãos contra ataques e fraudes, e garantir que a inteligência artificial seja usada a serviço das pessoas, não contra elas. Meio ambiente: o at…"
 - **p.59** (palavras-chave: infraestrutura, rodovia, ferrovia, porto, aeroporto) — "…im, aproveitamos apenas uma fração desse potencial. Toda a infraestrutura que este plano já prevê, dos aeroportos e rodovias às ferrovias, como o Trem do Nordeste, trabalha a favor do turismo: são as vias que levam o visitante mais…"
 
+### Tecnologia — 7 página(s) não citada(s) com possível conteúdo
+- **p.18** (palavras-chave: inteligencia artificial, tecnologia, internet) — "…horas por dia. Inspirada nas mais avançadas plataformas de inteligência artificial, com uma experiência simples e acessível, ela acompanha a jornada ao longo do tempo, cria um histórico, envia lembretes e sugere oportunidades de acordo com…"
+- **p.23** (palavras-chave: digital, 5g, internet, governo digital) — "…transformou o Brasil em uma referência mundial em governo digital: o Banco Mundial classificou o país como o sétimo do mundo em maturidade de governo digital, à frente de todas as nações das Américas, incluindo Estados Unid…"
+- **p.24** (palavras-chave: digital, conectividade, internet, governo digital) — "…ão está fora de tudo isso, por mais serviços que o governo digitalize. Tratar a internet como infraestrutura é tratá-la como se trata uma estrada ou uma rede de energia: não é luxo, é o que permite que todo o resto funcione.…"
+- **p.35** (palavras-chave: inteligencia artificial, tecnologia, digital, internet) — "…eiro, empreender e usar as novas tecnologias, entre elas a inteligência artificial. Apoiamos a escola em tempo integral, para que a criança tenha mais tempo de aprendizado, reforço e atividades formativas, e não fique entregue à própria so…"
+- **p.46** (palavras-chave: inteligencia artificial, inovacao, digital, dados) — "…preendedorismo, a habitação e a regularização da casa, com inteligência artificial que identifica as oportunidades certas para o momento de vida de cada um, em vez de deixar o cidadão adivinhar a que tem direito. A grande inovação será o G…"
+- **p.53** (palavras-chave: inteligencia artificial, tecnologia, data center) — "…arato, torna o país competitivo para atrair data centers e inteligência artificial, que se instalam onde a energia é barata e confiável. Vamos regular as diversas fontes buscando o menor preço ao consumidor final, implantar um programa de a…"
+- **p.63** (palavras-chave: tecnologia, inovacao, digital) — "…ercial que dê ao setor produtivo acesso a bens de capital, tecnologia e insumos importados, num ambiente de concorrência que reduz preços e melhora a oferta ao consumidor. Vamos executar um plano nacional de integração às cadei…"
+
 ---
 
 ## Luiz Inácio Lula da Silva (lula)
@@ -40,8 +49,18 @@ Gerado por `scripts/audit_coverage.py`. Cada item abaixo é uma página do plano
 ### Saúde — 1 página(s) não citada(s) com possível conteúdo
 - **p.25** (palavras-chave: saude, sus, saude mental) — "…ações específicas para seu perfil. Aprimorar a política de saúde mental para a juventude é um de nossos compromissos, com foco na Política Nacional de Atenção Psicossocial, na redução de danos e na desconstrução de preconc…"
 
-### Direitos e Bem-Estar — 2 página(s) não citada(s) com possível conteúdo
+### Direitos e Bem-Estar · Outros — 2 página(s) não citada(s) com possível conteúdo
 - **p.29** (palavras-chave: mulher, racismo, lgbt, lgbtqia, juventude) — "…ação sexual de crianças e adolescentes, à violência contra mulheres e pessoas LGBTQIAP+, ao racismo, às fraudes bancárias eletrônicas, aos crimes de alta tecnologia, aos crimes de ódio e aos delitos cibernéticos praticados…"
 - **p.75** (palavras-chave: mulher, lgbt, lgbtqia) — "…Vamos avançar na efetiva equivalência remuneratória entre mulheres e homens, fortalecendo a implementação da Lei de Igualdade Salarial, sancionada no atual mandato do Presidente Lula. A execução dos Planos de Ação nas empr…"
+
+### Tecnologia — 8 página(s) não citada(s) com possível conteúdo
+- **p.17** (palavras-chave: inovacao, digital, dados) — "…políticas públicas mais eficazes e criar oportunidades de inovação e maior eficiência. Vamos continuar investindo na universalização dos serviços públicos digitais de qualidade, e na construção de infraestruturas públicas dig…"
+- **p.32** (palavras-chave: dados, conectividade, internet) — "…e equipes técnicas. Avançaremos com o compartilhamento de dados para eficiente execução das políticas educacionais. Não existe educação de qualidade sem professores qualificados, valorizados e…"
+- **p.35** (palavras-chave: inteligencia artificial, digital, dados) — "…ade e vazios assistenciais. Vamos acelerar a utilização de inteligência artificial para a triagem, a priorização de casos graves, a regulação por risco clínico e o diagnóstico em áreas com escassez de especialistas. O Programa Mais Médicos,…"
+- **p.38** (palavras-chave: inteligencia artificial, digital, dados) — "…ada, garantindo maior transparência das filas e utilizando inteligência artificial, com fila única digital e ordenada pelo risco clínico, com transporte sanitário em todas as regiões de saúde. Vamos consolidar, em todo o Brasil, a maior re…"
+- **p.43** (palavras-chave: tecnologia, inovacao, digital) — "…te e instituiremos a rede nacional de pesquisa, inovação e tecnologia do esporte.…"
+- **p.52** (palavras-chave: tecnologia, inovacao, digital) — "…dutivas estratégicas e fortalecer a inserção do Brasil nas tecnologias da Indústria 4.0, internalizando tecnologias, verticalizando cadeias produtivas e promovendo um amplo processo de digitalização e renovação do maquinário in…"
+- **p.75** (palavras-chave: tecnologia, inovacao, digital) — "…implementar políticas públicas para relação virtuosa entre tecnologia, inovação e trabalho e proteção a categorias afetadas com requalificação e inserção ocupacional. Manteremos nossa ação junto ao Senado Federal para assegurar…"
+- **p.82** (palavras-chave: inteligencia artificial, tecnologia, digital, dados) — "…P R O G R A M A D E G O V E R N O tecnologias digitais e a inteligência artificial, baseada na soberania digital com proteção de dados, cooperação científica, transferência de tecnologias estratégicas e regulamentação democrática das plataf…"
 
 ---

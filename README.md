@@ -8,11 +8,12 @@ Além dos temas, há o **Balanço dos Governos**: o que cada plano diz sobre o
 governo Jair Bolsonaro (2019–2022) e sobre os governos do PT (2003–2016 e
 2023–2026) — inclusive sobre o próprio campo.
 
-Cobertura em **7 temas** — Economia, Educação, Segurança Pública, Saúde,
-Política Externa, Combate à Corrupção e Direitos e Bem-Estar — cada um com
-aba de **Diagnóstico** e aba de **Propostas**. Economia é o único tema
-dividido em 7 subtemas (cada um com o mesmo par Diagnóstico/Propostas); os
-outros 6 vão direto ao par. Todo trecho de posicionamento é **citação
+Cobertura em **8 temas** — Economia, Educação, Segurança Pública, Saúde,
+Política Externa, Combate à Corrupção, Direitos e Bem-Estar e Tecnologia —
+cada um com aba de **Diagnóstico** e aba de **Propostas**. Dois deles têm um
+nível a mais de abas: Economia, dividida em 7 subtemas, e Direitos e
+Bem-Estar, que separa **Mulheres** das demais pautas; os outros 6 vão direto
+ao par. Todo trecho de posicionamento é **citação
 literal** dos **planos de governo oficiais registrados no TSE** (nunca
 resumo nosso), com a página do PDF referenciada.
 
@@ -28,7 +29,7 @@ cheia, escondendo o cardzinho e as demais — é sempre uma coisa de cada vez.
 Clicar no logo do Follow the Money no canto esquerdo do topbar volta pro
 cardzinho inicial (é a única forma de voltar — não tem item "Início" na
 navegação). Dentro de Temas, os 7 temas ficam em abas (clique para trocar),
-e Economia tem um segundo nível de abas para os subtemas.
+e Economia e Direitos e Bem-Estar têm um segundo nível de abas para os subtemas.
 
 Em telas de até 900px (celular e tablet), o menu do topo vira um **menu
 retrátil**: a barra fica só com o logo, o botão de tema (só o ícone) e um
@@ -84,7 +85,7 @@ styles.css           → visual (tokens de cor/tipografia, cards, tabs, menu ret
 app.js               → lê os dados e monta todas as seções (DOM puro, sem framework)
 assets/favicon.svg   → ícone da aba, na mesma família dos outros sites do FtM
 data/
-  taxonomy.js         → os 7 temas (window.THEMES), subtemas de Economia, os governos do Balanço (window.GOVERNMENTS), ordem dos candidatos
+  taxonomy.js         → os 8 temas (window.THEMES) e seus subtemas, os governos do Balanço (window.GOVERNMENTS), ordem dos candidatos
   sources.js           → URL oficial de cada plano no TSE, caminho do PDF local, nº de páginas e como o plano está dividido (+ planFiled)
   plan-texts.js         → texto INTEGRAL de cada plano (window.PLAN_TEXTS) — gerado, não editar à mão; só a Contagem de Palavras usa
   candidates/*.js       → um arquivo por candidato: dados básicos (com data de nascimento) + citações por tema
@@ -96,6 +97,7 @@ scripts/
   extract_plan_texts.py  → extrai .sources-cache/texts/<id>.txt de sources/<id>.pdf (PyMuPDF)
   build_plan_texts.py    → gera data/plan-texts.js a partir de .sources-cache/texts/
   audit_coverage.py      → gera AUDITORIA-COBERTURA.md (páginas com possível conteúdo ainda não citado)
+  check_quotes.py        → confere que TODA citação está literal na página que ela indica
   check_governments.py   → confere o bloco `governments`: citação literal na página certa, sem repetir o que já está em Economia/Temas
 CONTEUDO-DO-SITE.md      → leitura de apoio: tudo que está em data/*.js, formatado (não é lido pelo site)
 PLANOS-DE-GOVERNO.md     → leitura de apoio: os planos de governo completos, um atrás do outro
@@ -214,6 +216,37 @@ Isso vem de `planStructure` em `data/sources.js` (`summary` + `parts`), não de
 nomes das partes seguem a grafia que o próprio plano usa no corpo do texto
 (os sumários dos dois PDFs repetem tudo em caixa alta), mesma convenção já
 aplicada a `planTitle`. Ao trocar um PDF, conferir se o sumário mudou.
+
+## Onde cada tema guarda o conteúdo
+
+Um tema de `window.THEMES` pode ter subtemas ou não, e isso decide de onde
+`app.js` lê as citações:
+
+| Tema | Onde fica |
+|---|---|
+| com `subthemes` | `c[tema.store][subthemeId]` — Economia em `c.economy`, Direitos e Bem-Estar em `c.direitosBemEstar` |
+| sem subtema | `c.themes[themeId]` |
+
+O formato é sempre o mesmo, `{ diagnosis: [], proposals: [] }`. Para dar
+subtemas a um tema que hoje é flat: declare `store` e `subthemes` nele em
+`data/taxonomy.js` e mova o bloco de `c.themes.<id>` para
+`c.<store>.<subtema>` em cada `data/candidates/*.js`. Nada mais precisa mudar
+— `buildTemasSection`/`buildSubthemeCard` já são genéricos, e
+`export_content_md.py` segue a mesma regra.
+
+## Conferir as citações
+
+```
+python3 scripts/check_quotes.py
+```
+
+Percorre **todas** as citações (`economy`, `themes`, `direitosBemEstar`,
+`governments`) e confere que cada trecho está literal na página que indica,
+comparando com `.sources-cache/texts/<id>.txt`. A comparação ignora só o que
+a extração do PDF distorce — acento, caixa, espaço, aspas e hífen — então
+palavra trocada, número diferente ou trecho inventado aparecem. Entende as
+duas convenções das citações: `[...]` marca corte no meio, e uma citação
+pode atravessar a virada de página. Sai com código 1 se achar problema.
 
 ## Balanço dos Governos
 

@@ -164,6 +164,25 @@ Dump em Markdown de tudo que está em `data/*.js`: dados básicos e citações d
 
 ### Direitos e Bem-Estar
 
+#### Mulheres
+
+**Diagnóstico:**
+- "Mais da metade das famílias brasileiras é chefiada por uma mulher. Quando ela é protegida, capacitada e tem renda própria, não é só a vida dela que muda: é a da família inteira." (p. 17)
+- "Muitas mulheres permanecem em relações abusivas porque não têm condições financeiras de recomeçar." (p. 19)
+- "O Brasil tem cerca de 10 milhões de mulheres empreendedoras, responsáveis pelo sustento de milhões de famílias, e mesmo sendo em média mais escolarizadas ainda enfrentam mais dificuldade para acessar crédito e pagam juros mais altos." (p. 19)
+
+**Propostas:**
+- **Central da Mulher: um só lugar para proteção, saúde, trabalho e crédito** — "A Central da Mulher será um espaço físico onde a mulher resolve a vida sem perder tempo nem percorrer a cidade inteira. Nela, encontrará acolhimento e proteção, orientação jurídica e apoio psicológico, saúde preventiva, qualificação e cadastramento, a possibilidade de se candidatar a vagas de emprego, orientação para abrir o próprio negócio, crédito, renegociação de dívidas, regularização da casa e acesso a benefícios." (p. 17)
+- **Denúncia pelo chat e monitoramento dos agressores de maior risco** — "Pelo chat da ClarIA será possível registrar ocorrência, pedir medida protetiva e receber orientação e acolhimento. Vamos implantar um sistema nacional de avaliação de risco, para que cada denúncia receba atendimento proporcional ao nível da ameaça, priorizando os casos mais graves. E vamos monitorar por tornozeleira eletrônica os agressores sob medida protetiva de maior risco, alertando de imediato as autoridades e a vítima em caso de descumprimento da ordem judicial ou de aproximação indevida." (p. 19)
+- **Orientação financeira, do primeiro salário ao primeiro patrimônio** — "Vamos oferecer orientação financeira, do primeiro salário ao primeiro patrimônio, com programas para organizar a vida financeira: cuidar do orçamento doméstico, sair do endividamento, criar poupança e se proteger do impacto das apostas online sobre a família." (p. 19)
+- **Ganha, Ganha: pontuação que vira juro menor e acesso a crédito** — "Com o Ganha, Ganha, atitudes como concluir cursos de capacitação, trabalhar de forma regular, poupar e pagar as contas em dia passarão a gerar pontuação positiva. Esses pontos poderão ser convertidos em benefícios concretos: juros menores, cashback, acesso facilitado ao crédito, descontos em serviços e incentivo à poupança." (p. 19)
+- **Casa Segura: acolhimento e a escritura no nome da mulher** — "Vamos ampliar os espaços de acolhimento para mulheres em situação de violência, porque nenhuma mulher deve continuar ao lado do agressor por não ter para onde ir. E vamos assessorar a mulher a obter a escritura da casa própria no seu nome, uma das formas mais sólidas de autonomia e de proteção contra a violência doméstica" (p. 20)
+- **Escola Brasil por Elas: capacitação gratuita, de IA a finanças** — "A Escola Brasil por Elas será o maior programa gratuito de capacitação feminina da América Latina, integrado aos cursos do Sistema S e a parcerias público-privadas. Para quem quer empreender, trabalhar de casa ou conseguir um emprego melhor, ela oferecerá formação em inteligência artificial, programação, marketing digital, finanças, idiomas e muito mais." (p. 20)
+- **Mais Trabalho para Elas: vagas, qualificação e intermediação** — "Vamos criar um sistema que integre vagas de emprego, qualificação, abertura simplificada de empresa, apoio ao pequeno negócio e intermediação de mão de obra. E vamos montar um grande banco de dados conectado ao RH de empresas de todo o país, para impulsionar de forma mais segura a colocação de mais mulheres no mercado de trabalho." (p. 20)
+- **Saúde para Elas: prevenção perto de casa e por telemedicina** — "Vamos cuidar da saúde da mulher de forma preventiva, sem fila longa, com atendimento perto de casa e também pelo celular, por telemedicina ou em postos de saúde que vamos ampliar e construir." (p. 21)
+
+#### Outros direitos e bem-estar
+
 **Diagnóstico:**
 - "O mesmo cuidado vale para as pessoas com deficiência e com doenças raras, que enfrentam barreiras todos os dias e muitas vezes contam apenas com a própria família para tudo." (p. 39)
 - "O esporte feminino foi criado justamente para dar às mulheres um espaço de competição justo. Vamos protegê-lo. Nos últimos anos, confederações internacionais reviram suas regras ao reconhecer que atletas que não nasceram do sexo feminino mantêm, mesmo após tratamento hormonal, vantagens de envergadura, densidade óssea e musculatura que a mulher não tem como equiparar. Permitir essa desigualdade é punir justamente a atleta que treina a vida inteira, abre mão da família e se dedica ao alto rendimento." (p. 40)
@@ -173,6 +192,22 @@ Dump em Markdown de tudo que está em `data/*.js`: dados básicos e citações d
 - **Inclusão de pessoas com deficiência pelo esporte** — "Vamos fomentar a inclusão de pessoas com deficiência pelo esporte, com detecção de talentos paralímpicos desde a base e mais autonomia para as entidades paralímpicas, tratando o paradesporto como via de reabilitação, inserção profissional e superação." (p. 40)
 - **Categoria esportiva feminina restrita a atletas do sexo feminino** — "Vamos assegurar que a categoria feminina, da base ao alto rendimento, seja disputada por atletas do sexo feminino, protegendo a mulher e a lisura da competição de agendas ideológicas." (p. 41)
 - **Autonomia de povos indígenas e quilombolas sobre atividades em suas terras** — "Essa mesma clareza de regras vale para quem vive nas terras tradicionais. Será conferida autonomia aos povos indígenas e quilombolas para decidir sobre atividades produtivas em suas terras, com respeito ao desenvolvimento sustentável e às regras ambientais, e com indenização de eventuais restrições ao usufruto e mecanismos de compensação, para que quem vive na terra possa dela tirar o próprio sustento." (p. 50); "Esse desenvolvimento respeita quem vive na região: os povos indígenas e as comunidades quilombolas terão autonomia para decidir sobre as atividades produtivas em suas terras, e o morador da floresta, o ribeirinho e o extrativista serão tratados como parceiros do desenvolvimento, não como obstáculo." (p. 61)
+
+### Tecnologia
+
+**Diagnóstico:**
+- "A tecnologia terá, ao mesmo tempo, duas funções: modernizar o Estado e ser motor de produtividade da economia." (p. 56)
+- "A tecnologia não é assunto de elite: é o que multiplica o valor do trabalho de todos." (p. 56)
+- "Os data centers e a transição energética funcionam sobre minerais que poucos países têm, e o Brasil é um deles. Temos lítio, nióbio, grafite, cobre, níquel, urânio e terras-raras, insumos essenciais para semicondutores, baterias, turbinas eólicas, veículos elétricos, defesa e inteligência artificial." (p. 55)
+
+**Propostas:**
+- **Estratégia Nacional de Inteligência Artificial difundida nas pequenas empresas** — "A Estratégia Nacional de Inteligência Artificial vai difundir a IA para as micro, pequenas e médias empresas em larga escala, com prioridade para indústria, agronegócio, saúde e logística." (p. 56)
+- **Produzir inteligência artificial, não só consumir** — "Mais do que usar a inteligência artificial, o Brasil tem tudo para produzi-la." (p. 56); "Não seremos apenas consumidores de tecnologia: seremos também seus desenvolvedores e produtores." (p. 56)
+- **Estado indutor por compras públicas, GovTech e patentes de IA** — "Para isso, o Estado atuará como indutor, pelas compras públicas, pelo GovTech e pelo investimento em pesquisa, e vamos elevar a participação brasileira nas patentes de inteligência artificial." (p. 56)
+- **Legislação voltada à liberdade de criar e inovar** — "Proporemos uma legislação voltada à liberdade de criar e inovar, inspirada nas melhores práticas internacionais, para que a tecnologia seja desenvolvida aqui sem entraves" (p. 56)
+- **Parques tecnológicos, incubadoras e startups de base tecnológica** — "fortalecer os parques tecnológicos, expandir as incubadoras, apoiar as startups de base tecnológica e aproximar universidades e empresas, com a gestão das universidades integrada à ciência e à tecnologia." (p. 57)
+- **Proteção de dados, defesa cibernética e IA a serviço das pessoas** — "Os dados do cidadão são dele, não do governo, e serão tratados com privacidade e segurança. Vamos fortalecer a defesa cibernética do país, protegendo serviços públicos, infraestrutura crítica e cidadãos contra ataques e fraudes, e garantir que a inteligência artificial seja usada a serviço das pessoas, não contra elas." (p. 57)
+- **Assistentes automatizados indicando serviços a que o cidadão tem direito** — "Assistentes automatizados vão indicar a cada brasileiro os serviços e benefícios a que ele tem direito e o caminho para obtê-los, sem que ele precise descobrir sozinho a qual órgão recorrer" (p. 25)
 
 ### O que o plano diz sobre: Governo Jair Bolsonaro (2019–2022)
 
@@ -319,7 +354,7 @@ Dump em Markdown de tudo que está em `data/*.js`: dados básicos e citações d
 
 **Propostas:**
 - **Criação do Ministério da Segurança Pública** — "Uma vez aprovada a PEC da Segurança Pública proposta pelo Executivo, criaremos o Ministério da Segurança Pública para coordenar, em articulação com estados e municípios, a execução das políticas nacionais de segurança pública no âmbito do Sistema Único de Segurança Pública (SUSP)." (p. 30)
-- **Programa Brasil Contra o Crime Organizado** — "Fortaleceremos o Programa Brasil Contra o Crime Organizado, lançado em maio de 2026 [...] O programa prevê R$ 10 bilhões do Fundo Nacional de Investimento em Infraestrutura Social para estados e municípios realizarem investimentos em equipamentos e infraestrutura." (p. 27)
+- **Programa Brasil Contra o Crime Organizado** — "Fortaleceremos o Programa Brasil Contra o Crime Organizado, lançado em maio de 2026 [...] O programa prevê R$ 10 bilhões do Fundo Nacional de Investimento em Infraestrutura Social (FIIS) para estados e municípios realizarem investimentos em equipamentos e infraestrutura." (p. 27)
 - **Plano Pena Justa** — "Cumpriremos as metas do Plano Pena Justa e instituiremos o Pacto Nacional de Execução Penal para o Enfrentamento ao Crime Organizado, fortalecendo a governança do sistema prisional e a cooperação entre União, estados e sistema de justiça." (p. 28)
 - **Programa Celular Seguro** — "Continuaremos expandindo e aprimorando o Programa Celular Seguro, que já conta com mais de 4 milhões de usuários cadastrados. Com a criação da Base Nacional de Celulares com Restrição, o programa passou a oferecer ao cidadão possibilidade de verificar, antes da compra, se o aparelho possui restrição." (p. 29)
 - **Prevenção à violência e proteção da juventude negra** — "Fortaleceremos as políticas de prevenção à violência com foco na proteção da juventude negra e da expansão de programas de mediação comunitária e justiça restaurativa em parceria com estados e municípios." (p. 29)
@@ -361,6 +396,20 @@ Dump em Markdown de tudo que está em `data/*.js`: dados básicos e citações d
 
 ### Direitos e Bem-Estar
 
+#### Mulheres
+
+**Diagnóstico:**
+- "Enquanto as mulheres continuarem sendo discriminadas e vítimas de violência, o Brasil não será o país que queremos." (p. 21)
+
+**Propostas:**
+- **Ampliar proteção, autonomia econômica e direitos reprodutivos** — "É preciso ampliar as políticas de proteção às mulheres, combater o machismo, o sexismo e o feminicídio, promover a autonomia econômica, assegurar igualdade de oportunidades e garantir os direitos sexuais e reprodutivos." (p. 21)
+- **Pacto de Enfrentamento ao Feminicídio como guia central** — "O Pacto de Enfrentamento ao Feminicídio permanecerá como guia central de nossa estratégia de enfrentamento à violência contra mulheres." (p. 21); "Vamos dar sequência ao Pacto, ampliando a rede de proteção às mulheres – concluiremos as 30 Casas da Mulher Brasileira e os 15 Centros de Referência da Mulher Brasileira." (p. 21)
+- **Salas Lilás e kits de monitoramento de agressores** — "Ampliaremos as Salas Lilás e vamos adquirir e distribuir aos Estados kits para aprimorar o monitoramento de agressores. Seguiremos fomentando a capacitação das forças de segurança para qualificar o atendimento às mulheres vítimas de violência e a punição aos que infligirem a violência." (p. 21)
+- **Lei da Igualdade Salarial com planos de ação obrigatórios** — "A Lei da Igualdade Salarial, que aprovamos em 2023, continuará orientando nossas ações para promoção do trabalho das mulheres." (p. 21); "A execução dos Planos de Ação nas empresas com desigualdades identificadas será tornada obrigatória, com metas progressivas de redução das disparidades salariais e ampliação da presença de mulheres, especialmente negras e pessoas com deficiência." (p. 75)
+- **Crédito e qualificação: Pronaf para agricultoras e Mulheres Mil** — "Persistiremos buscando assegurar políticas que apoiem as mulheres em sua inserção no mundo do trabalho, com linhas de crédito mais favorecidas para agricultoras e extrativistas no âmbito do Pronaf; com programas de qualificação específicos, como o Mulheres Mil, que foi retomado no atual mandato" (p. 21)
+
+#### Outros direitos e bem-estar
+
 **Diagnóstico:**
 - "Um país em que todas as pessoas, independentemente de origem, raça, etnia, gênero, orientação sexual, idade, crença ou condição social, possam desenvolver plenamente seu potencial e viver com dignidade. Um Brasil comprometido com a dignidade humana, democrático e inclusivo, que combata todas as formas de discriminação e assegure os direitos das mulheres, da população negra, dos povos indígenas e quilombolas, da população LGBTQIAP+, das pessoas com deficiência, dos povos do campo, das águas e das florestas, com amplo respeito às liberdades e aos direitos humanos." (p. 26)
 - "Voltamos a assegurar aos povos e comunidades tradicionais – indígenas, quilombolas e ribeirinhos – seus direitos, inclusive em relação a seus territórios." (p. 19)
@@ -374,6 +423,23 @@ Dump em Markdown de tudo que está em `data/*.js`: dados básicos e citações d
 - **Políticas de Estado para diversidade de gênero e população LGBTQIAP+** — "Continuaremos a planejar e construir políticas e ações levando em conta as dimensões de gênero, identidade, orientação sexual, étnico-raciais e classe social assim como as demais desigualdades sociais, de modo a garantir capacidade de o Estado atender, de forma adequada, justa e inclusiva, às pessoas LGBTQIAP+ e todas as suas especificidades." (p. 23)
 - **Proteção da infância e combate à pobreza infantil** — "Continuaremos buscando ampliar e fortalecer as políticas para nossas crianças, por meio do enfrentamento da pobreza infantil, da garantia de acesso às políticas públicas e do direito ao brincar." (p. 24)
 - **Ampliação da proteção e do bem-estar animal** — "A proteção ambiental continuará caminhando ao lado da defesa dos direitos animais. Vamos ampliar o ProPatinhas, fortalecendo as caravanas de castração, e dar continuidade ao SinPatinhas, cadastro nacional de cães e gatos." (p. 71); "Seguiremos fortalecendo o combate aos maus-tratos, com penas que assegurem que essas práticas não se repitam, avançando nesta agenda com prioridade e participação social." (p. 72)
+
+### Tecnologia
+
+**Diagnóstico:**
+- "Para que o Brasil ocupe posição de liderança em áreas estratégicas como inteligência artificial, transformação digital, biotecnologia, fármacos avançados e transição energética, precisamos avançar nos elos da cadeia de valor da transformação digital." (p. 54)
+
+**Propostas:**
+- **Soberania digital sobre tecnologias e infraestruturas críticas** — "Garantiremos a soberania digital para que o Brasil e os brasileiros tenham capacidade de desenvolver, operar, regular e governar tecnologias estratégicas e as infraestruturas críticas das quais dependem a economia, os serviços públicos, a ciência, a defesa e a democracia." (p. 54)
+- **Ecossistema nacional de tecnologia digital, dos data centers à nuvem** — "vamos fomentar o desenvolvimento do ecossistema nacional de tecnologia digital, desde a cadeia de datacenters até os serviços de nuvem, com destaque para o fortalecimento da inteligência artificial desenvolvida por empresas brasileiras." (p. 54)
+- **Infraestrutura computacional soberana, com supercomputadores nacionais** — "Vamos avançar numa infraestrutura computacional soberana, com supercomputadores desenvolvidos e operados por instituições nacionais." (p. 54)
+- **Contrapartidas para data centers instalados no país** — "a instalação dos datacenters em solo brasileiro deve prever contrapartidas de conteúdo local e capacidade computacional para o mercado interno." (p. 55)
+- **Modelos de linguagem em português, treinados em dados nacionais** — "Vamos desenvolver e sustentar modelos de linguagem em português e outras línguas, voltados aos problemas do País, apoiados numa plataforma nacional de dados para treinamento e avaliação." (p. 55)
+- **Difusão da IA no setor produtivo** — "Vamos acelerar a difusão da inteligência artificial no setor produtivo, com foco em agro, saúde e serviços financeiros." (p. 55)
+- **Transparência algorítmica e rastreabilidade de conteúdo sintético** — "Vamos consolidar a transparência algorítmica e a rastreabilidade de conteúdo sintético, ancoradas no Centro Nacional de Transparência Algorítmica – porque democracia não convive com decisão automatizada que ninguém pode examinar." (p. 55)
+- **Fibra óptica e 5G no campo e nas periferias** — "Vamos reduzir o déficit de fibra óptica que ainda atinge 11% dos municípios e ampliar o 5G no campo, com prioridade para Norte, Nordeste e periferias." (p. 55)
+- **Direito autoral e regulamentação da IA para remunerar quem cria** — "Trabalharemos pela aprovação de lei do direito autoral em ambiente digital e a regulamentação da inteligência artificial, para que músicos, autores e artistas sejam pagos quando as plataformas usarem conteúdo brasileiro." (p. 42)
+- **Portal da Transparência movido a dados abertos e IA** — "O Portal da Transparência receberá investimentos para evoluir para uma plataforma inteligente baseada em dados abertos e inteligência artificial." (p. 18)
 
 ### O que o plano diz sobre: Governo Jair Bolsonaro (2019–2022)
 

@@ -30,7 +30,7 @@ NODE_SCRIPT = """
 global.window = {};
 %s
 process.stdout.write(JSON.stringify({
-  taxonomy: { economySubthemes: window.ECONOMY_SUBTHEMES, themes: window.THEMES, order: window.CANDIDATE_ORDER, governments: window.GOVERNMENTS },
+  taxonomy: { themes: window.THEMES, order: window.CANDIDATE_ORDER, governments: window.GOVERNMENTS },
   sources: window.SOURCES_DATA,
   candidates: window.CANDIDATES_DATA
 }));
@@ -78,9 +78,7 @@ def render(data):
     lines.append("")
 
     order = data["taxonomy"]["order"]
-    econ_subthemes = data["taxonomy"]["economySubthemes"]
     themes = data["taxonomy"]["themes"]
-    other_themes = [t for t in themes if t["id"] != "economia"]
 
     lines.append("## Sumário de candidatos")
     lines.append("")
@@ -114,12 +112,7 @@ def render(data):
                 lines.append(f"- **Como está dividido:** {estrutura.get('summary', '')} — {partes}")
         lines.append("")
 
-        lines.append("### Economia")
-        lines.append("")
-        for sub in econ_subthemes:
-            entry = c["economy"].get(sub["id"], {"diagnosis": [], "proposals": []})
-            lines.append(f"#### {sub['label']}")
-            lines.append("")
+        def bloco_diag_prop(entry):
             lines.append("**Diagnóstico:**")
             if entry["diagnosis"]:
                 for d in entry["diagnosis"]:
@@ -129,30 +122,25 @@ def render(data):
             lines.append("")
             lines.append("**Propostas:**")
             if entry["proposals"]:
-                for p in entry["proposals"]:
-                    lines.append(f"- **{p['title']}** — {fmt_quotes(p['quotes'])}")
+                for pr in entry["proposals"]:
+                    lines.append(f"- **{pr['title']}** — {fmt_quotes(pr['quotes'])}")
             else:
                 lines.append("- _Não abordado explicitamente no plano de governo._")
             lines.append("")
 
-        for th in other_themes:
-            entry = c["themes"].get(th["id"], {"diagnosis": [], "proposals": []})
+        vazio = {"diagnosis": [], "proposals": []}
+        for th in themes:
             lines.append(f"### {th['label']}")
             lines.append("")
-            lines.append("**Diagnóstico:**")
-            if entry["diagnosis"]:
-                for d in entry["diagnosis"]:
-                    lines.append(f'- "{d["quote"]}" (p. {d["page"]})')
+            if th.get("subthemes"):
+                # Tema com subtema (Economia, Direitos e Bem-Estar): o
+                # conteúdo mora em c[th["store"]][subtema].
+                for sub in th["subthemes"]:
+                    lines.append(f"#### {sub['label']}")
+                    lines.append("")
+                    bloco_diag_prop((c.get(th["store"]) or {}).get(sub["id"], vazio))
             else:
-                lines.append("- _Não abordado explicitamente no plano de governo._")
-            lines.append("")
-            lines.append("**Propostas:**")
-            if entry["proposals"]:
-                for p in entry["proposals"]:
-                    lines.append(f"- **{p['title']}** — {fmt_quotes(p['quotes'])}")
-            else:
-                lines.append("- _Não abordado explicitamente no plano de governo._")
-            lines.append("")
+                bloco_diag_prop(c["themes"].get(th["id"], vazio))
 
         # Balanço dos Governos: lista de citações por governo, sem o par
         # Diagnóstico/Propostas (a seção não tem esse recorte).

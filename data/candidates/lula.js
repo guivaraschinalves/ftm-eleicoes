@@ -134,7 +134,7 @@ window.CANDIDATES_DATA["lula"] = {
       ],
       proposals: [
         { title: "Criação do Ministério da Segurança Pública", quotes: [{ quote: "Uma vez aprovada a PEC da Segurança Pública proposta pelo Executivo, criaremos o Ministério da Segurança Pública para coordenar, em articulação com estados e municípios, a execução das políticas nacionais de segurança pública no âmbito do Sistema Único de Segurança Pública (SUSP).", page: 30 }] },
-        { title: "Programa Brasil Contra o Crime Organizado", quotes: [{ quote: "Fortaleceremos o Programa Brasil Contra o Crime Organizado, lançado em maio de 2026 [...] O programa prevê R$ 10 bilhões do Fundo Nacional de Investimento em Infraestrutura Social para estados e municípios realizarem investimentos em equipamentos e infraestrutura.", page: 27 }] },
+        { title: "Programa Brasil Contra o Crime Organizado", quotes: [{ quote: "Fortaleceremos o Programa Brasil Contra o Crime Organizado, lançado em maio de 2026 [...] O programa prevê R$ 10 bilhões do Fundo Nacional de Investimento em Infraestrutura Social (FIIS) para estados e municípios realizarem investimentos em equipamentos e infraestrutura.", page: 27 }] },
         { title: "Plano Pena Justa", quotes: [{ quote: "Cumpriremos as metas do Plano Pena Justa e instituiremos o Pacto Nacional de Execução Penal para o Enfrentamento ao Crime Organizado, fortalecendo a governança do sistema prisional e a cooperação entre União, estados e sistema de justiça.", page: 28 }] },
         { title: "Programa Celular Seguro", quotes: [{ quote: "Continuaremos expandindo e aprimorando o Programa Celular Seguro, que já conta com mais de 4 milhões de usuários cadastrados. Com a criação da Base Nacional de Celulares com Restrição, o programa passou a oferecer ao cidadão possibilidade de verificar, antes da compra, se o aparelho possui restrição.", page: 29 }] },
         { title: "Prevenção à violência e proteção da juventude negra", quotes: [{ quote: "Fortaleceremos as políticas de prevenção à violência com foco na proteção da juventude negra e da expansão de programas de mediação comunitária e justiça restaurativa em parceria com estados e municípios.", page: 29 }] }
@@ -175,31 +175,63 @@ window.CANDIDATES_DATA["lula"] = {
         { title: "Debater o sistema de emendas parlamentares com a sociedade", quotes: [{ quote: "É preciso que o tema das emendas parlamentares seja debatido com a sociedade.", page: 16 }] }
       ]
     },
-    "direitos-bem-estar": {
+    tecnologia: {
       diagnosis: [
-        { quote: "Um país em que todas as pessoas, independentemente de origem, raça, etnia, gênero, orientação sexual, idade, crença ou condição social, possam desenvolver plenamente seu potencial e viver com dignidade. Um Brasil comprometido com a dignidade humana, democrático e inclusivo, que combata todas as formas de discriminação e assegure os direitos das mulheres, da população negra, dos povos indígenas e quilombolas, da população LGBTQIAP+, das pessoas com deficiência, dos povos do campo, das águas e das florestas, com amplo respeito às liberdades e aos direitos humanos.", page: 26 },
-        { quote: "Voltamos a assegurar aos povos e comunidades tradicionais – indígenas, quilombolas e ribeirinhos – seus direitos, inclusive em relação a seus territórios.", page: 19 },
-        { quote: "A criação do inédito Ministério dos Povos Indígenas retomou o compromisso do Estado com os povos indígenas. Homologamos 20 novas terras indígenas, somando cerca de 3,2 milhões de hectares de terras protegidas em 11 estados.", page: 20 },
-        { quote: "Construímos o portfólio mais robusto de políticas de proteção animal da história recente do Brasil. Criamos, em 2023, o inédito Departamento de Proteção, Defesa e Direitos Animais, hoje vinculado à Secretaria Nacional de Biodiversidade, Florestas e Direitos Animais.", page: 69 }
+        { quote: "Para que o Brasil ocupe posição de liderança em áreas estratégicas como inteligência artificial, transformação digital, biotecnologia, fármacos avançados e transição energética, precisamos avançar nos elos da cadeia de valor da transformação digital.", page: 54 }
       ],
       proposals: [
-        { title: "Combate ao racismo e Estatuto da Igualdade Racial", quotes: [
-          { quote: "Manteremos o combate ao racismo no centro de nossa estratégia de desenvolvimento, pois não é possível compreender nem superar as desigualdades brasileiras sem enfrentar a questão racial como dimensão estruturante da sociedade.", page: 19 },
-          { quote: "Vamos continuar engajados na implementação das deliberações da 5ª Conferência Nacional de Promoção da Igualdade Racial (V CONAPIR), realizada em 2025, após um intervalo de sete anos. Avançaremos ainda mais na regulamentação do Estatuto da Igualdade Racial para a consolidação da equidade como política de Estado.", page: 19 }
-        ] },
-        { title: "Proteção territorial de povos indígenas e quilombolas", quotes: [
-          { quote: "Reafirmamos igualmente o compromisso com a proteção dos povos indígenas, de seus territórios, culturas e modos de vida. Persistiremos, garantindo proteção a seus territórios, com ações para demarcação e desintrusão de terras sempre que necessárias.", page: 20 },
-          { quote: "Temos orgulho da retomada do processo de titulação de territórios quilombolas, que permitiu, desde 2023, a expedição de 65 titulações e assinatura de 72 decretos de desapropriação por interesse social, recorde histórico. Vamos dar continuidade a este processo de reconhecimento do direito ao território, buscando acelerar os procedimentos e garantir que sejam acompanhados de políticas de desenvolvimento territorial.", page: 20 }
-        ] },
-        { title: "Inclusão e acessibilidade para pessoas com deficiência", quotes: [{ quote: "Continuaremos promovendo ambientes inclusivos, com a aplicação rigorosa da legislação de acessibilidade. A fiscalização do cumprimento das cotas de contratação de pessoas com deficiência no mercado de trabalho será fortalecida, ampliando a política de inclusão econômica.", page: 23 }] },
-        { title: "Políticas de Estado para diversidade de gênero e população LGBTQIAP+", quotes: [{ quote: "Continuaremos a planejar e construir políticas e ações levando em conta as dimensões de gênero, identidade, orientação sexual, étnico-raciais e classe social assim como as demais desigualdades sociais, de modo a garantir capacidade de o Estado atender, de forma adequada, justa e inclusiva, às pessoas LGBTQIAP+ e todas as suas especificidades.", page: 23 }] },
-        { title: "Proteção da infância e combate à pobreza infantil", quotes: [{ quote: "Continuaremos buscando ampliar e fortalecer as políticas para nossas crianças, por meio do enfrentamento da pobreza infantil, da garantia de acesso às políticas públicas e do direito ao brincar.", page: 24 }] },
-        { title: "Ampliação da proteção e do bem-estar animal", quotes: [
-          { quote: "A proteção ambiental continuará caminhando ao lado da defesa dos direitos animais. Vamos ampliar o ProPatinhas, fortalecendo as caravanas de castração, e dar continuidade ao SinPatinhas, cadastro nacional de cães e gatos.", page: 71 },
-          { quote: "Seguiremos fortalecendo o combate aos maus-tratos, com penas que assegurem que essas práticas não se repitam, avançando nesta agenda com prioridade e participação social.", page: 72 }
-        ] }
+        { title: "Soberania digital sobre tecnologias e infraestruturas críticas", quotes: [{ quote: "Garantiremos a soberania digital para que o Brasil e os brasileiros tenham capacidade de desenvolver, operar, regular e governar tecnologias estratégicas e as infraestruturas críticas das quais dependem a economia, os serviços públicos, a ciência, a defesa e a democracia.", page: 54 }] },
+        { title: "Ecossistema nacional de tecnologia digital, dos data centers à nuvem", quotes: [{ quote: "vamos fomentar o desenvolvimento do ecossistema nacional de tecnologia digital, desde a cadeia de datacenters até os serviços de nuvem, com destaque para o fortalecimento da inteligência artificial desenvolvida por empresas brasileiras.", page: 54 }] },
+        { title: "Infraestrutura computacional soberana, com supercomputadores nacionais", quotes: [{ quote: "Vamos avançar numa infraestrutura computacional soberana, com supercomputadores desenvolvidos e operados por instituições nacionais.", page: 54 }] },
+        { title: "Contrapartidas para data centers instalados no país", quotes: [{ quote: "a instalação dos datacenters em solo brasileiro deve prever contrapartidas de conteúdo local e capacidade computacional para o mercado interno.", page: 55 }] },
+        { title: "Modelos de linguagem em português, treinados em dados nacionais", quotes: [{ quote: "Vamos desenvolver e sustentar modelos de linguagem em português e outras línguas, voltados aos problemas do País, apoiados numa plataforma nacional de dados para treinamento e avaliação.", page: 55 }] },
+        { title: "Difusão da IA no setor produtivo", quotes: [{ quote: "Vamos acelerar a difusão da inteligência artificial no setor produtivo, com foco em agro, saúde e serviços financeiros.", page: 55 }] },
+        { title: "Transparência algorítmica e rastreabilidade de conteúdo sintético", quotes: [{ quote: "Vamos consolidar a transparência algorítmica e a rastreabilidade de conteúdo sintético, ancoradas no Centro Nacional de Transparência Algorítmica – porque democracia não convive com decisão automatizada que ninguém pode examinar.", page: 55 }] },
+        { title: "Fibra óptica e 5G no campo e nas periferias", quotes: [{ quote: "Vamos reduzir o déficit de fibra óptica que ainda atinge 11% dos municípios e ampliar o 5G no campo, com prioridade para Norte, Nordeste e periferias.", page: 55 }] },
+        { title: "Direito autoral e regulamentação da IA para remunerar quem cria", quotes: [{ quote: "Trabalharemos pela aprovação de lei do direito autoral em ambiente digital e a regulamentação da inteligência artificial, para que músicos, autores e artistas sejam pagos quando as plataformas usarem conteúdo brasileiro.", page: 42 }] },
+        { title: "Portal da Transparência movido a dados abertos e IA", quotes: [{ quote: "O Portal da Transparência receberá investimentos para evoluir para uma plataforma inteligente baseada em dados abertos e inteligência artificial.", page: 18 }] }
       ]
     }
+
+  },
+  direitosBemEstar: {
+      mulheres: {
+        diagnosis: [
+          { quote: "Enquanto as mulheres continuarem sendo discriminadas e vítimas de violência, o Brasil não será o país que queremos.", page: 21 }
+        ],
+        proposals: [
+          { title: "Ampliar proteção, autonomia econômica e direitos reprodutivos", quotes: [{ quote: "É preciso ampliar as políticas de proteção às mulheres, combater o machismo, o sexismo e o feminicídio, promover a autonomia econômica, assegurar igualdade de oportunidades e garantir os direitos sexuais e reprodutivos.", page: 21 }] },
+          { title: "Pacto de Enfrentamento ao Feminicídio como guia central", quotes: [{ quote: "O Pacto de Enfrentamento ao Feminicídio permanecerá como guia central de nossa estratégia de enfrentamento à violência contra mulheres.", page: 21 }, { quote: "Vamos dar sequência ao Pacto, ampliando a rede de proteção às mulheres – concluiremos as 30 Casas da Mulher Brasileira e os 15 Centros de Referência da Mulher Brasileira.", page: 21 }] },
+          { title: "Salas Lilás e kits de monitoramento de agressores", quotes: [{ quote: "Ampliaremos as Salas Lilás e vamos adquirir e distribuir aos Estados kits para aprimorar o monitoramento de agressores. Seguiremos fomentando a capacitação das forças de segurança para qualificar o atendimento às mulheres vítimas de violência e a punição aos que infligirem a violência.", page: 21 }] },
+          { title: "Lei da Igualdade Salarial com planos de ação obrigatórios", quotes: [{ quote: "A Lei da Igualdade Salarial, que aprovamos em 2023, continuará orientando nossas ações para promoção do trabalho das mulheres.", page: 21 }, { quote: "A execução dos Planos de Ação nas empresas com desigualdades identificadas será tornada obrigatória, com metas progressivas de redução das disparidades salariais e ampliação da presença de mulheres, especialmente negras e pessoas com deficiência.", page: 75 }] },
+          { title: "Crédito e qualificação: Pronaf para agricultoras e Mulheres Mil", quotes: [{ quote: "Persistiremos buscando assegurar políticas que apoiem as mulheres em sua inserção no mundo do trabalho, com linhas de crédito mais favorecidas para agricultoras e extrativistas no âmbito do Pronaf; com programas de qualificação específicos, como o Mulheres Mil, que foi retomado no atual mandato", page: 21 }] }
+        ]
+      },
+      outros: {
+        diagnosis: [
+          { quote: "Um país em que todas as pessoas, independentemente de origem, raça, etnia, gênero, orientação sexual, idade, crença ou condição social, possam desenvolver plenamente seu potencial e viver com dignidade. Um Brasil comprometido com a dignidade humana, democrático e inclusivo, que combata todas as formas de discriminação e assegure os direitos das mulheres, da população negra, dos povos indígenas e quilombolas, da população LGBTQIAP+, das pessoas com deficiência, dos povos do campo, das águas e das florestas, com amplo respeito às liberdades e aos direitos humanos.", page: 26 },
+          { quote: "Voltamos a assegurar aos povos e comunidades tradicionais – indígenas, quilombolas e ribeirinhos – seus direitos, inclusive em relação a seus territórios.", page: 19 },
+          { quote: "A criação do inédito Ministério dos Povos Indígenas retomou o compromisso do Estado com os povos indígenas. Homologamos 20 novas terras indígenas, somando cerca de 3,2 milhões de hectares de terras protegidas em 11 estados.", page: 20 },
+          { quote: "Construímos o portfólio mais robusto de políticas de proteção animal da história recente do Brasil. Criamos, em 2023, o inédito Departamento de Proteção, Defesa e Direitos Animais, hoje vinculado à Secretaria Nacional de Biodiversidade, Florestas e Direitos Animais.", page: 69 }
+        ],
+        proposals: [
+          { title: "Combate ao racismo e Estatuto da Igualdade Racial", quotes: [
+            { quote: "Manteremos o combate ao racismo no centro de nossa estratégia de desenvolvimento, pois não é possível compreender nem superar as desigualdades brasileiras sem enfrentar a questão racial como dimensão estruturante da sociedade.", page: 19 },
+            { quote: "Vamos continuar engajados na implementação das deliberações da 5ª Conferência Nacional de Promoção da Igualdade Racial (V CONAPIR), realizada em 2025, após um intervalo de sete anos. Avançaremos ainda mais na regulamentação do Estatuto da Igualdade Racial para a consolidação da equidade como política de Estado.", page: 19 }
+          ] },
+          { title: "Proteção territorial de povos indígenas e quilombolas", quotes: [
+            { quote: "Reafirmamos igualmente o compromisso com a proteção dos povos indígenas, de seus territórios, culturas e modos de vida. Persistiremos, garantindo proteção a seus territórios, com ações para demarcação e desintrusão de terras sempre que necessárias.", page: 20 },
+            { quote: "Temos orgulho da retomada do processo de titulação de territórios quilombolas, que permitiu, desde 2023, a expedição de 65 titulações e assinatura de 72 decretos de desapropriação por interesse social, recorde histórico. Vamos dar continuidade a este processo de reconhecimento do direito ao território, buscando acelerar os procedimentos e garantir que sejam acompanhados de políticas de desenvolvimento territorial.", page: 20 }
+          ] },
+          { title: "Inclusão e acessibilidade para pessoas com deficiência", quotes: [{ quote: "Continuaremos promovendo ambientes inclusivos, com a aplicação rigorosa da legislação de acessibilidade. A fiscalização do cumprimento das cotas de contratação de pessoas com deficiência no mercado de trabalho será fortalecida, ampliando a política de inclusão econômica.", page: 23 }] },
+          { title: "Políticas de Estado para diversidade de gênero e população LGBTQIAP+", quotes: [{ quote: "Continuaremos a planejar e construir políticas e ações levando em conta as dimensões de gênero, identidade, orientação sexual, étnico-raciais e classe social assim como as demais desigualdades sociais, de modo a garantir capacidade de o Estado atender, de forma adequada, justa e inclusiva, às pessoas LGBTQIAP+ e todas as suas especificidades.", page: 23 }] },
+          { title: "Proteção da infância e combate à pobreza infantil", quotes: [{ quote: "Continuaremos buscando ampliar e fortalecer as políticas para nossas crianças, por meio do enfrentamento da pobreza infantil, da garantia de acesso às políticas públicas e do direito ao brincar.", page: 24 }] },
+          { title: "Ampliação da proteção e do bem-estar animal", quotes: [
+            { quote: "A proteção ambiental continuará caminhando ao lado da defesa dos direitos animais. Vamos ampliar o ProPatinhas, fortalecendo as caravanas de castração, e dar continuidade ao SinPatinhas, cadastro nacional de cães e gatos.", page: 71 },
+            { quote: "Seguiremos fortalecendo o combate aos maus-tratos, com penas que assegurem que essas práticas não se repitam, avançando nesta agenda com prioridade e participação social.", page: 72 }
+          ] }
+        ]
+      }
   },
   // Trechos em que o plano comenta o governo Jair Bolsonaro (2019–2022) e os
   // governos do PT. Mesma regra do resto do arquivo: citação literal do PDF,

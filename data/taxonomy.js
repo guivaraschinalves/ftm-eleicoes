@@ -3,12 +3,17 @@
 // Editar aqui para adicionar/renomear temas. Cada candidato (data/candidates/*.js)
 // deve preencher uma entrada para cada id abaixo.
 //
-// window.THEMES é a lista dos 7 temas mostrados na seção "Temas". Economia é o
-// único com `subthemes` (mantém os 7 subtemas herdados do ftm-eleicoes, cada
-// um com Diagnóstico/Propostas); os outros 6 são "chatos" (flat): uma aba de
-// Diagnóstico e uma de Propostas direto, sem nível de subtema. Candidatos leem
-// esses dados de `c.economy.<subthemeId>` (Economia) ou `c.themes.<themeId>`
-// (os outros 6) — ver app.js (buildTemasSection).
+// window.THEMES é a lista dos 8 temas mostrados na seção "Temas". Dois deles
+// têm `subthemes` (um segundo nível de abas antes do par
+// Diagnóstico/Propostas): Economia, com os 7 subtemas de sempre, e Direitos e
+// Bem-Estar, separado entre Mulheres e as demais pautas.
+//
+// Onde cada tema guarda o conteúdo:
+//   - tema COM `subthemes` → `c[tema.store][subthemeId]`
+//     (Economia em `c.economy`, Direitos e Bem-Estar em `c.direitosBemEstar`)
+//   - tema sem subtema      → `c.themes[themeId]`
+// Em todos os casos o formato é o mesmo: { diagnosis: [], proposals: [] }.
+// Ver buildTemasSection/buildSubthemeCard em app.js.
 // ============================================================================
 
 window.ECONOMY_SUBTHEMES = [
@@ -21,14 +26,20 @@ window.ECONOMY_SUBTHEMES = [
   { id: "infraestrutura-investimento", label: "Infraestrutura e Investimento" }
 ];
 
+window.DIREITOS_SUBTEMAS = [
+  { id: "mulheres", label: "Mulheres" },
+  { id: "outros", label: "Outros direitos e bem-estar" }
+];
+
 window.THEMES = [
-  { id: "economia", label: "Economia", subthemes: window.ECONOMY_SUBTHEMES },
+  { id: "economia", label: "Economia", store: "economy", subthemes: window.ECONOMY_SUBTHEMES },
   { id: "educacao", label: "Educação" },
   { id: "seguranca", label: "Segurança Pública" },
   { id: "saude", label: "Saúde" },
   { id: "politica-externa", label: "Política Externa" },
   { id: "corrupcao", label: "Combate à Corrupção" },
-  { id: "direitos-bem-estar", label: "Direitos e Bem-Estar" }
+  { id: "direitos-bem-estar", label: "Direitos e Bem-Estar", store: "direitosBemEstar", subthemes: window.DIREITOS_SUBTEMAS },
+  { id: "tecnologia", label: "Tecnologia" }
 ];
 
 // Ordem de exibição dos candidatos: alfabética pelo nome de urna — não pela

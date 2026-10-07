@@ -273,8 +273,10 @@
     return block;
   }
 
-  // Card de Economia: lê de `c.economy[subthemeId]`.
-  function buildEconomyCard(id, subthemeId, kind) {
+  // Card de um tema COM subtemas: lê de `c[store][subthemeId]` — `store` vem
+  // do próprio tema em data/taxonomy.js ("economy" na Economia,
+  // "direitosBemEstar" em Direitos e Bem-Estar).
+  function buildSubthemeCard(id, store, subthemeId, kind) {
     var c = window.CANDIDATES_DATA[id];
     var src = (window.SOURCES_DATA || {})[id];
     var card = el("div", "compare-card");
@@ -283,7 +285,7 @@
     if (src && src.planFiled === false) {
       card.appendChild(noPlanBlock(kind));
     } else {
-      var entry = (c.economy || {})[subthemeId] || { diagnosis: [], proposals: [] };
+      var entry = (c[store] || {})[subthemeId] || { diagnosis: [], proposals: [] };
       if (kind === "diagnosis") {
         card.appendChild(quoteListBlock("Diagnóstico", entry.diagnosis, id));
       } else {
@@ -293,10 +295,9 @@
     return card;
   }
 
-  // Card dos outros 6 temas (Educação, Segurança, Saúde, Política Externa,
-  // Combate à Corrupção, Direitos e Bem-Estar): lê de `c.themes[themeId]` —
-  // mesmo formato de Economia (Diagnóstico + Propostas), só que sem nível
-  // de subtema.
+  // Card dos temas sem subtema (Educação, Segurança, Saúde, Política Externa,
+  // Combate à Corrupção, Tecnologia): lê de `c.themes[themeId]` — mesmo
+  // formato, só que sem o nível de subtema.
   function buildThemeCard(id, themeId, kind) {
     var c = window.CANDIDATES_DATA[id];
     var src = (window.SOURCES_DATA || {})[id];
@@ -376,7 +377,8 @@
       if (ti !== 0) panel.hidden = true;
 
       if (theme.subthemes) {
-        // Economia: um nível a mais de abas, uma por subtema.
+        // Tema com subtema: um nível a mais de abas antes do par
+        // Diagnóstico/Propostas.
         var subTabs = el("div", "tabs");
         var subPanels = document.createElement("div");
         subTabs.setAttribute("role", "tablist");
@@ -398,7 +400,7 @@
           var kindTabs = el("div", "tabs tabs-inner");
           var kindPanels = document.createElement("div");
           buildKindTabs(kindTabs, kindPanels, ids, function (id, kind) {
-            return buildEconomyCard(id, sub.id, kind);
+            return buildSubthemeCard(id, theme.store, sub.id, kind);
           });
           subPanel.appendChild(kindTabs);
           subPanel.appendChild(kindPanels);
