@@ -25,12 +25,14 @@
     return ids;
   }
 
-  // Esta versão do site cobre só os dois candidatos do segundo turno, e os
-  // dois aparecem sempre, em todas as seções — não há diálogo de seleção nem
-  // filtro. `visibleIds` continua existindo como a lista única usada por
-  // todas as seções (na ordem alfabética de CANDIDATE_ORDER), preenchida uma
-  // vez em init().
+  // O site compara DOIS planos por vez, escolhidos no diálogo que abre ao
+  // carregar. `visibleIds` é sempre uma lista de exatamente dois ids, na
+  // ordem de CANDIDATE_ORDER, e é o que todas as seções leem. Começa vazia:
+  // nada existe antes da primeira confirmação.
+  var PARES = 2;
   var visibleIds = [];
+
+  var sourcesRendered = false;
 
   // Última palavra buscada em Contagem de Palavras (null até a 1ª busca).
   var lastSearchedWord = null;
@@ -38,15 +40,28 @@
   // Idade calculada a partir de `basics.birthDate` ("AAAA-MM-DD"), sempre em
   // relação à data de hoje — não é um número fixo gravado nos dados, então
   // continua correto em qualquer visita, não só na data de publicação.
-  function calcAge(birthDateStr) {
+  // Dia do 2º turno de cada eleição — é o turno que o site cobre. A idade
+  // mostrada é sempre a que o candidato tinha NA ELEIÇÃO dele, não a de hoje:
+  // o Lula de 2022 aparece com 77 anos mesmo sendo visto em 2026, senão a
+  // ficha deixa de ser a daquela candidatura.
+  var DATA_DA_ELEICAO = { "2022": "2022-10-30", "2026": "2026-10-25" };
+
+  function calcAge(birthDateStr, election) {
     if (!birthDateStr) return null;
     var parts = birthDateStr.split("-").map(Number);
     var birth = new Date(parts[0], parts[1] - 1, parts[2]);
-    var today = new Date();
-    var age = today.getFullYear() - birth.getFullYear();
-    var hadBirthdayThisYear = (today.getMonth() > birth.getMonth()) ||
-      (today.getMonth() === birth.getMonth() && today.getDate() >= birth.getDate());
-    if (!hadBirthdayThisYear) age--;
+    var ref;
+    var marco = DATA_DA_ELEICAO[election];
+    if (marco) {
+      var mp = marco.split("-").map(Number);
+      ref = new Date(mp[0], mp[1] - 1, mp[2]);
+    } else {
+      ref = new Date();
+    }
+    var age = ref.getFullYear() - birth.getFullYear();
+    var fezAniversario = (ref.getMonth() > birth.getMonth()) ||
+      (ref.getMonth() === birth.getMonth() && ref.getDate() >= birth.getDate());
+    if (!fezAniversario) age--;
     return age;
   }
 
@@ -81,8 +96,9 @@
     var nameWrap = document.createElement("div");
     var h3 = el("h3", "candidate-name");
     h3.textContent = b.ballotName || b.name;
+    if (b.election) h3.appendChild(selo(b));
     var party = el("div", "candidate-party");
-    party.textContent = b.party + " · nº " + b.number;
+    party.textContent = b.party + " · nº " + b.number + (b.election ? " · eleição de " + b.election : "");
     nameWrap.appendChild(h3);
     nameWrap.appendChild(party);
     head.appendChild(nameWrap);
@@ -99,8 +115,8 @@
       meta.appendChild(dd);
     }
     metaRow("Nome completo", b.name);
-    var age = calcAge(b.birthDate);
-    metaRow("Idade", age != null ? age + " anos" : null);
+    var age = calcAge(b.birthDate, b.election);
+    metaRow("Idade", age != null ? age + " anos" + (b.election ? " na eleição" : "") : null);
     metaRow("Vice", b.vp);
     metaRow("Coligação", b.coalition);
     card.appendChild(meta);
@@ -221,12 +237,21 @@
     return block;
   }
 
+  // O ano da eleição vai junto do nome em todo card: com Lula 2022 e Lula
+  // 2026 lado a lado, o nome sozinho não distingue um do outro.
+  function selo(basics) {
+    var s = el("span", "candidate-year");
+    s.textContent = basics.election || "";
+    return s;
+  }
+
   function candidateCardHead(basics) {
     var head = el("div", "compare-card-head");
     head.appendChild(buildAvatar(basics, "candidate-avatar-sm"));
     var nameWrap = document.createElement("div");
     var h4 = document.createElement("h4");
     h4.textContent = basics.ballotName || basics.name;
+    if (basics.election) h4.appendChild(selo(basics));
     var party = el("div", "candidate-party");
     party.textContent = basics.party;
     nameWrap.appendChild(h4);
@@ -507,6 +532,170 @@
     });
   }
 
+  /* ========================= Seleção: dois planos ========================= */
+  // O site compara dois planos por vez. O diálogo abre sozinho ao carregar e
+  // só libera o botão quando há EXATAMENTE dois marcados — marcar um terceiro
+  // desmarca o mais antigo da fila, em vez de bloquear o clique sem explicar.
+  // A escolha não é salva entre visitas, de propósito: cada visita começa
+  // decidindo o que comparar.
+  var escolhidos = [];
+
+  function rotuloDaSelecao(ids) {
+    return ids.map(function (id) {
+      var b = window.CANDIDATES_DATA[id].basics;
+      return (b.ballotName || b.name) + (b.election ? " " + b.election : "");
+    }).join(" × ");
+  }
+
+  function atualizaConfirmacao() {
+    var btn = document.getElementById("candidate-picker-confirm");
+    if (!btn) return;
+    btn.disabled = escolhidos.length !== PARES;
+    btn.textContent = escolhidos.length === PARES
+      ? "Comparar " + rotuloDaSelecao(ordenaPorLista(escolhidos))
+      : "Escolha " + (PARES - escolhidos.length) + (escolhidos.length === 1 ? " plano" : " planos");
+  }
+
+  function ordenaPorLista(ids) {
+    var ordem = orderedCandidateIds();
+    return ids.slice().sort(function (a, b) { return ordem.indexOf(a) - ordem.indexOf(b); });
+  }
+
+  function marca(id, ligado) {
+    var i = escolhidos.indexOf(id);
+    if (ligado && i === -1) escolhidos.push(id);
+    if (!ligado && i !== -1) escolhidos.splice(i, 1);
+    // Terceiro marcado: o mais antigo sai da fila sozinho.
+    while (escolhidos.length > PARES) {
+      var saiu = escolhidos.shift();
+      var cb = document.querySelector('#candidate-picker-grid input[value="' + saiu + '"]');
+      if (cb) cb.checked = false;
+    }
+    Array.prototype.forEach.call(
+      document.querySelectorAll("#candidate-picker-grid .candidate-picker-chip"),
+      function (chip) {
+        var entrada = chip.querySelector("input");
+        chip.classList.toggle("is-on", entrada && entrada.checked);
+      }
+    );
+    atualizaConfirmacao();
+  }
+
+  function renderPickerGrid(host, preselecionados) {
+    if (!host) return;
+    host.innerHTML = "";
+    escolhidos = (preselecionados || []).slice(0, PARES);
+
+    // Agrupado por eleição: a comparação mais provável é dentro de um ano,
+    // e o agrupamento deixa claro que a mesma pessoa aparece duas vezes.
+    var porEleicao = {};
+    orderedCandidateIds().forEach(function (id) {
+      var ano = window.CANDIDATES_DATA[id].basics.election || "—";
+      (porEleicao[ano] = porEleicao[ano] || []).push(id);
+    });
+
+    Object.keys(porEleicao).sort().reverse().forEach(function (ano) {
+      var titulo = el("p", "candidate-picker-group");
+      titulo.textContent = "Eleição de " + ano;
+      host.appendChild(titulo);
+      porEleicao[ano].forEach(function (id) {
+        var c = window.CANDIDATES_DATA[id];
+        var src = (window.SOURCES_DATA || {})[id] || {};
+        var chip = el("label", "candidate-picker-chip");
+        var entrada = document.createElement("input");
+        entrada.type = "checkbox";
+        entrada.value = id;
+        entrada.checked = escolhidos.indexOf(id) !== -1;
+        entrada.addEventListener("change", function () { marca(id, entrada.checked); });
+        var texto = document.createElement("div");
+        var nome = document.createElement("strong");
+        nome.textContent = c.basics.ballotName || c.basics.name;
+        var partido = el("span", "candidate-picker-party");
+        partido.textContent = c.basics.party + " · " + (src.planTitle || "");
+        texto.appendChild(nome);
+        texto.appendChild(partido);
+        chip.appendChild(entrada);
+        chip.appendChild(texto);
+        chip.classList.toggle("is-on", entrada.checked);
+        host.appendChild(chip);
+      });
+    });
+    atualizaConfirmacao();
+  }
+
+  function openPicker() {
+    var dialog = document.getElementById("candidate-picker");
+    if (!dialog) return;
+    renderPickerGrid(document.getElementById("candidate-picker-grid"), visibleIds);
+    if (!dialog.open) dialog.showModal();
+  }
+
+  function buildCandidatePicker() {
+    var dialog = document.getElementById("candidate-picker");
+    var presetsHost = document.getElementById("candidate-picker-presets");
+    var confirmBtn = document.getElementById("candidate-picker-confirm");
+    if (!dialog || !presetsHost || !confirmBtn) return;
+
+    // Atalhos para as três comparações mais prováveis.
+    var atalhos = [
+      { label: "2º turno de 2026", ids: ["flavio-bolsonaro", "lula"] },
+      { label: "2º turno de 2022", ids: ["jair-bolsonaro-2022", "lula-2022"] },
+      { label: "Lula 2022 × Lula 2026", ids: ["lula-2022", "lula"] }
+    ];
+    presetsHost.innerHTML = "";
+    atalhos.forEach(function (atalho) {
+      if (!atalho.ids.every(function (id) { return window.CANDIDATES_DATA[id]; })) return;
+      var btn = el("button", "");
+      btn.type = "button";
+      btn.textContent = atalho.label;
+      btn.addEventListener("click", function () {
+        applySelection(atalho.ids);
+        dialog.close();
+      });
+      presetsHost.appendChild(btn);
+    });
+
+    confirmBtn.addEventListener("click", function () {
+      if (escolhidos.length !== PARES) return;
+      applySelection(escolhidos);
+      dialog.close();
+    });
+  }
+
+  function initPinnedPickerControl() {
+    var btn = document.getElementById("candidate-picker-toggle");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      closeNavMenu();
+      openPicker();
+    });
+  }
+
+  // Aplica a escolha: refaz todas as seções com os dois planos selecionados.
+  function applySelection(ids) {
+    visibleIds = ordenaPorLista(ids.filter(function (id) { return window.CANDIDATES_DATA[id]; })).slice(0, PARES);
+
+    buildCandidateGrid();
+    var temasTabs = document.getElementById("temas-tabs");
+    var temasPanels = document.getElementById("temas-panels");
+    temasTabs.innerHTML = "";
+    temasPanels.innerHTML = "";
+    buildTemasSection(temasTabs, temasPanels, visibleIds, "temas");
+    buildGovernmentsSection();
+    buildWordTopSection();
+    if (lastSearchedWord) renderWordCountChart(lastSearchedWord);
+    if (!sourcesRendered) {
+      buildSourcesList();
+      sourcesRendered = true;
+    }
+    var btn = document.getElementById("candidate-picker-toggle");
+    if (btn) {
+      btn.hidden = false;
+      btn.textContent = rotuloDaSelecao(visibleIds) + " ▾";
+    }
+  }
+
+
   /* ============================== Contagem de Palavras ============================== */
   // Contagem MECÂNICA (não citação): conta ocorrências da palavra digitada
   // no texto INTEGRAL de cada plano (window.PLAN_TEXTS, gerado por
@@ -668,7 +857,7 @@
   // A unidade é a COISA mencionada, de uma palavra ou de quatro: "China",
   // "Estados Unidos" e "taxa de juros" valem uma menção cada, e disputam o
   // mesmo ranking. Por isso a lista é uma só.
-  function listaDeTermos(titulo, itens) {
+  function listaDeTermos(titulo, itens, contagensDoOutro) {
     var bloco = el("div", "compare-block");
     var lbl = el("p", "compare-block-label");
     lbl.textContent = titulo;
@@ -693,12 +882,14 @@
       barra.appendChild(preenche);
       var n = el("span", "word-top-n");
       n.textContent = item.n;
-      // A contagem do outro plano no mesmo recorte — é o contraste que
-      // interessa (e o motivo de não haver TF-IDF aqui: com dois documentos
-      // ele só diria "aparece em um só").
+      // A contagem do OUTRO plano comparado, no mesmo recorte — é o
+      // contraste que interessa (e o motivo de não haver TF-IDF aqui: com
+      // tão poucos documentos ele só diria "aparece em um só"). Vem do
+      // `counts` do outro plano, porque o par é escolhido na hora.
+      var quanto = (contagensDoOutro || {})[item.t] || 0;
       var vs = el("span", "word-top-vs");
-      vs.textContent = item.vs;
-      vs.title = "o outro plano usa " + item.vs + "x neste mesmo recorte";
+      vs.textContent = quanto;
+      vs.title = "o outro plano comparado menciona " + quanto + "x neste mesmo recorte";
       li.appendChild(termo);
       li.appendChild(barra);
       li.appendChild(n);
@@ -710,14 +901,16 @@
   }
 
   function cardDeTermos(id, recorte) {
-    var dados = ((window.WORD_STATS || {}).candidatos || {})[id] || {};
-    var corte = dados[recorte];
+    var todos = (window.WORD_STATS || {}).candidatos || {};
+    var corte = (todos[id] || {})[recorte];
+    var outroId = visibleIds.filter(function (x) { return x !== id; })[0];
+    var contagensDoOutro = ((todos[outroId] || {})[recorte] || {}).counts;
     var c = window.CANDIDATES_DATA[id];
     var card = el("div", "compare-card");
     card.appendChild(candidateCardHead(c.basics));
 
     if (!corte) {
-      card.appendChild(listaDeTermos("Mais mencionado", []));
+      card.appendChild(listaDeTermos("Mais mencionado", [], null));
       return card;
     }
 
@@ -727,7 +920,7 @@
       : corte.palavras.toLocaleString("pt-BR") + " palavras no plano inteiro";
     card.appendChild(ficha);
 
-    card.appendChild(listaDeTermos("Mais mencionado", corte.top));
+    card.appendChild(listaDeTermos("Mais mencionado", corte.top, contagensDoOutro));
     return card;
   }
 
@@ -778,7 +971,8 @@
       var row = el("div", "source-row");
       var who = document.createElement("div");
       var whoName = el("span", "who");
-      whoName.textContent = (c.basics.ballotName || c.basics.name) + " ";
+      whoName.textContent = (c.basics.ballotName || c.basics.name)
+        + (c.basics.election ? " (" + c.basics.election + ")" : "") + " ";
       var planTitle = el("span", "plan-title");
       who.appendChild(whoName);
       who.appendChild(planTitle);
@@ -967,24 +1161,17 @@
   }
 
   function init() {
-    visibleIds = orderedCandidateIds();
-
-    buildCandidateGrid();
-    buildTemasSection(
-      document.getElementById("temas-tabs"),
-      document.getElementById("temas-panels"),
-      visibleIds,
-      "temas"
-    );
-    buildGovernmentsSection();
+    buildCandidatePicker();
     buildWordCountSection();
-    buildWordTopSection();
-    buildSourcesList();
+    initPinnedPickerControl();
     initThemeToggle();
     initViewSwitcher();
     initNavToggle();
-    // O cardzinho inicial já começa visível e as 4 seções já começam com
-    // `hidden` declarado no HTML — não precisa de um showView("hero") aqui.
+    // visibleIds está vazio aqui: Visão Geral, Temas, Governos e o bloco de
+    // menções só existem depois da primeira confirmação. O diálogo modal
+    // bloqueia o resto da página nesse meio-tempo (backdrop nativo do
+    // <dialog>), e o cardzinho inicial já começa visível.
+    openPicker();
   }
 
   document.addEventListener("DOMContentLoaded", init);

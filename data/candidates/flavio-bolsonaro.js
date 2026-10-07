@@ -10,6 +10,7 @@ window.CANDIDATES_DATA["flavio-bolsonaro"] = {
   basics: {
     name: "Flávio Nantes Bolsonaro",
     ballotName: "Flávio Bolsonaro",
+    election: "2026",
     party: "PL",
     number: 22,
     coalition: "Candidatura de partido isolado (PL)",

@@ -10,6 +10,7 @@ window.CANDIDATES_DATA["lula"] = {
   basics: {
     name: "Luiz Inácio Lula da Silva",
     ballotName: "Lula",
+    election: "2026",
     party: "PT",
     number: 13,
     coalition: "Brasil Pronto Pra Mais (PSB, PDT, Federação Brasil da Esperança — PT/PCdoB/PV, Federação PSOL Rede)",

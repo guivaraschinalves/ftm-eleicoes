@@ -36,6 +36,8 @@ SCRIPT_FILES = [
     "data/word-stats.js",
     "data/candidates/flavio-bolsonaro.js",
     "data/candidates/lula.js",
+    "data/candidates/jair-bolsonaro-2022.js",
+    "data/candidates/lula-2022.js",
     "app.js",
 ]
 

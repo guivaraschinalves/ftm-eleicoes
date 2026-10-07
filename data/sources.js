@@ -77,5 +77,46 @@ window.SOURCES_DATA = {
         { label: "Brasil que Não Volta Atrás", page: 68 }
       ]
     }
+  },
+  "jair-bolsonaro-2022": {
+    candidateName: "Jair Messias Bolsonaro",
+    planTitle: "Pelo Bem do Brasil — Plano de Governo 2023-2026",
+    officialPdfUrl: "https://dadosabertos.tse.jus.br/dataset/candidatos-2022",
+    localPdfPath: "sources/jair-bolsonaro-2022.pdf",
+    sourceLabel: "Proposta de Governo registrada no TSE — Portal de Dados Abertos (Candidatos 2022, BR, Presidente)",
+    retrievedAt: "2026-10-07",
+    pageCount: 48,
+    // Eixos do sumário (p.2), com a página de abertura de cada um.
+    planStructure: {
+      summary: "6 eixos temáticos, depois da introdução e dos princípios",
+      parts: [
+        { label: "Economia, Tecnologia e Inovação", page: 14 },
+        { label: "Saúde, Educação e Social", page: 21 },
+        { label: "Segurança e Defesa", page: 31 },
+        { label: "Infraestrutura Logística", page: 34 },
+        { label: "Sustentabilidade Ambiental", page: 37 },
+        { label: "Governança e Geopolítica", page: 42 }
+      ]
+    }
+  },
+  "lula-2022": {
+    candidateName: "Luiz Inácio Lula da Silva",
+    planTitle: "Diretrizes para o Programa de Reconstrução e Transformação do Brasil",
+    officialPdfUrl: "https://dadosabertos.tse.jus.br/dataset/candidatos-2022",
+    localPdfPath: "sources/lula-2022.pdf",
+    sourceLabel: "Proposta de Governo registrada no TSE — Portal de Dados Abertos (Candidatos 2022, BR, Presidente)",
+    retrievedAt: "2026-10-07",
+    pageCount: 21,
+    // O documento é uma lista corrida de 121 diretrizes numeradas, agrupadas
+    // em três blocos com título, mais a abertura.
+    planStructure: {
+      summary: "121 diretrizes numeradas, em 3 blocos",
+      parts: [
+        { label: "Vamos juntos pelo Brasil — compromissos para a reconstrução e transformação do país", page: 2 },
+        { label: "Desenvolvimento social e garantia de direitos", page: 4 },
+        { label: "Desenvolvimento econômico e sustentabilidade socioambiental e climática", page: 10 },
+        { label: "Defesa da democracia e reconstrução do Estado e da soberania", page: 17 }
+      ]
+    }
   }
 };

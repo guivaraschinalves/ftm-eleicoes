@@ -8,6 +8,8 @@ Dump em Markdown de tudo que está em `data/*.js`: dados básicos e citações d
 |---|---|---|---|---|---|
 | Flávio Bolsonaro | PL | 22 | 45 | Alfredo Gaspar (PL) | Candidatura de partido isolado (PL) |
 | Lula | PT | 13 | 81 | Geraldo Alckmin (PSB) | Brasil Pronto Pra Mais (PSB, PDT, Federação Brasil da Esperança — PT/PCdoB/PV, Federação PSOL Rede) |
+| Jair Bolsonaro | PL | 22 | 67 | Braga Netto (PL) | Pelo bem do Brasil (PP, Republicanos, PL) |
+| Lula | PT | 13 | 77 | Geraldo Alckmin (PSB) | Coligação Brasil da Esperança (Federação Brasil da Esperança — PT/PCdoB/PV, Federação PSOL Rede, PSB, Solidariedade, Avante, Agir, Pros) |
 
 ## Flávio Bolsonaro (PL)
 
@@ -489,5 +491,400 @@ Dump em Markdown de tudo que está em `data/*.js`: dados básicos e citações d
 - "O governo Lula reposicionou a cultura, restabelecendo o diálogo com a sociedade e fortalecendo a cooperação federativa. A recriação do Ministério da Cultura foi um dos passos fundamentais para reafirmar a cultura como um direito fundamental e vetor do desenvolvimento econômico e social." (p. 40)
 - "O atual governo Lula reconstruiu o papel do Estado nas políticas de esporte. Além da recriação do Ministério, com capacidade para formular e implementar políticas públicas eficazes, retomou políticas e reorganizou a legislação do setor, com a aprovação da Nova Lei de Incentivo ao Esporte e a Lei Geral do Esporte." (p. 43)
 - "Batemos o recorde de concessões, quadruplicando o número de leilões de rodovias em relação ao governo anterior e alcançando 46% de todas as concessões rodoviárias já realizadas no país." (p. 53)
+
+---
+
+## Jair Bolsonaro (PL)
+
+- **Nome completo:** Jair Messias Bolsonaro
+- **Idade:** 67 anos
+- **Número:** 22
+- **Vice:** Braga Netto (PL)
+- **Coligação:** Pelo bem do Brasil (PP, Republicanos, PL)
+- **Plano de governo:** Pelo Bem do Brasil — Plano de Governo 2023-2026 (48 páginas) — https://dadosabertos.tse.jus.br/dataset/candidatos-2022
+- **Como está dividido:** 6 eixos temáticos, depois da introdução e dos princípios — Economia, Tecnologia e Inovação (p. 14) · Saúde, Educação e Social (p. 21) · Segurança e Defesa (p. 31) · Infraestrutura Logística (p. 34) · Sustentabilidade Ambiental (p. 37) · Governança e Geopolítica (p. 42)
+
+### Economia
+
+#### Fiscal e Contas Públicas
+
+**Diagnóstico:**
+- "Com mais receitas, é possível investir mais em entregas, realizações, políticas sociais e principalmente seguir no fomento à geração de novos empregos como incentivo ao empreendedorismo, redução de i" (p. 4)
+
+**Propostas:**
+- **Consolidar o ajuste fiscal e reduzir a dívida sobre o PIB** — "O governo continuará com os esforços de garantir a estabilidade econômica e a sustentabilidade da trajetória da dívida pública através da consolidação do ajuste fiscal no médio e longo prazo que reduza a relação entre a dívida pública e o PIB, permitindo a recuperação e manutenção da estabilidade econômica e o crescimento sustentado do PIB." (p. 17)
+- **Reduzir a rigidez e aumentar a transparência do orçamento** — "Também se focalizará no aprimoramento do sistema de planejamento e orçamento público, com o objetivo de reduzir a rigidez do orçamento, aumentar a previsibilidade da execução e a transparência dos gastos públicos." (p. 17)
+
+#### Tributação
+
+**Diagnóstico:**
+- _Não abordado explicitamente no plano de governo._
+
+**Propostas:**
+- **Simplificar a arrecadação e tornar o tributo neutro** — "além do sistema tributário brasileiro, com a meta de simplificar a arrecadação, aumentar a progressividade e tornálo concorrencialmente neutro" (p. 18)
+
+#### Câmbio e Comércio Exterior
+
+**Diagnóstico:**
+- _Não abordado explicitamente no plano de governo._
+
+**Propostas:**
+- **Entrada do Brasil na OCDE e na EFTA** — "Na consecução desse propósito é essencial a entrada do Brasil na Organização para a Cooperação e Desenvolvimento Econômico (OCDE) e na The European Free Trade Area (EFTA), dentre outros." (p. 17)
+- **Novas parcerias comerciais e boas práticas internacionais** — "A inserção do Brasil nesses organismos internacionais significa não apenas a celebração de novas parcerias comerciais que promovam o desenvolvimento econômico, mas também a incorporação e a melhoria nacional de boas práticas consagradas para o setor público e para o processo produtivo" (p. 17)
+
+#### Mercado de Trabalho e Renda
+
+**Diagnóstico:**
+- "Emprego significa muito mais do que receber um pagamento ao final do mês. Envolve dignidade, propósito e esperança para cada trabalhador." (p. 15)
+- "o Governo Bolsonaro se concentrará em políticas para formalização dos trabalhadores informais e na redução da taxa de informalidade, ainda na casa de 40% da força de trabalho." (p. 16)
+
+**Propostas:**
+- **Manter a legislação trabalhista aprovada, com segurança jurídica** — "A nova legislação trabalhista aprovada será mantida com segurança jurídica, ajudando a combater abusos empresariais e de sindicatos que também não podem ter a capacidade de agir como monopólios." (p. 16)
+- **Programa Descomplica Trabalhista e mercado de trabalho flexível** — "Exemplo de política: Programa Descomplica Trabalhista. Um mercado livre de trabalho, seguro e flexível, para que o emprego no país alcance níveis internacionalmente competitivos, gerando renda e prosperidade aos brasileiros." (p. 16)
+- **Contratos específicos para informais, de aplicativo e rurais** — "A estratégia de inclusão e combate à informalidade deverá contemplar alternativas contratuais inteligentes e que reconheçam a realidade desses trabalhadores nas regiões em que vivem, incluindo dos trabalhadores por aplicativos e trabalhadores rurais, dentre outros." (p. 17)
+- **Auxílio Brasil de R$ 600 com bônus para quem se formaliza** — "Um dos compromissos prioritários do governo reeleito será a manutenção do valor de 600 reais para o Auxílio Brasil a partir de janeiro de 2023." (p. 17); "Aquelas famílias, em que o responsável familiar for registrado no mercado formal, não perderão o direito ao benefício do programa de transferência de renda, além de receberem um bônus de 200 reais." (p. 17)
+- **Microcrédito e empreendedorismo para os mais vulneráveis** — "O Programa SIM Digital já emprestou mais de 2 bilhões de reais para 2,8 milhões de microempresários (63% deles são mulheres)." (p. 17)
+- **Modernizar o Sistema Nacional de Emprego** — "Já está em fase de desenvolvimento um sistema completamente novo, que permitirá ao trabalhador receber imediatamente ofertas de emprego de maneira digital, com georreferenciamento, reduzindo o tempo de deslocamento" (p. 17)
+
+#### Inflação e Política Monetária
+
+**Diagnóstico:**
+- "As anteriores ações contribuirão a consolidar o controle da inflação, que tem sido fortemente impactada pela pandemia do coronavírus e a guerra na Ucrânia, que em conjunto têm gerado um forte desequilíbrio nas cadeias de fornecimento global e o aumento dos preços internacionais do petróleo, entre outros fatores." (p. 17)
+
+**Propostas:**
+- **Manter o regime de metas e a independência do Banco Central** — "Vale mencionar que o governo continuará rigorosamente respeitando o regime de metas da inflação e independência do Banco Central." (p. 17)
+
+#### Papel do Estado e Privatizações
+
+**Diagnóstico:**
+- _Não abordado explicitamente no plano de governo._
+
+**Propostas:**
+- **Desestatizações e desinvestimento de estatais** — "e prosseguir com o reordenamento do papel estatal na economia, por meio de desestatizações e desinvestimentos de empresas estatais, para focalizar a participação do Estado em atividades essenciais e na promoção do desenvolvimento econômico, social e sustentável do Brasil." (p. 18)
+- **Tirar o peso do Estado das costas do cidadão** — "É, portanto, fundamental retirar da população o peso do Estado de seus ombros e deixar cada cidadão, com o apoio necessário do governo, exercitar sua criatividade, sua capacidade gerencial, sua visão empresarial e sua liberdade para escolher como vai prover sua existência" (p. 15)
+- **Bancos de desenvolvimento só onde o mercado não atende** — "o direcionamento e priorização da atuação dos bancos de desenvolvimento para projetos e atividades não atendidos de forma adequada pelo mercado" (p. 18)
+
+#### Infraestrutura e Investimento
+
+**Diagnóstico:**
+- _Não abordado explicitamente no plano de governo._
+
+**Propostas:**
+- **Intermodalidade do sistema nacional de transporte** — "Promover a Intermodalidade do Sistema Nacional de Transporte Intermodalidade é o uso de vários modais (caminhões, aviões, barcos e outros) para uma única viagem." (p. 35)
+- **Aproveitar a rede hidrográfica para navegação** — "O Brasil detém a maior rede hidrográfica do mundo, com mais de 55 mil km², possuindo 12 grandes bacias hidrográficas, com rios que possibilitam navegação em inúmeros trechos." (p. 36)
+- **Infraestrutura nas regiões menos desenvolvidas** — "continuar e avançar na melhoria da infraestrutura nas regiões menos desenvolvidas, de modo a ampliar as oportunidades de investimentos produtivos, permitindo a geração de emprego e renda e o equilíbrio regional do país" (p. 18)
+- **Crédito para startups e capital semente** — "a ampliação dos produtos financeiros de apoio às startups, com maior prioridade de recursos para capital semente, incluídos os não reembolsáveis, e com incremento para fundos de venture capital em inovação e infraestrutura" (p. 18)
+
+### Educação
+
+**Diagnóstico:**
+- "É preciso ampliar o combate à violência institucional contra crianças e adolescentes, sob a premissa de que os pais são os principais atores na educação das crianças e não o Estado!" (p. 25)
+
+**Propostas:**
+- **Alinhar o que se ensina às demandas do mercado de trabalho** — "É fundamental que sejam estabelecidas estratégias que se alinhem com as demandas do mercado e o que se ensina nas escolas e universidades, sempre com a finalidade de garantir que o jovem que se esforça durante anos de estudo tenha alta probabilidade de ser empregado" (p. 25)
+- **Ensino de fundamentos sem conotação ideológica** — "a gestão 2023-2026 terá a tarefa de incrementar ações que forneçam os fundamentos de importantes disciplinas como Matemática, Português, História, Geografia, Ciências de uma forma geral e outras, permitindo que os alunos possam exercer um pensamento crítico sem conotações ideológicas que apenas distorcem a percepção de mundo" (p. 25)
+- **Recuperar o ensino perdido com o fechamento das escolas** — "É importante dar continuidade na recuperação do ensino das crianças e jovens que foram prejudicados com o fechamento das escolas durante a pandemia." (p. 26)
+- **Formação e valorização dos professores** — "serão reforçadas as ações de promoção das políticas de formação e valorização dos professores, fortalecendo os planos de carreira e remuneração, melhorando as condições de trabalho e saúde e fornecendo formação inicial e continuada que estimule a articulação entre teoria e prática." (p. 26)
+- **Internet nas escolas distantes e novas creches** — "a democratização da internet nas escolas – notadamente as mais distantes dos grandes centros; a construção de novas creches e a manutenção das exis" (p. 25)
+
+### Segurança Pública
+
+**Diagnóstico:**
+- "O termo segurança é abrangente. Envolve outros conceitos que são vitais ao cidadão, aquele que trabalha, dedica-se à família e busca o melhor para o seu país." (p. 31)
+
+**Propostas:**
+- **Investimento nos órgãos de segurança e nas Forças Armadas** — "Essas ações fazem crescer a necessidade de aumento e continuidade dos investimentos nos Órgãos de Segurança Pública e nas Forças Armadas, assim como o aperfeiçoamento dos seus planos de carreira e de remuneração, da sua retaguarda jurídica e da continuidade da melhor capacitação de seus quadros." (p. 34)
+- **Excludente de ilicitude para agentes em operação** — "O governo federal encaminhou projeto de lei sobre o excludente de ilicitude para maior proteção do profissional da Segurança Pública e das Forças Armadas em operações. Essa conquista será perseguida pelo governo no novo mandato." (p. 34)
+- **Segurança no campo** — "o governo federal deverá buscar soluções específicas para a proteção de áreas fora dos núcleos urbanos, protegendo não só a família do campo, mas os equipamentos e insumos de uma forma geral, cujo valor agregado altíssimo tem levado parcela de criminosos a se voltar para esse público." (p. 34)
+
+### Saúde
+
+**Diagnóstico:**
+- "os serviços de saúde de qualidade reduzem a mortalidade materna e infantil e aumentam a expectativa de vida e as possibilidades de disfrutar de uma vida saudável, assim como melhoram as possibilidades de geração de renda." (p. 22)
+
+**Propostas:**
+- **Produção nacional de vacinas e transferência de tecnologia** — "Fruto do esforço despendido pelo Governo Federal desde março de 2020, com o êxito obtido na encomenda tecnológica iniciada em junho de 2020, possibilitando a transferência de tecnologia e a produção inteiramente nacional de vacinas contra a Covid-19 pela Fundação Oswaldo Cruz" (p. 23)
+- **Atividade física na atenção primária** — "Deve-se dar continuidade a programas exitosos como o Incentivo de Atividade Física para a Atenção Primária, uma vez que 15% do total de internações pelo SUS é atribuído à falta de exercícios físicos" (p. 24)
+
+### Política Externa
+
+**Diagnóstico:**
+- "Nos temas de meio ambiente, mudança do clima e segurança alimentar, o Brasil tem a condição singular de ser ao mesmo tempo um dos maiores produtores agrícolas do mundo, responsável pela segurança alimentar de 1 bilhão de pessoas, o detentor da maior cobertura florestal nativa, submetida a uma rigorosa legislação de preservação, e dono de um mix energético dentre os mais limpos no mundo, superior ao de quase todas as nações avançadas." (p. 45)
+
+**Propostas:**
+- **Política externa com parâmetros claros, alinhada à Constituição** — "É fundamental que seja bem delineada e siga parâmetros claros, a fim de comunicar às demais nações o posicionamento brasileiro diante de assuntos que vão desde alianças, conflitos e negociações de paz, até acordos econômicos bilaterais ou multilaterais." (p. 45)
+- **Reduzir dependências e vulnerabilidades externas** — "Cabe ao Estado compreender quais aspectos de sua economia devem ter seu ciclo ou cadeia produtiva dominado internamente, com redução das dependências e vulnerabilidades externas" (p. 46)
+
+### Combate à Corrupção
+
+**Diagnóstico:**
+- "O importante para que essa diretriz de transparência seja uma marca da gestão 20232026, como foi na anterior, de maneira ainda mais coordenada, é o direito de o cidadão saber o que o governo realiza e faz." (p. 44)
+
+**Propostas:**
+- **Transparência dos recursos federais repassados a estados e municípios** — "Deverão, portanto, ser aperfeiçoados os mecanismos de transparência para emprego dos recursos federais pelos entes subnacionais, já que, ao final, o objetivo de todos é sempre o mesmo: beneficiar a população." (p. 44)
+- **Novo Portal Brasileiro de Dados Abertos** — "Em 2023, teremos o novo Portal Brasileiro de Dados Abertos" (p. 44)
+- **CGU como protagonista da transparência** — "A CGU, por sua missão institucional, deve ser protagonista nesse processo." (p. 44)
+
+### Direitos, Assistência e Bem-Estar
+
+#### Mulheres
+
+**Diagnóstico:**
+- "Para combater a violência contra a mulher, uma das causas mais urgentes em nosso país, foi lançado o Plano Nacional de Enfrentamento ao Feminicídio para garantir direitos e promover a assistência integral, humanizada e não revitimizadora às mulheres em situação de violência." (p. 28)
+
+**Propostas:**
+- **Brasil para Elas, Qualifica Mulher e Emprega Mais Mulher** — "Dentre elas, o Programa Brasil para Elas, uma estratégia nacional de fomento ao empreendedorismo feminino para o desenvolvimento socioeconômico; o Qualifica Mulher, para a capacitação profissional, empreendedorismo e fomento por linhas de crédito; e o Emprega Mais Mulher, de estímulo à empregabilidade e à flexibilização do regime de trabalho." (p. 28)
+- **Creches no contraturno escolar** — "Dentro da visão de empreendedorismo como ferramenta de transformação das mulheres, o governo reeleito irá reforçar essas ações com a ampliação de creches no contraturno escolar." (p. 28)
+- **Interiorizar a Casa da Mulher Brasileira** — "Atualmente, 09 casas estão em construção e 20 contratadas e em fase de implantação, sendo que, na gestão 2023-2026, deverão ser consolidadas e ampliadas suas ações, também com a sua interiorização, tornando o país um lugar seguro, solidário e inclusivo para os nossos filhos." (p. 28)
+- **Programa Mães do Brasil** — "Para promover a dignidade da mulher, no exercício da maternidade, foi criado o Programa Mães do Brasil, que tem como objetivos, dentre outros, reconhecer o valor da maternidade para o bem comum, a fim de amparar as mulheres no exercício integral da maternidade, desde a concepção até o cuidado com os filhos" (p. 28)
+- **Participação das mulheres no parlamento e no crédito** — "destacam-se as ações de promoção e capacitação para ampliar a participação das mulheres no parlamento, assim como no empreendedorismo (pela capacitação e democratização do acesso ao crédito e microcrédito)." (p. 28)
+- **Igualdade salarial entre homens e mulheres na mesma ocupação** — "a igualdade de salários entre homens e mulheres que desempenham a mesma ocupação laboral e a possibilidade de equilibrar, até mesmo por meio do trabalho híbrido ou home offi ce, a difícil tarefa de cuidar dos filhos e prover sustento, devem ser objeto de política pública robusta, tempestiva e calcada na realidade e necessidades." (p. 17)
+
+#### Envelhecimento
+
+**Diagnóstico:**
+- _Não abordado explicitamente no plano de governo._
+
+**Propostas:**
+- **Inclusão produtiva e qualificação da população idosa** — "O governo, no seu segundo mandato, continuará estimulando as políticas de inclusão produtiva e de qualificação dos trabalhadores mais afetados pela mudança tecnológica, em especial da população idosa, com foco no desenvolvimento de aptidões e adaptação aos novos padrões produtivos." (p. 17)
+- **Sustentabilidade financeira do sistema previdenciário** — "o governo continuará e fortalecerá o aprimoramento do sistema previdenciário, com o objetivo de garantir a sustentabilidade financeira e a justiça social" (p. 18)
+
+#### Outros direitos e bem-estar
+
+**Diagnóstico:**
+- "Garantir ao cidadão o cuidado ante os chamados riscos sociais e o combate à pobreza, são importantes fatores no processo de proteção social e instrumentos de Estado para a realização de seus objetivos." (p. 22)
+
+**Propostas:**
+- **Auxílio Brasil integrando assistência, saúde, educação e emprego** — "foi instituído o Programa Auxílio Brasil, com o objetivo de reduzir a pobreza e contribuir para o crescimento econômico sustentável. O Programa se baseia na integração de diversas políticas públicas de assistência social, saúde, educação e emprego, tendo como fio condutor a transferência de renda para famílias em situação de v" (p. 22)
+- **Combate à violência contra crianças e adolescentes** — "Na próxima gestão, após a reeleição, é preciso ampliar ainda mais o combate a todas as formas de violência contra crianças e adolescentes, além de incrementar o investimento no seu desenvolvimento s" (p. 29)
+- **Esporte e lazer como inclusão social** — "A inclusão social por meio da ampliação do acesso à atividade física, esportiva e de lazer, assim como o resgate da cultura do esporte educacional por meio das práticas de atividades físicas no turno e contraturno escolar, configuram-se como fator de formação da cidadania" (p. 26)
+- **Combate ao trabalho análogo ao escravo e ao trabalho infantil** — "Deve-se continuar executando e ampliando as ações que visem a combater o trabalho análogo ao escravo, o trabalho infantil, o trabalho informal e a exploração de vulneráveis, além de iniciativas de estímulo ao respeito dos direitos humanos para todos pelas empresas e de equilíbrio trabalho-família." (p. 15)
+
+### Tecnologia
+
+**Diagnóstico:**
+- "O Brasil está entre as nações mais digitalizadas do mundo9. O Banco Mundial avaliou o Brasil como o sétimo país com a mais alta maturidade em governo digital no mundo, segundo o índice GovTech Maturity Index 2020, em um universo de 198 países10." (p. 20)
+
+**Propostas:**
+- **Sistema de ciência e tecnologia mais aberto e internacionalizado** — "é urgente a construção de um sistema de CT&I mais aberto e internacionalizado, incentivando a formação e a operação de ecossistemas de inovação e sistemas produtivos e inovativos locais e regionais de produção, a partir da identificação das potencialidades regionais." (p. 20)
+- **Indústria 4.0 e produtos de alto valor agregado** — "fortalecerá a projeção do país como parceiro confiável em grandes projetos internacionais de pesquisa científica e tecnológica, e de promoção da inovação que permita incentivar o desenvolvimento da indústria 4.0, de forma a competir no cenário nacional e internacional, com o desenvolvimento de produtos de alto valor agregado e o fornecimento de serviços de alta qualidade." (p. 20)
+- **Pesquisa pública em áreas estratégicas** — "No tocante à pesquisa é preciso que sejam formuladas estratégias que utilizem o dinheiro público em pesquisas de ponta que atendam às necessidades de desenvolvimento do país em áreas estratégicas como saúde, tecnologia, biotecnologia, indústria de bens de capital e de consumo, agropecuária" (p. 25)
+- **Transparência pelo celular, com uso intensivo de tecnologia** — "estimulada, inclusive com o uso intensivo de tecnologias, para que a população tenha acesso a esses e outros dados que propiciem transparência até mesmo de seus celulares." (p. 44)
+
+### O que o plano diz sobre: Governo Jair Bolsonaro (2019–2022)
+
+- "A agenda de trabalho, emprego e renda foi uma prioridade para o Governo Bolsonaro, tanto em termos de geração de oportunidades quando na preservação dos empregos especialmente durante a pandemia da Covid-19 quando a política do “fecha tudo” gerou a maior crise econômica e social do país." (p. 15)
+- "o número de ocupados teve um recorde chegando a 108,3 milhões em junho de 2022, significando um crescimento de 5,6% em comparação com janeiro de 2019 e de 19,0% quando se compara com agosto de 2020, mês do maior impacto da pandemia do coronavírus na economia brasileira." (p. 15)
+- "Esses sobressalentes resultados na geração de emprego fizeram com que a taxa de desemprego tenha sido reduzida de 14,9% em setembro de 2020, para 9,3% em junho de 2022, uma queda histórica de 37,5%." (p. 15)
+- "Por fim, o BEm – Benefício Emergencial de Manutenção do Emprego e da Renda foi o maior programa de preservação de empregos da história do Brasil. Foram mais de 11 milhões de empregos preservados durante a pandemia." (p. 16)
+- "O maior programa de preservação de empregos da história do país foi centenas de vezes maior e mais abrangente que o de governos anteriores, evitou demissões em massa na pandemia, preservando empresas, empregos e a renda dos brasileiros." (p. 16)
+- "Enfim, o Governo Bolsonaro disponibilizou vacinas para todos os cidadãos que desejassem ser imunizados contra a Covid-19." (p. 23)
+- "Vale mencionar também as melhorias na prestação de serviços diretamente ao cidadão, em especial a Carteira de Trabalho 100% Digital. Já são mais de 900 milhões de acessos a carteira e 65 milhões de brasileiros já baixaram a Carteira Digital." (p. 15)
+- "No atual governo, até o mês de julho de 2022, foram editadas 70 leis de defesa, proteção e promoção da mulher." (p. 28)
+- "O Governo Bolsonaro tem incentivado e implementado novos programas e projetos na área do esporte que contribuem para a democratização do acesso à prática desportiva e para o fomento ao exercício físico, propiciando melhoria na saúde e na qualidade de vida da população." (p. 26)
+
+### O que o plano diz sobre: Governos do PT (2003–2016 e 2023–2026)
+
+- _Não abordado explicitamente no plano de governo._
+
+---
+
+## Lula (PT)
+
+- **Nome completo:** Luiz Inácio Lula da Silva
+- **Idade:** 77 anos
+- **Número:** 13
+- **Vice:** Geraldo Alckmin (PSB)
+- **Coligação:** Coligação Brasil da Esperança (Federação Brasil da Esperança — PT/PCdoB/PV, Federação PSOL Rede, PSB, Solidariedade, Avante, Agir, Pros)
+- **Plano de governo:** Diretrizes para o Programa de Reconstrução e Transformação do Brasil (21 páginas) — https://dadosabertos.tse.jus.br/dataset/candidatos-2022
+- **Como está dividido:** 121 diretrizes numeradas, em 3 blocos — Vamos juntos pelo Brasil — compromissos para a reconstrução e transformação do país (p. 2) · Desenvolvimento social e garantia de direitos (p. 4) · Desenvolvimento econômico e sustentabilidade socioambiental e climática (p. 10) · Defesa da democracia e reconstrução do Estado e da soberania (p. 17)
+
+### Economia
+
+#### Fiscal e Contas Públicas
+
+**Diagnóstico:**
+- "Vamos recolocar os pobres e os trabalhadores no orçamento. Para isso, é preciso revogar o teto de gastos e rever o atual regime fiscal brasileiro, atualmente disfuncional e sem credibilidade." (p. 10)
+
+**Propostas:**
+- **Revogar o teto de gastos e construir um novo regime fiscal** — "Construiremos um novo regime fiscal, que disponha de credibilidade, previsibilidade e sustentabilidade. Ainda, que possua flexibilidade e garanta a atuação anticíclica, que promova a transparência e o acompanhamento da relação custo-benefício das políticas públicas" (p. 10)
+- **Investimento social e infraestrutura dentro da regra fiscal** — "que reconheça a importância do investimento social, dos investimentos em infraestrutura e que esteja vinculado à criação de uma estrutura tributária mais simples e progressiva. Vamos colocar os pobres outra vez no orçamento e os super-ricos pagando impostos." (p. 11)
+
+#### Tributação
+
+**Diagnóstico:**
+- "Queremos, também, corrigir um mecanismo que historicamente transfere renda das camadas mais pobres para as camadas de maior renda da sociedade: a sonegação de impostos." (p. 11)
+
+**Propostas:**
+- **Reforma tributária com os pobres pagando menos e os ricos mais** — "Proporemos uma reforma tributária solidária, justa e sustentável, que simplifique tributos e em que os pobres paguem menos e os ricos paguem mais." (p. 11)
+- **Imposto de renda sobre os muito ricos** — "Vamos fazer os muito ricos pagarem imposto de renda, utilizando os recursos arrecadados para investir de maneira inteligente em programas e projetos com alta capacidade de induzir o crescimento, promover a igualdade e gerar ganhos de produtividade." (p. 11)
+
+#### Câmbio e Comércio Exterior
+
+**Diagnóstico:**
+- "A orientação passiva para a política cambial dos últimos anos acentuou a volatilidade da moeda brasileira em relação ao dólar com consequências perversas para o índice de preços." (p. 11)
+
+**Propostas:**
+- **Política cambial para reduzir a volatilidade do real** — "Reduzir a volatilidade da moeda brasileira por meio da política cambial também é uma forma de amenizar os impactos inflacionários de mudanças no cenário externo." (p. 11)
+- **Integração regional e novas diretrizes para o comércio exterior** — "É fortalecer novamente o Mercosul, a Unasul, a Celac e os Brics. É estabelecer livremente as parcerias que forem as melhores para o país, sem submissão a quem quer que seja." (p. 18)
+
+#### Mercado de Trabalho e Renda
+
+**Diagnóstico:**
+- "O desemprego e a subutilização da força de trabalho seguem extremamente elevados, enquanto a precarização avança e a indústria definha." (p. 2)
+
+**Propostas:**
+- **Nova legislação trabalhista, revogando os marcos regressivos** — "O novo governo irá propor, a partir de um amplo debate e negociação, uma nova legislação trabalhista de extensa proteção social a todas as formas de ocupação, de emprego e de relação de trabalho, com especial atenção aos autônomos, aos que trabalham por conta própria, trabalhadores e trabalhadoras domésticas, teletrabalho e trabalhadores em home office, mediados por aplicativos e plataformas, revogando os marcos regressivos da atual legislação trabalhista" (p. 4)
+- **Retomar a política de valorização do salário mínimo** — "Retomaremos a política de valorização do salário mínimo visando à recuperação do poder de compra de trabalhadores, trabalhadoras, e dos beneficiários e beneficiárias de políticas previdenciárias e assistenciais, essencial para dinamizar a economia, em especial dos pequenos municípios." (p. 4)
+- **Bolsa Família renovado rumo a uma renda básica de cidadania** — "Um programa Bolsa Família renovado e ampliado precisa ser implantado com urgência para garantir renda compatível com as atuais necessidades da população." (p. 5)
+- **Reconstrução da seguridade e da previdência social** — "Promoveremos a reconstrução da seguridade e da previdência social, para ampla inclusão dos trabalhadores e trabalhadoras, por meio da superação das medidas regressivas e do desmonte promovido pelo atual governo." (p. 4)
+
+#### Inflação e Política Monetária
+
+**Diagnóstico:**
+- "O atual governo renunciou ao uso de instrumentos importantes no combate à inflação, a começar pela política de preços de combustíveis, além do abandono de políticas setoriais indutoras do aumento da produção de bens críticos. Em contrapartida, implementa uma política de juros altos, que freia a recuperação econômica e agrava o desemprego, mas com pouco impacto na inflação, gerada basicamente por um choque de custos." (p. 11)
+
+**Propostas:**
+- **Combater a carestia de alimentos, combustíveis e energia** — "É tarefa prioritária coordenar a política econômica para combater a inflação e enfrentar a carestia, em particular a dos alimentos e a dos combustíveis e eletricidade." (p. 11)
+- **Abrasileirar o preço dos combustíveis** — "Os ganhos do pré-sal não podem se esvair por uma política de preços internacionalizada e dolarizada: é preciso abrasileirar o preço dos combustíveis e ampliar a produção nacional de derivados, com expansão do parque de refino." (p. 11)
+- **Renegociar as dívidas das famílias e das pequenas empresas** — "Como a renda familiar dos brasileiros e brasileiras desabou e o endividamento das famílias explodiu, já são mais de 66 milhões de pessoas inadimplentes, vamos promover a renegociação das dívidas das famílias e das pequenas e médias empresas por meio dos bancos públicos" (p. 12)
+
+#### Papel do Estado e Privatizações
+
+**Diagnóstico:**
+- "Setores estratégicos do patrimônio público são privatizados e desnacionalizados, bancos públicos e empresas de fomento ao desenvolvimento são destruídos, num momento em que o quadro na infraestrutura é desolador." (p. 2)
+
+**Propostas:**
+- **Oposição à privatização da Petrobras e da PPSA** — "Opomo-nos fortemente à privatização, em curso, da Petrobras e da Pré-Sal Petróleo S.A. (PPSA). A Petrobras terá seu plano estratégico e de investimentos orientados para a segurança energética, a autossuficiência nacional em petróleo e derivados, a garantia do abastecimento de combustíveis no país." (p. 14)
+- **Oposição à privatização da Eletrobras e dos Correios** — "Opomo-nos à privatização da Eletrobras, maior empresa de geração de energia elétrica da América Latina, responsável por metade das linhas de transmissão do país." (p. 14); "Opomo-nos à privatização dos Correios, uma empresa com importante função social, logística e capilaridade em todo o território nacional." (p. 15)
+- **Fortalecer os bancos públicos de fomento** — "Fortaleceremos também os bancos públicos – como BB, CEF, BNDES, BNB, BASA e a FINEP – em sua missão de fomento ao desenvolvimento econômico, social e ambiental e na oferta de crédito a longo prazo e garantias em projetos estruturantes" (p. 15)
+
+#### Infraestrutura e Investimento
+
+**Diagnóstico:**
+- "Retomaremos obras importantes que foram paralisadas pelo atual governo, que não faz, mas tenta se apropriar de obras que recebeu praticamente concluídas." (p. 14)
+
+**Propostas:**
+- **Retomada imediata do investimento em infraestrutura** — "É preciso garantir a modernização e a ampliação da infraestrutura de logística de transporte, social e urbana, com um vigoroso programa de investimentos públicos. Vamos assegurar a imediata retomada do investimento em infraestrutura, fundamental para a volta do crescimento e decisivo para reduzir os custos de produção." (p. 13)
+- **Investimento privado por crédito, concessões e parcerias** — "O investimento privado também será parte importante da reconstrução do Brasil e será estimulado por meio de créditos, concessões, parcerias e garantias." (p. 14)
+- **Direito à água e universalização do saneamento** — "É importante garantir o direito à água e ao saneamento, por meio do reconhecimento da responsabilidade das esferas administrativas federal, estaduais e municipais na universalização dos serviços de saneamento básico à população brasileira e garantir a atuação das entidades públicas e das empresas estatais na prestação dos serviços de saneamento básico." (p. 14)
+- **Reforma urbana e direito à cidade** — "Retomaremos as políticas de garantia do direito à cidade, combatendo desigualdades territoriais, em direção a uma ampla reforma urbana, reduzindo as desigualdades socioterritoriais e promovendo a transição ecológica das cidades por meio de investimentos integrados em infraestrutura de transporte público, habitação, saneamento básico e equipamentos sociais." (p. 7)
+
+### Educação
+
+**Diagnóstico:**
+- "Educação, Ciência e Tecnologia sofrem ameaças, cortes de investimentos e mudanças regressivas, enquanto a Cultura é perseguida e até criminalizada." (p. 2)
+- "O nosso objetivo é resgatar e fortalecer os princípios do projeto democrático de educação, que foi desmontado e aviltado." (p. 5)
+
+**Propostas:**
+- **Retomar as metas do Plano Nacional de Educação** — "O país voltará a investir em educação de qualidade, no direito ao conhecimento e no fortalecimento da educação básica, da creche à pós-graduação, coordenando ações articuladas e sistêmicas entre a União, Estados, Distrito Federal e Municípios, retomando as metas do Plano Nacional de Educação e revertendo os desmontes do atual governo." (p. 5)
+- **Programa de recuperação da aprendizagem perdida na pandemia** — "afirmamos o compromisso do novo governo com um programa de recuperação educacional concomitante a educação regular, para que possam superar esse grave déficit de aprendizagem." (p. 5)
+- **Educação pública universal, gratuita e laica, com valorização dos profissionais** — "preciso fortalecer a educação pública universal, democrática, gratuita, de qualidade, socialmente referenciada, laica e inclusiva, com valorização e reconhecimento público de seus profissionais." (p. 6)
+
+### Segurança Pública
+
+**Diagnóstico:**
+- "O país precisa de uma nova política sobre drogas, intersetorial e focada na redução de riscos, na prevenção, tratamento e assistência ao usuário. O atual modelo bélico de combate ao tráfico será" (p. 7)
+
+**Propostas:**
+- **Prevenção e ação policial qualificada, com participação social** — "A segurança pública é um direito fundamental e sua conservação e promoção se dará por meio da implementação de políticas públicas interfederativas e intersetoriais pautadas pela valorização da vida e da integridade física, pela articulação entre prevenção e uso qualificado da ação policial, pela transparência e pela participação social." (p. 7)
+- **Prioridade a crimes contra mulheres, juventude negra e LGBTQIA+** — "As políticas de segurança pública contemplarão ações de atenção às vítimas e priorizarão a prevenção, a investigação e o processamento de crimes e violências contra mulheres, juventude negra e população LGBTQIA+." (p. 7)
+- **Implementar e aprimorar o Sistema Único de Segurança Pública** — "O governo federal vai implementar e aprimorar o Sistema Único de Segurança Pública, modernizando estratégias, instrumentos e mecanismos de governança e gestão." (p. 7)
+- **Trocar o modelo bélico por inteligência e investigação** — "substituído por estratégias de enfrentamento e desarticulação das organizações criminosas, baseadas em conhecimento e informação, com o fortalecimento da investigação e da inteligência." (p. 8)
+- **Valorização e qualificação do profissional de segurança** — "A valorização do profissional de segurança pública será um princípio orientador de todas as políticas públicas da área." (p. 7); "A melhoria da qualificação técnica dos policiais será uma busca permanente a ser alcançada, dentre outras estratégias, pela reformulação dos processos de seleção, formação e capacitação continuada, pela atualização de doutrinas e pela padronização de procedimentos operacionais." (p. 8)
+
+### Saúde
+
+**Diagnóstico:**
+- "A saúde, o direito à vida e o Sistema Único de Saúde (SUS) têm sido tratados com descaso pelo atual governo. Faltam investimentos, ações preventivas, profissionais de saúde, consultas, exames e medicamentos." (p. 6)
+
+**Propostas:**
+- **Retomar o atendimento represado e o programa de vacinação** — "É urgente dar condições ao SUS para retomar o atendimento às demandas que foram represadas durante a pandemia, atender as pessoas com sequelas da covid-19 e retomar o reconhecido programa nacional de vacinação." (p. 6)
+- **Retomar o Mais Médicos e o Farmácia Popular** — "Reafirmamos o nosso compromisso com o fortalecimento do SUS público e universal, o aprimoramento da sua gestão, a valorização e formação de profissionais de saúde, a retomada de políticas como o Mais Médicos e o Farmácia Popular, bem como a reconstrução e fomento ao Complexo Econômico e Industrial da Saúde." (p. 6)
+
+### Política Externa
+
+**Diagnóstico:**
+- "No entanto, nossa soberania e nossa democracia vêm sendo constantemente atacadas pela política irresponsável e criminosa do atual governo." (p. 17)
+
+**Propostas:**
+- **Retomar a política externa ativa e altiva** — "Defender nossa soberania exige recuperar a política externa ativa e altiva que nos alçou à condição de protagonista global. O Brasil era um país soberano, respeitado no mundo inteiro." (p. 17)
+- **Cooperação Sul-Sul e integração da América do Sul** — "Defender a nossa soberania é defender a integração da América do Sul, da América Latina e do Caribe, com vistas a manter a segurança regional e a promoção de um desenvolvimento integrado de nossa região" (p. 18)
+- **Direitos dos brasileiros que vivem no exterior** — "Nosso governo vai defender os direitos de brasileiras e brasileiros também no exterior. São milhões de pessoas que trabalham, estudam e vivem fora do país e contribuem para a economia e desenvolvimento do Brasil." (p. 18)
+- **Forças Armadas estritamente nos limites da Constituição** — "As Forças Armadas atuarão na defesa do território nacional, do espaço aéreo e do mar territorial, cumprindo estritamente o que está definido pela Constituição." (p. 18)
+
+### Combate à Corrupção
+
+**Diagnóstico:**
+- "Os nossos governos populares instituíram, de forma inédita no Brasil, uma política de Estado de prevenção e combate à corrupção e de promoção da transparência e da integridade pública." (p. 19)
+
+**Propostas:**
+- **Restabelecer os instrumentos de combate à corrupção com devido processo legal** — "O nosso governo vai assegurar, com base nos princípios do Estado Democrático de Direito, que os instrumentos de combate à corrupção sejam restabelecidos, respeitando o devido processo legal, de modo a impedir a violação dos direitos e garantias fundamentais e a manipulação política." (p. 19)
+- **Reabrir o governo e cumprir a Lei de Acesso à Informação** — "Vamos reabrir o governo, resgatar a transparência e garantir o cumprimento da Lei de Acesso à Informação." (p. 19)
+- **Reforma do Estado com transparência nos processos decisórios** — "É preciso uma reforma do Estado, que traga mais transparência aos processos decisórios, no trato da coisa pública de modo geral, direcionando a esfera pública e a ação governamental para as entregas públicas que realizem os direitos constitucionais." (p. 20)
+
+### Direitos, Assistência e Bem-Estar
+
+#### Mulheres
+
+**Diagnóstico:**
+- "O Brasil não será o país que queremos enquanto mulheres continuarem a ser discriminadas e submetidas à violência pelo fato de serem mulheres." (p. 8)
+- "Devemos enfrentar a realidade que faz a pobreza ter o “rosto das mulheres”, principalmente “das negras”, lhes assegurando a autonomia." (p. 8)
+
+**Propostas:**
+- **Equidade de direitos e salários iguais para trabalhos iguais** — "Vamos construir um país que caminhe rumo à equidade de direitos, salários iguais para trabalhos iguais em todas as profissões e a promoção das mulheres na ciência, nas artes, na representação política, na gestão pública e no empreendedorismo." (p. 8)
+- **Proteção às vítimas e fim da impunidade nos feminicídios** — "Investiremos em programas para proteger vítimas, seus filhos e filhas, e assegurar que não haja a impunidade de agressões e feminicídios." (p. 8)
+- **Saúde integral da mulher no SUS** — "Com políticas de saúde integral, vamos fortalecer no SUS as condições para que todas as mulheres tenham acesso à prevenção de doenças e que sejam atendidas segundo as particularidades de cada fase de suas vidas." (p. 8)
+
+#### Envelhecimento
+
+**Diagnóstico:**
+- _Não abordado explicitamente no plano de governo._
+
+**Propostas:**
+- **Envelhecimento ativo com uma rede de cuidados** — "Atuaremos para construir políticas que assegurem os direitos dos idosos com envelhecimento ativo, saudável e participativo, com a ampliação e fortalecimento dos serviços necessários por meio de uma rede de cuidados." (p. 10)
+
+#### Outros direitos e bem-estar
+
+**Diagnóstico:**
+- "Mulheres, negros e jovens padecem com o desmonte de políticas públicas, de modo a reforçar discriminações históricas. Populações indígenas, quilombolas, povos e comunidades tradicionais têm conquistas atacadas sem trégua." (p. 2)
+
+**Propostas:**
+- **Igualdade racial e combate ao racismo estrutural** — "É imprescindível a implementação de um amplo conjunto de políticas públicas de promoção da igualdade racial e de combate ao racismo estrutural, indissociáveis do enfrentamento da pobreza, da fome e das desigualdades, que garantam ações afirmativas para a população negra e o seu desenvolvimento integral nas mais diversas áreas." (p. 8)
+- **Continuidade e ampliação das cotas sociais e raciais** — "Asseguraremos a continuidade das políticas de cotas sociais e raciais na educação superior e nos concursos públicos federais, bem como sua ampliação para outras políticas públicas." (p. 8)
+- **Proteção dos territórios de povos indígenas e quilombolas** — "Estamos comprometidos com a proteção dos direitos e dos territórios dos povos indígenas, quilombolas e populações tradicionais. Temos o dever de assegurar a posse de suas terras, impedindo atividades predatórias, que prejudiquem seus direitos." (p. 8)
+- **Direitos e cidadania da população LGBTQIA+** — "Propomos políticas que garantam os direitos, o combate à discriminação e o respeito à cidadania LGBTQIA+ em suas diferentes formas de manifestação e expressão." (p. 9)
+- **Acessibilidade e autonomia das pessoas com deficiência** — "Um Brasil inclusivo e acessível, com a garantia de direitos e respeito a pessoas com deficiência é uma de nossas metas. Para tanto é preciso assegurar às pessoas com deficiência e suas famílias o acesso à saúde, à educação, à cultura e ao esporte, e a inserção no mundo do trabalho." (p. 9)
+- **Prioridade absoluta aos direitos da criança e do adolescente** — "Nosso governo dará prioridade absoluta à promoção, proteção e defesa dos direitos da criança e do adolescente, erradicando a fome, combatendo a miséria, garantindo perspectivas para as crianças e adolescentes, enfrentando a exploração do trabalho infantil, a violência, a exploração sexual e todas as formas de preconceitos e discriminações" (p. 9)
+- **Proteção e garantia dos direitos dos animais** — "Nosso compromisso com a afirmação de direitos é amplo e inclui a proteção e a garantia dos direitos dos animais por meio de campanhas educativas e o apoio a iniciativas públicas e da sociedade que tenham eficácia no cuidado animal." (p. 10)
+
+### Tecnologia
+
+**Diagnóstico:**
+- "A Ciência, Tecnologia e Inovação (CTI) tem um caráter estratégico e central para o Brasil se transformar em um país efetivamente desenvolvido e soberano, no caminho da sociedade do conhecimento." (p. 15)
+
+**Propostas:**
+- **Recompor FNDCT, CNPq e Capes** — "é necessário recompor o sistema nacional de fomento do desenvolvimento científico e tecnológico, via fundos e agências públicas como o FNDCT, o CNPq e a CAPES." (p. 15)
+- **Inteligência artificial, biotecnologia e nanotecnologia na economia** — "será necessário também uma estratégia econômica que contemple junto do fomento à ciência, à tecnologia e à inovação, os elementos da Economia Criativa e da economia da cultura e que acelere a transição digital, o uso da inteligência artificial, a biotecnologia e a nanotecnologia, em processos produtivos sofisticados com maior valor agregado." (p. 15)
+- **Internet de qualidade em todo o território** — "Iniciaremos um grande processo de transformação digital no país, assegurando internet de qualidade em todo território e para todos e todas. Garantiremos também o direito à inclusão no ambiente da conectividade." (p. 15)
+- **Regulação das plataformas digitais e proteção de dados** — "É preciso, ainda, fortalecer a legislação, dando mais instrumentos ao Sistema de Justiça para atuação junto às plataformas digitais no sentido de garantir a neutralidade da rede, a pluralidade, a proteção de dados e coibir a propagação de mentiras e mensagens antidemocráticas ou de ódio." (p. 20)
+
+### O que o plano diz sobre: Governo Jair Bolsonaro (2019–2022)
+
+- "Mais do que nunca, o Brasil precisa resgatar a esperança na reconstrução e na transformação de um país devastado por um processo de destruição que nos trouxe de volta a fome, o desemprego, a inflação, o endividamento e o desalento das famílias" (p. 2)
+- "A sociedade brasileira precisa voltar a acreditar na sua capacidade de mudar os rumos da História, para superar uma profunda crise social, humanitária, política e econômica, agravada por um governo negacionista, que negligenciou os efeitos da pandemia, sendo o principal responsável por centenas de milhares de mortes." (p. 2)
+- "A política econômica vigente é a principal responsável pela decomposição das condições de vida da população, da instabilidade e dos retrocessos na produção e no consumo." (p. 2)
+- "As políticas sociais, conquistas civilizatórias de mais de uma geração, estão sendo mutiladas." (p. 2)
+- "Apesar das desastrosas políticas ambiental e externa do atual governo, não será difícil recuperar nossas credenciais internacionais" (p. 3)
+- "É imperativo defender a Amazônia da política de devastação posta em prática pelo atual governo." (p. 16)
+- "Não fossem o SUS e os corajosos trabalhadores e trabalhadoras da saúde, a irresponsabilidade do atual governo na pandemia teria custado ainda mais vidas." (p. 6)
+- "Precisamos retomar o processo coletivo e participativo de construção de políticas públicas por meio da restauração de todas as instâncias de participação social extintas pelo atual governo" (p. 19)
+
+### O que o plano diz sobre: Governos do PT (2003–2016 e 2023–2026)
+
+- "Colocar o povo no orçamento foi, durante os nossos governos populares, uma decisão e uma prática política inovadora e coerente com a transformação que aconteceu no Brasil." (p. 4)
+- "Nos governos Lula e Dilma, a saúde foi tratada como uma política pública central, como um direito de todos os brasileiros e brasileiras e como um investimento estratégico para um Brasil soberano." (p. 6)
+- "Nos nossos governos, reduzimos em quase 80% o desmatamento da Amazônia, a maior contribuição" (p. 16)
+- "Criamos a Controladoria-Geral da União, a Estratégia Nacional de Combate à Corrupção e à Lavagem de Dinheiro (ENCCLA) e fortalecemos a Polícia Federal, o Coaf, a Receita Federal e diversos órgãos e carreiras de auditoria e fiscalização." (p. 19)
 
 ---

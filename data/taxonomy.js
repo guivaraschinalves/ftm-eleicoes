@@ -44,13 +44,24 @@ window.THEMES = [
   { id: "tecnologia", label: "Tecnologia" }
 ];
 
-// Ordem de exibição dos candidatos: alfabética pelo nome de urna — não pela
-// posição em pesquisas eleitorais — para não sugerir ranking ou endosso.
-// Esta versão do site cobre só os dois candidatos que foram ao segundo
-// turno; todos aparecem sempre, em todas as seções, sem filtro.
+// Ordem de exibição dos candidatos: alfabética pelo nome de urna dentro de
+// cada eleição, da mais recente para a mais antiga — não por posição em
+// pesquisa nem por resultado, para não sugerir ranking ou endosso.
+//
+// O site cobre duas eleições: o 2º turno de 2026 e o de 2022. Cada
+// candidatura é uma entrada própria, com os dados (idade, foto, partido,
+// coligação) como estavam NAQUELA eleição — Lula em 2022 e Lula em 2026 são
+// duas candidaturas distintas, com planos distintos. `basics.election` diz
+// de qual eleição é cada uma.
+//
+// O visitante escolhe DOIS para comparar, no diálogo que abre ao carregar
+// (ver "Seleção de candidatos" no README): dá para pôr lado a lado os dois
+// de 2026, os dois de 2022, ou o mesmo candidato em eleições diferentes.
 window.CANDIDATE_ORDER = [
   "flavio-bolsonaro",
-  "lula"
+  "lula",
+  "jair-bolsonaro-2022",
+  "lula-2022"
 ];
 
 // Governos comentados na seção "Balanço dos Governos". Não é um juízo nosso

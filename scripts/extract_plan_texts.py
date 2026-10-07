@@ -18,6 +18,7 @@ Uso:
 """
 import json
 import subprocess
+import re
 import sys
 from pathlib import Path
 
@@ -41,6 +42,19 @@ def load_taxonomy_and_sources():
     return data["order"], data["sources"]
 
 
+# Algumas fontes de PDF trazem "fi", "fl" etc. como um glifo único (ligadura
+# tipográfica), e a extração ainda joga um espaço depois dele: "ﬁ nalidade",
+# "aﬂ ige". Isso não é conteúdo, é codificação de fonte — e envenenaria tudo
+# o que depende do texto (citação literal, contagem de palavras, auditoria).
+# Desfazer aqui, na origem, é o único lugar que resolve para todo mundo.
+LIGADURAS = {"ﬀ": "ff", "ﬁ": "fi", "ﬂ": "fl", "ﬃ": "ffi", "ﬄ": "ffl", "ﬅ": "ft", "ﬆ": "st"}
+LIGADURA_RE = re.compile("[" + "".join(LIGADURAS) + "] ?")
+
+
+def desfaz_ligaduras(texto):
+    return LIGADURA_RE.sub(lambda m: LIGADURAS[m.group(0)[0]], texto)
+
+
 def extract_one(cid, fitz):
     pdf_path = SOURCES_DIR / f"{cid}.pdf"
     if not pdf_path.exists():
@@ -51,14 +65,14 @@ def extract_one(cid, fitz):
     parts = []
     for i, page in enumerate(doc, start=1):
         parts.append(f"===== PAGE {i} =====\n")
-        parts.append(page.get_text())
+        parts.append(desfaz_ligaduras(page.get_text()))
         parts.append("\n")
     doc.close()
 
     TEXTS_DIR.mkdir(parents=True, exist_ok=True)
     out_path = TEXTS_DIR / f"{cid}.txt"
     out_path.write_text("".join(parts), encoding="utf-8")
-    print(f"OK: {out_path} ({len(parts) // 2} páginas)")
+    print(f"OK: {out_path} ({len(parts) // 3} páginas)")
     return True
 
 

@@ -60,10 +60,14 @@ E MAIS
    ("políticas"→"política"), com o vocabulário do plano inteiro como
    referência. Lematização pobre de propósito: sem dicionário externo e sem
    fusão inventada ("mais" não vira "mai"). Nome próprio não é mexido.
-6. Sem TF-IDF: com dois documentos o idf é degenerado (um termo está em 1 ou
-   em 2 planos, e nada mais), e o resultado seria só "aparece em um só".
-   No lugar disso, cada unidade leva a contagem do OUTRO plano no mesmo
-   recorte (`vs`), que é o contraste que interessa, sem estatística de enfeite.
+6. Sem TF-IDF: com tão poucos documentos o idf é degenerado (um termo está em
+   um ou em dois planos, e nada mais), e o resultado seria só "aparece em um
+   só". No lugar disso, o site mostra ao lado de cada unidade a contagem do
+   OUTRO plano comparado, no mesmo recorte — o contraste que interessa, sem
+   estatística de enfeite. Como o par comparado é escolhido pelo visitante, o
+   arquivo não traz o contraste pronto: traz, por recorte, o `top` de cada
+   plano mais um `counts` com a contagem de TODO termo que aparece no top de
+   qualquer plano. O navegador cruza os dois na hora.
 
 Uso:
     cd ftm-eleicoes
@@ -107,7 +111,10 @@ realizar realização ter sido ser feito dar daremos
 será serão seria seriam serem terá terão haverá houver aqui lá daqui demais tanto quanto
 começamos retomamos criamos lançamos aprovamos fizemos construímos sancionamos implantamos recriamos
 batemos chegamos demos tivemos estamos seguimos continuamos pretendemos persistiremos reforçaremos
-consolidar consolidaremos recebemos governamos passou passa voltou voltamos vem vêm trazer traz"""
+consolidar consolidaremos recebemos governamos passou passa voltou voltamos vem vêm trazer traz
+foram fosse sido importante importantes bem mal muito pouco apenas cada vez dentre entre outros
+exemplo exemplos citase destacase tratase trata mencionar vale fim início meio geral especial
+acordo seguinte seguintes anterior anteriores próximo próxima próximos próximas"""
 
 CONECTORES = set("de do da dos das e em no na a à ao aos para com".split())
 ARTIGOS = set("o a os as um uma este esta esse essa nosso nossa seu sua".split())
@@ -166,11 +173,15 @@ def nomes_compostos(texto):
     return {t for t, c in cont.items() if c >= MIN_NOME}
 
 
+NOTA_RE = re.compile(r"\bFonte:?\s*\S+|https?://\S+|www\.\S+")
+
+
 def le_paginas(cid):
     partes = PAGE_RE.split((TEXTS / f"{cid}.txt").read_text(encoding="utf-8"))
     paginas = {}
     for i in range(1, len(partes), 2):
         corpo = re.sub(r"-\s*\n\s*", "", partes[i + 1])   # hifenização de fim de linha
+        corpo = NOTA_RE.sub(" ", corpo)   # nota de rodapé com URL não é conteúdo
         paginas[int(partes[i])] = " ".join(corpo.split())
     return paginas
 
@@ -301,19 +312,26 @@ def main():
 
     saida = {"recortes": [{"id": "geral", "label": "Plano inteiro"}] + meta["temas"],
              "candidatos": {}}
+    # Termos que aparecem no top de QUALQUER plano, por recorte: é o conjunto
+    # que o navegador precisa saber contar em todos os planos para montar o
+    # contraste do par escolhido na hora.
+    do_topo = {r: set() for r in recortes}
     for cid in ids:
-        outro = next((x for x in ids if x != cid), None)
+        for recorte in recortes:
+            for t, _ in ordena(contagens[(cid, recorte)][0])[:QUANTOS]:
+                do_topo[recorte].add(t)
+
+    for cid in ids:
         saida["candidatos"][cid] = {}
         for recorte in recortes:
             mencoes, total = contagens[(cid, recorte)]
-            do_outro = contagens.get((outro, recorte), (Counter(), 0))[0]
             saida["candidatos"][cid][recorte] = {
                 "palavras": total,
                 "paginas": len(meta["paginas"][cid].get(recorte, [])) if recorte != "geral" else None,
                 # Ocorrência única num recorte pequeno é ruído, não ênfase: a
                 # lista fica curta em vez de ser preenchida com barulho.
-                "top": [{"t": t, "n": n, "vs": do_outro.get(t, 0)}
-                        for t, n in ordena(mencoes)[:QUANTOS]],
+                "top": [{"t": t, "n": n} for t, n in ordena(mencoes)[:QUANTOS]],
+                "counts": {t: mencoes.get(t, 0) for t in sorted(do_topo[recorte])},
             }
 
     destino = ROOT / "data" / "word-stats.js"

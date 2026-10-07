@@ -104,6 +104,7 @@ body { background: var(--page-bg); }
 .nav { order: 1; }
 .theme-toggle { order: 2; }
 /* Hambúrguer: só existe na largura de celular/tablet (ver @media 860px). */
+.candidate-picker-toggle { order: 3; }
 .nav-toggle { display: none; order: 4; }
 
 .nav { display: flex; flex-direction: row; flex-wrap: wrap; gap: 2px; }
@@ -203,6 +204,52 @@ h1 { font-family: var(--font-display); font-weight: 700; font-size: 2.3rem; marg
 .candidate-meta dt { display: inline; font-weight: 600; color: var(--ink); }
 .candidate-meta dd { display: inline; margin: 0; }
 .candidate-meta dd::after { content: ""; display: block; }
+
+/* ---------- Diálogo: escolher dois planos ---------- */
+#candidate-picker {
+  border: 1px solid var(--border); border-radius: 16px; background: var(--surface); color: var(--ink);
+  max-width: 640px; width: calc(100% - 32px); padding: 26px 28px 22px; box-shadow: var(--shadow);
+}
+#candidate-picker::backdrop { background: rgba(0, 0, 0, 0.6); }
+#candidate-picker h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; margin: 0 0 8px; }
+.candidate-picker-presets { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 18px; }
+.candidate-picker-presets button {
+  font-family: var(--font-sans); font-weight: 700; font-size: 0.86rem; color: var(--accent-ink);
+  background: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 8px 15px; cursor: pointer;
+}
+.candidate-picker-presets button:hover { filter: brightness(1.08); }
+.candidate-picker-presets button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.candidate-picker-grid { display: flex; flex-direction: column; gap: 7px; max-height: 50vh; overflow-y: auto; }
+/* Rótulo da eleição: separa as duas disputas dentro da mesma lista. */
+.candidate-picker-group {
+  font-family: var(--font-label); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-muted); margin: 12px 0 2px;
+}
+.candidate-picker-group:first-child { margin-top: 0; }
+.candidate-picker-chip {
+  display: flex; align-items: center; gap: 11px; padding: 10px 13px; cursor: pointer;
+  border: 1px solid var(--border); border-radius: 10px; font-size: 0.92rem;
+}
+.candidate-picker-chip:hover { border-color: var(--ink-muted); }
+.candidate-picker-chip.is-on { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.candidate-picker-chip strong { display: block; }
+.candidate-picker-party { display: block; font-size: 0.74rem; color: var(--ink-muted); }
+.candidate-picker-confirm {
+  font-family: var(--font-sans); font-weight: 700; font-size: 0.95rem; color: var(--accent-ink);
+  background: var(--accent); border: 1px solid var(--accent); border-radius: 999px;
+  padding: 11px 22px; margin-top: 18px; cursor: pointer;
+}
+.candidate-picker-confirm:disabled { opacity: 0.4; cursor: not-allowed; }
+.candidate-picker-confirm:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.candidate-picker-toggle { flex: none; }
+
+/* Ano da eleição ao lado do nome: com o mesmo candidato em duas eleições, o
+   nome sozinho não distingue um card do outro. */
+.candidate-year {
+  font-family: var(--font-label); font-size: 0.68em; font-weight: 700; letter-spacing: 0.06em;
+  color: var(--accent); background: var(--accent-wash); border-radius: 5px;
+  padding: 2px 6px; margin-left: 7px; vertical-align: middle;
+}
 
 /* ---------- Botão de ícone do topbar (tema) ---------- */
 /* Mesmo botão quadrado dos outros sites do FtM: só o ícone, borda fina, e o
@@ -450,6 +497,13 @@ h1 { font-family: var(--font-display); font-weight: 700; font-size: 2.3rem; marg
      sublinhado (inset 0 -2px), que numa lista vertical fica ambíguo entre
      "ativo" e "separador do item de baixo". */
   .nav-link.active { box-shadow: inset 3px 0 0 var(--brand); }
+
+  .candidate-picker-toggle {
+    width: 100%; margin-top: 8px; padding: 11px 14px; font-size: 0.95rem;
+    border-top: 1px solid var(--border); border-radius: 999px;
+  }
+  #candidate-picker { padding: 20px 18px 18px; }
+  .candidate-picker-grid { max-height: 46vh; }
 
 }
 

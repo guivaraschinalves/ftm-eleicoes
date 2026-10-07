@@ -1,8 +1,15 @@
 # FtM Eleições
 
 Site estático (HTML/CSS/JS puro, sem build, sem dependências) do **Follow
-the Money** que compara as propostas dos **dois candidatos do segundo turno**
-da eleição presidencial de 2026: Flávio Bolsonaro (PL) e Lula (PT).
+the Money** que compara **dois planos de governo por vez**, escolhidos entre
+quatro candidaturas de segundo turno: Flávio Bolsonaro (PL) e Lula (PT) em
+**2026**, Jair Bolsonaro (PL) e Lula (PT) em **2022**.
+
+Dá para pôr lado a lado os dois de uma mesma eleição ou o mesmo candidato em
+eleições diferentes — Lula 2022 contra Lula 2026. Cada candidatura é uma
+entrada própria, com os dados **daquela** eleição: foto oficial, partido,
+coligação e a idade que ele tinha no dia do 2º turno (o Lula de 2022 aparece
+com 77 anos, o de 2026 com 81).
 
 Além dos temas, há o **Balanço dos Governos**: o que cada plano diz sobre o
 governo Jair Bolsonaro (2019–2022) e sobre os governos do PT (2003–2016 e
@@ -22,9 +29,14 @@ página para que dê para discordar do enquadramento e conferir a fonte. Todo tr
 literal** dos **planos de governo oficiais registrados no TSE** (nunca
 resumo nosso), com a página do PDF referenciada.
 
-Os dois candidatos aparecem **sempre**, lado a lado, em todas as seções:
-não há diálogo de seleção, filtro nem seção de comparação à parte — com
-dois candidatos, cada aba de tema já é a comparação.
+A escolha é feita num **diálogo que abre ao carregar**, com três atalhos (2º
+turno de 2026, 2º turno de 2022, Lula 2022 × Lula 2026) e a lista agrupada
+por eleição. A comparação é sempre entre **exatamente dois** planos: marcar
+um terceiro solta o mais antigo da fila, em vez de bloquear o clique sem
+explicar. O botão no topo reabre o diálogo a qualquer momento, e a escolha
+não é salva entre visitas — cada visita começa decidindo o que comparar.
+Não há seção de comparação à parte: com dois planos, cada aba de tema já é a
+comparação.
 
 Página única, sem navegação por âncora — trocar de seção nunca muda a URL
 (atualizar a página ou compartilhar o link sempre cai no cardzinho
@@ -200,134 +212,25 @@ sumário/índice — sem isso, um plano de governo holístico (que menciona
 saúde/educação/segurança de passagem o tempo todo, só conectando políticas)
 sinaliza quase toda página do documento.
 
-## Por que não há seletor de candidatos
+## Seleção de candidatos
 
-A versão de 13 candidatos deste site (o `liberta-eleicoes`) abre com um
-diálogo pedindo quem deve aparecer, e tem uma seção "Comparar 1×1" pra ver
-dois lado a lado. Aqui os dois candidatos são o conteúdo inteiro, então as
-duas coisas saíram: o site abre direto no cardzinho inicial e cada aba de
-tema já mostra Flávio Bolsonaro e Lula lado a lado, na ordem alfabética de
-`CANDIDATE_ORDER`. `visibleIds`, em `app.js`, continua existindo como a
-lista única que todas as seções leem — só que agora é preenchida uma vez em
-`init()` com todo mundo, em vez de depender de uma seleção.
+`visibleIds` (em `app.js`) é sempre uma lista de **exatamente dois** ids, na
+ordem de `CANDIDATE_ORDER`, e é o que todas as seções leem. Começa vazia:
+Visão Geral, Temas, Governos e o bloco de menções só existem depois da
+primeira confirmação, e o `<dialog>` nativo bloqueia o resto da página nesse
+meio-tempo pelo `::backdrop`.
 
-## Ficha do plano em Visão Geral
+`applySelection(ids)` refaz todas as seções com o novo par; Fontes é a
+exceção, montada uma vez só porque lista sempre as quatro candidaturas,
+independente da escolha.
 
-Abaixo dos dados de cada candidato, o card de Visão Geral mostra a ficha do
-documento que ele registrou no TSE: título, número de páginas e **como o plano
-está dividido** — os blocos/capítulos de primeiro nível, cada um com link
-direto para a sua página no PDF.
-
-Isso vem de `planStructure` em `data/sources.js` (`summary` + `parts`), não de
-`data/candidates/*.js`: é ficha do documento, não citação de conteúdo. Os
-nomes das partes seguem a grafia que o próprio plano usa no corpo do texto
-(os sumários dos dois PDFs repetem tudo em caixa alta), mesma convenção já
-aplicada a `planTitle`. Ao trocar um PDF, conferir se o sumário mudou.
-
-## Onde cada tema guarda o conteúdo
-
-Um tema de `window.THEMES` pode ter subtemas ou não, e isso decide de onde
-`app.js` lê as citações:
-
-| Tema | Onde fica |
-|---|---|
-| com `subthemes` | `c[tema.store][subthemeId]` — Economia em `c.economy`, Direitos/Assistência/Bem-Estar em `c.direitosBemEstar` |
-| sem subtema | `c.themes[themeId]` |
-
-O formato é sempre o mesmo, `{ diagnosis: [], proposals: [] }`. Para dar
-subtemas a um tema que hoje é flat: declare `store` e `subthemes` nele em
-`data/taxonomy.js` e mova o bloco de `c.themes.<id>` para
-`c.<store>.<subtema>` em cada `data/candidates/*.js`. Nada mais precisa mudar
-— `buildTemasSection`/`buildSubthemeCard` já são genéricos, e
-`export_content_md.py` segue a mesma regra.
-
-## O que cada plano mais menciona
-
-Abaixo do contador, a seção Contagem de Palavras tem o bloco **O que cada
-plano mais menciona**: em vez de "quantas vezes aparece a palavra que
-escolhi", responde "o que cada plano mais menciona", no plano inteiro e tema
-a tema. Os números saem de `data/word-stats.js`, gerado por
-`python3 scripts/build_word_stats.py` — nada é contado no navegador.
-
-### A unidade é a coisa mencionada, não a palavra
-
-"China", "Estados Unidos" e "taxa de juros" valem **uma menção cada** e
-disputam a mesma lista. Separar palavras de termos em dois rankings faria
-"China" competir num torneio diferente de "Estados Unidos", o que não faz
-sentido: as duas são uma menção. Cada ocorrência do texto é atribuída a
-exatamente uma unidade, então nada é contado duas vezes.
-
-Três detectores alimentam a lista de unidades compostas:
-
-- **Nomes próprios pela maiúscula** — sequências de 2 a 4 palavras com
-  inicial maiúscula, conectores minúsculos permitidos no meio: "Estados
-  Unidos", "União Europeia", "Novo PAC", "Casa da Mulher Brasileira". A busca
-  roda no texto cru, não na lista de tokens, porque é a **pontuação** que
-  impede "Argentina, Estados Unidos e Israel" de virar um nome só — e "e"
-  fica fora dos conectores pela mesma razão. Um nome vale como unidade mesmo
-  citado uma vez: ele é uma menção, não uma repetição.
-- **Nomes de uma palavra só**, por proporção de maiúsculas: um token conta
-  como nome quando aparece com inicial maiúscula em pelo menos 80% das vezes
-  no plano. "China", "Petrobras" e "SUS" passam; "estado" e "fila" não,
-  porque aparecem minúsculos o tempo todo. A regra existe porque o PDF
-  capitaliza começo de frase e título — sem ela, "Vamos" viraria um nome.
-- **Colocações minúsculas** — 2 a 4 palavras com só conectores no meio e pelo
-  menos 3 ocorrências: "taxa de juros", "crime organizado", "poder de compra".
-
-As ocorrências viram um token único antes da contagem, das unidades mais
-frequentes para as menos: assim o termo não é recontado nas palavras que o
-formam e, quando duas se sobrepõem, fica a mais repetida ("crime organizado",
-13x, não é partido por "enfrentamento ao crime", 5x). No empate de contagem,
-o nome/termo composto vem antes da palavra solta.
-
-### O resto do tratamento
-
-- **Stopwords em duas camadas**: as gramaticais (de, que, para) e as
-  retóricas/burocráticas que todo plano repete sem dizer nada ("vamos",
-  "programa", "ação", "fortalecer"). Sem a segunda camada o ranking vira uma
-  lista de verbos de campanha. Nome próprio detectado nunca cai nelas.
-- **Plural fundido no singular** só quando o singular existe no mesmo plano
-  ("políticas"→"política"), com o vocabulário do plano inteiro como
-  referência. Lematização pobre de propósito: sem dicionário externo e sem
-  fusão inventada.
-- **Sem TF-IDF.** Com dois documentos o idf é degenerado — um termo está em
-  um plano ou nos dois, e nada mais —, então TF-IDF diria apenas "aparece só
-  em um". No lugar, cada unidade mostra a contagem do **outro** plano no
-  mesmo recorte, que é o contraste que interessa.
-- **Ocorrência única não entra** nos recortes: em 700 palavras, 1 menção é
-  ruído, não ênfase. A lista encurta em vez de se encher de barulho.
-
-### O corpus de cada tema
-
-Era a parte que exigia uma decisão, porque os planos não são organizados
-pelos temas deste site. A definição adotada não usa classificador nenhum: o
-corpus de um tema é o **texto integral das páginas de onde saíram as citações
-daquele tema**. Quem classificou foi a curadoria que o site já mostra, e dá
-para conferir página por página. Na prática o recorte cai em cima do bloco
-certo: a Segurança Pública do Flávio vira as páginas 13-15, que são
-exatamente o capítulo "Brasil sem Medo"; a Educação do Lula vira as páginas
-31-33, o capítulo 4.
-
-(A alternativa testada antes — classificar página por palavra-chave — se
-mostrou ruim: léxicos de tamanhos diferentes faziam Economia engolir 45 das
-76 páginas do plano do Flávio e Segurança ficar com 2.)
-
-Atenção à dependência: o recorte por tema vem das páginas citadas, então
-**mexeu em citação, rode `build_word_stats.py` de novo**.
-
-## Conferir as citações
-
-```
-python3 scripts/check_quotes.py
-```
-
-Percorre **todas** as citações (`economy`, `themes`, `direitosBemEstar`,
-`governments`) e confere que cada trecho está literal na página que indica,
-comparando com `.sources-cache/texts/<id>.txt`. A comparação ignora só o que
-a extração do PDF distorce — acento, caixa, espaço, aspas e hífen — então
-palavra trocada, número diferente ou trecho inventado aparecem. Entende as
-duas convenções das citações: `[...]` marca corte no meio, e uma citação
-pode atravessar a virada de página. Sai com código 1 se achar problema.
+Para acrescentar uma eleição ou candidatura: criar `data/candidates/<id>.js`
+com `basics.election` preenchido, somar o id a `CANDIDATE_ORDER`, a entrada em
+`data/sources.js`, o PDF e a foto em `sources/`, e as três listas de sempre
+(`SCRIPT_FILES`, `DATA_FILES`, `<script src>`). Se a eleição for nova, incluir
+também o dia do 2º turno em `DATA_DA_ELEICAO` (`app.js` e
+`scripts/export_content_md.py`), que é o que faz a idade exibida ser a da
+época.
 
 ## Balanço dos Governos
 

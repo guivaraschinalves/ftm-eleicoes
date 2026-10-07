@@ -10,6 +10,7 @@
 - Nessas ocasiões, estruturar o plano detalhado antes de iniciar grandes alterações.
 
 ## Ao editar dados de candidatos
+- Cada candidatura é de UMA eleição: `basics.election` manda, e os dados (`birthDate` à parte, que é fixo) devem ser os daquela época — foto oficial do TSE do ano certo, partido, coligação e número de então. A idade exibida é calculada no dia do 2º turno via `DATA_DA_ELEICAO`, nunca com a data de hoje.
 - Manter neutralidade: mesmo tratamento visual para os dois candidatos (nenhuma cor de partido em lugar nenhum — o acento ciano da identidade do FtM é o mesmo nos dois cards), e ordem alfabética por nome de urna, nunca por pesquisa nem por resultado de primeiro turno.
 - `economy.<subtema>.diagnosis`/`.proposals.*.quotes` e `themes.<tema>.diagnosis`/`.proposals.*.quotes` em `data/candidates/*.js` são **citação literal** do PDF — nunca parafrasear. Só o `title` de cada proposta é redigido por nós. Todo `quote` precisa de `page`.
 - `planStructure` em `data/sources.js` (título, páginas e divisão do plano, mostrados na ficha de Visão Geral) é ficha do documento, não citação: os nomes das partes vêm do sumário/corpo do PDF, com as páginas conferidas. Trocou o PDF, confere de novo.

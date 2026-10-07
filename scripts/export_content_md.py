@@ -24,6 +24,8 @@ DATA_FILES = [
     "data/sources.js",
     "data/candidates/flavio-bolsonaro.js",
     "data/candidates/lula.js",
+    "data/candidates/jair-bolsonaro-2022.js",
+    "data/candidates/lula-2022.js",
 ]
 
 NODE_SCRIPT = """
@@ -48,6 +50,11 @@ def load_data():
 
 def fmt_quotes(quotes):
     return "; ".join(f'"{q["quote"]}" (p. {q["page"]})' for q in quotes)
+
+
+# Dia do 2º turno de cada eleição: a idade exibida é a da época da
+# candidatura, não a de hoje (ver o mesmo mapa em app.js).
+DATA_DA_ELEICAO = {"2022": datetime.date(2022, 10, 30), "2026": datetime.date(2026, 10, 25)}
 
 
 def calc_age(birth_date_str, today):
@@ -86,7 +93,7 @@ def render(data):
     lines.append("|---|---|---|---|---|---|")
     for cid in order:
         b = data["candidates"][cid]["basics"]
-        age = calc_age(b.get("birthDate"), today)
+        age = calc_age(b.get("birthDate"), DATA_DA_ELEICAO.get(b.get("election"), today))
         lines.append(f"| {b['ballotName']} | {b['party']} | {b['number']} | {age if age is not None else '—'} | {b['vp']} | {b['coalition']} |")
     lines.append("")
 
@@ -94,7 +101,7 @@ def render(data):
         c = data["candidates"][cid]
         b = c["basics"]
         src = data["sources"].get(cid, {})
-        age = calc_age(b.get("birthDate"), today)
+        age = calc_age(b.get("birthDate"), DATA_DA_ELEICAO.get(b.get("election"), today))
         lines.append(f"## {b['ballotName']} ({b['party']})")
         lines.append("")
         lines.append(f"- **Nome completo:** {b['name']}")
