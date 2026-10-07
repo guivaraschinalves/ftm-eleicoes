@@ -275,7 +275,7 @@
 
   // Card de um tema COM subtemas: lê de `c[store][subthemeId]` — `store` vem
   // do próprio tema em data/taxonomy.js ("economy" na Economia,
-  // "direitosBemEstar" em Direitos e Bem-Estar).
+  // "direitosBemEstar" em Direitos, Assistência e Bem-Estar).
   function buildSubthemeCard(id, store, subthemeId, kind) {
     var c = window.CANDIDATES_DATA[id];
     var src = (window.SOURCES_DATA || {})[id];

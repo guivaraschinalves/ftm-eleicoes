@@ -49,7 +49,7 @@ Gerado por `scripts/audit_coverage.py`. Cada item abaixo é uma página do plano
 ### Saúde — 1 página(s) não citada(s) com possível conteúdo
 - **p.25** (palavras-chave: saude, sus, saude mental) — "…ações específicas para seu perfil. Aprimorar a política de saúde mental para a juventude é um de nossos compromissos, com foco na Política Nacional de Atenção Psicossocial, na redução de danos e na desconstrução de preconc…"
 
-### Direitos e Bem-Estar · Outros — 2 página(s) não citada(s) com possível conteúdo
+### Direitos · Outros — 2 página(s) não citada(s) com possível conteúdo
 - **p.29** (palavras-chave: mulher, racismo, lgbt, lgbtqia, juventude) — "…ação sexual de crianças e adolescentes, à violência contra mulheres e pessoas LGBTQIAP+, ao racismo, às fraudes bancárias eletrônicas, aos crimes de alta tecnologia, aos crimes de ódio e aos delitos cibernéticos praticados…"
 - **p.75** (palavras-chave: mulher, lgbt, lgbtqia) — "…Vamos avançar na efetiva equivalência remuneratória entre mulheres e homens, fortalecendo a implementação da Lei de Igualdade Salarial, sancionada no atual mandato do Presidente Lula. A execução dos Planos de Ação nas empr…"
 

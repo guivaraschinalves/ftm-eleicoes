@@ -5,12 +5,13 @@
 //
 // window.THEMES é a lista dos 8 temas mostrados na seção "Temas". Dois deles
 // têm `subthemes` (um segundo nível de abas antes do par
-// Diagnóstico/Propostas): Economia, com os 7 subtemas de sempre, e Direitos e
-// Bem-Estar, separado entre Mulheres e as demais pautas.
+// Diagnóstico/Propostas): Economia, com os 7 subtemas de sempre, e Direitos,
+// Assistência e Bem-Estar, separado entre Mulheres, Envelhecimento e as
+// demais pautas.
 //
 // Onde cada tema guarda o conteúdo:
 //   - tema COM `subthemes` → `c[tema.store][subthemeId]`
-//     (Economia em `c.economy`, Direitos e Bem-Estar em `c.direitosBemEstar`)
+//     (Economia em `c.economy`, Direitos/Assistência/Bem-Estar em `c.direitosBemEstar`)
 //   - tema sem subtema      → `c.themes[themeId]`
 // Em todos os casos o formato é o mesmo: { diagnosis: [], proposals: [] }.
 // Ver buildTemasSection/buildSubthemeCard em app.js.
@@ -28,6 +29,7 @@ window.ECONOMY_SUBTHEMES = [
 
 window.DIREITOS_SUBTEMAS = [
   { id: "mulheres", label: "Mulheres" },
+  { id: "envelhecimento", label: "Envelhecimento" },
   { id: "outros", label: "Outros direitos e bem-estar" }
 ];
 
@@ -38,7 +40,7 @@ window.THEMES = [
   { id: "saude", label: "Saúde" },
   { id: "politica-externa", label: "Política Externa" },
   { id: "corrupcao", label: "Combate à Corrupção" },
-  { id: "direitos-bem-estar", label: "Direitos e Bem-Estar", store: "direitosBemEstar", subthemes: window.DIREITOS_SUBTEMAS },
+  { id: "direitos-bem-estar", label: "Direitos, Assistência e Bem-Estar", store: "direitosBemEstar", subthemes: window.DIREITOS_SUBTEMAS },
   { id: "tecnologia", label: "Tecnologia" }
 ];
 

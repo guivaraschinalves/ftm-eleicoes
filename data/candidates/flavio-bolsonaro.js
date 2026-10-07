@@ -204,6 +204,20 @@ window.CANDIDATES_DATA["flavio-bolsonaro"] = {
           { title: "Saúde para Elas: prevenção perto de casa e por telemedicina", quotes: [{ quote: "Vamos cuidar da saúde da mulher de forma preventiva, sem fila longa, com atendimento perto de casa e também pelo celular, por telemedicina ou em postos de saúde que vamos ampliar e construir.", page: 21 }] }
         ]
       },
+      envelhecimento: {
+        diagnosis: [
+          { quote: "O Brasil envelhece depressa, e a família mudou: são lares menores, mais mulheres trabalhando fora, mais idosos vivendo sozinhos e mais doenças crônicas. Cuidar de quem envelhece virou um desafio que a casa nem sempre dá conta.", page: 39 },
+          { quote: "Esse trabalho, que recai quase sempre sobre as mulheres da família, equivale a cerca de 8,5% do PIB brasileiro, uma economia inteira sustentada por quem abre mão do próprio trabalho para cuidar.", page: 38 }
+        ],
+        proposals: [
+          { title: "Casa Segura para Envelhecer: subsídio à acessibilidade em casa", quotes: [{ quote: "para a população idosa, vamos oferecer o programa Casa Segura para Envelhecer, com subsídio à acessibilidade domiciliar para famílias de menor renda.", page: 39 }] },
+          { title: "Aplicativo de companhia com alerta de perigo", quotes: [{ quote: "Desenvolveremos um aplicativo de companhia com alertas de perigo, para que o idoso tenha o amparo da tecnologia e o filho que mora longe tenha tranquilidade.", page: 39 }] },
+          { title: "Ampliar as instituições de longa permanência", quotes: [{ quote: "E vamos ampliar as instituições de longa permanência para idosos, para que recebam proteção especial quando o cuidado familiar não for viável ou suficiente.", page: 39 }] },
+          { title: "Rede Nacional de Cuidado, com centros-dia e atendimento domiciliar", quotes: [{ quote: "Também estruturaremos uma Rede Nacional de Cuidado, ampliando o apoio a idosos e pessoas com deficiência, com centros-dia e atendimento domiciliar em parcerias público privado com estados, municípios e organizações sociais.", page: 21 }] },
+          { title: "Remédio entregue em casa para idoso e doente crônico", quotes: [{ quote: "um sistema de entrega de remédio em domicílio vai garantir que o idoso, a pessoa com deficiência e o doente crônico não precisem escolher entre buscar o tratamento e pagar o transporte.", page: 38 }] },
+          { title: "Atenção ao Alzheimer e a quem cuida", quotes: [{ quote: "o cuidado com os idosos que enfrentam o Alzheimer e outras doenças neurológicas, e com quem cuida deles.", page: 39 }] }
+        ]
+      },
       outros: {
         diagnosis: [
           { quote: "O mesmo cuidado vale para as pessoas com deficiência e com doenças raras, que enfrentam barreiras todos os dias e muitas vezes contam apenas com a própria família para tudo.", page: 39 },

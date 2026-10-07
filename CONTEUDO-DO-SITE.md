@@ -162,7 +162,7 @@ Dump em Markdown de tudo que está em `data/*.js`: dados básicos e citações d
 - **Combate aos penduricalhos e supersalários** — "Isso inclui o corte de no mínimo 10 ministérios, a redução de cargos comissionados e de despesas administrativas e o combate aos penduricalhos e supersalários que corroem o orçamento." (p. 69)
 - **Agenda permanente de transparência e avaliação de políticas públicas** — "um choque de gestão vai colocar o patrimônio público a serviço da sociedade, com reforma do processo orçamentário e uma agenda permanente de transparência e avaliação de políticas públicas, identificando quem são os beneficiários de cada programa e medindo o impacto real de cada gasto." (p. 71)
 
-### Direitos e Bem-Estar
+### Direitos, Assistência e Bem-Estar
 
 #### Mulheres
 
@@ -180,6 +180,20 @@ Dump em Markdown de tudo que está em `data/*.js`: dados básicos e citações d
 - **Escola Brasil por Elas: capacitação gratuita, de IA a finanças** — "A Escola Brasil por Elas será o maior programa gratuito de capacitação feminina da América Latina, integrado aos cursos do Sistema S e a parcerias público-privadas. Para quem quer empreender, trabalhar de casa ou conseguir um emprego melhor, ela oferecerá formação em inteligência artificial, programação, marketing digital, finanças, idiomas e muito mais." (p. 20)
 - **Mais Trabalho para Elas: vagas, qualificação e intermediação** — "Vamos criar um sistema que integre vagas de emprego, qualificação, abertura simplificada de empresa, apoio ao pequeno negócio e intermediação de mão de obra. E vamos montar um grande banco de dados conectado ao RH de empresas de todo o país, para impulsionar de forma mais segura a colocação de mais mulheres no mercado de trabalho." (p. 20)
 - **Saúde para Elas: prevenção perto de casa e por telemedicina** — "Vamos cuidar da saúde da mulher de forma preventiva, sem fila longa, com atendimento perto de casa e também pelo celular, por telemedicina ou em postos de saúde que vamos ampliar e construir." (p. 21)
+
+#### Envelhecimento
+
+**Diagnóstico:**
+- "O Brasil envelhece depressa, e a família mudou: são lares menores, mais mulheres trabalhando fora, mais idosos vivendo sozinhos e mais doenças crônicas. Cuidar de quem envelhece virou um desafio que a casa nem sempre dá conta." (p. 39)
+- "Esse trabalho, que recai quase sempre sobre as mulheres da família, equivale a cerca de 8,5% do PIB brasileiro, uma economia inteira sustentada por quem abre mão do próprio trabalho para cuidar." (p. 38)
+
+**Propostas:**
+- **Casa Segura para Envelhecer: subsídio à acessibilidade em casa** — "para a população idosa, vamos oferecer o programa Casa Segura para Envelhecer, com subsídio à acessibilidade domiciliar para famílias de menor renda." (p. 39)
+- **Aplicativo de companhia com alerta de perigo** — "Desenvolveremos um aplicativo de companhia com alertas de perigo, para que o idoso tenha o amparo da tecnologia e o filho que mora longe tenha tranquilidade." (p. 39)
+- **Ampliar as instituições de longa permanência** — "E vamos ampliar as instituições de longa permanência para idosos, para que recebam proteção especial quando o cuidado familiar não for viável ou suficiente." (p. 39)
+- **Rede Nacional de Cuidado, com centros-dia e atendimento domiciliar** — "Também estruturaremos uma Rede Nacional de Cuidado, ampliando o apoio a idosos e pessoas com deficiência, com centros-dia e atendimento domiciliar em parcerias público privado com estados, municípios e organizações sociais." (p. 21)
+- **Remédio entregue em casa para idoso e doente crônico** — "um sistema de entrega de remédio em domicílio vai garantir que o idoso, a pessoa com deficiência e o doente crônico não precisem escolher entre buscar o tratamento e pagar o transporte." (p. 38)
+- **Atenção ao Alzheimer e a quem cuida** — "o cuidado com os idosos que enfrentam o Alzheimer e outras doenças neurológicas, e com quem cuida deles." (p. 39)
 
 #### Outros direitos e bem-estar
 
@@ -394,7 +408,7 @@ Dump em Markdown de tudo que está em `data/*.js`: dados básicos e citações d
 - **Fortalecer a Ouvidoria-Geral da União e a participação social** — "Fortaleceremos ainda mais organismos como a Ouvidoria-Geral da União e as consultas públicas, em laboratórios de inovação cívica, consultas digitais, uso de inteligência artificial, observatórios temáticos, fortalecendo uma nova cultura democrática baseada na participação da sociedade no combate à corrupção." (p. 18)
 - **Debater o sistema de emendas parlamentares com a sociedade** — "É preciso que o tema das emendas parlamentares seja debatido com a sociedade." (p. 16)
 
-### Direitos e Bem-Estar
+### Direitos, Assistência e Bem-Estar
 
 #### Mulheres
 
@@ -407,6 +421,20 @@ Dump em Markdown de tudo que está em `data/*.js`: dados básicos e citações d
 - **Salas Lilás e kits de monitoramento de agressores** — "Ampliaremos as Salas Lilás e vamos adquirir e distribuir aos Estados kits para aprimorar o monitoramento de agressores. Seguiremos fomentando a capacitação das forças de segurança para qualificar o atendimento às mulheres vítimas de violência e a punição aos que infligirem a violência." (p. 21)
 - **Lei da Igualdade Salarial com planos de ação obrigatórios** — "A Lei da Igualdade Salarial, que aprovamos em 2023, continuará orientando nossas ações para promoção do trabalho das mulheres." (p. 21); "A execução dos Planos de Ação nas empresas com desigualdades identificadas será tornada obrigatória, com metas progressivas de redução das disparidades salariais e ampliação da presença de mulheres, especialmente negras e pessoas com deficiência." (p. 75)
 - **Crédito e qualificação: Pronaf para agricultoras e Mulheres Mil** — "Persistiremos buscando assegurar políticas que apoiem as mulheres em sua inserção no mundo do trabalho, com linhas de crédito mais favorecidas para agricultoras e extrativistas no âmbito do Pronaf; com programas de qualificação específicos, como o Mulheres Mil, que foi retomado no atual mandato" (p. 21)
+
+#### Envelhecimento
+
+**Diagnóstico:**
+- "Envelhecer é uma conquista civilizatória e não deve ser encarada como um problema. A população brasileira com mais de 60 anos cresce rapidamente. Cabe ao Estado se preparar para o futuro e garantir que todas as pessoas possam envelhecer com dignidade, autonomia e acesso ao cuidado." (p. 22)
+
+**Propostas:**
+- **Dois eixos: autonomia para quem depende pouco, cuidado para quem depende mais** — "No próximo mandato, intensificaremos tanto as ações de promoção da autonomia das pessoas idosas, voltadas para aquelas pessoas com baixo grau de dependência, quanto medidas centradas na garantia do cuidado para aquelas pessoas com maior dependência." (p. 22)
+- **Atendimento domiciliar de porta em porta** — "O outro para atendimento domiciliar, de 'porta em porta', em que o Estado vai até pessoas idosas com dificuldades de locomoção ou que vivam em regiões distantes da rede de proteção social." (p. 22)
+- **Centros-Dia e equipamentos de envelhecimento ativo** — "Vamos ampliar o apoio aos municípios para expandir e qualificar a rede de atendimento dos Centros-Dia e outros equipamentos para promoção do envelhecimento saudável e ativo, como academias públicas, praças, espaços de leitura, entre outros." (p. 22)
+- **Mais vagas públicas em ILPIs, com fiscalização** — "Seguiremos apoiando a ampliação das vagas públicas em Instituições de Longa Permanência - ILPIS e aperfeiçoando os mecanismos de fiscalização desses estabelecimentos para garantir condições adequadas de funcionamento e identificar eventuais casos de violações de direitos humanos e maus tratos." (p. 22)
+- **PADI Brasil em todo o território nacional** — "O Programa de Atenção Domiciliar ao Idoso – PADI Brasil, voltado ao atendimento domiciliar multiprofissional às pessoas idosas com limitações funcionais, condições crônicas e fragilidades clínicas, já está implantado em 2.655 municípios. Vamos dar escala a esse programa do SUS para que idosos tenham acesso a esse direito em todo território nacional." (p. 22)
+- **Qualificação e contratação de pessoas com mais de 60 anos** — "Vamos ampliar as parcerias com iniciativa privada para qualificação e contratação de pessoas com mais de 60 anos, assim como medidas de valorização dos saberes das pessoas idosas no mercado de trabalho." (p. 23)
+- **Letramento digital contra fraudes e crimes cibernéticos** — "Seguiremos fortalecendo iniciativas de letramento digital buscando ampliar o acesso dos idosos aos serviços públicos digitais e reduzir sua vulnerabilidade a fraudes e crimes cibernéticos." (p. 23)
 
 #### Outros direitos e bem-estar
 

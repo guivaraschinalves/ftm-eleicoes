@@ -207,6 +207,20 @@ window.CANDIDATES_DATA["lula"] = {
           { title: "Crédito e qualificação: Pronaf para agricultoras e Mulheres Mil", quotes: [{ quote: "Persistiremos buscando assegurar políticas que apoiem as mulheres em sua inserção no mundo do trabalho, com linhas de crédito mais favorecidas para agricultoras e extrativistas no âmbito do Pronaf; com programas de qualificação específicos, como o Mulheres Mil, que foi retomado no atual mandato", page: 21 }] }
         ]
       },
+      envelhecimento: {
+        diagnosis: [
+          { quote: "Envelhecer é uma conquista civilizatória e não deve ser encarada como um problema. A população brasileira com mais de 60 anos cresce rapidamente. Cabe ao Estado se preparar para o futuro e garantir que todas as pessoas possam envelhecer com dignidade, autonomia e acesso ao cuidado.", page: 22 }
+        ],
+        proposals: [
+          { title: "Dois eixos: autonomia para quem depende pouco, cuidado para quem depende mais", quotes: [{ quote: "No próximo mandato, intensificaremos tanto as ações de promoção da autonomia das pessoas idosas, voltadas para aquelas pessoas com baixo grau de dependência, quanto medidas centradas na garantia do cuidado para aquelas pessoas com maior dependência.", page: 22 }] },
+          { title: "Atendimento domiciliar de porta em porta", quotes: [{ quote: "O outro para atendimento domiciliar, de 'porta em porta', em que o Estado vai até pessoas idosas com dificuldades de locomoção ou que vivam em regiões distantes da rede de proteção social.", page: 22 }] },
+          { title: "Centros-Dia e equipamentos de envelhecimento ativo", quotes: [{ quote: "Vamos ampliar o apoio aos municípios para expandir e qualificar a rede de atendimento dos Centros-Dia e outros equipamentos para promoção do envelhecimento saudável e ativo, como academias públicas, praças, espaços de leitura, entre outros.", page: 22 }] },
+          { title: "Mais vagas públicas em ILPIs, com fiscalização", quotes: [{ quote: "Seguiremos apoiando a ampliação das vagas públicas em Instituições de Longa Permanência - ILPIS e aperfeiçoando os mecanismos de fiscalização desses estabelecimentos para garantir condições adequadas de funcionamento e identificar eventuais casos de violações de direitos humanos e maus tratos.", page: 22 }] },
+          { title: "PADI Brasil em todo o território nacional", quotes: [{ quote: "O Programa de Atenção Domiciliar ao Idoso – PADI Brasil, voltado ao atendimento domiciliar multiprofissional às pessoas idosas com limitações funcionais, condições crônicas e fragilidades clínicas, já está implantado em 2.655 municípios. Vamos dar escala a esse programa do SUS para que idosos tenham acesso a esse direito em todo território nacional.", page: 22 }] },
+          { title: "Qualificação e contratação de pessoas com mais de 60 anos", quotes: [{ quote: "Vamos ampliar as parcerias com iniciativa privada para qualificação e contratação de pessoas com mais de 60 anos, assim como medidas de valorização dos saberes das pessoas idosas no mercado de trabalho.", page: 23 }] },
+          { title: "Letramento digital contra fraudes e crimes cibernéticos", quotes: [{ quote: "Seguiremos fortalecendo iniciativas de letramento digital buscando ampliar o acesso dos idosos aos serviços públicos digitais e reduzir sua vulnerabilidade a fraudes e crimes cibernéticos.", page: 23 }] }
+        ]
+      },
       outros: {
         diagnosis: [
           { quote: "Um país em que todas as pessoas, independentemente de origem, raça, etnia, gênero, orientação sexual, idade, crença ou condição social, possam desenvolver plenamente seu potencial e viver com dignidade. Um Brasil comprometido com a dignidade humana, democrático e inclusivo, que combata todas as formas de discriminação e assegure os direitos das mulheres, da população negra, dos povos indígenas e quilombolas, da população LGBTQIAP+, das pessoas com deficiência, dos povos do campo, das águas e das florestas, com amplo respeito às liberdades e aos direitos humanos.", page: 26 },

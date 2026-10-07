@@ -9,11 +9,16 @@ governo Jair Bolsonaro (2019–2022) e sobre os governos do PT (2003–2016 e
 2023–2026) — inclusive sobre o próprio campo.
 
 Cobertura em **8 temas** — Economia, Educação, Segurança Pública, Saúde,
-Política Externa, Combate à Corrupção, Direitos e Bem-Estar e Tecnologia —
-cada um com aba de **Diagnóstico** e aba de **Propostas**. Dois deles têm um
-nível a mais de abas: Economia, dividida em 7 subtemas, e Direitos e
-Bem-Estar, que separa **Mulheres** das demais pautas; os outros 6 vão direto
-ao par. Todo trecho de posicionamento é **citação
+Política Externa, Combate à Corrupção, Direitos, Assistência e Bem-Estar, e
+Tecnologia — cada um com aba de **Diagnóstico** e aba de **Propostas**. Dois
+deles têm um nível a mais de abas: Economia, dividida em 7 subtemas, e
+Direitos, Assistência e Bem-Estar, dividida em **Mulheres**,
+**Envelhecimento** e as demais pautas; os outros 6 vão direto ao par.
+
+A divisão em temas é **nossa**, não dos planos: são os assuntos mais
+recorrentes nos dois documentos, e encaixar o material neles envolve
+interpretação — a seção Temas diz isso ao leitor, e cada citação traz a
+página para que dê para discordar do enquadramento e conferir a fonte. Todo trecho de posicionamento é **citação
 literal** dos **planos de governo oficiais registrados no TSE** (nunca
 resumo nosso), com a página do PDF referenciada.
 
@@ -29,7 +34,7 @@ cheia, escondendo o cardzinho e as demais — é sempre uma coisa de cada vez.
 Clicar no logo do Follow the Money no canto esquerdo do topbar volta pro
 cardzinho inicial (é a única forma de voltar — não tem item "Início" na
 navegação). Dentro de Temas, os 7 temas ficam em abas (clique para trocar),
-e Economia e Direitos e Bem-Estar têm um segundo nível de abas para os subtemas.
+e Economia e Direitos, Assistência e Bem-Estar têm um segundo nível de abas para os subtemas.
 
 Em telas de até 900px (celular e tablet), o menu do topo vira um **menu
 retrátil**: a barra fica só com o logo, o botão de tema (só o ícone) e um
@@ -226,7 +231,7 @@ Um tema de `window.THEMES` pode ter subtemas ou não, e isso decide de onde
 
 | Tema | Onde fica |
 |---|---|
-| com `subthemes` | `c[tema.store][subthemeId]` — Economia em `c.economy`, Direitos e Bem-Estar em `c.direitosBemEstar` |
+| com `subthemes` | `c[tema.store][subthemeId]` — Economia em `c.economy`, Direitos/Assistência/Bem-Estar em `c.direitosBemEstar` |
 | sem subtema | `c.themes[themeId]` |
 
 O formato é sempre o mesmo, `{ diagnosis: [], proposals: [] }`. Para dar

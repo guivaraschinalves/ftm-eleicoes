@@ -35,7 +35,7 @@ window.WORD_STATS = {
   },
   {
    "id": "direitos-bem-estar",
-   "label": "Direitos e Bem-Estar"
+   "label": "Direitos, Assistência e Bem-Estar"
   },
   {
    "id": "tecnologia",
@@ -787,23 +787,33 @@ window.WORD_STATS = {
     ]
    },
    "direitos-bem-estar": {
-    "palavras": 2979,
-    "paginas": 9,
+    "palavras": 3316,
+    "paginas": 10,
     "top": [
      {
       "t": "mulher",
-      "n": 26,
-      "vs": 18
+      "n": 27,
+      "vs": 19
      },
      {
       "t": "brasil",
-      "n": 17,
+      "n": 18,
       "vs": 6
      },
      {
       "t": "família",
-      "n": 14,
+      "n": 18,
       "vs": 0
+     },
+     {
+      "t": "cuidado",
+      "n": 14,
+      "vs": 6
+     },
+     {
+      "t": "cuidar",
+      "n": 13,
+      "vs": 1
      },
      {
       "t": "país",
@@ -811,34 +821,39 @@ window.WORD_STATS = {
       "vs": 7
      },
      {
-      "t": "cuidado",
-      "n": 10,
-      "vs": 4
+      "t": "estado",
+      "n": 9,
+      "vs": 14
      },
      {
       "t": "proteção",
       "n": 9,
-      "vs": 11
+      "vs": 12
      },
      {
       "t": "saúde",
       "n": 9,
-      "vs": 4
+      "vs": 5
      },
      {
       "t": "casa",
-      "n": 7,
+      "n": 8,
       "vs": 0
      },
      {
-      "t": "cuidar",
-      "n": 7,
-      "vs": 1
+      "t": "idoso",
+      "n": 8,
+      "vs": 3
      },
      {
-      "t": "estado",
+      "t": "trabalho",
+      "n": 8,
+      "vs": 11
+     },
+     {
+      "t": "deficiência",
       "n": 7,
-      "vs": 12
+      "vs": 5
      },
      {
       "t": "regra",
@@ -848,17 +863,22 @@ window.WORD_STATS = {
      {
       "t": "autonomia",
       "n": 6,
-      "vs": 3
+      "vs": 5
+     },
+     {
+      "t": "criança",
+      "n": 6,
+      "vs": 4
      },
      {
       "t": "esporte",
       "n": 6,
-      "vs": 1
+      "vs": 2
      },
      {
-      "t": "idoso",
+      "t": "parceria",
       "n": 6,
-      "vs": 1
+      "vs": 3
      },
      {
       "t": "renda",
@@ -866,29 +886,9 @@ window.WORD_STATS = {
       "vs": 2
      },
      {
-      "t": "terra",
-      "n": 6,
-      "vs": 6
-     },
-     {
-      "t": "trabalho",
-      "n": 6,
-      "vs": 11
-     },
-     {
-      "t": "vida",
+      "t": "sistema",
       "n": 6,
       "vs": 1
-     },
-     {
-      "t": "acesso",
-      "n": 5,
-      "vs": 6
-     },
-     {
-      "t": "criança",
-      "n": 5,
-      "vs": 4
      }
     ]
    },
@@ -1743,13 +1743,13 @@ window.WORD_STATS = {
     ]
    },
    "direitos-bem-estar": {
-    "palavras": 3237,
-    "paginas": 10,
+    "palavras": 3547,
+    "paginas": 11,
     "top": [
      {
       "t": "mulher",
-      "n": 18,
-      "vs": 26
+      "n": 19,
+      "vs": 27
      },
      {
       "t": "política",
@@ -1757,29 +1757,34 @@ window.WORD_STATS = {
       "vs": 3
      },
      {
+      "t": "estado",
+      "n": 14,
+      "vs": 9
+     },
+     {
       "t": "direito",
-      "n": 12,
+      "n": 13,
       "vs": 2
      },
      {
-      "t": "estado",
-      "n": 12,
-      "vs": 7
-     },
-     {
       "t": "proteção",
-      "n": 11,
+      "n": 12,
       "vs": 9
      },
      {
       "t": "trabalho",
       "n": 11,
-      "vs": 6
+      "vs": 8
      },
      {
       "t": "educação",
       "n": 9,
       "vs": 2
+     },
+     {
+      "t": "acesso",
+      "n": 8,
+      "vs": 5
      },
      {
       "t": "desigualdade",
@@ -1790,6 +1795,11 @@ window.WORD_STATS = {
       "t": "mandato",
       "n": 8,
       "vs": 0
+     },
+     {
+      "t": "social",
+      "n": 8,
+      "vs": 5
      },
      {
       "t": "indígena",
@@ -1807,11 +1817,6 @@ window.WORD_STATS = {
       "vs": 11
      },
      {
-      "t": "social",
-      "n": 7,
-      "vs": 4
-     },
-     {
       "t": "violência",
       "n": 7,
       "vs": 2
@@ -1822,14 +1827,14 @@ window.WORD_STATS = {
       "vs": 0
      },
      {
-      "t": "acesso",
+      "t": "atendimento",
       "n": 6,
       "vs": 5
      },
      {
       "t": "brasil",
       "n": 6,
-      "vs": 17
+      "vs": 18
      },
      {
       "t": "brasileira",
@@ -1840,11 +1845,6 @@ window.WORD_STATS = {
       "t": "combate",
       "n": 6,
       "vs": 0
-     },
-     {
-      "t": "desenvolvimento",
-      "n": 6,
-      "vs": 4
      }
     ]
    },

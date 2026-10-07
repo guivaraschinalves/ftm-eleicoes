@@ -52,8 +52,9 @@ CATEGORIES = [
     ("themes", "saude", "Saúde"),
     ("themes", "politica-externa", "Política Externa"),
     ("themes", "corrupcao", "Combate à Corrupção"),
-    ("direitosBemEstar", "mulheres", "Direitos e Bem-Estar · Mulheres"),
-    ("direitosBemEstar", "outros", "Direitos e Bem-Estar · Outros"),
+    ("direitosBemEstar", "mulheres", "Direitos · Mulheres"),
+    ("direitosBemEstar", "envelhecimento", "Direitos · Envelhecimento"),
+    ("direitosBemEstar", "outros", "Direitos · Outros"),
     ("themes", "tecnologia", "Tecnologia"),
 ]
 
@@ -123,6 +124,11 @@ KEYWORDS = {
         "mulher", "feminicidio", "violencia domestica", "violencia contra a mulher",
         "igualdade salarial", "maternidade", "creche", "empreendedora",
         "autonomia economica", "machismo", "assedio",
+    ],
+    "envelhecimento": [
+        "idoso", "idosa", "envelhecimento", "envelhecer", "terceira idade",
+        "longevidade", "aposentado", "ilpi", "instituicao de longa permanencia",
+        "centro-dia", "cuidador", "alzheimer", "atendimento domiciliar",
     ],
     "tecnologia": [
         "inteligencia artificial", "tecnologia", "inovacao", "digital",
