@@ -17,6 +17,7 @@ Dump em Markdown de tudo que está em `data/*.js`: dados básicos e citações d
 - **Vice:** Alfredo Gaspar (PL)
 - **Coligação:** Candidatura de partido isolado (PL)
 - **Plano de governo:** Para o Brasil Vencer o Atraso (76 páginas) — https://dadosabertos.tse.jus.br/dataset/candidatos-2026/resource/433ac1f4-07dc-44a2-bcbe-c87a2073721a
+- **Como está dividido:** 9 blocos temáticos, depois da apresentação e dos índices — Brasil sem Medo (p. 13) · Brasil por Elas (p. 17) · Brasil sem Fila (p. 23) · Brasil Mais Barato (p. 29) · Brasil que Prepara (p. 34) · Brasil que Prospera (p. 42) · Brasil que Cresce (p. 49) · Brasil que Cumpre a Constituição (p. 65) · Brasil que Não Volta Atrás (p. 68)
 
 ### Economia
 
@@ -209,6 +210,7 @@ Dump em Markdown de tudo que está em `data/*.js`: dados básicos e citações d
 - **Vice:** Geraldo Alckmin (PSB)
 - **Coligação:** Brasil Pronto Pra Mais (PSB, PDT, Federação Brasil da Esperança — PT/PCdoB/PV, Federação PSOL Rede)
 - **Plano de governo:** Diretrizes para o Programa de Transformação do Brasil (84 páginas) — https://dadosabertos.tse.jus.br/dataset/candidatos-2026/resource/433ac1f4-07dc-44a2-bcbe-c87a2073721a
+- **Como está dividido:** 13 capítulos numerados, depois da abertura "Compromisso com o Projeto de Nação" — Compromisso com o Projeto de Nação (p. 6) · 1. Fortalecer a Democracia, a Participação Social e Modernizar o Estado (p. 15) · 2. Combater as Desigualdades (p. 18) · 3. Proteger a vida com uma segurança pública mais eficiente e integrada (p. 26) · 4. Garantir o Direito à Educação para Transformar Vidas e o País (p. 30) · 5. Fortalecer a saúde com equidade, inovação e soberania (p. 34) · 6. Ampliar o acesso à cultura e ao esporte como Vetores de Transformação Social (p. 40) · 7. Fortalecer o direito à cidade (p. 44) · 8. Promover uma Economia Mais Sustentável, Produtiva e Digital, Para Todas e Todos (p. 47) · 9. Segurança Alimentar e Produção Agrícola (p. 58) · 10. Ampliar a Segurança Energética e Liderar a Transição para uma Economia de Baixo Carbono (p. 63) · 11. Promover a Sustentabilidade Ambiental e Climática (p. 69) · 12. Valorizar o Trabalho em suas Múltiplas Formas (p. 73) · 13. Defender a Soberania Nacional e o Protagonismo Internacional do Brasil (p. 77)
 
 ### Economia
 

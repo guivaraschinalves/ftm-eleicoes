@@ -108,6 +108,10 @@ def render(data):
             lines.append("- **Plano de governo:** não registrado no TSE.")
         elif src:
             lines.append(f"- **Plano de governo:** {src.get('planTitle', '')} ({src.get('pageCount', '?')} páginas) — {src.get('officialPdfUrl', '')}")
+            estrutura = src.get("planStructure") or {}
+            if estrutura.get("parts"):
+                partes = " · ".join(f"{x['label']} (p. {x['page']})" for x in estrutura["parts"])
+                lines.append(f"- **Como está dividido:** {estrutura.get('summary', '')} — {partes}")
         lines.append("")
 
         lines.append("### Economia")

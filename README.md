@@ -85,7 +85,7 @@ app.js               → lê os dados e monta todas as seções (DOM puro, sem f
 assets/favicon.svg   → ícone da aba, na mesma família dos outros sites do FtM
 data/
   taxonomy.js         → os 7 temas (window.THEMES), subtemas de Economia, os governos do Balanço (window.GOVERNMENTS), ordem dos candidatos
-  sources.js           → URL oficial de cada plano no TSE + caminho do PDF local (+ planFiled)
+  sources.js           → URL oficial de cada plano no TSE, caminho do PDF local, nº de páginas e como o plano está dividido (+ planFiled)
   plan-texts.js         → texto INTEGRAL de cada plano (window.PLAN_TEXTS) — gerado, não editar à mão; só a Contagem de Palavras usa
   candidates/*.js       → um arquivo por candidato: dados básicos (com data de nascimento) + citações por tema
 sources/             → foto oficial (TSE) + cópia de cada PDF por candidato
@@ -201,6 +201,19 @@ tema já mostra Flávio Bolsonaro e Lula lado a lado, na ordem alfabética de
 `CANDIDATE_ORDER`. `visibleIds`, em `app.js`, continua existindo como a
 lista única que todas as seções leem — só que agora é preenchida uma vez em
 `init()` com todo mundo, em vez de depender de uma seleção.
+
+## Ficha do plano em Visão Geral
+
+Abaixo dos dados de cada candidato, o card de Visão Geral mostra a ficha do
+documento que ele registrou no TSE: título, número de páginas e **como o plano
+está dividido** — os blocos/capítulos de primeiro nível, cada um com link
+direto para a sua página no PDF.
+
+Isso vem de `planStructure` em `data/sources.js` (`summary` + `parts`), não de
+`data/candidates/*.js`: é ficha do documento, não citação de conteúdo. Os
+nomes das partes seguem a grafia que o próprio plano usa no corpo do texto
+(os sumários dos dois PDFs repetem tudo em caixa alta), mesma convenção já
+aplicada a `planTitle`. Ao trocar um PDF, conferir se o sumário mudou.
 
 ## Balanço dos Governos
 

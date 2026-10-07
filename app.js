@@ -105,7 +105,57 @@
     metaRow("Coligação", b.coalition);
     card.appendChild(meta);
 
+    card.appendChild(buildPlanBlock(id));
+
     return card;
+  }
+
+  // Bloco "Plano de governo" dos cards de Visão Geral: título registrado no
+  // TSE, tamanho e como o documento está dividido (data/sources.js). Não é
+  // citação de conteúdo — é a ficha do documento, pra dar noção do que cada
+  // plano é antes de abrir os temas. Cada parte leva à sua página no PDF,
+  // pelos mesmos links de citeLinks().
+  function buildPlanBlock(id) {
+    var src = (window.SOURCES_DATA || {})[id];
+    var block = el("div", "plan-card");
+    var lbl = el("p", "compare-block-label");
+    lbl.textContent = "Plano de governo";
+    block.appendChild(lbl);
+
+    if (!src || src.planFiled === false) {
+      var none = el("p", "compare-empty compare-empty-noplan");
+      none.textContent = "Esta candidatura não registrou Proposta de Governo no TSE.";
+      block.appendChild(none);
+      return block;
+    }
+
+    var titulo = el("p", "plan-card-title");
+    titulo.textContent = src.planTitle;
+    block.appendChild(titulo);
+
+    var estrutura = src.planStructure || {};
+    var ficha = [];
+    if (src.pageCount) ficha.push(src.pageCount + " páginas");
+    if (estrutura.summary) ficha.push(estrutura.summary);
+    if (ficha.length) {
+      var meta = el("p", "plan-card-meta");
+      meta.textContent = ficha.join(" · ");
+      block.appendChild(meta);
+    }
+
+    if (estrutura.parts && estrutura.parts.length) {
+      var lista = el("ul", "plan-parts");
+      estrutura.parts.forEach(function (parte) {
+        var li = document.createElement("li");
+        var nome = el("span", "plan-part-label");
+        nome.textContent = parte.label;
+        li.appendChild(nome);
+        if (parte.page) li.appendChild(citeLinks([{ page: parte.page }], id));
+        lista.appendChild(li);
+      });
+      block.appendChild(lista);
+    }
+    return block;
   }
 
   function buildCandidateGrid() {

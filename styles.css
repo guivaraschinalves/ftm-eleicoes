@@ -292,6 +292,22 @@ h1 { font-family: var(--font-display); font-weight: 700; font-size: 2.3rem; marg
 .tab-panel[hidden] { display: none; }
 .panel-heading { font-family: var(--font-display); font-weight: 500; font-size: 1.22rem; margin: 0 0 6px; }
 
+/* ---------- Ficha do plano, nos cards de Visão Geral ---------- */
+/* Separada do bloco de dados do candidato por uma linha: acima é quem ele é,
+   abaixo é o documento que ele registrou no TSE. */
+.plan-card { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+.plan-card-title { font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--ink); margin: 0 0 4px; }
+.plan-card-meta { font-size: 0.84rem; line-height: 1.45; color: var(--ink-muted); margin: 0 0 12px; }
+.plan-parts { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+/* Nome da parte à esquerda, página à direita, com o número sempre colado na
+   margem (sem isso a página "flutua" logo depois de títulos curtos). */
+.plan-parts li {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+  font-size: 0.87rem; color: var(--ink-secondary); line-height: 1.4;
+}
+.plan-parts .cite-links { margin: 0; flex: none; }
+.plan-part-label { min-width: 0; }
+
 /* ---------- Grade de citações (um card por candidato, lado a lado) ----------
    O prefixo .compare-* é herdado: estes cards são os dois candidatos lado a
    lado dentro de cada aba de tema. O nome segue igual ao do liberta-eleicoes
