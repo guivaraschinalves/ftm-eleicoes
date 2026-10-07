@@ -15,7 +15,11 @@ window.CANDIDATES_DATA["lula"] = {
     coalition: "Brasil Pronto Pra Mais (PSB, PDT, Federação Brasil da Esperança — PT/PCdoB/PV, Federação PSOL Rede)",
     vp: "Geraldo Alckmin (PSB)",
     initials: "LS",
-    photo: "sources/lula.jpg"
+    photo: "sources/lula.jpg",
+    // Data de registro civil (6/out/1945) — Lula sempre comemorou o
+    // aniversário em 27/out, data real de nascimento na zona rural de
+    // Caetés (PE), mas só registrada meses depois com outro dia.
+    birthDate: "1945-10-06"
   },
   economy: {
     fiscal: {
@@ -59,7 +63,8 @@ window.CANDIDATES_DATA["lula"] = {
     "trabalho-renda": {
       diagnosis: [
         { quote: "O Brasil chegou às mais baixas taxas de desemprego da história e gerou 8,0 milhões de empregos entre 2023 e junho de 2026.", page: 73 },
-        { quote: "Com a retomada da política de valorização do salário-mínimo, asseguramos aumento real para o piso de remuneração todos os anos, permitindo a recuperação de seu poder de compra e impulsionando os rendimentos do trabalho, que chegaram aos maiores patamares reais da história.", page: 73 }
+        { quote: "Com a retomada da política de valorização do salário-mínimo, asseguramos aumento real para o piso de remuneração todos os anos, permitindo a recuperação de seu poder de compra e impulsionando os rendimentos do trabalho, que chegaram aos maiores patamares reais da história.", page: 73 },
+        { quote: "No mercado de trabalho e na previdência, observamos a precarização das relações laborais, a expansão da informalidade e o desamparo de trabalhadores de plataforma, reduzindo o rendimento médio real das famílias.", page: 9 }
       ],
       proposals: [
         { title: "Fim da escala 6x1 e jornada de 40h", quotes: [{ quote: "Manteremos nossa ação junto ao Senado Federal para assegurar o fim da escala 6x1 e a redução da jornada de trabalho para 40 horas, sem redução salarial, nos termos aprovados na Câmara dos Deputados.", page: 75 }] },
@@ -81,7 +86,8 @@ window.CANDIDATES_DATA["lula"] = {
     "estado-privatizacoes": {
       diagnosis: [
         { quote: "A retomada do crescimento industrial nesse mandato é resultado do enfrentamento do processo de desindustrialização por meio dos investimentos coordenados por uma nova, legítima e indispensável política industrial, a Nova Indústria Brasil (NIB).", page: 50 },
-        { quote: "O governo Lula III retomou os investimentos em petróleo e gás. A Petrobras tem batido sucessivos recordes de produção de petróleo e voltou a investir em refino e derivados, em gás e fertilizantes, ampliando suas encomendas às indústrias naval e petroquímica.", page: 66 }
+        { quote: "O governo Lula III retomou os investimentos em petróleo e gás. A Petrobras tem batido sucessivos recordes de produção de petróleo e voltou a investir em refino e derivados, em gás e fertilizantes, ampliando suas encomendas às indústrias naval e petroquímica.", page: 66 },
+        { quote: "O governo avançou na modernização do setor elétrico, conciliando expansão da infraestrutura, segurança energética, competitividade e modicidade tarifária. Houve forte expansão das fontes solar e eólica na geração elétrica.", page: 63 }
       ],
       proposals: [
         { title: "Ampliar investimento da Petrobras", quotes: [{ quote: "Entendemos que a Petrobras continuará ampliando investimentos em exploração onshore e offshore, para recuperar participação no controle de reservas nacionais", page: 67 }] },
@@ -103,12 +109,18 @@ window.CANDIDATES_DATA["lula"] = {
         { title: "Universalizar saneamento e ampliar transporte de alta capacidade", quotes: [
           { quote: "O governo Lula investiu de forma consistente em saneamento. A partir de 2023, foram R$ 23,3 bilhões para novas obras de abastecimento de água, esgotamento sanitário e gestão de resíduos sólidos [...] Continuaremos, no próximo mandato, a perseguir o objetivo de apoiar estados e municípios a universalizar acesso à água tratada e ao esgotamento sanitário.", page: 46 },
           { quote: "A atual carteira, entre retomada de obras e novos investimentos, resultará em mais 233 km de metrôs, trens e VLTs e outros 296 km de corredores exclusivos de ônibus no padrão BRT.", page: 46 }
-        ] }
+        ] },
+        { title: "Novos arrendamentos portuários", quotes: [{ quote: "Além disso, daremos prosseguimento à política de novos arrendamentos nos portos organizados, bem como aos processos de concessão da manutenção dos canais de acesso e outros serviços portuários.", page: 54 }] }
       ]
     }
   },
-  otherThemes: {
+  themes: {
     educacao: {
+      diagnosis: [
+        { quote: "O Compromisso Nacional Criança Alfabetizada instituiu uma estratégia nacional de cooperação federativa, cujos resultados – 66% das crianças alfabetizadas na idade certa em 2025 - superaram a meta prevista de 64%.", page: 31 },
+        { quote: "Vale lembrar que o governo Lula também retomou obras que estavam paralisadas em governos anteriores – no caso da educação, são 5.967 creches, escolas, quadras esportivas e outros equipamentos que tiveram seus contratos repactuados e voltaram a receber recursos para conclusão.", page: 32 },
+        { quote: "Na educação, a ausência de uma coordenação federativa integrada, a redução dos recursos e a paralisia de milhares de obras de creches e escolas que abandonaram os municípios à própria sorte, deprimindo a qualidade pedagógica e estimulando o aumento da evasão escolar.", page: 9 }
+      ],
       proposals: [
         { title: "Meta de 80% de alfabetização na idade certa", quotes: [{ quote: "Seguiremos com as ações e políticas já pactuadas com os estados e municípios brasileiros para chegarmos à meta de 80% das nossas crianças alfabetizadas na idade certa.", page: 31 }] },
         { title: "Financiamento do ensino integral pelo Fundeb", quotes: [{ quote: "A partir de 2026, com a inclusão, no Fundeb, do financiamento à educação em tempo integral, a expectativa é que a ampliação dessa modalidade se acelere, garantindo melhores condições de aprendizado para os estudantes.", page: 31 }] },
@@ -116,38 +128,78 @@ window.CANDIDATES_DATA["lula"] = {
         { title: "Expansão dos institutos federais", quotes: [{ quote: "No novo mandato, continuaremos a expansão da nossa rede de institutos federais, priorizando a interiorização, os vazios educacionais, as periferias urbanas e os municípios com baixa oferta de cursos técnicos.", page: 33 }] }
       ]
     },
-    saude: {
-      proposals: [
-        { title: "Prontuário único do cidadão", quotes: [{ quote: "Vamos acelerar os esforços na consolidação do prontuário único do cidadão, que já avança por meio da Rede Nacional de Dados em Saúde (RNDS).", page: 35 }] },
-        { title: "IA para triagem e diagnóstico", quotes: [{ quote: "Vamos acelerar a utilização de inteligência artificial para a triagem, a priorização de casos graves, a regulação por risco clínico e o diagnóstico em áreas com escassez de especialistas.", page: 35 }] },
-        { title: "Farmácia Popular 100% gratuito", quotes: [{ quote: "Retomamos o Farmácia Popular, ampliando para 41 o número de medicamentos gratuitos distribuídos. Chegamos, em 2025, a 27,3 milhões de pessoas atendidas [...] O programa será mantido, 100% gratuito.", page: 36 }] }
-      ]
-    },
     seguranca: {
+      diagnosis: [
+        { quote: "É nesse contexto que deve avançar a construção de um Sistema Nacional de Segurança Pública mais articulado, capaz de combinar medidas imediatas com as reformas constitucionais e legais necessárias para superar o atual modelo fragmentado.", page: 27 },
+        { quote: "A revogação dos decretos editados no governo anterior, que facilitavam o acesso a armas de fogo, foi uma medida acertada.", page: 28 },
+        { quote: "A segurança pública, sob o pretexto da desregulamentação, facilitou a proliferação descontrolada de armas de fogo, o que fortaleceu estruturas de milícias e facções criminosas nos territórios vulneráveis e ampliou a letalidade das violências domésticas, em especial contra mulheres, crianças e adolescentes.", page: 9 }
+      ],
       proposals: [
         { title: "Criação do Ministério da Segurança Pública", quotes: [{ quote: "Uma vez aprovada a PEC da Segurança Pública proposta pelo Executivo, criaremos o Ministério da Segurança Pública para coordenar, em articulação com estados e municípios, a execução das políticas nacionais de segurança pública no âmbito do Sistema Único de Segurança Pública (SUSP).", page: 30 }] },
         { title: "Programa Brasil Contra o Crime Organizado", quotes: [{ quote: "Fortaleceremos o Programa Brasil Contra o Crime Organizado, lançado em maio de 2026 [...] O programa prevê R$ 10 bilhões do Fundo Nacional de Investimento em Infraestrutura Social para estados e municípios realizarem investimentos em equipamentos e infraestrutura.", page: 27 }] },
-        { title: "Plano Pena Justa", quotes: [{ quote: "Cumpriremos as metas do Plano Pena Justa e instituiremos o Pacto Nacional de Execução Penal para o Enfrentamento ao Crime Organizado, fortalecendo a governança do sistema prisional e a cooperação entre União, estados e sistema de justiça.", page: 28 }] }
+        { title: "Plano Pena Justa", quotes: [{ quote: "Cumpriremos as metas do Plano Pena Justa e instituiremos o Pacto Nacional de Execução Penal para o Enfrentamento ao Crime Organizado, fortalecendo a governança do sistema prisional e a cooperação entre União, estados e sistema de justiça.", page: 28 }] },
+        { title: "Programa Celular Seguro", quotes: [{ quote: "Continuaremos expandindo e aprimorando o Programa Celular Seguro, que já conta com mais de 4 milhões de usuários cadastrados. Com a criação da Base Nacional de Celulares com Restrição, o programa passou a oferecer ao cidadão possibilidade de verificar, antes da compra, se o aparelho possui restrição.", page: 29 }] },
+        { title: "Prevenção à violência e proteção da juventude negra", quotes: [{ quote: "Fortaleceremos as políticas de prevenção à violência com foco na proteção da juventude negra e da expansão de programas de mediação comunitária e justiça restaurativa em parceria com estados e municípios.", page: 29 }] }
       ]
     },
-    "meio-ambiente": {
+    saude: {
+      diagnosis: [
+        { quote: "Avançamos muito, mas o SUS é um sistema que requer contínua evolução para assegurar, de fato, o direito universal à saúde.", page: 34 },
+        { quote: "Começamos a enfrentar, no atual mandato, com o Agora tem Especialistas, um dos maiores desafios da saúde pública brasileira – garantir o acesso à atenção especializada, com qualidade e agilidade.", page: 37 },
+        { quote: "O Novo PAC apoiou a estruturação de 336 novos Centros de Atenção Psicossocial - CAPS.", page: 39 }
+      ],
       proposals: [
-        { title: "Pagamento por Serviços Ambientais", quotes: [{ quote: "Vamos aprimorar a implementação de programas de Pagamento por Serviços Ambientais (PSA) voltados à biodiversidade e reconhecer legalmente a restauração biocultural como estratégia de Estado.", page: 72 }] },
-        { title: "Financiamento climático para o Semiárido", quotes: [{ quote: "O governo deverá continuar estruturando mecanismos permanentes de financiamento climático para o Semiárido brasileiro, reconhecendo que adaptação climática, combate à desertificação e restauração ecológica constituem investimentos estratégicos para o desenvolvimento nacional.", page: 72 }] },
-        { title: "Monitoramento satelital e IA contra crimes ambientais", quotes: [{ quote: "Vamos expandir monitoramento satelital e uso de inteligência artificial no combate a crimes ambientais.", page: 72 }] }
-      ]
-    },
-    tecnologia: {
-      proposals: [
-        { title: "Infraestrutura computacional soberana", quotes: [{ quote: "Vamos avançar numa infraestrutura computacional soberana, com supercomputadores desenvolvidos e operados por instituições nacionais.", page: 54 }] },
-        { title: "Modelos de linguagem em português", quotes: [{ quote: "Vamos desenvolver e sustentar modelos de linguagem em português e outras línguas, voltados aos problemas do País, apoiados numa plataforma nacional de dados para treinamento e avaliação.", page: 55 }] },
-        { title: "Centro Nacional de Transparência Algorítmica", quotes: [{ quote: "Vamos consolidar a transparência algorítmica e a rastreabilidade de conteúdo sintético, ancoradas no Centro Nacional de Transparência Algorítmica — porque democracia não convive com decisão automatizada que ninguém pode examinar.", page: 55 }] }
+        { title: "Prontuário único do cidadão", quotes: [{ quote: "Vamos acelerar os esforços na consolidação do prontuário único do cidadão, que já avança por meio da Rede Nacional de Dados em Saúde (RNDS).", page: 35 }] },
+        { title: "IA para triagem e diagnóstico", quotes: [{ quote: "Vamos acelerar a utilização de inteligência artificial para a triagem, a priorização de casos graves, a regulação por risco clínico e o diagnóstico em áreas com escassez de especialistas.", page: 35 }] },
+        { title: "Farmácia Popular 100% gratuito", quotes: [{ quote: "Retomamos o Farmácia Popular, ampliando para 41 o número de medicamentos gratuitos distribuídos. Chegamos, em 2025, a 27,3 milhões de pessoas atendidas [...] O programa será mantido, 100% gratuito.", page: 36 }] },
+        { title: "Ampliar Rede de Atenção Psicossocial e CAPS", quotes: [{ quote: "Na saúde mental, ampliaremos os investimentos na Rede de Atenção Psicossocial e nos CAPS, ampliando a atenção a crianças, adolescentes e jovens.", page: 39 }] }
       ]
     },
     "politica-externa": {
+      diagnosis: [
+        { quote: "O mundo contemporâneo vivencia o ressurgimento do unilateralismo, do protecionismo e de conflitos sem precedentes desde a Segunda Guerra Mundial. Em um cenário de tensões geopolíticas crescentes e quebras das regras de convivência internacional, o Brasil deve reafirmar sua soberania e preservar sua capacidade de fazer escolhas políticas e econômicas de forma independente.", page: 77 },
+        { quote: "O Brasil voltou a ser ouvido e respeitado no mundo.", page: 79 }
+      ],
       proposals: [
         { title: "Autonomia estratégica na defesa", quotes: [{ quote: "Defendemos uma política de defesa baseada na autonomia estratégica, na inovação tecnológica, na integração entre defesa e desenvolvimento e na combinação entre persuasão diplomática e capacidade de dissuasão.", page: 78 }] },
         { title: "Fortalecer a Base Industrial de Defesa", quotes: [{ quote: "fortaleceremos a Base Industrial e Tecnológica de Defesa, de modo a assegurar maior autonomia nacional nesse campo e estimular inovações com impactos positivos sobre o conjunto da economia.", page: 78 }] }
+      ]
+    },
+    corrupcao: {
+      diagnosis: [
+        { quote: "Propomos ainda enfrentar uma grave distorção na elaboração e gestão do orçamento federal – o atual sistema de emendas parlamentares. No orçamento de 2026, as emendas somaram R$ 50 bilhões, consumindo aproximadamente um quinto dos recursos discricionários do Poder Executivo.", page: 15 },
+        { quote: "As emendas impositivas e o orçamento secreto são práticas que mudaram as relações entre o Executivo e o Legislativo, sequestram o orçamento público, dispersam os recursos e reduzem a eficiência alocativa.", page: 16 }
+      ],
+      proposals: [
+        { title: "Aprofundar o Plano de Integridade e Combate à Corrupção", quotes: [{ quote: "Vamos dar sequência às medidas de controle e integridade da administração pública e ao combate à corrupção. O Plano de Integridade e Combate à Corrupção 2025–2027 representa um avanço institucional que será aprofundado, fortalecendo a prevenção, a investigação e a responsabilização de corruptos e corruptores, inclusive os do andar de cima, com pleno respeito à independência das instituições.", page: 18 }] },
+        { title: "Modernizar o Portal da Transparência com IA", quotes: [{ quote: "Persistiremos, como no atual mandato, aprimorando as políticas e medidas de transparência. O Portal da Transparência receberá investimentos para evoluir para uma plataforma inteligente baseada em dados abertos e inteligência artificial.", page: 18 }] },
+        { title: "Fortalecer a Ouvidoria-Geral da União e a participação social", quotes: [{ quote: "Fortaleceremos ainda mais organismos como a Ouvidoria-Geral da União e as consultas públicas, em laboratórios de inovação cívica, consultas digitais, uso de inteligência artificial, observatórios temáticos, fortalecendo uma nova cultura democrática baseada na participação da sociedade no combate à corrupção.", page: 18 }] },
+        { title: "Debater o sistema de emendas parlamentares com a sociedade", quotes: [{ quote: "É preciso que o tema das emendas parlamentares seja debatido com a sociedade.", page: 16 }] }
+      ]
+    },
+    "direitos-bem-estar": {
+      diagnosis: [
+        { quote: "Um país em que todas as pessoas, independentemente de origem, raça, etnia, gênero, orientação sexual, idade, crença ou condição social, possam desenvolver plenamente seu potencial e viver com dignidade. Um Brasil comprometido com a dignidade humana, democrático e inclusivo, que combata todas as formas de discriminação e assegure os direitos das mulheres, da população negra, dos povos indígenas e quilombolas, da população LGBTQIAP+, das pessoas com deficiência, dos povos do campo, das águas e das florestas, com amplo respeito às liberdades e aos direitos humanos.", page: 26 },
+        { quote: "Voltamos a assegurar aos povos e comunidades tradicionais – indígenas, quilombolas e ribeirinhos – seus direitos, inclusive em relação a seus territórios.", page: 19 },
+        { quote: "A criação do inédito Ministério dos Povos Indígenas retomou o compromisso do Estado com os povos indígenas. Homologamos 20 novas terras indígenas, somando cerca de 3,2 milhões de hectares de terras protegidas em 11 estados.", page: 20 },
+        { quote: "Construímos o portfólio mais robusto de políticas de proteção animal da história recente do Brasil. Criamos, em 2023, o inédito Departamento de Proteção, Defesa e Direitos Animais, hoje vinculado à Secretaria Nacional de Biodiversidade, Florestas e Direitos Animais.", page: 69 }
+      ],
+      proposals: [
+        { title: "Combate ao racismo e Estatuto da Igualdade Racial", quotes: [
+          { quote: "Manteremos o combate ao racismo no centro de nossa estratégia de desenvolvimento, pois não é possível compreender nem superar as desigualdades brasileiras sem enfrentar a questão racial como dimensão estruturante da sociedade.", page: 19 },
+          { quote: "Vamos continuar engajados na implementação das deliberações da 5ª Conferência Nacional de Promoção da Igualdade Racial (V CONAPIR), realizada em 2025, após um intervalo de sete anos. Avançaremos ainda mais na regulamentação do Estatuto da Igualdade Racial para a consolidação da equidade como política de Estado.", page: 19 }
+        ] },
+        { title: "Proteção territorial de povos indígenas e quilombolas", quotes: [
+          { quote: "Reafirmamos igualmente o compromisso com a proteção dos povos indígenas, de seus territórios, culturas e modos de vida. Persistiremos, garantindo proteção a seus territórios, com ações para demarcação e desintrusão de terras sempre que necessárias.", page: 20 },
+          { quote: "Temos orgulho da retomada do processo de titulação de territórios quilombolas, que permitiu, desde 2023, a expedição de 65 titulações e assinatura de 72 decretos de desapropriação por interesse social, recorde histórico. Vamos dar continuidade a este processo de reconhecimento do direito ao território, buscando acelerar os procedimentos e garantir que sejam acompanhados de políticas de desenvolvimento territorial.", page: 20 }
+        ] },
+        { title: "Inclusão e acessibilidade para pessoas com deficiência", quotes: [{ quote: "Continuaremos promovendo ambientes inclusivos, com a aplicação rigorosa da legislação de acessibilidade. A fiscalização do cumprimento das cotas de contratação de pessoas com deficiência no mercado de trabalho será fortalecida, ampliando a política de inclusão econômica.", page: 23 }] },
+        { title: "Políticas de Estado para diversidade de gênero e população LGBTQIAP+", quotes: [{ quote: "Continuaremos a planejar e construir políticas e ações levando em conta as dimensões de gênero, identidade, orientação sexual, étnico-raciais e classe social assim como as demais desigualdades sociais, de modo a garantir capacidade de o Estado atender, de forma adequada, justa e inclusiva, às pessoas LGBTQIAP+ e todas as suas especificidades.", page: 23 }] },
+        { title: "Proteção da infância e combate à pobreza infantil", quotes: [{ quote: "Continuaremos buscando ampliar e fortalecer as políticas para nossas crianças, por meio do enfrentamento da pobreza infantil, da garantia de acesso às políticas públicas e do direito ao brincar.", page: 24 }] },
+        { title: "Ampliação da proteção e do bem-estar animal", quotes: [
+          { quote: "A proteção ambiental continuará caminhando ao lado da defesa dos direitos animais. Vamos ampliar o ProPatinhas, fortalecendo as caravanas de castração, e dar continuidade ao SinPatinhas, cadastro nacional de cães e gatos.", page: 71 },
+          { quote: "Seguiremos fortalecendo o combate aos maus-tratos, com penas que assegurem que essas práticas não se repitam, avançando nesta agenda com prioridade e participação social.", page: 72 }
+        ] }
       ]
     }
   }

@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
-"""Gera dist/ftm-eleicoes-artifact.html: um único HTML autocontido (CSS, JS e
-as fotos/PDFs de sources/ inline como data URI, sem nenhum <link>/<script
+"""Gera dist/ftm-eleicoes-artifact.html: um único HTML autocontido (CSS,
+JS e as fotos/PDFs de sources/ inline como data URI, sem nenhum <link>/<script
 src> ou referência a arquivo local), pronto para publicar como Claude
 Artifact — que bloqueia qualquer fetch/recurso externo em runtime.
 
 Lê sempre os arquivos-fonte (index.html, styles.css, data/*.js, sources/*,
 app.js) — nunca edite dist/ftm-eleicoes-artifact.html à mão, ele é sempre
-regenerado daqui. Uso:
+regenerado daqui. `data/plan-texts.js` (texto integral dos planos, usado pela
+Contagem de Palavras) sozinho já soma ~1,7 MB — bem menor que os ~17 MB de
+PDFs que este script opta por não embutir (ver drop_local_pdf_links), mas é
+o maior arquivo de dados individual do projeto; não é surpresa o tamanho do
+Artifact ter saltado quando esse arquivo foi adicionado. Uso:
 
     cd ftm-eleicoes
     python3 scripts/build_artifact.py
@@ -15,27 +19,22 @@ import base64
 import mimetypes
 import re
 import sys
+from urllib.parse import quote
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
 SOURCES_DIR = ROOT / "sources"
 
-# Mesma ordem de carregamento do index.html: taxonomia -> fontes -> perfil ->
-# estado alocador -> contagem de palavras -> um arquivo por candidato ->
-# app.js. A ordem entre candidatos não importa (cada um só grava a própria
-# chave em window.CANDIDATES_DATA).
+# Mesma ordem de carregamento do index.html: taxonomia -> fontes -> textos
+# dos planos -> um arquivo por candidato -> app.js. A ordem entre candidatos
+# não importa (cada um só grava a própria chave em window.CANDIDATES_DATA).
 SCRIPT_FILES = [
     "data/taxonomy.js",
     "data/sources.js",
-    "data/profile.js",
-    "data/allocator.js",
-    "data/wordcounts.js",
-    "data/candidates/caiado.js",
+    "data/plan-texts.js",
     "data/candidates/flavio-bolsonaro.js",
     "data/candidates/lula.js",
-    "data/candidates/renan-santos.js",
-    "data/candidates/zema.js",
     "app.js",
 ]
 
@@ -67,10 +66,24 @@ def drop_local_pdf_links(js: str) -> str:
     return re.sub(r'localPdfPath:\s*"sources/[^"]+\.pdf"', "localPdfPath: null", js)
 
 
+def inline_favicon(html: str) -> str:
+    """Troca <link rel="icon" href="assets/favicon.svg"> pelo mesmo SVG em
+    data: URI. O site normal serve o arquivo (padrão dos outros sites do
+    FtM); o Artifact precisa ser autocontido, sem nenhum arquivo ao lado."""
+    svg = (ROOT / "assets" / "favicon.svg").read_text(encoding="utf-8").strip()
+    data_uri = "data:image/svg+xml," + quote(svg, safe="")
+    return re.sub(
+        r'href="assets/favicon\.svg"',
+        lambda _m: 'href="' + data_uri + '"',
+        html,
+    )
+
+
 def build():
     html = (ROOT / "index.html").read_text(encoding="utf-8")
     css = (ROOT / "styles.css").read_text(encoding="utf-8")
     js = "\n".join((ROOT / f).read_text(encoding="utf-8") for f in SCRIPT_FILES)
+    html = inline_favicon(html)
     js = embed_photos_as_data_uris(js)
     js = drop_local_pdf_links(js)
 
@@ -87,11 +100,13 @@ def build():
     # regex (\1, \2...) e corrompem qualquer escape CSS silenciosamente —
     # foi por isso que as aspas decorativas viravam caractere de controle
     # no Artifact. str.replace() nunca interpreta a string de troca.
-    link_tag = '<link rel="stylesheet" href="styles.css">'
-    n = html.count(link_tag)
-    if n != 1:
+    # O href carrega o "?v=N" de cache-busting que o index.html usa (padrão
+    # dos outros sites do FtM), então a tag é localizada por regex e trocada
+    # por str.replace() do texto exato encontrado.
+    link_match = re.findall(r'<link rel="stylesheet" href="styles\.css[^"]*">', html)
+    if len(link_match) != 1:
         sys.exit("build_artifact: não encontrei (ou encontrei mais de uma vez) o <link> do styles.css em index.html")
-    html = html.replace(link_tag, "<style>\n" + css + "\n</style>")
+    html = html.replace(link_match[0], "<style>\n" + css + "\n</style>")
 
     # Remove cada <script src="...">, concatena tudo num único <script> inline
     # logo antes de </body>.

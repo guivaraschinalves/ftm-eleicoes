@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Gera CONTEUDO-DO-SITE.md: um dump em markdown de tudo que está em
-data/*.js — candidatos, citações de Economia/Outros Temas (com página) e o
-Perfil Político — organizado por candidato. É uma leitura de apoio/curadoria,
-não é lido pelo site (index.html/app.js continuam sendo a fonte real).
+data/*.js — candidatos e citações de cada um dos 6 Temas (Diagnóstico +
+Propostas), organizado por candidato. É uma leitura de apoio/curadoria, não é
+lido pelo site (index.html/app.js continuam sendo a fonte real).
 
 Extrai os dados executando o Node com os arquivos data/*.js carregados (mesmo
 truque usado nos scripts de checagem: `window.X = ...` populando um objeto
@@ -12,9 +12,9 @@ Uso:
     cd ftm-eleicoes
     python3 scripts/export_content_md.py
 """
+import datetime
 import json
 import subprocess
-import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -22,21 +22,16 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_FILES = [
     "data/taxonomy.js",
     "data/sources.js",
-    "data/profile.js",
-    "data/candidates/caiado.js",
     "data/candidates/flavio-bolsonaro.js",
     "data/candidates/lula.js",
-    "data/candidates/renan-santos.js",
-    "data/candidates/zema.js",
 ]
 
 NODE_SCRIPT = """
 global.window = {};
 %s
 process.stdout.write(JSON.stringify({
-  taxonomy: { economySubthemes: window.ECONOMY_SUBTHEMES, otherThemes: window.OTHER_THEMES, order: window.CANDIDATE_ORDER },
+  taxonomy: { economySubthemes: window.ECONOMY_SUBTHEMES, themes: window.THEMES, order: window.CANDIDATE_ORDER },
   sources: window.SOURCES_DATA,
-  profile: { axes: window.PROFILE_AXES, scores: window.PROFILE_SCORES },
   candidates: window.CANDIDATES_DATA
 }));
 """
@@ -55,46 +50,63 @@ def fmt_quotes(quotes):
     return "; ".join(f'"{q["quote"]}" (p. {q["page"]})' for q in quotes)
 
 
+def calc_age(birth_date_str, today):
+    """Mesma regra de app.js (calcAge): anos completos até `today`."""
+    if not birth_date_str:
+        return None
+    year, month, day = (int(x) for x in birth_date_str.split("-"))
+    age = today.year - year
+    if (today.month, today.day) < (month, day):
+        age -= 1
+    return age
+
+
 def render(data):
+    today = datetime.date.today()
     lines = []
-    lines.append("# Conteúdo do site — FTM Eleições")
+    lines.append("# Conteúdo do site — Liberta Eleições")
     lines.append("")
     lines.append(
-        "Dump em Markdown de tudo que está em `data/*.js`: dados básicos, citações de "
-        "Economia (Diagnóstico + Propostas, por subtema) e Outros Temas, e o Perfil "
-        "Político. Gerado por `scripts/export_content_md.py` — reflete o estado atual "
-        "dos dados, não é lido pelo site (a fonte real continua sendo `data/*.js` + "
+        "Dump em Markdown de tudo que está em `data/*.js`: dados básicos e citações "
+        "de Diagnóstico + Propostas dos 6 Temas (Economia, dividida em 7 subtemas, e "
+        "Educação, Segurança Pública, Saúde, Política Externa, Combate à Corrupção). "
+        "Gerado por `scripts/export_content_md.py` — reflete o estado atual dos "
+        "dados, não é lido pelo site (a fonte real continua sendo `data/*.js` + "
         "`app.js`). Toda citação (`quote`) é transcrição literal do plano de governo "
-        "oficial; o resto (títulos de proposta, notas do Perfil Político) é redigido "
-        "por nós."
+        f"oficial; só o título de cada proposta é redigido por nós. Idade calculada em {today.isoformat()}."
     )
     lines.append("")
 
     order = data["taxonomy"]["order"]
     econ_subthemes = data["taxonomy"]["economySubthemes"]
-    other_themes = data["taxonomy"]["otherThemes"]
-    axes = data["profile"]["axes"]
+    themes = data["taxonomy"]["themes"]
+    other_themes = [t for t in themes if t["id"] != "economia"]
 
     lines.append("## Sumário de candidatos")
     lines.append("")
-    lines.append("| Candidato | Partido | Nº | Vice | Coligação |")
-    lines.append("|---|---|---|---|---|")
+    lines.append("| Candidato | Partido | Nº | Idade | Vice | Coligação |")
+    lines.append("|---|---|---|---|---|---|")
     for cid in order:
         b = data["candidates"][cid]["basics"]
-        lines.append(f"| {b['ballotName']} | {b['party']} | {b['number']} | {b['vp']} | {b['coalition']} |")
+        age = calc_age(b.get("birthDate"), today)
+        lines.append(f"| {b['ballotName']} | {b['party']} | {b['number']} | {age if age is not None else '—'} | {b['vp']} | {b['coalition']} |")
     lines.append("")
 
     for cid in order:
         c = data["candidates"][cid]
         b = c["basics"]
         src = data["sources"].get(cid, {})
+        age = calc_age(b.get("birthDate"), today)
         lines.append(f"## {b['ballotName']} ({b['party']})")
         lines.append("")
         lines.append(f"- **Nome completo:** {b['name']}")
+        lines.append(f"- **Idade:** {age if age is not None else '—'} anos")
         lines.append(f"- **Número:** {b['number']}")
         lines.append(f"- **Vice:** {b['vp']}")
         lines.append(f"- **Coligação:** {b['coalition']}")
-        if src:
+        if src and src.get("planFiled") is False:
+            lines.append("- **Plano de governo:** não registrado no TSE.")
+        elif src:
             lines.append(f"- **Plano de governo:** {src.get('planTitle', '')} ({src.get('pageCount', '?')} páginas) — {src.get('officialPdfUrl', '')}")
         lines.append("")
 
@@ -119,11 +131,18 @@ def render(data):
                 lines.append("- _Não abordado explicitamente no plano de governo._")
             lines.append("")
 
-        lines.append("### Outros temas")
-        lines.append("")
         for th in other_themes:
-            entry = c["otherThemes"].get(th["id"], {"proposals": []})
-            lines.append(f"**{th['label']}:**")
+            entry = c["themes"].get(th["id"], {"diagnosis": [], "proposals": []})
+            lines.append(f"### {th['label']}")
+            lines.append("")
+            lines.append("**Diagnóstico:**")
+            if entry["diagnosis"]:
+                for d in entry["diagnosis"]:
+                    lines.append(f'- "{d["quote"]}" (p. {d["page"]})')
+            else:
+                lines.append("- _Não abordado explicitamente no plano de governo._")
+            lines.append("")
+            lines.append("**Propostas:**")
             if entry["proposals"]:
                 for p in entry["proposals"]:
                     lines.append(f"- **{p['title']}** — {fmt_quotes(p['quotes'])}")
@@ -131,29 +150,8 @@ def render(data):
                 lines.append("- _Não abordado explicitamente no plano de governo._")
             lines.append("")
 
-        lines.append("### Perfil Político (leitura editorial — não é citação)")
-        lines.append("")
-        scores = data["profile"]["scores"].get(cid, {})
-        if scores:
-            for axis in axes:
-                score = scores.get(axis["id"], "—")
-                rationale = scores.get("rationale", {}).get(axis["id"], "")
-                lines.append(f"- **{axis['label']}** ({axis['low']} ↔ {axis['high']}): **{score}/100** — {rationale}")
-        lines.append("")
         lines.append("---")
         lines.append("")
-
-    lines.append("## Metodologia do Perfil Político")
-    lines.append("")
-    lines.append(
-        "Os 6 eixos abaixo são uma síntese editorial nossa (não citação, não nota "
-        "oficial), atribuída a partir da leitura do conjunto de propostas acima, "
-        "inspirada no formato do Smartspider do smartvote.ch:"
-    )
-    lines.append("")
-    for axis in axes:
-        lines.append(f"- **{axis['label']}**: {axis['low']} (0) ↔ {axis['high']} (100)")
-    lines.append("")
 
     return "\n".join(lines)
 

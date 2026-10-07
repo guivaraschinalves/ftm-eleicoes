@@ -1,4 +1,4 @@
-# Diretrizes de Operação (FTM Eleições)
+# Diretrizes de Operação (FtM Eleições)
 
 ## Auto Mode (Padrão - Estilo Claude Code)
 - Execução 100% autônoma de ponta a ponta: ler, criar, editar arquivos, rodar comandos e testes sem parar para pedir aprovação intermediária.
@@ -10,7 +10,17 @@
 - Nessas ocasiões, estruturar o plano detalhado antes de iniciar grandes alterações.
 
 ## Ao editar dados de candidatos
-- Manter neutralidade: mesmo tratamento visual para todos (cores de `--cand-*` são só categóricas, não de partido), ordem alfabética por nome de urna (não por posição em pesquisa).
-- `diagnosis` e `proposals.*.quotes` em `data/candidates/*.js` são **citação literal** do PDF — nunca parafrasear. Só o `title` de cada proposta é redigido por nós. Todo `quote` precisa de `page`.
-- `data/profile.js` é a única exceção declarada ao "só citação": é leitura editorial nossa (Perfil Político). Mudar uma nota exige atualizar o `rationale` correspondente.
+- Manter neutralidade: mesmo tratamento visual para os dois candidatos (nenhuma cor de partido em lugar nenhum — o acento ciano da identidade do FtM é o mesmo nos dois cards), e ordem alfabética por nome de urna, nunca por pesquisa nem por resultado de primeiro turno.
+- `economy.<subtema>.diagnosis`/`.proposals.*.quotes` e `themes.<tema>.diagnosis`/`.proposals.*.quotes` em `data/candidates/*.js` são **citação literal** do PDF — nunca parafrasear. Só o `title` de cada proposta é redigido por nós. Todo `quote` precisa de `page`.
+- `basics.birthDate` é a única informação de `basics` que não vem do plano de governo (vem de fonte pública externa) — mudar exige checar a fonte de novo, não estimar.
+- Um candidato sem Proposta de Governo registrada no TSE leva `planFiled: false` em `data/sources.js`, com `officialPdfUrl`/`localPdfPath`/`pageCount` como `null` **literal** — nunca string vazia, nunca chave omitida (os validadores de `scripts/build_artifact.py` dependem disso, e `app.js` usa `=== false`, não uma checagem de truthiness).
+- Ao adicionar/remover um candidato, manter sincronizadas as 4 listas que hoje ainda são hardcoded fora de `CANDIDATE_ORDER`: `SCRIPT_FILES` (`scripts/build_artifact.py`), `DATA_FILES` (`scripts/export_content_md.py`), os `<script src>` de `index.html` e `window.SOURCES_DATA` (`data/sources.js`). `scripts/export_plans_md.py` e `scripts/build_plan_texts.py` não têm lista própria — leem `CANDIDATE_ORDER` direto.
 - Depois de editar qualquer `data/*.js`, rodar `python3 scripts/build_artifact.py` antes de publicar o Artifact — os dois nunca devem divergir.
+- `data/plan-texts.js` é o único arquivo de dados com texto BRUTO/mecânico (alimenta só a Contagem de Palavras) — nunca editar à mão. É gerado por `scripts/build_plan_texts.py` a partir de `.sources-cache/texts/*.txt`, que por sua vez vem de `scripts/extract_plan_texts.py` (PyMuPDF) sobre `sources/*.pdf`. Depois de adicionar ou trocar um PDF em `sources/*.pdf`, rodar os dois scripts (extract → build) antes de publicar, senão `data/plan-texts.js` diverge do PDF real.
+- Depois de escrever/atualizar as citações de um candidato, rodar `python3 scripts/audit_coverage.py <id>` (ver "## Auditoria de cobertura" no README) e revisar as páginas sinaladas antes de publicar — a leitura manual tema por tema não garante sozinha que nada relevante ficou de fora, principalmente em planos longos (100+ páginas). A ferramenta só filtra candidatas a lacuna; a decisão de citar ou não continua sendo humana/editorial, nunca automática.
+
+## Identidade visual (Follow the Money)
+- A paleta e a tipografia vêm dos outros sites de dados do FtM (`ftm-dados`, `ftm-analises`): escuro por padrão (`#0b0b0b` / `#151515`), texto gelo, **um único acento** ciano `#4BACC6`, fonte Calibri/Carlito. O tema claro é a variação, não o padrão.
+- O tema é sempre explícito no atributo `data-theme` do `<html>`, pintado antes do CSS pelo script inline no topo do `index.html` (evita o flash de branco). Não existe modo "seguir o sistema"; sem escolha salva em `localStorage` (`ftm_eleicoes_tema`), abre escuro.
+- O logotipo é o wordmark do FtM em SVG inline no `index.html`, em `currentColor` — herda `var(--logo)` e acompanha o tema. O arquivo de origem é `lps-ftm/public/lp/ftm/logo-ftm-branco.svg`; se o logo mudar lá, trocar aqui também.
+- `index.html` referencia `styles.css?v=N` e `app.js?v=N` — **subir o N a cada mudança nesses dois arquivos**, senão o GitHub Pages serve a versão antiga do cache.
