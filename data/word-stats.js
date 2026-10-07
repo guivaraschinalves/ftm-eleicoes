@@ -1,7 +1,8 @@
 // GERADO por scripts/build_word_stats.py — não editar à mão.
-// Palavras e termos mais usados em cada plano, no plano inteiro e por tema.
-// Método (corpus de cada tema, stopwords, plural, termos compostos):
-// ver o cabeçalho do script e a seção do README.
+// O que cada plano mais menciona, no plano inteiro e por tema. A unidade
+// contada é a coisa mencionada, de uma ou mais palavras (China, Estados
+// Unidos, taxa de juros valem uma menção cada).
+// Método completo: cabeçalho do script e seção do README.
 window.WORD_STATS = {
  "recortes": [
   {
@@ -46,26 +47,26 @@ window.WORD_STATS = {
    "geral": {
     "palavras": 23017,
     "paginas": null,
-    "topPalavras": [
+    "top": [
      {
       "t": "brasil",
-      "n": 142,
-      "vs": 119
+      "n": 136,
+      "vs": 110
      },
      {
       "t": "país",
       "n": 80,
-      "vs": 75
+      "vs": 73
      },
      {
       "t": "família",
-      "n": 77,
+      "n": 76,
       "vs": 19
      },
      {
       "t": "estado",
-      "n": 60,
-      "vs": 44
+      "n": 58,
+      "vs": 38
      },
      {
       "t": "brasileiro",
@@ -73,92 +74,90 @@ window.WORD_STATS = {
       "vs": 28
      },
      {
-      "t": "trabalho",
-      "n": 48,
-      "vs": 32
+      "t": "governo",
+      "n": 47,
+      "vs": 29
      },
      {
-      "t": "governo",
-      "n": 48,
-      "vs": 30
+      "t": "trabalho",
+      "n": 47,
+      "vs": 32
      },
      {
       "t": "vida",
       "n": 45,
-      "vs": 16
+      "vs": 12
      },
      {
       "t": "mulher",
       "n": 44,
-      "vs": 32
+      "vs": 30
+     },
+     {
+      "t": "cidadão",
+      "n": 43,
+      "vs": 3
      },
      {
       "t": "tempo",
       "n": 43,
       "vs": 12
-     }
-    ],
-    "topTermos": [
+     },
      {
-      "t": "inteligência artificial",
-      "n": 21,
+      "t": "casa",
+      "n": 40,
+      "vs": 2
+     },
+     {
+      "t": "emprego",
+      "n": 39,
       "vs": 11
      },
      {
-      "t": "governo bolsonaro",
-      "n": 20,
-      "vs": 0
+      "t": "tecnologia",
+      "n": 36,
+      "vs": 27
      },
      {
-      "t": "segurança jurídica",
-      "n": 15,
-      "vs": 3
-     },
-     {
-      "t": "conta de luz",
-      "n": 11,
-      "vs": 0
-     },
-     {
-      "t": "fim do mês",
-      "n": 9,
-      "vs": 0
-     },
-     {
-      "t": "reforma tributária",
-      "n": 8,
+      "t": "caminho",
+      "n": 31,
       "vs": 6
      },
      {
-      "t": "orientação financeira",
-      "n": 7,
-      "vs": 0
-     },
-     {
-      "t": "minerais críticos",
-      "n": 7,
+      "t": "imposto",
+      "n": 31,
       "vs": 3
      },
      {
-      "t": "data centers",
-      "n": 7,
+      "t": "escola",
+      "n": 29,
+      "vs": 12
+     },
+     {
+      "t": "fila",
+      "n": 29,
+      "vs": 7
+     },
+     {
+      "t": "regra",
+      "n": 29,
       "vs": 0
      },
      {
-      "t": "primeiro emprego",
-      "n": 7,
-      "vs": 0
+      "t": "conta",
+      "n": 27,
+      "vs": 6
      }
     ]
    },
    "economia": {
     "palavras": 7188,
     "paginas": 20,
-    "topPalavras": [
+    "top": [
      {
       "t": "brasil",
-      "n": 41,
-      "vs": 49
+      "n": 40,
+      "vs": 46
      },
      {
       "t": "país",
@@ -173,7 +172,7 @@ window.WORD_STATS = {
      {
       "t": "estado",
       "n": 22,
-      "vs": 10
+      "vs": 8
      },
      {
       "t": "conta",
@@ -188,84 +187,82 @@ window.WORD_STATS = {
      {
       "t": "governo",
       "n": 19,
-      "vs": 15
+      "vs": 14
      },
      {
       "t": "imposto",
       "n": 19,
-      "vs": 4
+      "vs": 3
      },
      {
       "t": "regra",
-      "n": 19,
+      "n": 18,
       "vs": 0
      },
      {
       "t": "casa",
-      "n": 17,
-      "vs": 0
-     }
-    ],
-    "topTermos": [
-     {
-      "t": "conta de luz",
-      "n": 7,
+      "n": 16,
       "vs": 0
      },
      {
-      "t": "fim do mês",
-      "n": 6,
+      "t": "preço",
+      "n": 16,
       "vs": 0
      },
      {
-      "t": "taxa de juros",
-      "n": 6,
+      "t": "emprego",
+      "n": 14,
+      "vs": 7
+     },
+     {
+      "t": "mundo",
+      "n": 14,
+      "vs": 8
+     },
+     {
+      "t": "empresa",
+      "n": 13,
+      "vs": 12
+     },
+     {
+      "t": "energia",
+      "n": 13,
+      "vs": 12
+     },
+     {
+      "t": "trabalho",
+      "n": 12,
+      "vs": 21
+     },
+     {
+      "t": "dinheiro",
+      "n": 11,
       "vs": 0
      },
      {
-      "t": "reforma tributária",
-      "n": 6,
-      "vs": 6
+      "t": "trabalhador",
+      "n": 11,
+      "vs": 5
      },
      {
-      "t": "segurança jurídica",
-      "n": 6,
-      "vs": 1
-     },
-     {
-      "t": "pontos percentuais",
-      "n": 5,
+      "t": "cidadão",
+      "n": 10,
       "vs": 0
      },
      {
-      "t": "governo bolsonaro",
-      "n": 5,
-      "vs": 0
-     },
-     {
-      "t": "estados unidos",
-      "n": 4,
-      "vs": 0
-     },
-     {
-      "t": "investimento privado",
-      "n": 4,
-      "vs": 0
-     },
-     {
-      "t": "regras claras",
-      "n": 4,
-      "vs": 0
+      "t": "dívida",
+      "n": 10,
+      "vs": 2
      }
     ]
    },
    "educacao": {
     "palavras": 1884,
     "paginas": 5,
-    "topPalavras": [
+    "top": [
      {
       "t": "escola",
-      "n": 19,
+      "n": 18,
       "vs": 6
      },
      {
@@ -274,29 +271,24 @@ window.WORD_STATS = {
       "vs": 3
      },
      {
-      "t": "família",
-      "n": 10,
-      "vs": 2
-     },
-     {
-      "t": "criança",
-      "n": 9,
-      "vs": 4
-     },
-     {
       "t": "aluno",
       "n": 9,
       "vs": 0
      },
      {
-      "t": "esporte",
-      "n": 8,
-      "vs": 1
+      "t": "criança",
+      "n": 9,
+      "vs": 3
      },
      {
-      "t": "saúde",
-      "n": 7,
-      "vs": 1
+      "t": "família",
+      "n": 9,
+      "vs": 2
+     },
+     {
+      "t": "esporte",
+      "n": 8,
+      "vs": 0
      },
      {
       "t": "faltou",
@@ -309,57 +301,75 @@ window.WORD_STATS = {
       "vs": 4
      },
      {
+      "t": "custa",
+      "n": 6,
+      "vs": 0
+     },
+     {
+      "t": "ensina",
+      "n": 6,
+      "vs": 0
+     },
+     {
       "t": "filho",
       "n": 6,
       "vs": 0
-     }
-    ],
-    "topTermos": [
+     },
      {
-      "t": "sala de aula",
-      "n": 4,
+      "t": "parceria",
+      "n": 6,
       "vs": 0
      },
      {
-      "t": "política nacional",
-      "n": 2,
+      "t": "saúde",
+      "n": 6,
+      "vs": 1
+     },
+     {
+      "t": "aprende",
+      "n": 5,
       "vs": 0
      },
      {
-      "t": "setor produtivo",
-      "n": 2,
+      "t": "atendimento",
+      "n": 5,
       "vs": 0
      },
      {
-      "t": "ensino superior",
-      "n": 2,
-      "vs": 3
+      "t": "brasil",
+      "n": 5,
+      "vs": 1
      },
      {
-      "t": "dinheiro público",
-      "n": 2,
+      "t": "emprego",
+      "n": 5,
       "vs": 0
      },
      {
-      "t": "iniciativa privada",
-      "n": 2,
-      "vs": 0
+      "t": "ensino",
+      "n": 5,
+      "vs": 2
+     },
+     {
+      "t": "existe",
+      "n": 5,
+      "vs": 1
+     },
+     {
+      "t": "vida",
+      "n": 5,
+      "vs": 2
      }
     ]
    },
    "seguranca": {
     "palavras": 1078,
     "paginas": 3,
-    "topPalavras": [
+    "top": [
      {
       "t": "crime",
       "n": 13,
       "vs": 7
-     },
-     {
-      "t": "brasil",
-      "n": 7,
-      "vs": 1
      },
      {
       "t": "bandido",
@@ -367,22 +377,62 @@ window.WORD_STATS = {
       "vs": 0
      },
      {
+      "t": "brasil",
+      "n": 7,
+      "vs": 1
+     },
+     {
       "t": "facções",
       "n": 5,
       "vs": 1
      },
      {
-      "t": "força",
-      "n": 5,
-      "vs": 3
-     },
-     {
       "t": "mulher",
       "n": 5,
+      "vs": 2
+     },
+     {
+      "t": "governo do brasil",
+      "n": 4,
+      "vs": 0
+     },
+     {
+      "t": "acabar",
+      "n": 4,
+      "vs": 0
+     },
+     {
+      "t": "comete",
+      "n": 4,
+      "vs": 0
+     },
+     {
+      "t": "criança",
+      "n": 4,
+      "vs": 0
+     },
+     {
+      "t": "força",
+      "n": 4,
       "vs": 1
      },
      {
+      "t": "fronteira",
+      "n": 4,
+      "vs": 2
+     },
+     {
+      "t": "lei",
+      "n": 4,
+      "vs": 0
+     },
+     {
       "t": "medo",
+      "n": 4,
+      "vs": 0
+     },
+     {
+      "t": "presídios",
       "n": 4,
       "vs": 0
      },
@@ -392,62 +442,45 @@ window.WORD_STATS = {
       "vs": 5
      },
      {
-      "t": "criança",
-      "n": 4,
+      "t": "blá",
+      "n": 3,
       "vs": 0
      },
      {
-      "t": "lei",
-      "n": 4,
-      "vs": 1
-     }
-    ],
-    "topTermos": [
-     {
-      "t": "governo do brasil",
-      "n": 4,
+      "t": "cocaína",
+      "n": 3,
       "vs": 0
      },
      {
-      "t": "crime organizado",
-      "n": 2,
-      "vs": 14
-     },
-     {
-      "t": "tropa de elite",
-      "n": 2,
+      "t": "criminoso",
+      "n": 3,
       "vs": 0
      },
      {
-      "t": "sistema nacional",
-      "n": 2,
-      "vs": 2
-     },
-     {
-      "t": "segurança pública",
-      "n": 2,
-      "vs": 10
-     },
-     {
-      "t": "famílias das vítimas",
-      "n": 2,
+      "t": "deixar",
+      "n": 3,
       "vs": 0
+     },
+     {
+      "t": "estado",
+      "n": 3,
+      "vs": 4
      }
     ]
    },
    "saude": {
     "palavras": 1445,
     "paginas": 4,
-    "topPalavras": [
+    "top": [
      {
       "t": "família",
-      "n": 13,
+      "n": 12,
       "vs": 2
      },
      {
       "t": "cuidado",
       "n": 10,
-      "vs": 5
+      "vs": 4
      },
      {
       "t": "cuidar",
@@ -470,14 +503,14 @@ window.WORD_STATS = {
       "vs": 0
      },
      {
-      "t": "sistema",
+      "t": "deficiência",
       "n": 5,
-      "vs": 6
+      "vs": 0
      },
      {
-      "t": "saúde",
+      "t": "espera",
       "n": 5,
-      "vs": 21
+      "vs": 2
      },
      {
       "t": "exame",
@@ -488,43 +521,66 @@ window.WORD_STATS = {
       "t": "fila",
       "n": 5,
       "vs": 2
-     }
-    ],
-    "topTermos": [
+     },
+     {
+      "t": "sistema",
+      "n": 5,
+      "vs": 6
+     },
+     {
+      "t": "criança",
+      "n": 4,
+      "vs": 4
+     },
+     {
+      "t": "enfrentam",
+      "n": 4,
+      "vs": 0
+     },
+     {
+      "t": "hospital",
+      "n": 4,
+      "vs": 0
+     },
+     {
+      "t": "saúde",
+      "n": 4,
+      "vs": 16
+     },
+     {
+      "t": "tratar",
+      "n": 4,
+      "vs": 0
+     },
+     {
+      "t": "vida",
+      "n": 4,
+      "vs": 1
+     },
      {
       "t": "rede nacional",
       "n": 3,
       "vs": 0
      },
      {
-      "t": "inteligência artificial",
-      "n": 2,
-      "vs": 1
-     },
-     {
-      "t": "antes de a doença",
-      "n": 2,
+      "t": "aposentado",
+      "n": 3,
       "vs": 0
      },
      {
-      "t": "perto de casa",
-      "n": 2,
-      "vs": 0
-     },
-     {
-      "t": "saúde mental",
-      "n": 2,
-      "vs": 0
+      "t": "bem",
+      "n": 3,
+      "vs": 2
      }
     ]
    },
    "politica-externa": {
     "palavras": 721,
     "paginas": 2,
-    "topPalavras": [
+    "top": [
      {
       "t": "brasil",
-      "n": 8,
+      "n": 7,
       "vs": 6
      },
      {
@@ -534,12 +590,17 @@ window.WORD_STATS = {
      },
      {
       "t": "soberania",
-      "n": 7,
+      "n": 6,
       "vs": 2
      },
      {
+      "t": "brasileiro",
+      "n": 4,
+      "vs": 3
+     },
+     {
       "t": "mundo",
-      "n": 5,
+      "n": 4,
       "vs": 2
      },
      {
@@ -548,14 +609,24 @@ window.WORD_STATS = {
       "vs": 0
      },
      {
-      "t": "brasileiro",
-      "n": 4,
-      "vs": 3
+      "t": "diplomacia",
+      "n": 3,
+      "vs": 1
      },
      {
-      "t": "terra",
+      "t": "governo",
+      "n": 3,
+      "vs": 1
+     },
+     {
+      "t": "ideologia",
       "n": 3,
       "vs": 0
+     },
+     {
+      "t": "interesse",
+      "n": 3,
+      "vs": 2
      },
      {
       "t": "investimento",
@@ -563,19 +634,47 @@ window.WORD_STATS = {
       "vs": 3
      },
      {
+      "t": "mercado",
+      "n": 3,
+      "vs": 1
+     },
+     {
       "t": "produz",
       "n": 3,
       "vs": 0
      },
      {
-      "t": "profissionalismo",
+      "t": "terra",
       "n": 3,
       "vs": 0
-     }
-    ],
-    "topTermos": [
+     },
      {
       "t": "estados unidos",
+      "n": 2,
+      "vs": 0
+     },
+     {
+      "t": "amazônia",
+      "n": 2,
+      "vs": 2
+     },
+     {
+      "t": "atrair",
+      "n": 2,
+      "vs": 0
+     },
+     {
+      "t": "casa",
+      "n": 2,
+      "vs": 1
+     },
+     {
+      "t": "começa",
+      "n": 2,
+      "vs": 0
+     },
+     {
+      "t": "comércio",
       "n": 2,
       "vs": 0
      }
@@ -584,19 +683,19 @@ window.WORD_STATS = {
    "corrupcao": {
     "palavras": 1087,
     "paginas": 3,
-    "topPalavras": [
+    "top": [
      {
-      "t": "regra",
+      "t": "estado",
+      "n": 8,
+      "vs": 1
+     },
+     {
+      "t": "estatal",
       "n": 8,
       "vs": 0
      },
      {
-      "t": "estado",
-      "n": 8,
-      "vs": 3
-     },
-     {
-      "t": "estatal",
+      "t": "regra",
       "n": 8,
       "vs": 0
      },
@@ -616,28 +715,6 @@ window.WORD_STATS = {
       "vs": 1
      },
      {
-      "t": "revisão",
-      "n": 3,
-      "vs": 0
-     },
-     {
-      "t": "recurso",
-      "n": 3,
-      "vs": 2
-     },
-     {
-      "t": "dinheiro",
-      "n": 3,
-      "vs": 0
-     },
-     {
-      "t": "orçamento",
-      "n": 3,
-      "vs": 5
-     }
-    ],
-    "topTermos": [
-     {
       "t": "indicação política",
       "n": 3,
       "vs": 0
@@ -648,18 +725,63 @@ window.WORD_STATS = {
       "vs": 0
      },
      {
-      "t": "políticas públicas",
-      "n": 2,
-      "vs": 2
-     },
-     {
-      "t": "gestão pública",
-      "n": 2,
+      "t": "comando",
+      "n": 3,
       "vs": 0
      },
      {
-      "t": "regras claras",
-      "n": 2,
+      "t": "controle",
+      "n": 3,
+      "vs": 2
+     },
+     {
+      "t": "corrupção",
+      "n": 3,
+      "vs": 0
+     },
+     {
+      "t": "dinheiro",
+      "n": 3,
+      "vs": 0
+     },
+     {
+      "t": "dívida",
+      "n": 3,
+      "vs": 0
+     },
+     {
+      "t": "imposto",
+      "n": 3,
+      "vs": 0
+     },
+     {
+      "t": "máquina",
+      "n": 3,
+      "vs": 0
+     },
+     {
+      "t": "orçamento",
+      "n": 3,
+      "vs": 5
+     },
+     {
+      "t": "pensão",
+      "n": 3,
+      "vs": 0
+     },
+     {
+      "t": "possível",
+      "n": 3,
+      "vs": 0
+     },
+     {
+      "t": "recurso",
+      "n": 3,
+      "vs": 2
+     },
+     {
+      "t": "revisão",
+      "n": 3,
       "vs": 0
      }
     ]
@@ -667,11 +789,11 @@ window.WORD_STATS = {
    "direitos-bem-estar": {
     "palavras": 2979,
     "paginas": 9,
-    "topPalavras": [
+    "top": [
      {
       "t": "mulher",
       "n": 26,
-      "vs": 21
+      "vs": 18
      },
      {
       "t": "brasil",
@@ -696,7 +818,7 @@ window.WORD_STATS = {
      {
       "t": "proteção",
       "n": 9,
-      "vs": 12
+      "vs": 11
      },
      {
       "t": "saúde",
@@ -706,7 +828,7 @@ window.WORD_STATS = {
      {
       "t": "casa",
       "n": 7,
-      "vs": 1
+      "vs": 0
      },
      {
       "t": "cuidar",
@@ -714,72 +836,70 @@ window.WORD_STATS = {
       "vs": 1
      },
      {
+      "t": "estado",
+      "n": 7,
+      "vs": 12
+     },
+     {
       "t": "regra",
       "n": 7,
       "vs": 0
-     }
-    ],
-    "topTermos": [
-     {
-      "t": "nenhuma mulher",
-      "n": 3,
-      "vs": 0
      },
      {
-      "t": "vagas de emprego",
-      "n": 3,
-      "vs": 0
+      "t": "autonomia",
+      "n": 6,
+      "vs": 3
      },
      {
-      "t": "saúde mental",
-      "n": 3,
-      "vs": 0
+      "t": "esporte",
+      "n": 6,
+      "vs": 1
      },
      {
-      "t": "iniciativa privada",
-      "n": 3,
-      "vs": 0
+      "t": "idoso",
+      "n": 6,
+      "vs": 1
      },
      {
-      "t": "alto rendimento",
-      "n": 3,
-      "vs": 0
-     },
-     {
-      "t": "famílias brasileiras",
-      "n": 2,
-      "vs": 0
-     },
-     {
-      "t": "família inteira",
-      "n": 2,
-      "vs": 0
-     },
-     {
-      "t": "mercado de trabalho",
-      "n": 2,
+      "t": "renda",
+      "n": 6,
       "vs": 2
      },
      {
-      "t": "central da mulher",
-      "n": 2,
-      "vs": 0
+      "t": "terra",
+      "n": 6,
+      "vs": 6
      },
      {
-      "t": "orientação financeira",
-      "n": 2,
-      "vs": 0
+      "t": "trabalho",
+      "n": 6,
+      "vs": 11
+     },
+     {
+      "t": "vida",
+      "n": 6,
+      "vs": 1
+     },
+     {
+      "t": "acesso",
+      "n": 5,
+      "vs": 6
+     },
+     {
+      "t": "criança",
+      "n": 5,
+      "vs": 4
      }
     ]
    },
    "tecnologia": {
     "palavras": 1352,
     "paginas": 4,
-    "topPalavras": [
+    "top": [
      {
       "t": "brasil",
-      "n": 14,
-      "vs": 5
+      "n": 13,
+      "vs": 4
      },
      {
       "t": "tecnologia",
@@ -792,9 +912,9 @@ window.WORD_STATS = {
       "vs": 0
      },
      {
-      "t": "serviço",
+      "t": "inteligência artificial",
       "n": 7,
-      "vs": 5
+      "vs": 7
      },
      {
       "t": "país",
@@ -802,9 +922,14 @@ window.WORD_STATS = {
       "vs": 8
      },
      {
+      "t": "serviço",
+      "n": 7,
+      "vs": 5
+     },
+     {
       "t": "estado",
       "n": 5,
-      "vs": 2
+      "vs": 1
      },
      {
       "t": "governo",
@@ -817,31 +942,14 @@ window.WORD_STATS = {
       "vs": 2
      },
      {
-      "t": "digital",
+      "t": "inovação",
       "n": 4,
-      "vs": 8
+      "vs": 4
      },
      {
-      "t": "saúde",
+      "t": "investimento",
       "n": 4,
-      "vs": 3
-     }
-    ],
-    "topTermos": [
-     {
-      "t": "inteligência artificial",
-      "n": 7,
-      "vs": 7
-     },
-     {
-      "t": "serviços públicos",
-      "n": 3,
-      "vs": 1
-     },
-     {
-      "t": "energia limpa",
-      "n": 3,
-      "vs": 0
+      "vs": 4
      },
      {
       "t": "data centers",
@@ -849,33 +957,43 @@ window.WORD_STATS = {
       "vs": 0
      },
      {
-      "t": "governo bolsonaro",
-      "n": 2,
+      "t": "energia limpa",
+      "n": 3,
       "vs": 0
      },
      {
-      "t": "serviços ambientais",
-      "n": 2,
-      "vs": 0
-     },
-     {
-      "t": "áreas degradadas",
-      "n": 2,
-      "vs": 0
-     },
-     {
-      "t": "minerais críticos",
-      "n": 2,
-      "vs": 0
-     },
-     {
-      "t": "transição energética",
-      "n": 2,
+      "t": "serviços públicos",
+      "n": 3,
       "vs": 1
      },
      {
-      "t": "poucos países",
-      "n": 2,
+      "t": "ambiente",
+      "n": 3,
+      "vs": 0
+     },
+     {
+      "t": "brasileiro",
+      "n": 3,
+      "vs": 4
+     },
+     {
+      "t": "dele",
+      "n": 3,
+      "vs": 0
+     },
+     {
+      "t": "digital",
+      "n": 3,
+      "vs": 8
+     },
+     {
+      "t": "economia",
+      "n": 3,
+      "vs": 3
+     },
+     {
+      "t": "energia",
+      "n": 3,
       "vs": 0
      }
     ]
@@ -885,11 +1003,11 @@ window.WORD_STATS = {
    "geral": {
     "palavras": 24821,
     "paginas": null,
-    "topPalavras": [
+    "top": [
      {
       "t": "brasil",
-      "n": 119,
-      "vs": 142
+      "n": 110,
+      "vs": 136
      },
      {
       "t": "política",
@@ -898,17 +1016,17 @@ window.WORD_STATS = {
      },
      {
       "t": "investimento",
-      "n": 78,
+      "n": 77,
       "vs": 21
      },
      {
       "t": "país",
-      "n": 75,
+      "n": 73,
       "vs": 80
      },
      {
       "t": "nacional",
-      "n": 65,
+      "n": 56,
       "vs": 15
      },
      {
@@ -917,87 +1035,85 @@ window.WORD_STATS = {
       "vs": 10
      },
      {
-      "t": "social",
-      "n": 47,
-      "vs": 24
-     },
-     {
       "t": "mandato",
       "n": 47,
       "vs": 4
      },
      {
-      "t": "saúde",
-      "n": 46,
-      "vs": 30
+      "t": "acesso",
+      "n": 44,
+      "vs": 14
      },
      {
       "t": "infraestrutura",
-      "n": 45,
+      "n": 43,
       "vs": 20
-     }
-    ],
-    "topTermos": [
-     {
-      "t": "próximo mandato",
-      "n": 24,
-      "vs": 0
      },
      {
-      "t": "crime organizado",
-      "n": 18,
+      "t": "social",
+      "n": 42,
+      "vs": 23
+     },
+     {
+      "t": "capacidade",
+      "n": 40,
       "vs": 5
      },
      {
-      "t": "segurança pública",
-      "n": 16,
-      "vs": 4
+      "t": "saúde",
+      "n": 40,
+      "vs": 26
      },
      {
-      "t": "políticas públicas",
-      "n": 15,
+      "t": "estado",
+      "n": 38,
+      "vs": 58
+     },
+     {
+      "t": "inovação",
+      "n": 36,
+      "vs": 13
+     },
+     {
+      "t": "direito",
+      "n": 35,
+      "vs": 15
+     },
+     {
+      "t": "desigualdade",
+      "n": 34,
+      "vs": 2
+     },
+     {
+      "t": "cultura",
+      "n": 33,
       "vs": 6
      },
      {
-      "t": "estados e municípios",
-      "n": 15,
-      "vs": 4
+      "t": "educação",
+      "n": 33,
+      "vs": 8
      },
      {
-      "t": "governo lula",
-      "n": 12,
-      "vs": 0
+      "t": "proteção",
+      "n": 33,
+      "vs": 25
      },
      {
-      "t": "política nacional",
-      "n": 11,
-      "vs": 3
-     },
-     {
-      "t": "inteligência artificial",
-      "n": 11,
-      "vs": 21
-     },
-     {
-      "t": "participação social",
-      "n": 10,
-      "vs": 0
-     },
-     {
-      "t": "segurança energética",
-      "n": 10,
-      "vs": 4
+      "t": "rede",
+      "n": 32,
+      "vs": 13
      }
     ]
    },
    "economia": {
     "palavras": 8568,
     "paginas": 27,
-    "topPalavras": [
+    "top": [
      {
       "t": "brasil",
-      "n": 49,
-      "vs": 41
+      "n": 46,
+      "vs": 40
      },
      {
       "t": "investimento",
@@ -1016,7 +1132,7 @@ window.WORD_STATS = {
      },
      {
       "t": "infraestrutura",
-      "n": 29,
+      "n": 28,
       "vs": 8
      },
      {
@@ -1025,14 +1141,14 @@ window.WORD_STATS = {
       "vs": 12
      },
      {
-      "t": "inovação",
-      "n": 21,
-      "vs": 2
-     },
-     {
       "t": "economia",
       "n": 20,
       "vs": 1
+     },
+     {
+      "t": "inovação",
+      "n": 20,
+      "vs": 2
      },
      {
       "t": "desenvolvimento",
@@ -1041,67 +1157,65 @@ window.WORD_STATS = {
      },
      {
       "t": "nacional",
-      "n": 18,
-      "vs": 6
-     }
-    ],
-    "topTermos": [
-     {
-      "t": "políticas públicas",
-      "n": 7,
-      "vs": 3
-     },
-     {
-      "t": "geração de empregos",
-      "n": 6,
-      "vs": 0
-     },
-     {
-      "t": "reforma tributária",
-      "n": 6,
+      "n": 17,
       "vs": 6
      },
      {
-      "t": "desenvolvimento regional",
-      "n": 6,
-      "vs": 0
+      "t": "crescimento",
+      "n": 15,
+      "vs": 2
      },
      {
-      "t": "economia brasileira",
-      "n": 5,
-      "vs": 0
+      "t": "governo",
+      "n": 14,
+      "vs": 19
      },
      {
-      "t": "públicos e privados",
-      "n": 5,
-      "vs": 0
-     },
-     {
-      "t": "longo prazo",
-      "n": 5,
-      "vs": 0
-     },
-     {
-      "t": "transição energética",
-      "n": 5,
+      "t": "capacidade",
+      "n": 13,
       "vs": 1
      },
      {
-      "t": "agricultura familiar",
-      "n": 5,
+      "t": "internacional",
+      "n": 13,
+      "vs": 4
+     },
+     {
+      "t": "mandato",
+      "n": 13,
+      "vs": 2
+     },
+     {
+      "t": "produção",
+      "n": 13,
+      "vs": 5
+     },
+     {
+      "t": "renda",
+      "n": 13,
+      "vs": 4
+     },
+     {
+      "t": "desigualdade",
+      "n": 12,
       "vs": 0
      },
      {
-      "t": "segurança energética",
-      "n": 5,
-      "vs": 1
+      "t": "empresa",
+      "n": 12,
+      "vs": 13
+     },
+     {
+      "t": "energia",
+      "n": 12,
+      "vs": 13
      }
     ]
    },
    "educacao": {
     "palavras": 1318,
     "paginas": 4,
-    "topPalavras": [
+    "top": [
      {
       "t": "educação",
       "n": 13,
@@ -1113,9 +1227,9 @@ window.WORD_STATS = {
       "vs": 0
      },
      {
-      "t": "federal",
+      "t": "escola",
       "n": 6,
-      "vs": 0
+      "vs": 18
      },
      {
       "t": "recurso",
@@ -1123,9 +1237,14 @@ window.WORD_STATS = {
       "vs": 1
      },
      {
-      "t": "escola",
-      "n": 6,
-      "vs": 19
+      "t": "federal",
+      "n": 5,
+      "vs": 0
+     },
+     {
+      "t": "mandato",
+      "n": 5,
+      "vs": 0
      },
      {
       "t": "municípios",
@@ -1143,20 +1262,43 @@ window.WORD_STATS = {
       "vs": 2
      },
      {
-      "t": "mandato",
-      "n": 5,
+      "t": "estados e municípios",
+      "n": 4,
       "vs": 0
+     },
+     {
+      "t": "acesso",
+      "n": 4,
+      "vs": 1
+     },
+     {
+      "t": "creche",
+      "n": 4,
+      "vs": 1
+     },
+     {
+      "t": "fomento",
+      "n": 4,
+      "vs": 0
+     },
+     {
+      "t": "formação",
+      "n": 4,
+      "vs": 7
      },
      {
       "t": "obras",
       "n": 4,
       "vs": 0
-     }
-    ],
-    "topTermos": [
+     },
      {
-      "t": "estados e municípios",
+      "t": "pac",
       "n": 4,
+      "vs": 0
+     },
+     {
+      "t": "ensino médio",
+      "n": 3,
       "vs": 0
      },
      {
@@ -1165,7 +1307,7 @@ window.WORD_STATS = {
       "vs": 2
      },
      {
-      "t": "ensino médio",
+      "t": "próximo mandato",
       "n": 3,
       "vs": 0
      },
@@ -1173,51 +1315,26 @@ window.WORD_STATS = {
       "t": "tempo integral",
       "n": 3,
       "vs": 0
-     },
-     {
-      "t": "próximo mandato",
-      "n": 3,
-      "vs": 0
-     },
-     {
-      "t": "mercado de trabalho",
-      "n": 2,
-      "vs": 1
-     },
-     {
-      "t": "educação básica",
-      "n": 2,
-      "vs": 0
-     },
-     {
-      "t": "estratégia nacional",
-      "n": 2,
-      "vs": 0
-     },
-     {
-      "t": "formação profissional",
-      "n": 2,
-      "vs": 0
-     },
-     {
-      "t": "institutos federais",
-      "n": 2,
-      "vs": 0
      }
     ]
    },
    "seguranca": {
     "palavras": 1603,
     "paginas": 5,
-    "topPalavras": [
+    "top": [
      {
-      "t": "violência",
-      "n": 9,
-      "vs": 0
+      "t": "crime organizado",
+      "n": 14,
+      "vs": 2
      },
      {
-      "t": "nacional",
-      "n": 8,
+      "t": "segurança pública",
+      "n": 10,
+      "vs": 2
+     },
+     {
+      "t": "violência",
+      "n": 10,
       "vs": 0
      },
      {
@@ -1231,9 +1348,9 @@ window.WORD_STATS = {
       "vs": 13
      },
      {
-      "t": "país",
+      "t": "cooperação",
       "n": 6,
-      "vs": 1
+      "vs": 0
      },
      {
       "t": "criminosas",
@@ -1241,36 +1358,24 @@ window.WORD_STATS = {
       "vs": 1
      },
      {
-      "t": "cooperação",
+      "t": "nacional",
       "n": 6,
       "vs": 0
      },
      {
-      "t": "federal",
-      "n": 5,
-      "vs": 3
+      "t": "país",
+      "n": 6,
+      "vs": 1
      },
      {
-      "t": "estado",
-      "n": 5,
-      "vs": 4
-     },
-     {
-      "t": "direito",
+      "t": "controle",
       "n": 5,
       "vs": 1
-     }
-    ],
-    "topTermos": [
-     {
-      "t": "crime organizado",
-      "n": 14,
-      "vs": 2
      },
      {
-      "t": "segurança pública",
-      "n": 10,
-      "vs": 2
+      "t": "segurança",
+      "n": 5,
+      "vs": 4
      },
      {
       "t": "estados e municípios",
@@ -1278,38 +1383,43 @@ window.WORD_STATS = {
       "vs": 1
      },
      {
-      "t": "sistema prisional",
-      "n": 3,
+      "t": "ambiental",
+      "n": 4,
       "vs": 0
      },
      {
-      "t": "armas de fogo",
-      "n": 2,
+      "t": "capacidade",
+      "n": 4,
       "vs": 0
      },
      {
-      "t": "crianças e adolescentes",
-      "n": 2,
+      "t": "direito",
+      "n": 4,
+      "vs": 1
+     },
+     {
+      "t": "estado",
+      "n": 4,
+      "vs": 3
+     },
+     {
+      "t": "federal",
+      "n": 4,
+      "vs": 3
+     },
+     {
+      "t": "financeira",
+      "n": 4,
       "vs": 0
      },
      {
-      "t": "políticas de prevenção",
-      "n": 2,
+      "t": "gestão",
+      "n": 4,
       "vs": 0
      },
      {
-      "t": "sistema nacional",
-      "n": 2,
-      "vs": 2
-     },
-     {
-      "t": "presença do estado",
-      "n": 2,
-      "vs": 0
-     },
-     {
-      "t": "repressão qualificada",
-      "n": 2,
+      "t": "instituições",
+      "n": 4,
       "vs": 0
      }
     ]
@@ -1317,16 +1427,11 @@ window.WORD_STATS = {
    "saude": {
     "palavras": 1663,
     "paginas": 5,
-    "topPalavras": [
+    "top": [
      {
       "t": "saúde",
-      "n": 21,
-      "vs": 5
-     },
-     {
-      "t": "rede",
-      "n": 8,
-      "vs": 1
+      "n": 16,
+      "vs": 4
      },
      {
       "t": "equipamentos",
@@ -1339,13 +1444,13 @@ window.WORD_STATS = {
       "vs": 0
      },
      {
-      "t": "sus",
+      "t": "rede",
       "n": 7,
-      "vs": 2
+      "vs": 1
      },
      {
-      "t": "especialistas",
-      "n": 6,
+      "t": "sus",
+      "n": 7,
       "vs": 0
      },
      {
@@ -1354,7 +1459,12 @@ window.WORD_STATS = {
       "vs": 2
      },
      {
-      "t": "inovação",
+      "t": "especialistas",
+      "n": 6,
+      "vs": 0
+     },
+     {
+      "t": "mandato",
       "n": 6,
       "vs": 0
      },
@@ -1364,30 +1474,58 @@ window.WORD_STATS = {
       "vs": 5
      },
      {
-      "t": "mandato",
-      "n": 6,
+      "t": "brasil",
+      "n": 5,
+      "vs": 3
+     },
+     {
+      "t": "diagnóstico",
+      "n": 5,
+      "vs": 2
+     },
+     {
+      "t": "inovação",
+      "n": 5,
       "vs": 0
-     }
-    ],
-    "topTermos": [
+     },
+     {
+      "t": "municípios",
+      "n": 5,
+      "vs": 0
+     },
      {
       "t": "atenção especializada",
       "n": 4,
       "vs": 0
      },
      {
-      "t": "próximo mandato",
-      "n": 2,
+      "t": "ampliação",
+      "n": 4,
+      "vs": 1
+     },
+     {
+      "t": "articulação",
+      "n": 4,
       "vs": 0
      },
      {
-      "t": "cobertura vacinal",
-      "n": 2,
+      "t": "atenção",
+      "n": 4,
+      "vs": 2
+     },
+     {
+      "t": "básica",
+      "n": 4,
       "vs": 0
      },
      {
-      "t": "atenção psicossocial",
-      "n": 2,
+      "t": "cirurgia",
+      "n": 4,
+      "vs": 0
+     },
+     {
+      "t": "cobertura",
+      "n": 4,
       "vs": 0
      }
     ]
@@ -1395,21 +1533,16 @@ window.WORD_STATS = {
    "politica-externa": {
     "palavras": 971,
     "paginas": 3,
-    "topPalavras": [
+    "top": [
      {
       "t": "defesa",
-      "n": 12,
+      "n": 10,
       "vs": 0
      },
      {
-      "t": "proteção",
+      "t": "brasil",
       "n": 6,
-      "vs": 1
-     },
-     {
-      "t": "política",
-      "n": 6,
-      "vs": 1
+      "vs": 7
      },
      {
       "t": "país",
@@ -1417,14 +1550,14 @@ window.WORD_STATS = {
       "vs": 7
      },
      {
-      "t": "brasil",
+      "t": "política",
       "n": 6,
-      "vs": 8
+      "vs": 1
      },
      {
-      "t": "base",
-      "n": 4,
-      "vs": 0
+      "t": "proteção",
+      "n": 6,
+      "vs": 1
      },
      {
       "t": "capacidade",
@@ -1437,24 +1570,52 @@ window.WORD_STATS = {
       "vs": 1
      },
      {
-      "t": "tecnológica",
-      "n": 4,
-      "vs": 0
-     },
-     {
-      "t": "estado",
-      "n": 4,
-      "vs": 2
-     }
-    ],
-    "topTermos": [
-     {
       "t": "defesa nacional",
       "n": 3,
       "vs": 0
      },
      {
-      "t": "política externa",
+      "t": "autonomia",
+      "n": 3,
+      "vs": 1
+     },
+     {
+      "t": "brasileiro",
+      "n": 3,
+      "vs": 4
+     },
+     {
+      "t": "desenvolvimento",
+      "n": 3,
+      "vs": 2
+     },
+     {
+      "t": "estratégica",
+      "n": 3,
+      "vs": 0
+     },
+     {
+      "t": "internacional",
+      "n": 3,
+      "vs": 0
+     },
+     {
+      "t": "investimento",
+      "n": 3,
+      "vs": 3
+     },
+     {
+      "t": "trabalho",
+      "n": 3,
+      "vs": 0
+     },
+     {
+      "t": "base industrial",
+      "n": 2,
+      "vs": 0
+     },
+     {
+      "t": "crime organizado",
       "n": 2,
       "vs": 0
      },
@@ -1464,17 +1625,12 @@ window.WORD_STATS = {
       "vs": 0
      },
      {
-      "t": "recursos naturais",
-      "n": 2,
-      "vs": 0
-     },
-     {
       "t": "geração de empregos",
       "n": 2,
       "vs": 0
      },
      {
-      "t": "crime organizado",
+      "t": "política externa",
       "n": 2,
       "vs": 0
      }
@@ -1483,7 +1639,7 @@ window.WORD_STATS = {
    "corrupcao": {
     "palavras": 936,
     "paginas": 3,
-    "topPalavras": [
+    "top": [
      {
       "t": "democracia",
       "n": 8,
@@ -1515,7 +1671,7 @@ window.WORD_STATS = {
       "vs": 2
      },
      {
-      "t": "sistema",
+      "t": "participação social",
       "n": 4,
       "vs": 0
      },
@@ -1525,19 +1681,27 @@ window.WORD_STATS = {
       "vs": 0
      },
      {
-      "t": "nacional",
+      "t": "emenda",
       "n": 4,
-      "vs": 1
+      "vs": 0
      },
      {
       "t": "mandato",
       "n": 4,
       "vs": 1
-     }
-    ],
-    "topTermos": [
+     },
      {
-      "t": "participação social",
+      "t": "nacional",
+      "n": 4,
+      "vs": 1
+     },
+     {
+      "t": "sistema",
+      "n": 4,
+      "vs": 0
+     },
+     {
+      "t": "social",
       "n": 4,
       "vs": 0
      },
@@ -1547,39 +1711,44 @@ window.WORD_STATS = {
       "vs": 0
      },
      {
-      "t": "presidente lula",
-      "n": 2,
+      "t": "brasileira",
+      "n": 3,
       "vs": 0
      },
      {
-      "t": "políticas públicas",
-      "n": 2,
+      "t": "conferência",
+      "n": 3,
+      "vs": 0
+     },
+     {
+      "t": "cooperação",
+      "n": 3,
+      "vs": 0
+     },
+     {
+      "t": "eficiente",
+      "n": 3,
+      "vs": 1
+     },
+     {
+      "t": "federal",
+      "n": 3,
+      "vs": 0
+     },
+     {
+      "t": "permanente",
+      "n": 3,
       "vs": 2
-     },
-     {
-      "t": "estados e municípios",
-      "n": 2,
-      "vs": 0
-     },
-     {
-      "t": "sistema de justiça",
-      "n": 2,
-      "vs": 0
-     },
-     {
-      "t": "inteligência artificial",
-      "n": 2,
-      "vs": 0
      }
     ]
    },
    "direitos-bem-estar": {
     "palavras": 3237,
     "paginas": 10,
-    "topPalavras": [
+    "top": [
      {
       "t": "mulher",
-      "n": 21,
+      "n": 18,
       "vs": 26
      },
      {
@@ -1588,18 +1757,18 @@ window.WORD_STATS = {
       "vs": 3
      },
      {
-      "t": "estado",
-      "n": 12,
-      "vs": 7
-     },
-     {
       "t": "direito",
       "n": 12,
       "vs": 2
      },
      {
-      "t": "proteção",
+      "t": "estado",
       "n": 12,
+      "vs": 7
+     },
+     {
+      "t": "proteção",
+      "n": 11,
       "vs": 9
      },
      {
@@ -1609,7 +1778,7 @@ window.WORD_STATS = {
      },
      {
       "t": "educação",
-      "n": 10,
+      "n": 9,
       "vs": 2
      },
      {
@@ -1618,73 +1787,71 @@ window.WORD_STATS = {
       "vs": 1
      },
      {
-      "t": "indígena",
+      "t": "mandato",
       "n": 8,
       "vs": 0
      },
      {
-      "t": "mandato",
-      "n": 8,
+      "t": "indígena",
+      "n": 7,
       "vs": 0
-     }
-    ],
-    "topTermos": [
+     },
+     {
+      "t": "investimento",
+      "n": 7,
+      "vs": 3
+     },
+     {
+      "t": "país",
+      "n": 7,
+      "vs": 11
+     },
+     {
+      "t": "social",
+      "n": 7,
+      "vs": 4
+     },
+     {
+      "t": "violência",
+      "n": 7,
+      "vs": 2
+     },
      {
       "t": "povos indígenas",
       "n": 6,
       "vs": 0
      },
      {
-      "t": "políticas públicas",
-      "n": 3,
+      "t": "acesso",
+      "n": 6,
+      "vs": 5
+     },
+     {
+      "t": "brasil",
+      "n": 6,
+      "vs": 17
+     },
+     {
+      "t": "brasileira",
+      "n": 6,
+      "vs": 2
+     },
+     {
+      "t": "combate",
+      "n": 6,
       "vs": 0
      },
      {
-      "t": "violência contra",
-      "n": 3,
-      "vs": 0
-     },
-     {
-      "t": "política de cotas",
-      "n": 3,
-      "vs": 0
-     },
-     {
-      "t": "política nacional",
-      "n": 3,
-      "vs": 0
-     },
-     {
-      "t": "crianças e adolescentes",
-      "n": 3,
-      "vs": 0
-     },
-     {
-      "t": "direitos animais",
-      "n": 3,
-      "vs": 0
-     },
-     {
-      "t": "bolsa família",
-      "n": 2,
-      "vs": 0
-     },
-     {
-      "t": "política de valorização",
-      "n": 2,
-      "vs": 0
-     },
-     {
-      "t": "conferência nacional",
-      "n": 2,
-      "vs": 0
+      "t": "desenvolvimento",
+      "n": 6,
+      "vs": 4
      }
     ]
    },
    "tecnologia": {
     "palavras": 1243,
     "paginas": 4,
-    "topPalavras": [
+    "top": [
      {
       "t": "nacional",
       "n": 9,
@@ -1693,11 +1860,16 @@ window.WORD_STATS = {
      {
       "t": "digital",
       "n": 8,
-      "vs": 4
+      "vs": 3
      },
      {
       "t": "país",
       "n": 8,
+      "vs": 7
+     },
+     {
+      "t": "inteligência artificial",
+      "n": 7,
       "vs": 7
      },
      {
@@ -1716,31 +1888,59 @@ window.WORD_STATS = {
       "vs": 0
      },
      {
+      "t": "cultural",
+      "n": 5,
+      "vs": 0
+     },
+     {
       "t": "serviço",
       "n": 5,
       "vs": 7
      },
      {
-      "t": "audiovisual",
+      "t": "setor",
       "n": 5,
       "vs": 0
      },
      {
       "t": "brasil",
-      "n": 5,
-      "vs": 14
+      "n": 4,
+      "vs": 13
      },
      {
-      "t": "setor",
-      "n": 5,
-      "vs": 0
-     }
-    ],
-    "topTermos": [
+      "t": "brasileiro",
+      "n": 4,
+      "vs": 3
+     },
      {
-      "t": "inteligência artificial",
-      "n": 7,
-      "vs": 7
+      "t": "desenvolvimento",
+      "n": 4,
+      "vs": 2
+     },
+     {
+      "t": "inovação",
+      "n": 4,
+      "vs": 4
+     },
+     {
+      "t": "investimento",
+      "n": 4,
+      "vs": 4
+     },
+     {
+      "t": "plataforma",
+      "n": 4,
+      "vs": 0
+     },
+     {
+      "t": "pública",
+      "n": 4,
+      "vs": 1
+     },
+     {
+      "t": "tecnologia",
+      "n": 4,
+      "vs": 12
      },
      {
       "t": "combate à corrupção",
@@ -1750,31 +1950,6 @@ window.WORD_STATS = {
      {
       "t": "transformação digital",
       "n": 3,
-      "vs": 0
-     },
-     {
-      "t": "ambiente digital",
-      "n": 2,
-      "vs": 0
-     },
-     {
-      "t": "economia criativa",
-      "n": 2,
-      "vs": 0
-     },
-     {
-      "t": "centros de pesquisa",
-      "n": 2,
-      "vs": 0
-     },
-     {
-      "t": "setor produtivo",
-      "n": 2,
-      "vs": 0
-     },
-     {
-      "t": "transparência algorítmica",
-      "n": 2,
       "vs": 0
      }
     ]

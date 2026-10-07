@@ -658,12 +658,16 @@
     });
   }
 
-  /* ====================== Palavras e termos mais usados ====================== */
+  /* ====================== O que cada plano mais menciona ====================== */
   // O contador de palavras responde "quantas vezes aparece X"; este bloco faz
-  // a pergunta inversa — quais palavras cada plano mais usa — com os números
-  // já calculados por scripts/build_word_stats.py (window.WORD_STATS). Nada é
-  // contado aqui no navegador: o pipeline (stopwords, plural, termos
-  // compostos, recorte por tema) mora no script, que é onde dá para conferir.
+  // a pergunta inversa — o que cada plano mais menciona — com os números já
+  // calculados por scripts/build_word_stats.py (window.WORD_STATS). Nada é
+  // contado aqui no navegador: o pipeline (unidade de contagem, stopwords,
+  // plural, recorte por tema) mora no script, que é onde dá para conferir.
+  //
+  // A unidade é a COISA mencionada, de uma palavra ou de quatro: "China",
+  // "Estados Unidos" e "taxa de juros" valem uma menção cada, e disputam o
+  // mesmo ranking. Por isso a lista é uma só.
   function listaDeTermos(titulo, itens) {
     var bloco = el("div", "compare-block");
     var lbl = el("p", "compare-block-label");
@@ -713,7 +717,7 @@
     card.appendChild(candidateCardHead(c.basics));
 
     if (!corte) {
-      card.appendChild(listaDeTermos("Palavras", []));
+      card.appendChild(listaDeTermos("Mais mencionado", []));
       return card;
     }
 
@@ -723,10 +727,7 @@
       : corte.palavras.toLocaleString("pt-BR") + " palavras no plano inteiro";
     card.appendChild(ficha);
 
-    var colunas = el("div", "word-top-cols");
-    colunas.appendChild(listaDeTermos("Palavras", corte.topPalavras));
-    colunas.appendChild(listaDeTermos("Termos", corte.topTermos));
-    card.appendChild(colunas);
+    card.appendChild(listaDeTermos("Mais mencionado", corte.top));
     return card;
   }
 

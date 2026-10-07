@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Gera data/word-stats.js: as palavras e os termos mais usados em cada plano,
-no plano inteiro e tema a tema. Alimenta o bloco "Palavras e termos mais
-usados" da seção Contagem de Palavras.
+"""Gera data/word-stats.js: o que cada plano mais menciona, no plano inteiro e
+tema a tema. Alimenta o bloco "O que cada plano mais menciona" da seção
+Contagem de Palavras.
 
 COMO O CORPUS DE CADA TEMA É DEFINIDO
 -------------------------------------
@@ -17,26 +17,53 @@ sem Medo"; a Educação do Lula vira as páginas 31-33, o capítulo 4.
 
 O "plano inteiro" é o texto completo, sem recorte.
 
-COMO AS PALAVRAS SÃO CONTADAS
------------------------------
-1. Stopwords em duas camadas: as gramaticais (de, que, para) e as retóricas e
-   burocráticas que todo plano de governo repete sem dizer nada ("vamos",
-   "programa", "ação", "fortalecer"). Sem a segunda camada o ranking vira uma
-   lista de verbos de campanha.
-2. Plural fundido no singular SÓ quando o singular aparece no mesmo plano
-   ("políticas"→"política"). É uma lematização pobre de propósito: não depende
-   de dicionário externo e não inventa fusão ("mais" não vira "mai"). O
-   vocabulário de referência é sempre o PLANO INTEIRO, nunca o recorte, pra
-   a mesma palavra não aparecer fundida num tema e solta em outro.
-3. Termos compostos de 2 a 4 palavras, aceitando só conectores no meio
-   ("taxa de juros", "pessoas com deficiência", "inteligência artificial").
-   Cada ocorrência vira um token único ANTES da contagem, então o termo não
-   é contado de novo nas palavras soltas que o formam. Quando dois termos
-   disputam o mesmo pedaço de texto, fica o mais frequente.
-4. Sem TF-IDF: com dois documentos o idf é degenerado (um termo está em 1 ou
+O QUE É CONTADO: MENÇÕES, NÃO PALAVRAS
+--------------------------------------
+A unidade da contagem é a COISA MENCIONADA, tenha ela uma palavra ou quatro.
+"China", "Estados Unidos" e "taxa de juros" são uma menção cada — contar
+"estados", "unidos", "taxa", "juros" em separado desmancharia justamente o
+que interessa. Por isso o ranking é um só, sem separar palavra de termo: cada
+ocorrência do texto é atribuída a exatamente UMA unidade, e a disputa por
+lugar no topo é entre unidades comparáveis.
+
+Três detectores alimentam a lista de unidades compostas:
+
+1. NOMES PRÓPRIOS PELA MAIÚSCULA. Sequências de 2 a 4 palavras com inicial
+   maiúscula, aceitando conectores minúsculos no meio: "Estados Unidos",
+   "União Europeia", "Novo PAC", "Bolsa Família", "Casa da Mulher Brasileira".
+   Artigo da frente é descartado ("O Brasil" → "Brasil"). A busca é feita no
+   texto cru, não na lista de tokens, porque é a pontuação que impede
+   "Argentina, Estados Unidos e Israel" de virar um nome só — e "e" fica
+   fora dos conectores pela mesma razão. Um nome vale como unidade mesmo
+   citado uma única vez: ele é uma menção, não uma repetição.
+2. NOMES DE UMA PALAVRA SÓ, por proporção de maiúsculas: um token conta como
+   nome quando aparece com inicial maiúscula em pelo menos 80% das vezes no
+   plano. "China", "Petrobras", "Itamaraty" e "SUS" passam; "estado" e "fila"
+   não, porque aparecem minúsculos o tempo todo. A regra é necessária porque o
+   PDF capitaliza início de frase e títulos: sem ela, "Vamos" viraria um nome.
+3. COLOCAÇÕES MINÚSCULAS, de 2 a 4 palavras com só conectores no meio e pelo
+   menos 3 ocorrências: "taxa de juros", "crime organizado", "poder de compra".
+
+As ocorrências são substituídas por um token único ANTES da contagem, das
+unidades mais frequentes para as menos — assim o termo não é recontado nas
+palavras que o formam, e quando dois se sobrepõem no texto fica o mais
+repetido ("crime organizado", 13x, não é partido por "enfrentamento ao
+crime", 5x).
+
+E MAIS
+------
+4. Stopwords em duas camadas: as gramaticais (de, que, para) e as retóricas e
+   burocráticas que todo plano repete sem dizer nada ("vamos", "programa",
+   "ação", "fortalecer"). Sem a segunda camada o ranking vira uma lista de
+   verbos de campanha. Nome próprio detectado nunca é descartado por elas.
+5. Plural fundido no singular SÓ quando o singular aparece no mesmo plano
+   ("políticas"→"política"), com o vocabulário do plano inteiro como
+   referência. Lematização pobre de propósito: sem dicionário externo e sem
+   fusão inventada ("mais" não vira "mai"). Nome próprio não é mexido.
+6. Sem TF-IDF: com dois documentos o idf é degenerado (um termo está em 1 ou
    em 2 planos, e nada mais), e o resultado seria só "aparece em um só".
-   No lugar disso, cada termo leva a contagem do OUTRO plano no mesmo recorte
-   (`vs`), que é o contraste que interessa, sem estatística de enfeite.
+   No lugar disso, cada unidade leva a contagem do OUTRO plano no mesmo
+   recorte (`vs`), que é o contraste que interessa, sem estatística de enfeite.
 
 Uso:
     cd ftm-eleicoes
@@ -50,7 +77,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 TEXTS = ROOT / ".sources-cache" / "texts"
-QUANTOS = 10
+QUANTOS = 20
 
 PAGE_RE = re.compile(r"===== PAGE (\d+) =====\n?")
 TOKEN_RE = re.compile(r"[0-9a-zà-öø-ÿ]+", re.I)
@@ -62,7 +89,7 @@ haver há havia estar está estão estava seu sua seus suas nosso nossa nossos n
 esse essa esses essas aquele aquela aquilo isso isto mesmo mesma mesmos mesmas não nem já também mais
 menos muito muita muitos muitas todo toda todos todas outro outra outros outras cada qualquer ainda
 assim então porque pois lhe lhes ele ela eles elas nós você vocês eu me te si nada tudo algo algum alguma
-alguns algumas sim ainda apenas somente inclusive"""
+alguns algumas sim ainda apenas somente inclusive contra junto disso nisso daí perante"""
 
 # Retórica de campanha e burocracia de plano de governo: altíssima frequência,
 # baixíssimo conteúdo. Tirar isso é o que faz o ranking dizer alguma coisa.
@@ -83,12 +110,60 @@ batemos chegamos demos tivemos estamos seguimos continuamos pretendemos persisti
 consolidar consolidaremos recebemos governamos passou passa voltou voltamos vem vêm trazer traz"""
 
 CONECTORES = set("de do da dos das e em no na a à ao aos para com".split())
+ARTIGOS = set("o a os as um uma este esta esse essa nosso nossa seu sua".split())
 STOP = set(GRAMATICAIS.split()) | set(RETORICA.split())
-MIN_TERMO = 3   # um termo composto só conta a partir de 3 ocorrências no plano
+MIN_COLOCACAO = 3   # colocação minúscula só vale a partir de 3 ocorrências
+MIN_NOME = 1        # nome próprio composto é unidade mesmo citado uma vez
+PROPORCAO_MAIUSCULA = 0.8
 
 
 def tokeniza(texto):
     return [w.lower() for w in TOKEN_RE.findall(texto)]
+
+
+def tokeniza_com_caixa(texto):
+    return [w for w in TOKEN_RE.findall(texto) if len(w) >= 2]
+
+
+def nomes_de_uma_palavra(toks_caixa):
+    """Token que aparece com inicial maiúscula em >=80% das vezes é nome
+    próprio ('China', 'Petrobras', 'SUS'); 'estado' e 'fila', que aparecem
+    minúsculos o tempo todo, não são."""
+    total, maiusculo = Counter(), Counter()
+    for t in toks_caixa:
+        total[t.lower()] += 1
+        if t[:1].isupper():
+            maiusculo[t.lower()] += 1
+    return {w for w, n in total.items()
+            if n >= 2 and maiusculo[w] / n >= PROPORCAO_MAIUSCULA and w not in STOP}
+
+
+# Nome próprio composto: 2 a 4 palavras com inicial maiúscula, conectores
+# minúsculos permitidos no meio. Roda sobre o texto CRU, não sobre a lista de
+# tokens, porque a pontuação é o que impede "Argentina, Estados Unidos e
+# Israel" de virar um nome só — e "e" fica de fora dos conectores pelo mesmo
+# motivo ("Argentina e Israel" são dois, "Bolsa Família" é um).
+MAIUSCULA = r"[A-ZÀ-ÖØ-Þ][0-9A-Za-zÀ-ÖØ-öø-ÿ]+"   # 2+ caracteres: letra solta é cabeçalho espaçado, não nome
+LIGACAO_NOME = r"(?:de|da|do|das|dos|em|no|na)"
+NOME_RE = re.compile(
+    rf"{MAIUSCULA}(?:[ ](?:{LIGACAO_NOME}[ ])?{MAIUSCULA}){{1,3}}"
+)
+
+
+def nomes_compostos(texto):
+    cont = Counter()
+    for m in NOME_RE.finditer(texto):
+        seq = [w.lower() for w in m.group(0).split()]
+        while seq and seq[0] in ARTIGOS:          # "O Brasil" -> "Brasil"
+            seq = seq[1:]
+        if len(seq) < 2 or len(seq) > 4:
+            continue
+        if seq[0] in STOP or seq[-1] in STOP:
+            continue
+        if any(w in STOP and w not in CONECTORES for w in seq):
+            continue
+        cont[" ".join(seq)] += 1
+    return {t for t, c in cont.items() if c >= MIN_NOME}
 
 
 def le_paginas(cid):
@@ -100,9 +175,9 @@ def le_paginas(cid):
     return paginas
 
 
-def acha_termos(toks):
-    """Sequências de 2 a 4 tokens que começam e terminam em palavra plena e só
-    têm conectores no meio."""
+def colocacoes(toks):
+    """Sequências de 2 a 4 tokens minúsculos que começam e terminam em palavra
+    plena e só têm conectores no meio ('taxa de juros')."""
     cont = Counter()
     n = len(toks)
     for i, w in enumerate(toks):
@@ -117,12 +192,17 @@ def acha_termos(toks):
             if any(m not in CONECTORES for m in seq[1:-1]):
                 continue
             cont[" ".join(seq)] += 1
-    # Ordenado por frequência (e só então por tamanho): quando dois termos se
-    # sobrepõem no texto, o mais repetido é que deve sobreviver — sem isso,
-    # "enfrentamento ao crime" (5x) parte o "crime organizado" (13x) ao meio
-    # só por ser uma string mais comprida.
-    bons = {t: c for t, c in cont.items() if c >= MIN_TERMO}
-    return [t for t, _ in sorted(bons.items(), key=lambda kv: (-kv[1], -len(kv[0])))]
+    return {t for t, c in cont.items() if c >= MIN_COLOCACAO}
+
+
+def unidades_compostas(texto):
+    """Lista de unidades de 2+ palavras, em ordem de prioridade para a troca:
+    as mais frequentes primeiro (ver `conta`)."""
+    toks = tokeniza(texto)
+    candidatas = colocacoes(toks) | nomes_compostos(texto)
+    fluxo = " " + " ".join(toks) + " "
+    freq = {t: fluxo.count(" " + t + " ") for t in candidatas}
+    return [t for t, c in sorted(freq.items(), key=lambda kv: (-kv[1], -len(kv[0]))) if c > 0]
 
 
 def singulariza(w, vocab):
@@ -138,7 +218,7 @@ def singulariza(w, vocab):
     return w
 
 
-def conta(texto, termos, vocab):
+def conta(texto, termos, vocab, proprios):
     """Devolve (contagem de palavras soltas, contagem de termos, nº de palavras).
 
     `vocab` é o vocabulário do plano inteiro, usado só para decidir se um
@@ -149,13 +229,18 @@ def conta(texto, termos, vocab):
         fluxo = fluxo.replace(" " + t + " ", " " + t.replace(" ", "_") + " ")
     marcados = fluxo.split()
 
-    palavras, compostos = Counter(), Counter()
+    # Uma lista só: cada ocorrência do texto já foi atribuída a exatamente
+    # uma unidade, então nome próprio, termo composto e palavra solta disputam
+    # o mesmo ranking em pé de igualdade.
+    mencoes = Counter()
     for w in marcados:
         if "_" in w:
-            compostos[w.replace("_", " ")] += 1
+            mencoes[w.replace("_", " ")] += 1
+        elif w in proprios:                       # nome próprio escapa da
+            mencoes[w] += 1                       # stoplist e do plural
         elif w not in STOP and len(w) > 2 and not w.isdigit():
-            palavras[singulariza(w, vocab)] += 1
-    return palavras, compostos, len(toks)
+            mencoes[singulariza(w, vocab)] += 1
+    return mencoes, len(toks)
 
 
 NODE = """
@@ -181,10 +266,20 @@ process.stdout.write(JSON.stringify(out));
 """
 
 
+def ordena(mencoes):
+    """Mais citado primeiro; no empate, o nome/termo composto vem antes da
+    palavra solta — "Estados Unidos" diz mais que "produz" com a mesma
+    contagem. Ocorrência única é ruído, não ênfase, e fica de fora: a lista
+    encurta em vez de se encher de barulho."""
+    itens = [(t, n) for t, n in mencoes.items() if n >= 2]
+    return sorted(itens, key=lambda kv: (-kv[1], 0 if " " in kv[0] else 1, kv[0]))
+
+
 def main():
     meta = json.loads(subprocess.run(["node", "-e", NODE], cwd=ROOT,
                                      capture_output=True, text=True, check=True).stdout)
     ids = sorted(meta["paginas"])
+    recortes = ["geral"] + [t["id"] for t in meta["temas"]]
 
     corpora = {}      # (cid, recorte) -> texto
     for cid in ids:
@@ -193,45 +288,44 @@ def main():
         for tema, pags in meta["paginas"][cid].items():
             corpora[(cid, tema)] = " ".join(paginas[p] for p in pags if p in paginas)
 
-    # Os termos compostos são descobertos no plano INTEIRO (um recorte pequeno
-    # não teria ocorrências suficientes) e depois aplicados em cada recorte.
-    termos = {cid: acha_termos(tokeniza(corpora[(cid, "geral")])) for cid in ids}
-    vocabs = {cid: Counter(tokeniza(corpora[(cid, "geral")])) for cid in ids}
+    # As unidades compostas e os nomes próprios são descobertos no plano
+    # INTEIRO (num recorte pequeno faltaria repetição para detectá-los) e
+    # depois aplicados a cada recorte.
+    inteiro = {cid: corpora[(cid, "geral")] for cid in ids}
+    compostas = {cid: unidades_compostas(inteiro[cid]) for cid in ids}
+    proprios = {cid: nomes_de_uma_palavra(tokeniza_com_caixa(inteiro[cid])) for cid in ids}
+    vocabs = {cid: Counter(tokeniza(inteiro[cid])) for cid in ids}
 
-    contagens = {}
-    for (cid, recorte), texto in corpora.items():
-        contagens[(cid, recorte)] = conta(texto, termos[cid], vocabs[cid])
+    contagens = {(cid, r): conta(texto, compostas[cid], vocabs[cid], proprios[cid])
+                 for (cid, r), texto in corpora.items()}
 
-    saida = {"recortes": [{"id": "geral", "label": "Plano inteiro"}] + meta["temas"], "candidatos": {}}
+    saida = {"recortes": [{"id": "geral", "label": "Plano inteiro"}] + meta["temas"],
+             "candidatos": {}}
     for cid in ids:
-        outro = [x for x in ids if x != cid]
+        outro = next((x for x in ids if x != cid), None)
         saida["candidatos"][cid] = {}
-        for recorte in ["geral"] + [t["id"] for t in meta["temas"]]:
-            palavras, compostos, total = contagens[(cid, recorte)]
-            p_outro, c_outro, _ = contagens.get((outro[0], recorte), (Counter(), Counter(), 0)) if outro else (Counter(), Counter(), 0)
-
-            def topo(cont, cont_outro):
-                # Ocorrência única num recorte pequeno é ruído, não ênfase:
-                # a lista fica curta em vez de ser preenchida com barulho.
-                return [{"t": t, "n": n, "vs": cont_outro.get(t, 0)}
-                        for t, n in cont.most_common(QUANTOS) if n >= 2]
-
+        for recorte in recortes:
+            mencoes, total = contagens[(cid, recorte)]
+            do_outro = contagens.get((outro, recorte), (Counter(), 0))[0]
             saida["candidatos"][cid][recorte] = {
                 "palavras": total,
                 "paginas": len(meta["paginas"][cid].get(recorte, [])) if recorte != "geral" else None,
-                "topPalavras": topo(palavras, p_outro),
-                "topTermos": topo(compostos, c_outro),
+                # Ocorrência única num recorte pequeno é ruído, não ênfase: a
+                # lista fica curta em vez de ser preenchida com barulho.
+                "top": [{"t": t, "n": n, "vs": do_outro.get(t, 0)}
+                        for t, n in ordena(mencoes)[:QUANTOS]],
             }
 
     destino = ROOT / "data" / "word-stats.js"
     destino.write_text(
         "// GERADO por scripts/build_word_stats.py — não editar à mão.\n"
-        "// Palavras e termos mais usados em cada plano, no plano inteiro e por tema.\n"
-        "// Método (corpus de cada tema, stopwords, plural, termos compostos):\n"
-        "// ver o cabeçalho do script e a seção do README.\n"
+        "// O que cada plano mais menciona, no plano inteiro e por tema. A unidade\n"
+        "// contada é a coisa mencionada, de uma ou mais palavras (China, Estados\n"
+        "// Unidos, taxa de juros valem uma menção cada).\n"
+        "// Método completo: cabeçalho do script e seção do README.\n"
         "window.WORD_STATS = " + json.dumps(saida, ensure_ascii=False, indent=1) + ";\n",
         encoding="utf-8")
-    print(f"OK: {destino} ({len(ids)} candidato(s), {len(saida['recortes'])} recortes)")
+    print(f"OK: {destino} ({len(ids)} candidato(s), {len(recortes)} recortes)")
 
 
 if __name__ == "__main__":

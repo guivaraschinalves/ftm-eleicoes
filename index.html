@@ -18,7 +18,7 @@
     document.documentElement.setAttribute("data-theme", t);
   })();
 </script>
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 <div class="app">
@@ -149,20 +149,23 @@
       </div>
 
       <div class="word-top">
-        <h3 class="panel-heading">Palavras e termos mais usados</h3>
+        <h3 class="panel-heading">O que cada plano mais menciona</h3>
         <p class="section-note">
           O contador acima responde "quantas vezes aparece a palavra que eu escolhi"; este bloco
-          responde o contrário: <strong>quais palavras cada plano mais usa</strong>, sem ninguém
-          escolher antes. Ao lado de cada contagem vem, em cinza, quantas vezes o outro plano usa
-          o mesmo termo no mesmo recorte.
+          responde o contrário: <strong>o que cada plano mais menciona</strong>, sem ninguém
+          escolher antes. Ao lado de cada contagem vem, em cinza, quantas vezes o outro plano
+          menciona a mesma coisa no mesmo recorte.
         </p>
         <p class="section-note">
-          Palavras e termos aparecem em listas separadas de propósito: "taxa de juros" é uma coisa
-          só, não três palavras. Ficam de fora as palavras gramaticais (de, que, para) e a retórica
-          de plano de governo ("vamos", "programa", "fortalecer"), que seriam as campeãs em
-          qualquer plano sem dizer nada. Plural é somado ao singular. Em cada tema, o texto
-          contado é o <strong>das páginas de onde saíram as citações daquele tema</strong> — ou
-          seja, o recorte é o mesmo que o site mostra, não um palpite automático.
+          O que se conta aqui é a <strong>coisa mencionada</strong>, tenha ela uma palavra ou
+          quatro: "China", "Estados Unidos" e "taxa de juros" valem uma menção cada e disputam a
+          mesma lista — contar "estados", "unidos", "taxa" e "juros" em separado desmancharia
+          justamente o que interessa. Nomes próprios são reconhecidos pela maiúscula; expressões
+          como "crime organizado", pela repetição. Ficam de fora as palavras gramaticais (de, que,
+          para) e a retórica de plano de governo ("vamos", "programa", "fortalecer"), campeãs em
+          qualquer plano sem dizer nada; plural é somado ao singular. Em cada tema, o texto
+          contado é o <strong>das páginas de onde saíram as citações daquele tema</strong> — o
+          recorte é o mesmo que o site mostra, não um palpite automático.
         </p>
         <div id="word-top-tabs" class="tabs" role="tablist" aria-label="Recorte da contagem"></div>
         <div id="word-top-panels"></div>
@@ -196,6 +199,6 @@
 <script src="data/word-stats.js"></script>
 <script src="data/candidates/flavio-bolsonaro.js"></script>
 <script src="data/candidates/lula.js"></script>
-<script src="app.js?v=5"></script>
+<script src="app.js?v=6"></script>
 </body>
 </html>

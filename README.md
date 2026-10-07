@@ -236,42 +236,76 @@ subtemas a um tema que hoje é flat: declare `store` e `subthemes` nele em
 — `buildTemasSection`/`buildSubthemeCard` já são genéricos, e
 `export_content_md.py` segue a mesma regra.
 
-## Palavras e termos mais usados
+## O que cada plano mais menciona
 
-Abaixo do contador, a seção Contagem de Palavras tem o bloco **Palavras e
-termos mais usados**: em vez de "quantas vezes aparece a palavra que escolhi",
-responde "quais palavras cada plano mais usa", no plano inteiro e tema a tema.
-Os números saem de `data/word-stats.js`, gerado por
+Abaixo do contador, a seção Contagem de Palavras tem o bloco **O que cada
+plano mais menciona**: em vez de "quantas vezes aparece a palavra que
+escolhi", responde "o que cada plano mais menciona", no plano inteiro e tema
+a tema. Os números saem de `data/word-stats.js`, gerado por
 `python3 scripts/build_word_stats.py` — nada é contado no navegador.
 
-**O corpus de cada tema** é a parte que exigia uma decisão, porque os planos
-não são organizados pelos temas deste site. A definição adotada não usa
-classificador nenhum: o corpus de um tema é o **texto integral das páginas de
-onde saíram as citações daquele tema**. Quem classificou foi a curadoria que o
-site já mostra, e dá para conferir página por página. Na prática o recorte cai
-em cima do bloco certo: a Segurança Pública do Flávio vira as páginas 13-15,
-que são exatamente o capítulo "Brasil sem Medo"; a Educação do Lula vira as
-páginas 31-33, o capítulo 4.
+### A unidade é a coisa mencionada, não a palavra
 
-**Como as palavras são contadas** (detalhe e listas completas no cabeçalho do
-script):
+"China", "Estados Unidos" e "taxa de juros" valem **uma menção cada** e
+disputam a mesma lista. Separar palavras de termos em dois rankings faria
+"China" competir num torneio diferente de "Estados Unidos", o que não faz
+sentido: as duas são uma menção. Cada ocorrência do texto é atribuída a
+exatamente uma unidade, então nada é contado duas vezes.
+
+Três detectores alimentam a lista de unidades compostas:
+
+- **Nomes próprios pela maiúscula** — sequências de 2 a 4 palavras com
+  inicial maiúscula, conectores minúsculos permitidos no meio: "Estados
+  Unidos", "União Europeia", "Novo PAC", "Casa da Mulher Brasileira". A busca
+  roda no texto cru, não na lista de tokens, porque é a **pontuação** que
+  impede "Argentina, Estados Unidos e Israel" de virar um nome só — e "e"
+  fica fora dos conectores pela mesma razão. Um nome vale como unidade mesmo
+  citado uma vez: ele é uma menção, não uma repetição.
+- **Nomes de uma palavra só**, por proporção de maiúsculas: um token conta
+  como nome quando aparece com inicial maiúscula em pelo menos 80% das vezes
+  no plano. "China", "Petrobras" e "SUS" passam; "estado" e "fila" não,
+  porque aparecem minúsculos o tempo todo. A regra existe porque o PDF
+  capitaliza começo de frase e título — sem ela, "Vamos" viraria um nome.
+- **Colocações minúsculas** — 2 a 4 palavras com só conectores no meio e pelo
+  menos 3 ocorrências: "taxa de juros", "crime organizado", "poder de compra".
+
+As ocorrências viram um token único antes da contagem, das unidades mais
+frequentes para as menos: assim o termo não é recontado nas palavras que o
+formam e, quando duas se sobrepõem, fica a mais repetida ("crime organizado",
+13x, não é partido por "enfrentamento ao crime", 5x). No empate de contagem,
+o nome/termo composto vem antes da palavra solta.
+
+### O resto do tratamento
 
 - **Stopwords em duas camadas**: as gramaticais (de, que, para) e as
   retóricas/burocráticas que todo plano repete sem dizer nada ("vamos",
   "programa", "ação", "fortalecer"). Sem a segunda camada o ranking vira uma
-  lista de verbos de campanha.
+  lista de verbos de campanha. Nome próprio detectado nunca cai nelas.
 - **Plural fundido no singular** só quando o singular existe no mesmo plano
   ("políticas"→"política"), com o vocabulário do plano inteiro como
-  referência. É lematização pobre de propósito: sem dicionário externo e sem
+  referência. Lematização pobre de propósito: sem dicionário externo e sem
   fusão inventada.
-- **Termos compostos** de 2 a 4 palavras com só conectores no meio ("taxa de
-  juros", "pessoas com deficiência"). Cada ocorrência vira um token único
-  antes da contagem, então o termo não é contado de novo nas palavras que o
-  formam; quando dois termos disputam o mesmo texto, fica o mais frequente.
-- **Sem TF-IDF.** Com dois documentos o idf é degenerado — um termo está em um
-  plano ou nos dois, e nada mais —, então TF-IDF diria apenas "aparece só em
-  um". No lugar, cada termo mostra a contagem do **outro** plano no mesmo
-  recorte, que é o contraste que interessa.
+- **Sem TF-IDF.** Com dois documentos o idf é degenerado — um termo está em
+  um plano ou nos dois, e nada mais —, então TF-IDF diria apenas "aparece só
+  em um". No lugar, cada unidade mostra a contagem do **outro** plano no
+  mesmo recorte, que é o contraste que interessa.
+- **Ocorrência única não entra** nos recortes: em 700 palavras, 1 menção é
+  ruído, não ênfase. A lista encurta em vez de se encher de barulho.
+
+### O corpus de cada tema
+
+Era a parte que exigia uma decisão, porque os planos não são organizados
+pelos temas deste site. A definição adotada não usa classificador nenhum: o
+corpus de um tema é o **texto integral das páginas de onde saíram as citações
+daquele tema**. Quem classificou foi a curadoria que o site já mostra, e dá
+para conferir página por página. Na prática o recorte cai em cima do bloco
+certo: a Segurança Pública do Flávio vira as páginas 13-15, que são
+exatamente o capítulo "Brasil sem Medo"; a Educação do Lula vira as páginas
+31-33, o capítulo 4.
+
+(A alternativa testada antes — classificar página por palavra-chave — se
+mostrou ruim: léxicos de tamanhos diferentes faziam Economia engolir 45 das
+76 páginas do plano do Flávio e Segurança ficar com 2.)
 
 Atenção à dependência: o recorte por tema vem das páginas citadas, então
 **mexeu em citação, rode `build_word_stats.py` de novo**.
