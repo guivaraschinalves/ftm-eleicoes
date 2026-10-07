@@ -18,7 +18,7 @@
     document.documentElement.setAttribute("data-theme", t);
   })();
 </script>
-<link rel="stylesheet" href="styles.css?v=1">
+<link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body>
 <div class="app">
@@ -52,6 +52,7 @@
       <nav class="nav" aria-label="Seções">
         <a class="nav-link" href="#visao-geral">Visão Geral</a>
         <a class="nav-link" href="#temas">Temas</a>
+        <a class="nav-link" href="#governos">Governos</a>
         <a class="nav-link" href="#contagem-palavras">Contagem de Palavras</a>
         <a class="nav-link" href="#fontes">Fontes</a>
       </nav>
@@ -108,6 +109,22 @@
       <div id="temas-panels"></div>
     </section>
 
+    <section id="governos" class="page-section" hidden>
+      <div class="section-heading">
+        <h2>Balanço dos Governos</h2>
+        <span class="count">2 governos · o que cada plano diz</span>
+      </div>
+      <p class="section-note">
+        Os dois planos passam boa parte do texto falando dos mesmos dois governos: o de Jair
+        Bolsonaro e os do PT. Aqui estão, lado a lado, os trechos em que cada plano fala de cada
+        um deles — inclusive do próprio campo. O balanço é de <strong>quem escreveu o plano</strong>,
+        não nosso: nada aqui é avaliação, checagem ou resumo, é citação literal com a página do
+        PDF pra conferir.
+      </p>
+      <div id="governos-tabs" class="tabs" role="tablist" aria-label="Governos"></div>
+      <div id="governos-panels"></div>
+    </section>
+
     <section id="contagem-palavras" class="page-section" hidden>
       <div class="section-heading">
         <h2>Contagem de Palavras</h2>
@@ -156,6 +173,6 @@
 <script src="data/plan-texts.js"></script>
 <script src="data/candidates/flavio-bolsonaro.js"></script>
 <script src="data/candidates/lula.js"></script>
-<script src="app.js?v=1"></script>
+<script src="app.js?v=2"></script>
 </body>
 </html>

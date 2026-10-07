@@ -90,8 +90,7 @@ window.CANDIDATES_DATA["flavio-bolsonaro"] = {
       diagnosis: [
         { quote: "O custo logístico no Brasil é de 15,5% do PIB, quase o dobro dos 8,8% dos Estados Unidos.", page: 31 },
         { quote: "O país cresceu, em média, 2% ao ano nas últimas duas décadas, menos do que o mundo. Nossa meta é dobrar esse ritmo e alcançar um crescimento sustentado de 4% ao ano ao longo da próxima década.", page: 49 },
-        { quote: "O maior avanço do país nessa área tem nome e sobrenome: foi o Marco Legal do Saneamento, sancionado pelo governo Bolsonaro em 2020, que abriu o setor ao investimento privado e fixou a meta de levar água e esgoto a praticamente toda a população até 2033.", page: 47 },
-        { quote: "o Brasil produz cada vez mais gás no pré-sal, mas desperdiça parte dele por falta de escoamento, enquanto importa gás caro do exterior.", page: 53 }
+          { quote: "o Brasil produz cada vez mais gás no pré-sal, mas desperdiça parte dele por falta de escoamento, enquanto importa gás caro do exterior.", page: 53 }
       ],
       proposals: [
         { title: "R$ 900 bi em infraestrutura em 4 anos", quotes: [{ quote: "Vamos investir R$ 900 bilhões em quatro anos em rodovias, hidrovias, portos, aeroportos e ferrovias.", page: 51 }] },
@@ -184,5 +183,34 @@ window.CANDIDATES_DATA["flavio-bolsonaro"] = {
         ] }
       ]
     }
+  },
+  // Trechos em que o plano comenta o governo Jair Bolsonaro (2019–2022) e os
+  // governos do PT. Mesma regra do resto do arquivo: citação literal do PDF,
+  // com a página. Alimenta a seção "Balanço dos Governos".
+  governments: {
+    "jair-bolsonaro": [
+      { quote: "Foi com esses princípios que o governo do Presidente Jair Bolsonaro enfrentou um dos períodos mais desafiadores da história recente, preservando a responsabilidade fiscal, fortalecendo a proteção às famílias mais vulneráveis, realizando reformas estruturantes e modernizando o Estado, mesmo diante da pandemia e dos impactos da guerra no cenário internacional.", page: 9 },
+      { quote: "No governo Bolsonaro, a redução de tributos chegou ao dia a dia das famílias: caiu a conta de energia elétrica, caiu a conta de telefone, caiu o preço da gasolina e ficou mais barato comprar bens de consumo, de um fogão a uma geladeira. Também foi ali que nasceu o PIX, que tirou do brasileiro mais pobre o peso das tarifas bancárias.", page: 29 },
+      { quote: "Foi também o governo Bolsonaro que realizou o leilão do 5G, um dos maiores do mundo, trazendo ao país a rede de nova geração sobre a qual todos esses serviços passam a funcionar.", page: 23 },
+      { quote: "O governo do Presidente Jair Bolsonaro transformou o Brasil em uma referência mundial em governo digital: o Banco Mundial classificou o país como o sétimo do mundo em maturidade de governo digital, à frente de todas as nações das Américas, incluindo Estados Unidos e Canadá. A plataforma Gov.br chegou a 4,9 mil serviços do Governo Federal, com 75% deles totalmente digitalizados.", page: 23 },
+      { quote: "Foi a Lei de Liberdade Econômica, aprovada em 2019 no governo Bolsonaro, que mudou esse quadro: dispensou alvarás e licenças para atividades de baixo risco, simplificou o registro e afirmou a presunção de boa-fé de quem produz.", page: 27 },
+      { quote: "Foi o governo Bolsonaro que sancionou a Nova Lei do Gás, em 2021, quebrando o monopólio, abrindo o setor à concorrência e criando as condições para o preço do gás cair.", page: 52 },
+      { quote: "O Eixo Norte da Transposição do Rio São Francisco, foi concluído no governo Bolsonaro, e as águas do Velho Chico finalmente chegaram ao Ceará, à Paraíba e ao Rio Grande do Norte, levando segurança hídrica a milhões de nordestinos.", page: 52 },
+      { quote: "No governo Bolsonaro, foram emitidos mais de 450 mil documentos de titulação de imóveis rurais, mais do que nos dez anos anteriores somados.", page: 54 },
+      { quote: "E quando a pandemia ameaçou quebrar estados e municípios, foi o governo Bolsonaro que garantiu o socorro federativo, entregue diretamente ao poder local para manter a saúde, o funcionalismo e os serviços de pé, no momento mais difícil.", page: 68 },
+      { quote: "No governo Bolsonaro, voltamos a colocar a família no centro das políticas públicas e a defender uma escola que ensina, e não que doutrina, respeitando os valores que os pais passam em casa.", page: 34 }
+    ],
+    "pt": [
+      { quote: "mesmo arrecadando como nunca, o governo atual gasta ainda mais, e a dívida pública, que havíamos reduzido entre 2019 e 2022, voltou a crescer de forma acelerada, um salto de cerca de 13 pontos do PIB em apenas quatro anos. Depois de quase duas décadas no poder, com um intervalo de apenas seis anos, a tragédia que aí está tem a assinatura do PT.", page: 8 },
+      { quote: "O governo do PT tornou tudo mais caro, e não por acaso. Foram 30 aumentos de tributos, a inflação de alimentos fora de controle e a maior taxa de juros em 19 anos.", page: 29 },
+      { quote: "A reforma tributária aprovada pela atual gestão foi entregue ao sabor dos lobbies.", page: 71 },
+      { quote: "Ao contrário das vergonhosas declarações dos ministros da Fazenda da atual gestão, os juros altos são consequência da dívida crescente.", page: 32 },
+      { quote: "Não plantamos coca nem produzimos cocaína. Mas, sob Lula e o PT, o Porto de Santos se tornou um dos maiores exportadores de cocaína do mundo.", page: 15 },
+      { quote: "Não se combate o crime a quatro meses de uma eleição com discurso e PowerPoint, como faz Lula e o PT, depois de 18 anos no poder passando pano para bandido.", page: 15 },
+      { quote: "A medida caiu como uma bomba entre sindicatos e partidos de esquerda, que se mobilizaram e conseguiram suprimir essa e outras barreiras antifraude. O resultado foi a Farra do INSS: a explosão de descontos indevidos que triplicou os valores roubados de idosos, pensionistas e beneficiários de programas sociais em 2023 e 2024.", page: 72 },
+      { quote: "Sob o atual governo, porém, cresceu um aparato apelidado de “Ministério da Verdade”: estruturas criadas para tratar como desinformação aquilo que incomoda o poder, o que abre a porta para a censura de opositores, jornalistas e cidadãos comuns.", page: 66 },
+      { quote: "A atual gestão trouxe o caos ao sistema previdenciário.", page: 26 },
+      { quote: "Mesmo depois de deixarmos o governo, seguimos a luta pelo aposentado a partir do Congresso: foi a mobilização da oposição, após a CPMI do INSS e contra a resistência do governo Lula, que conseguimos aprovar o fim definitivo dos descontos associativos, em novembro de 2025.", page: 72 }
+    ]
   }
 };

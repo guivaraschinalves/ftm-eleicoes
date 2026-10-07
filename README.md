@@ -4,6 +4,10 @@ Site estático (HTML/CSS/JS puro, sem build, sem dependências) do **Follow
 the Money** que compara as propostas dos **dois candidatos do segundo turno**
 da eleição presidencial de 2026: Flávio Bolsonaro (PL) e Lula (PT).
 
+Além dos temas, há o **Balanço dos Governos**: o que cada plano diz sobre o
+governo Jair Bolsonaro (2019–2022) e sobre os governos do PT (2003–2016 e
+2023–2026) — inclusive sobre o próprio campo.
+
 Cobertura em **7 temas** — Economia, Educação, Segurança Pública, Saúde,
 Política Externa, Combate à Corrupção e Direitos e Bem-Estar — cada um com
 aba de **Diagnóstico** e aba de **Propostas**. Economia é o único tema
@@ -19,7 +23,7 @@ dois candidatos, cada aba de tema já é a comparação.
 Página única, sem navegação por âncora — trocar de seção nunca muda a URL
 (atualizar a página ou compartilhar o link sempre cai no cardzinho
 inicial). Por padrão só o cardzinho inicial aparece. O menu no topo (Visão
-Geral, Temas, Contagem de Palavras, Fontes) mostra uma seção por vez em tela
+Geral, Temas, Governos, Contagem de Palavras, Fontes) mostra uma seção por vez em tela
 cheia, escondendo o cardzinho e as demais — é sempre uma coisa de cada vez.
 Clicar no logo do Follow the Money no canto esquerdo do topbar volta pro
 cardzinho inicial (é a única forma de voltar — não tem item "Início" na
@@ -28,7 +32,7 @@ e Economia tem um segundo nível de abas para os subtemas.
 
 Em telas de até 900px (celular e tablet), o menu do topo vira um **menu
 retrátil**: a barra fica só com o logo, o botão de tema (só o ícone) e um
-hambúrguer "☰ Menu", que abre um painel com as 4 seções. O painel fecha
+hambúrguer "☰ Menu", que abre um painel com as 5 seções. O painel fecha
 sozinho ao escolher uma seção, ao tocar fora dele ou com Esc. Acima de
 900px nada muda em relação ao desktop.
 
@@ -80,7 +84,7 @@ styles.css           → visual (tokens de cor/tipografia, cards, tabs, menu ret
 app.js               → lê os dados e monta todas as seções (DOM puro, sem framework)
 assets/favicon.svg   → ícone da aba, na mesma família dos outros sites do FtM
 data/
-  taxonomy.js         → os 7 temas (window.THEMES), subtemas de Economia, ordem dos candidatos
+  taxonomy.js         → os 7 temas (window.THEMES), subtemas de Economia, os governos do Balanço (window.GOVERNMENTS), ordem dos candidatos
   sources.js           → URL oficial de cada plano no TSE + caminho do PDF local (+ planFiled)
   plan-texts.js         → texto INTEGRAL de cada plano (window.PLAN_TEXTS) — gerado, não editar à mão; só a Contagem de Palavras usa
   candidates/*.js       → um arquivo por candidato: dados básicos (com data de nascimento) + citações por tema
@@ -92,6 +96,7 @@ scripts/
   extract_plan_texts.py  → extrai .sources-cache/texts/<id>.txt de sources/<id>.pdf (PyMuPDF)
   build_plan_texts.py    → gera data/plan-texts.js a partir de .sources-cache/texts/
   audit_coverage.py      → gera AUDITORIA-COBERTURA.md (páginas com possível conteúdo ainda não citado)
+  check_governments.py   → confere o bloco `governments`: citação literal na página certa, sem repetir o que já está em Economia/Temas
 CONTEUDO-DO-SITE.md      → leitura de apoio: tudo que está em data/*.js, formatado (não é lido pelo site)
 PLANOS-DE-GOVERNO.md     → leitura de apoio: os planos de governo completos, um atrás do outro
 AUDITORIA-COBERTURA.md   → leitura de apoio: páginas sinalizadas por audit_coverage.py, pra revisar
@@ -196,6 +201,28 @@ tema já mostra Flávio Bolsonaro e Lula lado a lado, na ordem alfabética de
 `CANDIDATE_ORDER`. `visibleIds`, em `app.js`, continua existindo como a
 lista única que todas as seções leem — só que agora é preenchida uma vez em
 `init()` com todo mundo, em vez de depender de uma seleção.
+
+## Balanço dos Governos
+
+Os dois planos gastam boa parte do texto comentando os mesmos dois governos.
+A seção **Governos** põe essas leituras lado a lado: uma aba por governo
+(`window.GOVERNMENTS` em `data/taxonomy.js`) e, dentro dela, um card por
+candidato com as citações literais de `governments.<id>` do arquivo dele.
+
+O recorte é de **quem** o trecho comenta, não de quem escreveu: a aba
+"Governo Jair Bolsonaro" junta o balanço que o plano do Flávio faz do próprio
+governo e o que o plano do Lula diz do mesmo período — e vice-versa na aba
+"Governos do PT". É esse contraste que a seção existe para mostrar; o site
+não arbitra nenhuma das duas versões.
+
+Valem as mesmas regras do resto: citação literal, com página, nada de resumo
+nosso. Duas diferenças em relação aos temas:
+
+- não há par Diagnóstico/Propostas — é uma lista de trechos só;
+- um trecho que já está citado em Economia ou em Temas **não** se repete
+  aqui. `python3 scripts/check_governments.py` verifica as duas coisas (e que
+  cada citação está mesmo na página indicada), e sai com código 1 se achar
+  problema — rode depois de mexer em `governments`.
 
 ## Contador de palavras
 

@@ -392,6 +392,69 @@
     });
   }
 
+  /* ============================== Balanço dos Governos ============================== */
+  // Leitura transversal: em vez de "o que o plano propõe para o tema X", é "o
+  // que o plano diz sobre o governo Y". Cada governo de window.GOVERNMENTS
+  // vira uma aba e, dentro dela, os candidatos aparecem lado a lado com as
+  // citações de `governments[govId]` do próprio arquivo. Inclui o que cada
+  // plano fala do próprio campo — o contraste entre as duas leituras do mesmo
+  // governo é justamente o que a seção mostra.
+  function buildGovernmentCard(id, govId) {
+    var c = window.CANDIDATES_DATA[id];
+    var src = (window.SOURCES_DATA || {})[id];
+    var card = el("div", "compare-card");
+    card.dataset.candidate = id;
+    card.appendChild(candidateCardHead(c.basics));
+    if (src && src.planFiled === false) {
+      card.appendChild(noPlanBlock("diagnosis"));
+      return card;
+    }
+    card.appendChild(quoteListBlock("O que o plano diz", (c.governments || {})[govId] || [], id));
+    return card;
+  }
+
+  function buildGovernmentsSection() {
+    var tabsHost = document.getElementById("governos-tabs");
+    var panelsHost = document.getElementById("governos-panels");
+    if (!tabsHost || !panelsHost) return;
+    tabsHost.innerHTML = "";
+    panelsHost.innerHTML = "";
+    tabsHost.setAttribute("role", "tablist");
+
+    (window.GOVERNMENTS || []).forEach(function (gov, gi) {
+      var btn = el("button", "tab-btn");
+      btn.type = "button";
+      btn.id = "governos-tab-" + gov.id;
+      btn.setAttribute("role", "tab");
+      btn.setAttribute("aria-controls", "governos-panel-" + gov.id);
+      btn.setAttribute("aria-selected", gi === 0 ? "true" : "false");
+      btn.textContent = gov.label;
+      tabsHost.appendChild(btn);
+
+      var panel = el("div", "tab-panel");
+      panel.id = "governos-panel-" + gov.id;
+      panel.setAttribute("role", "tabpanel");
+      panel.setAttribute("aria-labelledby", btn.id);
+      if (gi !== 0) panel.hidden = true;
+
+      var head = el("p", "panel-heading");
+      head.textContent = gov.period ? gov.label + " · " + gov.period : gov.label;
+      panel.appendChild(head);
+
+      var grid = el("div", "compare-grid");
+      visibleIds.forEach(function (id) { grid.appendChild(buildGovernmentCard(id, gov.id)); });
+      panel.appendChild(grid);
+      panelsHost.appendChild(panel);
+
+      btn.addEventListener("click", function () {
+        tabsHost.querySelectorAll(".tab-btn").forEach(function (b) { b.setAttribute("aria-selected", "false"); });
+        Array.prototype.forEach.call(panelsHost.children, function (pn) { pn.hidden = true; });
+        btn.setAttribute("aria-selected", "true");
+        panel.hidden = false;
+      });
+    });
+  }
+
   /* ============================== Contagem de Palavras ============================== */
   // Contagem MECÂNICA (não citação): conta ocorrências da palavra digitada
   // no texto INTEGRAL de cada plano (window.PLAN_TEXTS, gerado por
@@ -756,6 +819,7 @@
       visibleIds,
       "temas"
     );
+    buildGovernmentsSection();
     buildWordCountSection();
     buildSourcesList();
     initThemeToggle();

@@ -86,7 +86,7 @@ window.CANDIDATES_DATA["lula"] = {
     "estado-privatizacoes": {
       diagnosis: [
         { quote: "A retomada do crescimento industrial nesse mandato é resultado do enfrentamento do processo de desindustrialização por meio dos investimentos coordenados por uma nova, legítima e indispensável política industrial, a Nova Indústria Brasil (NIB).", page: 50 },
-        { quote: "O governo Lula III retomou os investimentos em petróleo e gás. A Petrobras tem batido sucessivos recordes de produção de petróleo e voltou a investir em refino e derivados, em gás e fertilizantes, ampliando suas encomendas às indústrias naval e petroquímica.", page: 66 },
+        { quote: "O setor de biocombustíveis avançou para uma nova fase no Brasil, com financiamento de mais de R$ 13 bilhões entre 2023 e 2025, o que representa mais de 200% comparado ao governo anterior.", page: 67 },
         { quote: "O governo avançou na modernização do setor elétrico, conciliando expansão da infraestrutura, segurança energética, competitividade e modicidade tarifária. Houve forte expansão das fontes solar e eólica na geração elétrica.", page: 63 }
       ],
       proposals: [
@@ -118,8 +118,7 @@ window.CANDIDATES_DATA["lula"] = {
     educacao: {
       diagnosis: [
         { quote: "O Compromisso Nacional Criança Alfabetizada instituiu uma estratégia nacional de cooperação federativa, cujos resultados – 66% das crianças alfabetizadas na idade certa em 2025 - superaram a meta prevista de 64%.", page: 31 },
-        { quote: "Vale lembrar que o governo Lula também retomou obras que estavam paralisadas em governos anteriores – no caso da educação, são 5.967 creches, escolas, quadras esportivas e outros equipamentos que tiveram seus contratos repactuados e voltaram a receber recursos para conclusão.", page: 32 },
-        { quote: "Na educação, a ausência de uma coordenação federativa integrada, a redução dos recursos e a paralisia de milhares de obras de creches e escolas que abandonaram os municípios à própria sorte, deprimindo a qualidade pedagógica e estimulando o aumento da evasão escolar.", page: 9 }
+          { quote: "Na educação, a ausência de uma coordenação federativa integrada, a redução dos recursos e a paralisia de milhares de obras de creches e escolas que abandonaram os municípios à própria sorte, deprimindo a qualidade pedagógica e estimulando o aumento da evasão escolar.", page: 9 }
       ],
       proposals: [
         { title: "Meta de 80% de alfabetização na idade certa", quotes: [{ quote: "Seguiremos com as ações e políticas já pactuadas com os estados e municípios brasileiros para chegarmos à meta de 80% das nossas crianças alfabetizadas na idade certa.", page: 31 }] },
@@ -131,8 +130,7 @@ window.CANDIDATES_DATA["lula"] = {
     seguranca: {
       diagnosis: [
         { quote: "É nesse contexto que deve avançar a construção de um Sistema Nacional de Segurança Pública mais articulado, capaz de combinar medidas imediatas com as reformas constitucionais e legais necessárias para superar o atual modelo fragmentado.", page: 27 },
-        { quote: "A revogação dos decretos editados no governo anterior, que facilitavam o acesso a armas de fogo, foi uma medida acertada.", page: 28 },
-        { quote: "A segurança pública, sob o pretexto da desregulamentação, facilitou a proliferação descontrolada de armas de fogo, o que fortaleceu estruturas de milícias e facções criminosas nos territórios vulneráveis e ampliou a letalidade das violências domésticas, em especial contra mulheres, crianças e adolescentes.", page: 9 }
+          { quote: "A segurança pública, sob o pretexto da desregulamentação, facilitou a proliferação descontrolada de armas de fogo, o que fortaleceu estruturas de milícias e facções criminosas nos territórios vulneráveis e ampliou a letalidade das violências domésticas, em especial contra mulheres, crianças e adolescentes.", page: 9 }
       ],
       proposals: [
         { title: "Criação do Ministério da Segurança Pública", quotes: [{ quote: "Uma vez aprovada a PEC da Segurança Pública proposta pelo Executivo, criaremos o Ministério da Segurança Pública para coordenar, em articulação com estados e municípios, a execução das políticas nacionais de segurança pública no âmbito do Sistema Único de Segurança Pública (SUSP).", page: 30 }] },
@@ -202,5 +200,29 @@ window.CANDIDATES_DATA["lula"] = {
         ] }
       ]
     }
+  },
+  // Trechos em que o plano comenta o governo Jair Bolsonaro (2019–2022) e os
+  // governos do PT. Mesma regra do resto do arquivo: citação literal do PDF,
+  // com a página. Alimenta a seção "Balanço dos Governos".
+  governments: {
+    "jair-bolsonaro": [
+      { quote: "Essa destruição começou com o golpe contra a presidenta Dilma Rousseff e se aprofundou com os governos Temer e Bolsonaro. O resultado foi uma verdadeira herança maldita, marcada por uma economia combalida, políticas públicas destruídas, revogação de direitos, aumento das desigualdades, precarização do trabalho, fortes expressões de violência social e política e aviltamento da soberania nacional.", page: 8 },
+      { quote: "Na tentativa de se reeleger, Bolsonaro dilapidou os cofres públicos, deu calote em precatórios e armou uma bomba fiscal para estados e municípios com a desoneração artificial de combustíveis. Além disso, delegou parte expressiva do orçamento discricionário da União ao chamado orçamento secreto.", page: 8 },
+      { quote: "De forma ainda mais irresponsável, a gestão anterior promoveu uma flexibilização eleitoreira das políticas sociais, com prejuízos ao desenho e à efetividade dos programas. O retrocesso mais visível expressou-se na volta do Brasil ao Mapa da Fome da ONU e na fila do osso.", page: 8 },
+      { quote: "Manteremos nossos esforços para a elevação da qualidade de vida e da preservação dos direitos de todos os povos, com atenção especial aos yanomamis, submetidos na gestão anterior a um verdadeiro genocídio", page: 20 },
+      { quote: "Retomamos obras do MCMV que estavam paralisadas, algumas desde 2014, por falta de apoio do governo anterior.", page: 45 },
+      { quote: "Com o Periferia Viva, voltamos a investir em urbanização de favelas e em regularização fundiária, abandonados no governo anterior.", page: 45 },
+      { quote: "O golpe contra a Presidenta Dilma e a reforma previdenciária do governo Bolsonaro promoveram uma desorganização que ainda estamos enfrentando.", page: 77 }
+    ],
+    "pt": [
+      { quote: "O governo Lula III consolidou um legado de combate estruturante às desigualdades, aliando responsabilidade social, fiscal e ambiental. Fizemos uma política econômica assentada em cinco pilares: (i) a retomada do crescimento econômico e do emprego; (ii) o combate às desigualdades e a promoção da justiça social; (iii) inflação controlada e responsabilidade fiscal; (iv) a modernização produtiva, com a neoindustrialização e a transformação ecológica como eixos estruturantes; e (v) a reabertura do Brasil ao mundo, assegurando a soberania nacional.", page: 47 },
+      { quote: "o atual mandato do Presidente Lula recriou os conselhos de políticas públicas, retomou as conferências nacionais – foram realizadas 28 conferências desde 2023 – e instituiu o Sistema de Participação Social.", page: 15 },
+      { quote: "O governo do presidente Lula adotou, desde 2023, políticas e medidas para promover uma gestão pública eficiente e inovadora, orientada para a geração de valor público e redução das desigualdades.", page: 16 },
+      { quote: "Uma marca de todos os mandatos do Presidente Lula é o financiamento ao ensino superior, fundamental para a formação e produção de conhecimento e condição para a soberania nacional e para a democracia. O orçamento das universidades, para custeio e para investimento, foi restaurado.", page: 33 },
+      { quote: "Com Lula, o SUS voltou a estar ao lado do povo brasileiro. A atenção básica, como eixo estruturante do sistema, foi apoiada na expansão de serviços e na modernização e ampliação da infraestrutura.", page: 34 },
+      { quote: "O governo Lula reposicionou a cultura, restabelecendo o diálogo com a sociedade e fortalecendo a cooperação federativa. A recriação do Ministério da Cultura foi um dos passos fundamentais para reafirmar a cultura como um direito fundamental e vetor do desenvolvimento econômico e social.", page: 40 },
+      { quote: "O atual governo Lula reconstruiu o papel do Estado nas políticas de esporte. Além da recriação do Ministério, com capacidade para formular e implementar políticas públicas eficazes, retomou políticas e reorganizou a legislação do setor, com a aprovação da Nova Lei de Incentivo ao Esporte e a Lei Geral do Esporte.", page: 43 },
+      { quote: "Batemos o recorde de concessões, quadruplicando o número de leilões de rodovias em relação ao governo anterior e alcançando 46% de todas as concessões rodoviárias já realizadas no país.", page: 53 }
+    ]
   }
 };

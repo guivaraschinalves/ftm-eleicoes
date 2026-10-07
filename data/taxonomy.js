@@ -39,3 +39,13 @@ window.CANDIDATE_ORDER = [
   "flavio-bolsonaro",
   "lula"
 ];
+
+// Governos comentados na seção "Balanço dos Governos". Não é um juízo nosso
+// sobre nenhum deles: é só o recorte de QUAL governo o trecho citado comenta.
+// Cada candidato tem uma lista de citações literais por governo em
+// `governments.<id>` (data/candidates/*.js) — inclusive sobre o próprio
+// campo, que é justamente o que torna a comparação interessante.
+window.GOVERNMENTS = [
+  { id: "jair-bolsonaro", label: "Governo Jair Bolsonaro", period: "2019–2022" },
+  { id: "pt", label: "Governos do PT", period: "2003–2016 e 2023–2026" }
+];

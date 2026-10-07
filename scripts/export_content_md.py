@@ -30,7 +30,7 @@ NODE_SCRIPT = """
 global.window = {};
 %s
 process.stdout.write(JSON.stringify({
-  taxonomy: { economySubthemes: window.ECONOMY_SUBTHEMES, themes: window.THEMES, order: window.CANDIDATE_ORDER },
+  taxonomy: { economySubthemes: window.ECONOMY_SUBTHEMES, themes: window.THEMES, order: window.CANDIDATE_ORDER, governments: window.GOVERNMENTS },
   sources: window.SOURCES_DATA,
   candidates: window.CANDIDATES_DATA
 }));
@@ -146,6 +146,20 @@ def render(data):
             if entry["proposals"]:
                 for p in entry["proposals"]:
                     lines.append(f"- **{p['title']}** — {fmt_quotes(p['quotes'])}")
+            else:
+                lines.append("- _Não abordado explicitamente no plano de governo._")
+            lines.append("")
+
+        # Balanço dos Governos: lista de citações por governo, sem o par
+        # Diagnóstico/Propostas (a seção não tem esse recorte).
+        for gov in data["taxonomy"].get("governments") or []:
+            quotes = (c.get("governments") or {}).get(gov["id"]) or []
+            titulo = gov["label"] + (f" ({gov['period']})" if gov.get("period") else "")
+            lines.append(f"### O que o plano diz sobre: {titulo}")
+            lines.append("")
+            if quotes:
+                for q in quotes:
+                    lines.append(f'- "{q["quote"]}" (p. {q["page"]})')
             else:
                 lines.append("- _Não abordado explicitamente no plano de governo._")
             lines.append("")

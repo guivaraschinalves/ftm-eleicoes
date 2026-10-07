@@ -89,7 +89,6 @@ Dump em Markdown de tudo que está em `data/*.js`: dados básicos e citações d
 **Diagnóstico:**
 - "O custo logístico no Brasil é de 15,5% do PIB, quase o dobro dos 8,8% dos Estados Unidos." (p. 31)
 - "O país cresceu, em média, 2% ao ano nas últimas duas décadas, menos do que o mundo. Nossa meta é dobrar esse ritmo e alcançar um crescimento sustentado de 4% ao ano ao longo da próxima década." (p. 49)
-- "O maior avanço do país nessa área tem nome e sobrenome: foi o Marco Legal do Saneamento, sancionado pelo governo Bolsonaro em 2020, que abriu o setor ao investimento privado e fixou a meta de levar água e esgoto a praticamente toda a população até 2033." (p. 47)
 - "o Brasil produz cada vez mais gás no pré-sal, mas desperdiça parte dele por falta de escoamento, enquanto importa gás caro do exterior." (p. 53)
 
 **Propostas:**
@@ -174,6 +173,32 @@ Dump em Markdown de tudo que está em `data/*.js`: dados básicos e citações d
 - **Categoria esportiva feminina restrita a atletas do sexo feminino** — "Vamos assegurar que a categoria feminina, da base ao alto rendimento, seja disputada por atletas do sexo feminino, protegendo a mulher e a lisura da competição de agendas ideológicas." (p. 41)
 - **Autonomia de povos indígenas e quilombolas sobre atividades em suas terras** — "Essa mesma clareza de regras vale para quem vive nas terras tradicionais. Será conferida autonomia aos povos indígenas e quilombolas para decidir sobre atividades produtivas em suas terras, com respeito ao desenvolvimento sustentável e às regras ambientais, e com indenização de eventuais restrições ao usufruto e mecanismos de compensação, para que quem vive na terra possa dela tirar o próprio sustento." (p. 50); "Esse desenvolvimento respeita quem vive na região: os povos indígenas e as comunidades quilombolas terão autonomia para decidir sobre as atividades produtivas em suas terras, e o morador da floresta, o ribeirinho e o extrativista serão tratados como parceiros do desenvolvimento, não como obstáculo." (p. 61)
 
+### O que o plano diz sobre: Governo Jair Bolsonaro (2019–2022)
+
+- "Foi com esses princípios que o governo do Presidente Jair Bolsonaro enfrentou um dos períodos mais desafiadores da história recente, preservando a responsabilidade fiscal, fortalecendo a proteção às famílias mais vulneráveis, realizando reformas estruturantes e modernizando o Estado, mesmo diante da pandemia e dos impactos da guerra no cenário internacional." (p. 9)
+- "No governo Bolsonaro, a redução de tributos chegou ao dia a dia das famílias: caiu a conta de energia elétrica, caiu a conta de telefone, caiu o preço da gasolina e ficou mais barato comprar bens de consumo, de um fogão a uma geladeira. Também foi ali que nasceu o PIX, que tirou do brasileiro mais pobre o peso das tarifas bancárias." (p. 29)
+- "Foi também o governo Bolsonaro que realizou o leilão do 5G, um dos maiores do mundo, trazendo ao país a rede de nova geração sobre a qual todos esses serviços passam a funcionar." (p. 23)
+- "O governo do Presidente Jair Bolsonaro transformou o Brasil em uma referência mundial em governo digital: o Banco Mundial classificou o país como o sétimo do mundo em maturidade de governo digital, à frente de todas as nações das Américas, incluindo Estados Unidos e Canadá. A plataforma Gov.br chegou a 4,9 mil serviços do Governo Federal, com 75% deles totalmente digitalizados." (p. 23)
+- "Foi a Lei de Liberdade Econômica, aprovada em 2019 no governo Bolsonaro, que mudou esse quadro: dispensou alvarás e licenças para atividades de baixo risco, simplificou o registro e afirmou a presunção de boa-fé de quem produz." (p. 27)
+- "Foi o governo Bolsonaro que sancionou a Nova Lei do Gás, em 2021, quebrando o monopólio, abrindo o setor à concorrência e criando as condições para o preço do gás cair." (p. 52)
+- "O Eixo Norte da Transposição do Rio São Francisco, foi concluído no governo Bolsonaro, e as águas do Velho Chico finalmente chegaram ao Ceará, à Paraíba e ao Rio Grande do Norte, levando segurança hídrica a milhões de nordestinos." (p. 52)
+- "No governo Bolsonaro, foram emitidos mais de 450 mil documentos de titulação de imóveis rurais, mais do que nos dez anos anteriores somados." (p. 54)
+- "E quando a pandemia ameaçou quebrar estados e municípios, foi o governo Bolsonaro que garantiu o socorro federativo, entregue diretamente ao poder local para manter a saúde, o funcionalismo e os serviços de pé, no momento mais difícil." (p. 68)
+- "No governo Bolsonaro, voltamos a colocar a família no centro das políticas públicas e a defender uma escola que ensina, e não que doutrina, respeitando os valores que os pais passam em casa." (p. 34)
+
+### O que o plano diz sobre: Governos do PT (2003–2016 e 2023–2026)
+
+- "mesmo arrecadando como nunca, o governo atual gasta ainda mais, e a dívida pública, que havíamos reduzido entre 2019 e 2022, voltou a crescer de forma acelerada, um salto de cerca de 13 pontos do PIB em apenas quatro anos. Depois de quase duas décadas no poder, com um intervalo de apenas seis anos, a tragédia que aí está tem a assinatura do PT." (p. 8)
+- "O governo do PT tornou tudo mais caro, e não por acaso. Foram 30 aumentos de tributos, a inflação de alimentos fora de controle e a maior taxa de juros em 19 anos." (p. 29)
+- "A reforma tributária aprovada pela atual gestão foi entregue ao sabor dos lobbies." (p. 71)
+- "Ao contrário das vergonhosas declarações dos ministros da Fazenda da atual gestão, os juros altos são consequência da dívida crescente." (p. 32)
+- "Não plantamos coca nem produzimos cocaína. Mas, sob Lula e o PT, o Porto de Santos se tornou um dos maiores exportadores de cocaína do mundo." (p. 15)
+- "Não se combate o crime a quatro meses de uma eleição com discurso e PowerPoint, como faz Lula e o PT, depois de 18 anos no poder passando pano para bandido." (p. 15)
+- "A medida caiu como uma bomba entre sindicatos e partidos de esquerda, que se mobilizaram e conseguiram suprimir essa e outras barreiras antifraude. O resultado foi a Farra do INSS: a explosão de descontos indevidos que triplicou os valores roubados de idosos, pensionistas e beneficiários de programas sociais em 2023 e 2024." (p. 72)
+- "Sob o atual governo, porém, cresceu um aparato apelidado de “Ministério da Verdade”: estruturas criadas para tratar como desinformação aquilo que incomoda o poder, o que abre a porta para a censura de opositores, jornalistas e cidadãos comuns." (p. 66)
+- "A atual gestão trouxe o caos ao sistema previdenciário." (p. 26)
+- "Mesmo depois de deixarmos o governo, seguimos a luta pelo aposentado a partir do Congresso: foi a mobilização da oposição, após a CPMI do INSS e contra a resistência do governo Lula, que conseguimos aprovar o fim definitivo dos descontos associativos, em novembro de 2025." (p. 72)
+
 ---
 
 ## Lula (PT)
@@ -252,7 +277,7 @@ Dump em Markdown de tudo que está em `data/*.js`: dados básicos e citações d
 
 **Diagnóstico:**
 - "A retomada do crescimento industrial nesse mandato é resultado do enfrentamento do processo de desindustrialização por meio dos investimentos coordenados por uma nova, legítima e indispensável política industrial, a Nova Indústria Brasil (NIB)." (p. 50)
-- "O governo Lula III retomou os investimentos em petróleo e gás. A Petrobras tem batido sucessivos recordes de produção de petróleo e voltou a investir em refino e derivados, em gás e fertilizantes, ampliando suas encomendas às indústrias naval e petroquímica." (p. 66)
+- "O setor de biocombustíveis avançou para uma nova fase no Brasil, com financiamento de mais de R$ 13 bilhões entre 2023 e 2025, o que representa mais de 200% comparado ao governo anterior." (p. 67)
 - "O governo avançou na modernização do setor elétrico, conciliando expansão da infraestrutura, segurança energética, competitividade e modicidade tarifária. Houve forte expansão das fontes solar e eólica na geração elétrica." (p. 63)
 
 **Propostas:**
@@ -276,7 +301,6 @@ Dump em Markdown de tudo que está em `data/*.js`: dados básicos e citações d
 
 **Diagnóstico:**
 - "O Compromisso Nacional Criança Alfabetizada instituiu uma estratégia nacional de cooperação federativa, cujos resultados – 66% das crianças alfabetizadas na idade certa em 2025 - superaram a meta prevista de 64%." (p. 31)
-- "Vale lembrar que o governo Lula também retomou obras que estavam paralisadas em governos anteriores – no caso da educação, são 5.967 creches, escolas, quadras esportivas e outros equipamentos que tiveram seus contratos repactuados e voltaram a receber recursos para conclusão." (p. 32)
 - "Na educação, a ausência de uma coordenação federativa integrada, a redução dos recursos e a paralisia de milhares de obras de creches e escolas que abandonaram os municípios à própria sorte, deprimindo a qualidade pedagógica e estimulando o aumento da evasão escolar." (p. 9)
 
 **Propostas:**
@@ -289,7 +313,6 @@ Dump em Markdown de tudo que está em `data/*.js`: dados básicos e citações d
 
 **Diagnóstico:**
 - "É nesse contexto que deve avançar a construção de um Sistema Nacional de Segurança Pública mais articulado, capaz de combinar medidas imediatas com as reformas constitucionais e legais necessárias para superar o atual modelo fragmentado." (p. 27)
-- "A revogação dos decretos editados no governo anterior, que facilitavam o acesso a armas de fogo, foi uma medida acertada." (p. 28)
 - "A segurança pública, sob o pretexto da desregulamentação, facilitou a proliferação descontrolada de armas de fogo, o que fortaleceu estruturas de milícias e facções criminosas nos territórios vulneráveis e ampliou a letalidade das violências domésticas, em especial contra mulheres, crianças e adolescentes." (p. 9)
 
 **Propostas:**
@@ -349,5 +372,26 @@ Dump em Markdown de tudo que está em `data/*.js`: dados básicos e citações d
 - **Políticas de Estado para diversidade de gênero e população LGBTQIAP+** — "Continuaremos a planejar e construir políticas e ações levando em conta as dimensões de gênero, identidade, orientação sexual, étnico-raciais e classe social assim como as demais desigualdades sociais, de modo a garantir capacidade de o Estado atender, de forma adequada, justa e inclusiva, às pessoas LGBTQIAP+ e todas as suas especificidades." (p. 23)
 - **Proteção da infância e combate à pobreza infantil** — "Continuaremos buscando ampliar e fortalecer as políticas para nossas crianças, por meio do enfrentamento da pobreza infantil, da garantia de acesso às políticas públicas e do direito ao brincar." (p. 24)
 - **Ampliação da proteção e do bem-estar animal** — "A proteção ambiental continuará caminhando ao lado da defesa dos direitos animais. Vamos ampliar o ProPatinhas, fortalecendo as caravanas de castração, e dar continuidade ao SinPatinhas, cadastro nacional de cães e gatos." (p. 71); "Seguiremos fortalecendo o combate aos maus-tratos, com penas que assegurem que essas práticas não se repitam, avançando nesta agenda com prioridade e participação social." (p. 72)
+
+### O que o plano diz sobre: Governo Jair Bolsonaro (2019–2022)
+
+- "Essa destruição começou com o golpe contra a presidenta Dilma Rousseff e se aprofundou com os governos Temer e Bolsonaro. O resultado foi uma verdadeira herança maldita, marcada por uma economia combalida, políticas públicas destruídas, revogação de direitos, aumento das desigualdades, precarização do trabalho, fortes expressões de violência social e política e aviltamento da soberania nacional." (p. 8)
+- "Na tentativa de se reeleger, Bolsonaro dilapidou os cofres públicos, deu calote em precatórios e armou uma bomba fiscal para estados e municípios com a desoneração artificial de combustíveis. Além disso, delegou parte expressiva do orçamento discricionário da União ao chamado orçamento secreto." (p. 8)
+- "De forma ainda mais irresponsável, a gestão anterior promoveu uma flexibilização eleitoreira das políticas sociais, com prejuízos ao desenho e à efetividade dos programas. O retrocesso mais visível expressou-se na volta do Brasil ao Mapa da Fome da ONU e na fila do osso." (p. 8)
+- "Manteremos nossos esforços para a elevação da qualidade de vida e da preservação dos direitos de todos os povos, com atenção especial aos yanomamis, submetidos na gestão anterior a um verdadeiro genocídio" (p. 20)
+- "Retomamos obras do MCMV que estavam paralisadas, algumas desde 2014, por falta de apoio do governo anterior." (p. 45)
+- "Com o Periferia Viva, voltamos a investir em urbanização de favelas e em regularização fundiária, abandonados no governo anterior." (p. 45)
+- "O golpe contra a Presidenta Dilma e a reforma previdenciária do governo Bolsonaro promoveram uma desorganização que ainda estamos enfrentando." (p. 77)
+
+### O que o plano diz sobre: Governos do PT (2003–2016 e 2023–2026)
+
+- "O governo Lula III consolidou um legado de combate estruturante às desigualdades, aliando responsabilidade social, fiscal e ambiental. Fizemos uma política econômica assentada em cinco pilares: (i) a retomada do crescimento econômico e do emprego; (ii) o combate às desigualdades e a promoção da justiça social; (iii) inflação controlada e responsabilidade fiscal; (iv) a modernização produtiva, com a neoindustrialização e a transformação ecológica como eixos estruturantes; e (v) a reabertura do Brasil ao mundo, assegurando a soberania nacional." (p. 47)
+- "o atual mandato do Presidente Lula recriou os conselhos de políticas públicas, retomou as conferências nacionais – foram realizadas 28 conferências desde 2023 – e instituiu o Sistema de Participação Social." (p. 15)
+- "O governo do presidente Lula adotou, desde 2023, políticas e medidas para promover uma gestão pública eficiente e inovadora, orientada para a geração de valor público e redução das desigualdades." (p. 16)
+- "Uma marca de todos os mandatos do Presidente Lula é o financiamento ao ensino superior, fundamental para a formação e produção de conhecimento e condição para a soberania nacional e para a democracia. O orçamento das universidades, para custeio e para investimento, foi restaurado." (p. 33)
+- "Com Lula, o SUS voltou a estar ao lado do povo brasileiro. A atenção básica, como eixo estruturante do sistema, foi apoiada na expansão de serviços e na modernização e ampliação da infraestrutura." (p. 34)
+- "O governo Lula reposicionou a cultura, restabelecendo o diálogo com a sociedade e fortalecendo a cooperação federativa. A recriação do Ministério da Cultura foi um dos passos fundamentais para reafirmar a cultura como um direito fundamental e vetor do desenvolvimento econômico e social." (p. 40)
+- "O atual governo Lula reconstruiu o papel do Estado nas políticas de esporte. Além da recriação do Ministério, com capacidade para formular e implementar políticas públicas eficazes, retomou políticas e reorganizou a legislação do setor, com a aprovação da Nova Lei de Incentivo ao Esporte e a Lei Geral do Esporte." (p. 43)
+- "Batemos o recorde de concessões, quadruplicando o número de leilões de rodovias em relação ao governo anterior e alcançando 46% de todas as concessões rodoviárias já realizadas no país." (p. 53)
 
 ---
