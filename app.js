@@ -658,6 +658,110 @@
     });
   }
 
+  /* ====================== Palavras e termos mais usados ====================== */
+  // O contador de palavras responde "quantas vezes aparece X"; este bloco faz
+  // a pergunta inversa — quais palavras cada plano mais usa — com os números
+  // já calculados por scripts/build_word_stats.py (window.WORD_STATS). Nada é
+  // contado aqui no navegador: o pipeline (stopwords, plural, termos
+  // compostos, recorte por tema) mora no script, que é onde dá para conferir.
+  function listaDeTermos(titulo, itens) {
+    var bloco = el("div", "compare-block");
+    var lbl = el("p", "compare-block-label");
+    lbl.textContent = titulo;
+    bloco.appendChild(lbl);
+
+    if (!itens || !itens.length) {
+      var vazio = el("p", "compare-empty");
+      vazio.textContent = "Nada com repetição suficiente neste recorte.";
+      bloco.appendChild(vazio);
+      return bloco;
+    }
+
+    var maior = itens[0].n || 1;
+    var lista = el("ol", "word-top-list");
+    itens.forEach(function (item) {
+      var li = document.createElement("li");
+      var termo = el("span", "word-top-term");
+      termo.textContent = item.t;
+      var barra = el("span", "word-top-bar");
+      var preenche = document.createElement("i");
+      preenche.style.width = Math.max(4, Math.round((item.n / maior) * 100)) + "%";
+      barra.appendChild(preenche);
+      var n = el("span", "word-top-n");
+      n.textContent = item.n;
+      // A contagem do outro plano no mesmo recorte — é o contraste que
+      // interessa (e o motivo de não haver TF-IDF aqui: com dois documentos
+      // ele só diria "aparece em um só").
+      var vs = el("span", "word-top-vs");
+      vs.textContent = item.vs;
+      vs.title = "o outro plano usa " + item.vs + "x neste mesmo recorte";
+      li.appendChild(termo);
+      li.appendChild(barra);
+      li.appendChild(n);
+      li.appendChild(vs);
+      lista.appendChild(li);
+    });
+    bloco.appendChild(lista);
+    return bloco;
+  }
+
+  function cardDeTermos(id, recorte) {
+    var dados = ((window.WORD_STATS || {}).candidatos || {})[id] || {};
+    var corte = dados[recorte];
+    var c = window.CANDIDATES_DATA[id];
+    var card = el("div", "compare-card");
+    card.appendChild(candidateCardHead(c.basics));
+
+    if (!corte) {
+      card.appendChild(listaDeTermos("Palavras", []));
+      return card;
+    }
+
+    var ficha = el("p", "word-top-ficha");
+    ficha.textContent = corte.paginas
+      ? corte.palavras.toLocaleString("pt-BR") + " palavras em " + corte.paginas + " páginas citadas"
+      : corte.palavras.toLocaleString("pt-BR") + " palavras no plano inteiro";
+    card.appendChild(ficha);
+
+    var colunas = el("div", "word-top-cols");
+    colunas.appendChild(listaDeTermos("Palavras", corte.topPalavras));
+    colunas.appendChild(listaDeTermos("Termos", corte.topTermos));
+    card.appendChild(colunas);
+    return card;
+  }
+
+  function buildWordTopSection() {
+    var tabsHost = document.getElementById("word-top-tabs");
+    var panelsHost = document.getElementById("word-top-panels");
+    if (!tabsHost || !panelsHost || !window.WORD_STATS) return;
+    tabsHost.innerHTML = "";
+    panelsHost.innerHTML = "";
+
+    (window.WORD_STATS.recortes || []).forEach(function (recorte, i) {
+      var btn = el("button", "tab-btn");
+      btn.type = "button";
+      btn.setAttribute("role", "tab");
+      btn.setAttribute("aria-selected", i === 0 ? "true" : "false");
+      btn.textContent = recorte.label;
+      tabsHost.appendChild(btn);
+
+      var panel = el("div", "tab-panel");
+      panel.setAttribute("role", "tabpanel");
+      if (i !== 0) panel.hidden = true;
+      var grid = el("div", "compare-grid");
+      visibleIds.forEach(function (id) { grid.appendChild(cardDeTermos(id, recorte.id)); });
+      panel.appendChild(grid);
+      panelsHost.appendChild(panel);
+
+      btn.addEventListener("click", function () {
+        tabsHost.querySelectorAll(".tab-btn").forEach(function (b) { b.setAttribute("aria-selected", "false"); });
+        Array.prototype.forEach.call(panelsHost.children, function (pn) { pn.hidden = true; });
+        btn.setAttribute("aria-selected", "true");
+        panel.hidden = false;
+      });
+    });
+  }
+
   /* ============================== Fontes ============================== */
   // Lista os candidatos de orderedCandidateIds() — Fontes é a referência de
   // transparência do site: cada plano com o link do PDF oficial no TSE.
@@ -873,6 +977,7 @@
     );
     buildGovernmentsSection();
     buildWordCountSection();
+    buildWordTopSection();
     buildSourcesList();
     initThemeToggle();
     initViewSwitcher();

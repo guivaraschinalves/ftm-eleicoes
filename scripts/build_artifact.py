@@ -33,6 +33,7 @@ SCRIPT_FILES = [
     "data/taxonomy.js",
     "data/sources.js",
     "data/plan-texts.js",
+    "data/word-stats.js",
     "data/candidates/flavio-bolsonaro.js",
     "data/candidates/lula.js",
     "app.js",

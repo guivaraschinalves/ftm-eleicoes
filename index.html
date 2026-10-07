@@ -18,7 +18,7 @@
     document.documentElement.setAttribute("data-theme", t);
   })();
 </script>
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 <div class="app">
@@ -147,6 +147,26 @@
       <div id="word-count-chart" class="word-count-chart">
         <p class="compare-empty">Digite uma palavra e clique em "Contar" para ver o gráfico.</p>
       </div>
+
+      <div class="word-top">
+        <h3 class="panel-heading">Palavras e termos mais usados</h3>
+        <p class="section-note">
+          O contador acima responde "quantas vezes aparece a palavra que eu escolhi"; este bloco
+          responde o contrário: <strong>quais palavras cada plano mais usa</strong>, sem ninguém
+          escolher antes. Ao lado de cada contagem vem, em cinza, quantas vezes o outro plano usa
+          o mesmo termo no mesmo recorte.
+        </p>
+        <p class="section-note">
+          Palavras e termos aparecem em listas separadas de propósito: "taxa de juros" é uma coisa
+          só, não três palavras. Ficam de fora as palavras gramaticais (de, que, para) e a retórica
+          de plano de governo ("vamos", "programa", "fortalecer"), que seriam as campeãs em
+          qualquer plano sem dizer nada. Plural é somado ao singular. Em cada tema, o texto
+          contado é o <strong>das páginas de onde saíram as citações daquele tema</strong> — ou
+          seja, o recorte é o mesmo que o site mostra, não um palpite automático.
+        </p>
+        <div id="word-top-tabs" class="tabs" role="tablist" aria-label="Recorte da contagem"></div>
+        <div id="word-top-panels"></div>
+      </div>
     </section>
 
     <section id="fontes" class="page-section" hidden>
@@ -173,8 +193,9 @@
 <script src="data/taxonomy.js"></script>
 <script src="data/sources.js"></script>
 <script src="data/plan-texts.js"></script>
+<script src="data/word-stats.js"></script>
 <script src="data/candidates/flavio-bolsonaro.js"></script>
 <script src="data/candidates/lula.js"></script>
-<script src="app.js?v=4"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>

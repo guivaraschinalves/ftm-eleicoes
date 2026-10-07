@@ -88,6 +88,7 @@ data/
   taxonomy.js         → os 8 temas (window.THEMES) e seus subtemas, os governos do Balanço (window.GOVERNMENTS), ordem dos candidatos
   sources.js           → URL oficial de cada plano no TSE, caminho do PDF local, nº de páginas e como o plano está dividido (+ planFiled)
   plan-texts.js         → texto INTEGRAL de cada plano (window.PLAN_TEXTS) — gerado, não editar à mão; só a Contagem de Palavras usa
+  word-stats.js         → palavras e termos mais usados por plano e por tema (window.WORD_STATS) — gerado, não editar à mão
   candidates/*.js       → um arquivo por candidato: dados básicos (com data de nascimento) + citações por tema
 sources/             → foto oficial (TSE) + cópia de cada PDF por candidato
 scripts/
@@ -96,6 +97,7 @@ scripts/
   export_plans_md.py     → gera PLANOS-DE-GOVERNO.md (texto bruto dos PDFs, um arquivo só)
   extract_plan_texts.py  → extrai .sources-cache/texts/<id>.txt de sources/<id>.pdf (PyMuPDF)
   build_plan_texts.py    → gera data/plan-texts.js a partir de .sources-cache/texts/
+  build_word_stats.py    → gera data/word-stats.js (palavras/termos mais usados, geral e por tema)
   audit_coverage.py      → gera AUDITORIA-COBERTURA.md (páginas com possível conteúdo ainda não citado)
   check_quotes.py        → confere que TODA citação está literal na página que ela indica
   check_governments.py   → confere o bloco `governments`: citação literal na página certa, sem repetir o que já está em Economia/Temas
@@ -233,6 +235,46 @@ subtemas a um tema que hoje é flat: declare `store` e `subthemes` nele em
 `c.<store>.<subtema>` em cada `data/candidates/*.js`. Nada mais precisa mudar
 — `buildTemasSection`/`buildSubthemeCard` já são genéricos, e
 `export_content_md.py` segue a mesma regra.
+
+## Palavras e termos mais usados
+
+Abaixo do contador, a seção Contagem de Palavras tem o bloco **Palavras e
+termos mais usados**: em vez de "quantas vezes aparece a palavra que escolhi",
+responde "quais palavras cada plano mais usa", no plano inteiro e tema a tema.
+Os números saem de `data/word-stats.js`, gerado por
+`python3 scripts/build_word_stats.py` — nada é contado no navegador.
+
+**O corpus de cada tema** é a parte que exigia uma decisão, porque os planos
+não são organizados pelos temas deste site. A definição adotada não usa
+classificador nenhum: o corpus de um tema é o **texto integral das páginas de
+onde saíram as citações daquele tema**. Quem classificou foi a curadoria que o
+site já mostra, e dá para conferir página por página. Na prática o recorte cai
+em cima do bloco certo: a Segurança Pública do Flávio vira as páginas 13-15,
+que são exatamente o capítulo "Brasil sem Medo"; a Educação do Lula vira as
+páginas 31-33, o capítulo 4.
+
+**Como as palavras são contadas** (detalhe e listas completas no cabeçalho do
+script):
+
+- **Stopwords em duas camadas**: as gramaticais (de, que, para) e as
+  retóricas/burocráticas que todo plano repete sem dizer nada ("vamos",
+  "programa", "ação", "fortalecer"). Sem a segunda camada o ranking vira uma
+  lista de verbos de campanha.
+- **Plural fundido no singular** só quando o singular existe no mesmo plano
+  ("políticas"→"política"), com o vocabulário do plano inteiro como
+  referência. É lematização pobre de propósito: sem dicionário externo e sem
+  fusão inventada.
+- **Termos compostos** de 2 a 4 palavras com só conectores no meio ("taxa de
+  juros", "pessoas com deficiência"). Cada ocorrência vira um token único
+  antes da contagem, então o termo não é contado de novo nas palavras que o
+  formam; quando dois termos disputam o mesmo texto, fica o mais frequente.
+- **Sem TF-IDF.** Com dois documentos o idf é degenerado — um termo está em um
+  plano ou nos dois, e nada mais —, então TF-IDF diria apenas "aparece só em
+  um". No lugar, cada termo mostra a contagem do **outro** plano no mesmo
+  recorte, que é o contraste que interessa.
+
+Atenção à dependência: o recorte por tema vem das páginas citadas, então
+**mexeu em citação, rode `build_word_stats.py` de novo**.
 
 ## Conferir as citações
 
